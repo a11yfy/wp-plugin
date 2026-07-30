@@ -1,0 +1,331 @@
+# Translation of Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) in Hungarian
+# This file is distributed under the same license as the Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-07-30 11:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: hu\n"
+"Project-Id-Version: Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release)\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+
+#. Short description.
+#, gp-priority: high
+msgid ""
+"Free in-browser PDF accessibility scan (PDF/UA machine checkpoints) and one-click remediation of your Media Library "
+"PDFs via the a11yfy service."
+msgstr ""
+"Ingyenes, böngészőben futó PDF-akadálymentességi vizsgálat (PDF/UA gépi ellenőrzőpontok) és a Médiatár PDF-jeinek "
+"egykattintásos javítása az a11yfy szolgáltatással."
+
+#. Plugin name.
+#, gp-priority: high
+msgid "a11yfy – PDF Accessibility Checker &amp; Fixer"
+msgstr "a11yfy – PDF Accessibility Checker &amp; Fixer"
+
+#. Found in faq paragraph.
+msgid ""
+"Conservative mode swaps links in post and page content (<code>the_content</code>) and wherever WordPress resolves the "
+"attachment URL (<code>wp_get_attachment_url</code>). Links hard-coded elsewhere — page-builder modules (Elementor, "
+"Divi, …), widgets, navigation menus, or theme templates — may keep pointing to the original file and should be checked "
+"manually. The default in-place mode does not have this limitation: the accessible file replaces the original at the "
+"same URL."
+msgstr ""
+"A konzervatív mód a bejegyzések és oldalak tartalmában (<code>the_content</code>) cseréli a linkeket, valamint "
+"mindenhol, ahol a WordPress a melléklet URL-jét oldja fel (<code>wp_get_attachment_url</code>). A máshol — oldalépítő "
+"modulokban (Elementor, Divi stb.), widgetekben, menükben vagy témasablonokban — beégetett linkek továbbra is az eredeti "
+"fájlra mutathatnak, ezeket kézzel érdemes ellenőrizni. Az alapértelmezett helyben csere módnak nincs ilyen korlátja: az "
+"akadálymentes fájl ugyanazon az URL-en váltja fel az eredetit."
+
+#. Found in faq paragraph.
+msgid ""
+"Partially. Scanning works through a local proxy; in-place replacement automatically falls back to conservative mode for "
+"non-local files. Full offload support is planned."
+msgstr ""
+"Részben. A vizsgálat helyi proxyn keresztül működik; a helyben csere nem helyi fájloknál automatikusan konzervatív "
+"módra vált. A teljes offload-támogatás tervben van."
+
+#. Found in faq paragraph.
+msgid ""
+"Remediated PDFs are your content and stay by default. In Settings you can choose to restore the original files on "
+"deletion instead. All plugin data (tables, options, scan results) is removed either way."
+msgstr ""
+"A javított PDF-ek a te tartalmaid, alapértelmezésben megmaradnak. A Beállításokban választhatod, hogy törléskor inkább "
+"az eredetik álljanak vissza. A bővítmény adatai (táblák, beállítások, vizsgálati eredmények) mindkét esetben törlődnek."
+
+#. Found in faq paragraph.
+msgid ""
+"That is the point of remediation: the accessible version replaces the original file (same URL). The original is kept in "
+"a protected backup folder and can be restored with one click from the Media Library."
+msgstr ""
+"Pont ez a javítás lényege: az akadálymentes változat váltja fel az eredeti fájlt (ugyanazon az URL-en). Az eredeti egy "
+"védett biztonságimásolat-mappába kerül, és a Médiatárból egyetlen kattintással visszaállítható."
+
+#. Found in faq paragraph.
+msgid ""
+"Password-protected, XFA-form and portfolio PDFs are detected up front, clearly labelled, and never sent to the service. "
+"Digitally signed PDFs are detected too: remediation rewrites the file and would invalidate the signature, so the fix "
+"only starts after you explicitly confirm it on the document."
+msgstr ""
+"A jelszóval védett, XFA-űrlapos és portfólió-PDF-eket a bővítmény előre felismeri, egyértelműen megjelöli, és soha nem "
+"küldi el a szolgáltatásnak. A digitálisan aláírt PDF-eket szintén felismeri: a javítás átírja a fájlt, ami "
+"érvénytelenítené az aláírást, ezért csak akkor indul el, ha a dokumentumnál ezt kifejezetten jóváhagyod."
+
+#. Found in faq paragraph.
+msgid ""
+"No. Remediation preserves the visual appearance; it adds the accessibility structure (tags, reading order, alternative "
+"texts, metadata) underneath."
+msgstr ""
+"Nem. A javítás megőrzi a vizuális megjelenést; az akadálymentességi struktúrát (címkék, olvasási sorrend, alternatív "
+"szövegek, metaadatok) a háttérben adja hozzá."
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. Scanned, image-only PDFs are OCR-processed and rebuilt with a full tag structure, including an invisible, "
+"screen-reader-readable text layer."
+msgstr ""
+"Igen. A szkennelt, csak képet tartalmazó PDF-eket OCR dolgozza fel, és teljes címkeszerkezettel épülnek újra — "
+"láthatatlan, képernyőolvasó által olvasható szövegréteggel együtt."
+
+#. Found in faq paragraph.
+msgid ""
+"Remediation uses credits from your a11yfy account — typically 1–3 credits per page, depending on the PDF. The dashboard "
+"shows an estimate before you confirm, and the scan itself never costs anything. Current pricing: "
+"https://a11yfy.com/pricing"
+msgstr ""
+"A javítás az a11yfy-fiókod kreditjeit használja — jellemzően oldalanként 1–3 kreditet, a PDF-től függően. A vezérlőpult "
+"megerősítés előtt becslést mutat, maga a vizsgálat pedig mindig ingyenes. Aktuális árak: https://a11yfy.com/pricing"
+
+#. Found in faq paragraph.
+msgid "Yes. It runs in your browser using open-source libraries. It does not use the a11yfy API and works without an account."
+msgstr "Igen. A böngésződben fut, nyílt forráskódú könyvtárakkal. Nem használja az a11yfy API-t, és fiók nélkül is működik."
+
+#. Found in faq header.
+msgid "In conservative mode, are all links to the PDF swapped?"
+msgstr "Konzervatív módban minden PDF-re mutató link kicserélődik?"
+
+#. Found in faq header.
+msgid "Does it work with offloaded media (S3/CDN)?"
+msgstr "Működik-e külső tárolókon (S3/CDN) is?"
+
+#. Found in faq header.
+msgid "What happens when I delete the plugin?"
+msgstr "Mi történik, ha törlöm a bővítményt?"
+
+#. Found in faq header.
+msgid "My security plugin reported that a PDF file changed."
+msgstr "A biztonsági bővítményem jelzett, hogy egy PDF-fájl módosult."
+
+#. Found in faq header.
+msgid "Which PDFs cannot be remediated?"
+msgstr "Mely PDF-ek nem javíthatók?"
+
+#. Found in faq header.
+msgid "Will the fixed PDF look different?"
+msgstr "Másképp fog kinézni a javított PDF?"
+
+#. Found in faq header.
+msgid "My PDFs are scans — can they be fixed?"
+msgstr "A PDF-jeim szkennelt dokumentumok — javíthatók?"
+
+#. Found in faq header.
+msgid "How much does remediation cost?"
+msgstr "Mennyibe kerül a javítás?"
+
+#. Found in faq header.
+msgid "Is the scan really free?"
+msgstr "Tényleg ingyenes a vizsgálat?"
+
+#. Found in description paragraph.
+msgid ""
+"The bundled analysis engine is built from human-readable source with esbuild. Unminified source: the <code>js/</code> "
+"directory of the public plugin repository at https://github.com/a11yfy/wp-plugin — the bundled libraries are pdf.js "
+"(Apache-2.0, https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), smalot/pdfparser "
+"(LGPL-3.0, https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, "
+"https://github.com/woocommerce/action-scheduler)."
+msgstr ""
+"A csomagolt elemzőmotor ember által olvasható forrásból épül, esbuilddel. A minifikálatlan forrás a nyilvános "
+"plugin-repóban található: https://github.com/a11yfy/wp-plugin (<code>js/</code> könyvtár) — a csomagolt könyvtárak: "
+"pdf.js (Apache-2.0, https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), "
+"smalot/pdfparser (LGPL-3.0, https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, "
+"https://github.com/woocommerce/action-scheduler)."
+
+#. Found in description paragraph.
+msgid ""
+"The plugin never sends analytics, usage statistics, or any data about your site visitors. Data processing terms: "
+"https://a11yfy.com/privacy — Terms of service: https://a11yfy.com/terms"
+msgstr ""
+"A bővítmény soha nem küld analitikát, használati statisztikát vagy bármilyen adatot a látogatóidról. Adatkezelés: "
+"https://a11yfy.com/privacy — Szolgáltatási feltételek: https://a11yfy.com/terms"
+
+#. Found in description paragraph.
+msgid "What is sent and when:"
+msgstr "Mi kerül elküldésre és mikor:"
+
+#. Found in description paragraph.
+msgid ""
+"This plugin connects to the <strong>a11yfy API</strong> (https://a11yfy.com) — but <em>only</em> when you connect an "
+"API key and request remediation or balance information. The free scan never contacts any external service."
+msgstr ""
+"Ez a bővítmény az <strong>a11yfy API-hoz</strong> (https://a11yfy.com) csatlakozik — de <em>csak</em> akkor, ha megadsz "
+"egy API-kulcsot, és javítást vagy egyenleg-lekérdezést kérsz. Az ingyenes vizsgálat soha nem hív külső szolgáltatást."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Important:</strong> the free scan is a technical pre-check against the machine-verifiable PDF/UA-1 checkpoints. "
+"It cannot (and does not claim to) certify full PDF/UA-1, EAA or ADA compliance — that also requires human checks and "
+"font-level validation, which the a11yfy service performs during remediation."
+msgstr ""
+"<strong>Fontos:</strong> az ingyenes vizsgálat technikai előszűrés a géppel ellenőrizhető PDF/UA-1 ellenőrzőpontok "
+"alapján. Nem igazolja (és nem is állítja, hogy igazolná) a teljes PDF/UA-1, EAA vagy ADA szerinti megfelelést — ahhoz "
+"emberi ellenőrzés és betűkészlet-szintű validálás is kell, ezeket az a11yfy szolgáltatás a javítás során végzi el."
+
+#. Found in description paragraph.
+msgid "<strong>Why a11yfy?</strong>"
+msgstr "<strong>Miért az a11yfy?</strong>"
+
+#. Found in description paragraph.
+msgid ""
+"The free scan is a genuine standalone tool — no account, no API calls, no telemetry. The paid service is only involved "
+"when you explicitly send a document for remediation."
+msgstr ""
+"Az ingyenes vizsgálat valódi önálló eszköz — nem kell hozzá fiók, nincs API-hívás, nincs telemetria. A fizetős "
+"szolgáltatás csak akkor lép be, ha kifejezetten javításra küldesz egy dokumentumot."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>One-click remediation (optional, paid).</strong> Connect your a11yfy account and the plugin sends the selected "
+"PDFs to the a11yfy service, which produces a tagged, PDF/UA-oriented accessible version — processed in the EU. The "
+"fixed file replaces the original at the same URL (the original is kept as a backup with one-click restore), or, in "
+"conservative mode, is served alongside it."
+msgstr ""
+"<strong>Egykattintásos javítás (opcionális, fizetős).</strong> Csatlakoztasd az a11yfy-fiókodat, és a bővítmény elküldi "
+"a kiválasztott PDF-eket az a11yfy szolgáltatásnak, amely címkézett, PDF/UA-orientált akadálymentes változatot készít — "
+"a feldolgozás az EU-ban történik. A javított fájl ugyanazon az URL-en váltja fel az eredetit (az eredeti biztonsági "
+"másolatként megmarad, egy kattintással visszaállítható), konzervatív módban pedig az eredeti mellett jelenik meg."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Free accessibility scan — 100% local.</strong> The analysis engine runs in <em>your browser</em> (pdf.js + "
+"pdf-lib): it verifies your PDFs against 42 machine-verifiable checkpoints of the Matterhorn Protocol (PDF/UA-1) — tag "
+"structure, document metadata, heading hierarchy, alternative texts, language settings, annotation nesting and more. "
+"Your files never leave your site. The result is a risk rating and a concrete list of problems for every PDF in your "
+"Media Library."
+msgstr ""
+"<strong>Ingyenes akadálymentességi vizsgálat — 100%-ban helyi.</strong> Az elemzőmotor <em>a böngésződben</em> fut "
+"(pdf.js + pdf-lib): a PDF-jeidet a Matterhorn Protocol (PDF/UA-1) 42 géppel ellenőrizhető ellenőrzőpontja alapján "
+"vizsgálja — címkeszerkezet, dokumentum-metaadatok, címsor-hierarchia, alternatív szövegek, nyelvi beállítások, "
+"annotáció-beágyazás és még sok más. A fájljaid soha nem hagyják el a webhelyedet. Az eredmény kockázati besorolás és "
+"konkrét problémalista a Médiatár minden PDF-jéhez."
+
+#. Found in description paragraph.
+msgid "The a11yfy plugin gives you two things:"
+msgstr "Az a11yfy bővítmény két dolgot ad:"
+
+#. Found in description paragraph.
+msgid "https://youtu.be/O3wbNx5PUdA"
+msgstr "https://youtu.be/O3wbNx5PUdA"
+
+#. Found in description paragraph.
+msgid "See the plugin in action (58 seconds):"
+msgstr "Nézd meg a bővítményt működés közben (58 másodperc):"
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Is your site ready for the European Accessibility Act (EAA) and the ADA?</strong> Most PDF documents on the web "
+"are not accessible: screen readers cannot read them in a meaningful order, images have no descriptions, forms have no "
+"labels. The requirements are similar on both sides of the Atlantic — the EAA in the EU, the ADA and Section 508 in the "
+"United States — and PDFs are the most commonly overlooked part."
+msgstr ""
+"<strong>Készen áll a webhelyed az európai akadálymentesítési irányelvre (EAA) és az ADA-ra?</strong> A weben található "
+"PDF-dokumentumok többsége nem akadálymentes: a képernyőolvasók nem tudják értelmes sorrendben felolvasni őket, a "
+"képeknek nincs leírásuk, az űrlapoknak nincsenek címkéik. A követelmények az Atlanti-óceán mindkét partján hasonlóak — "
+"az EU-ban az EAA, az Egyesült Államokban az ADA és a Section 508 —, és épp a PDF-ek felett siklik el a legtöbb tekintet."
+
+#. Found in description list item.
+msgid "<strong>Balance / job status checks</strong>: your API key is sent with each request; no document content."
+msgstr ""
+"<strong>Egyenleg- és feladatállapot-lekérdezések</strong>: minden kéréssel az API-kulcsod utazik; dokumentumtartalom "
+"nem kerül elküldésre."
+
+#. Found in description list item.
+msgid ""
+"<strong>When you remediate a PDF</strong> (manually, via bulk action, or through the automatic mode you enabled): the "
+"PDF file itself, its file name, and your API key are sent to <code>https://a11yfy.com/v1/jobs</code>. Processing "
+"happens in the EU."
+msgstr ""
+"<strong>Amikor egy PDF-et javítasz</strong> (kézzel, tömeges művelettel vagy az általad engedélyezett automatikus "
+"módban): maga a PDF, a fájlneve és az API-kulcsod elküldésre kerül a <code>https://a11yfy.com/v1/jobs</code> végpontra. "
+"A feldolgozás az EU-ban történik."
+
+#. Found in description list item.
+msgid "Fully translation-ready — translations are delivered via translate.wordpress.org as they become available."
+msgstr "Teljesen fordításkész — a fordítások a translate.wordpress.org-ról érkeznek, amint elérhetővé válnak."
+
+#. Found in description list item.
+msgid ""
+"Every remediated PDF comes with a verifiable certificate — downloadable from the document page or the Media Library, "
+"with a public verification link you can share."
+msgstr ""
+"Minden javított PDF-hez ellenőrizhető tanúsítvány jár — letölthető a dokumentum oldaláról vagy a Médiatárból, "
+"megosztható nyilvános ellenőrző linkkel."
+
+#. Found in description list item.
+msgid "The original file is always kept — one-click restore, tamper detection, free re-apply."
+msgstr "Az eredeti fájl mindig megmarad — egykattintásos visszaállítás, módosulás-észlelés, ingyenes újraalkalmazás."
+
+#. Found in description list item.
+msgid "Works on scanned (image-only) PDFs too: OCR plus a full structural rebuild."
+msgstr "Szkennelt (csak képes) PDF-ekkel is működik: OCR plusz teljes szerkezeti újjáépítés."
+
+#. Found in description list item.
+msgid "Files are processed in the EU, on EU infrastructure — GDPR-friendly by design."
+msgstr "A fájlok az EU-ban, EU-s infrastruktúrán kerülnek feldolgozásra — a rendszer alapból GDPR-barát."
+
+#. Found in description header.
+msgid "Source Code"
+msgstr "Forráskód"
+
+#. Found in description header.
+msgid "External Services"
+msgstr "Külső szolgáltatások"
+
+#. Screenshot description.
+msgid "One-question onboarding: automatic or manual remediation, with an optional monthly credit cap (0 = no limit)."
+msgstr "Egykérdéses beüzemelés: automatikus vagy kézi javítás, opcionális havi kreditkerettel (0 = nincs korlát)."
+
+#. Screenshot description.
+msgid "Accessibility column in the Media Library list view, with row actions."
+msgstr "„Akadálymentesség” oszlop a Médiatár listanézetében, soronkénti műveletekkel."
+
+#. Screenshot description.
+msgid ""
+"After remediation: the issues found before are shown crossed out with a \"Fixed\" chip — verified by re-running the "
+"free scan."
+msgstr ""
+"Javítás után: a korábban talált problémák áthúzva, „Javítva” jelöléssel jelennek meg — az ingyenes vizsgálat "
+"újrafuttatása igazolja."
+
+#. Screenshot description.
+msgid ""
+"Plain-language issue details with a live page preview — findings are highlighted right on the page, and each failed "
+"checkpoint explains what the remediation will do about it."
+msgstr ""
+"Közérthető hibarészletek élő oldal-előnézettel — a találatok közvetlenül az oldalon kiemelve, és minden bukó "
+"ellenőrzőpontnál ott a magyarázat, mit tesz vele a javítás."
+
+#. Screenshot description.
+msgid ""
+"Dashboard: every PDF in your Media Library with its accessibility status — credit balance, filter chips, one-click Fix "
+"and \"Fix all\"."
+msgstr ""
+"Vezérlőpult: a Médiatár minden PDF-je az akadálymentességi állapotával — kreditegyenleg, szűrők, egykattintásos Javítás "
+"és „Összes javítása”."
+
+#. Found in changelog list item.
+#, gp-priority: low
+msgid "Initial release."
+msgstr "Első kiadás."

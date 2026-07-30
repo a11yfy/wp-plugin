@@ -1,0 +1,349 @@
+# Translation of Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-07-30 11:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release)\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+
+#. Short description.
+#, gp-priority: high
+msgid ""
+"Free in-browser PDF accessibility scan (PDF/UA machine checkpoints) and one-click remediation of your Media Library "
+"PDFs via the a11yfy service."
+msgstr ""
+"Analyse gratuite de l'accessibilité des fichiers PDF directement dans votre navigateur (critères de vérification "
+"automatique PDF/UA) et correction en un clic des fichiers PDF de votre médiathèque via le service a11yfy."
+
+#. Plugin name.
+#, gp-priority: high
+msgid "a11yfy – PDF Accessibility Checker &amp; Fixer"
+msgstr "a11yfy – PDF Accessibility Checker &amp; Fixer"
+
+#. Found in faq paragraph.
+msgid ""
+"Conservative mode swaps links in post and page content (<code>the_content</code>) and wherever WordPress resolves the "
+"attachment URL (<code>wp_get_attachment_url</code>). Links hard-coded elsewhere — page-builder modules (Elementor, "
+"Divi, …), widgets, navigation menus, or theme templates — may keep pointing to the original file and should be checked "
+"manually. The default in-place mode does not have this limitation: the accessible file replaces the original at the "
+"same URL."
+msgstr ""
+"Le mode « conservateur » remplace les liens dans le contenu des articles et des pages (<code>the_content</code>) ainsi "
+"que partout où WordPress résout l’URL d’une pièce jointe (<code>wp_get_attachment_url</code>). Les liens codés en dur "
+"ailleurs — modules de construction de pages (Elementor, Divi, etc.), widgets, menus de navigation ou modèles de thème — "
+"peuvent continuer à pointer vers le fichier d'origine et doivent être vérifiés manuellement. Le mode par défaut « sur "
+"place » ne présente pas cette limitation : le fichier accessible remplace l'original à la même URL."
+
+#. Found in faq paragraph.
+msgid ""
+"Partially. Scanning works through a local proxy; in-place replacement automatically falls back to conservative mode for "
+"non-local files. Full offload support is planned."
+msgstr ""
+"En partie. L'analyse s'effectue via un proxy local ; le remplacement sur place bascule automatiquement en mode « "
+"prudent » pour les fichiers non locaux. La prise en charge complète du déchargement est prévue."
+
+#. Found in faq paragraph.
+msgid ""
+"Remediated PDFs are your content and stay by default. In Settings you can choose to restore the original files on "
+"deletion instead. All plugin data (tables, options, scan results) is removed either way."
+msgstr ""
+"Les fichiers PDF corrigés constituent votre contenu et sont conservés par défaut. Dans les paramètres, vous pouvez "
+"choisir de restaurer les fichiers d'origine lors de la suppression. Dans tous les cas, toutes les données du plugin "
+"(tableaux, options, résultats d'analyse) sont supprimées."
+
+#. Found in faq paragraph.
+msgid ""
+"That is the point of remediation: the accessible version replaces the original file (same URL). The original is kept in "
+"a protected backup folder and can be restored with one click from the Media Library."
+msgstr ""
+"C'est là tout l'intérêt de la correction : la version accessible remplace le fichier d'origine (même URL). Le fichier "
+"d'origine est conservé dans un dossier de sauvegarde protégé et peut être restauré en un seul clic depuis la "
+"médiathèque."
+
+#. Found in faq paragraph.
+msgid ""
+"Password-protected, XFA-form and portfolio PDFs are detected up front, clearly labelled, and never sent to the service. "
+"Digitally signed PDFs are detected too: remediation rewrites the file and would invalidate the signature, so the fix "
+"only starts after you explicitly confirm it on the document."
+msgstr ""
+"Les fichiers PDF protégés par mot de passe, les formulaires XFA et les portfolios sont détectés dès le départ, "
+"clairement identifiés et ne sont jamais envoyés au service. Les fichiers PDF signés numériquement sont également "
+"détectés : la correction réécrit le fichier, ce qui invaliderait la signature ; par conséquent, la correction ne "
+"commence qu’après que vous l’ayez explicitement confirmée sur le document."
+
+#. Found in faq paragraph.
+msgid ""
+"No. Remediation preserves the visual appearance; it adds the accessibility structure (tags, reading order, alternative "
+"texts, metadata) underneath."
+msgstr ""
+"Non. La mise en conformité préserve l'aspect visuel ; elle ajoute en arrière-plan la structure d'accessibilité "
+"(balises, ordre de lecture, textes alternatifs, métadonnées)."
+
+#. Found in faq paragraph.
+msgid ""
+"Yes. Scanned, image-only PDFs are OCR-processed and rebuilt with a full tag structure, including an invisible, "
+"screen-reader-readable text layer."
+msgstr ""
+"Oui. Les fichiers PDF numérisés, composés uniquement d'images, sont soumis à un traitement OCR puis restructurés avec "
+"une structure de balises complète, comprenant notamment une couche de texte invisible lisible par les lecteurs d'écran."
+
+#. Found in faq paragraph.
+msgid ""
+"Remediation uses credits from your a11yfy account — typically 1–3 credits per page, depending on the PDF. The dashboard "
+"shows an estimate before you confirm, and the scan itself never costs anything. Current pricing: "
+"https://a11yfy.com/pricing"
+msgstr ""
+"La correction utilise des crédits de votre compte a11yfy — généralement entre 1 et 3 crédits par page, selon le fichier "
+"PDF. Le tableau de bord affiche une estimation avant que vous ne validiez l'opération, et la numérisation en elle-même "
+"est toujours gratuite. Tarifs actuels : https://a11yfy.com/pricing"
+
+#. Found in faq paragraph.
+msgid "Yes. It runs in your browser using open-source libraries. It does not use the a11yfy API and works without an account."
+msgstr ""
+"Oui. Il fonctionne dans votre navigateur à l'aide de bibliothèques open source. Il n'utilise pas l'API a11yfy et "
+"fonctionne sans compte."
+
+#. Found in faq header.
+msgid "In conservative mode, are all links to the PDF swapped?"
+msgstr "En mode « conservateur », tous les liens vers le fichier PDF sont-ils inversés ?"
+
+#. Found in faq header.
+msgid "Does it work with offloaded media (S3/CDN)?"
+msgstr "Est-ce que cela fonctionne avec des médias externalisés (S3/CDN) ?"
+
+#. Found in faq header.
+msgid "What happens when I delete the plugin?"
+msgstr "Que se passe-t-il si je supprime le plugin ?"
+
+#. Found in faq header.
+msgid "My security plugin reported that a PDF file changed."
+msgstr "Mon plugin de sécurité m'a signalé qu'un fichier PDF avait été modifié."
+
+#. Found in faq header.
+msgid "Which PDFs cannot be remediated?"
+msgstr "Quels sont les fichiers PDF qui ne peuvent pas être corrigés ?"
+
+#. Found in faq header.
+msgid "Will the fixed PDF look different?"
+msgstr "Le fichier PDF corrigé aura-t-il un aspect différent ?"
+
+#. Found in faq header.
+msgid "My PDFs are scans — can they be fixed?"
+msgstr "Mes fichiers PDF sont des numérisations — peut-on les améliorer ?"
+
+#. Found in faq header.
+msgid "How much does remediation cost?"
+msgstr "Combien coûte la correction ?"
+
+#. Found in faq header.
+msgid "Is the scan really free?"
+msgstr "Le scan est-il vraiment gratuit ?"
+
+#. Found in description paragraph.
+msgid ""
+"The bundled analysis engine is built from human-readable source with esbuild. Unminified source: the <code>js/</code> "
+"directory of the public plugin repository at https://github.com/a11yfy/wp-plugin — the bundled libraries are pdf.js "
+"(Apache-2.0, https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), smalot/pdfparser "
+"(LGPL-3.0, https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, "
+"https://github.com/woocommerce/action-scheduler)."
+msgstr ""
+"Le moteur d'analyse intégré est compilé à partir d'un code source lisible par l'utilisateur à l'aide d'esbuild. Code "
+"source non minifié : le répertoire <code>js/</code> du dépôt public de plugins à l'adresse "
+"https://github.com/a11yfy/wp-plugin — les bibliothèques intégrées sont pdf.js (Apache-2.0, "
+"https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), smalot/pdfparser (LGPL-3.0, "
+"https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, https://github.com/woocommerce/action-scheduler)."
+
+#. Found in description paragraph.
+msgid ""
+"The plugin never sends analytics, usage statistics, or any data about your site visitors. Data processing terms: "
+"https://a11yfy.com/privacy — Terms of service: https://a11yfy.com/terms"
+msgstr ""
+"Ce plugin n'envoie jamais de données d'analyse, de statistiques d'utilisation ni aucune autre donnée concernant les "
+"visiteurs de votre site. Conditions relatives au traitement des données : https://a11yfy.com/privacy — Conditions "
+"d'utilisation : https://a11yfy.com/terms"
+
+#. Found in description paragraph.
+msgid "What is sent and when:"
+msgstr "Quelles informations sont transmises et à quel moment :"
+
+#. Found in description paragraph.
+msgid ""
+"This plugin connects to the <strong>a11yfy API</strong> (https://a11yfy.com) — but <em>only</em> when you connect an "
+"API key and request remediation or balance information. The free scan never contacts any external service."
+msgstr ""
+"Ce plugin se connecte à <strong>l'API a11yfy</strong> (https://a11yfy.com), mais <em>uniquement</em> lorsque vous "
+"associez une clé API et que vous demandez des informations sur les mesures correctives ou le bilan. L'analyse gratuite "
+"ne contacte jamais aucun service externe."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Important:</strong> the free scan is a technical pre-check against the machine-verifiable PDF/UA-1 checkpoints. "
+"It cannot (and does not claim to) certify full PDF/UA-1, EAA or ADA compliance — that also requires human checks and "
+"font-level validation, which the a11yfy service performs during remediation."
+msgstr ""
+"<strong>Important :</strong> l'analyse gratuite consiste en une vérification technique préalable par rapport aux "
+"critères PDF/UA-1 vérifiables par machine. Elle ne peut pas (et ne prétend pas) certifier la conformité totale aux "
+"normes PDF/UA-1, EAA ou ADA — cela nécessite également des vérifications humaines et une validation au niveau des "
+"polices, que le service a11yfy effectue lors de la correction."
+
+#. Found in description paragraph.
+msgid "<strong>Why a11yfy?</strong>"
+msgstr "<strong>Pourquoi a11yfy ?</strong>"
+
+#. Found in description paragraph.
+msgid ""
+"The free scan is a genuine standalone tool — no account, no API calls, no telemetry. The paid service is only involved "
+"when you explicitly send a document for remediation."
+msgstr ""
+"L'analyse gratuite est un véritable outil autonome : pas de compte, pas d'appels API, pas de télémétrie. Le service "
+"payant n'intervient que lorsque vous envoyez explicitement un document pour correction."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>One-click remediation (optional, paid).</strong> Connect your a11yfy account and the plugin sends the selected "
+"PDFs to the a11yfy service, which produces a tagged, PDF/UA-oriented accessible version — processed in the EU. The "
+"fixed file replaces the original at the same URL (the original is kept as a backup with one-click restore), or, in "
+"conservative mode, is served alongside it."
+msgstr ""
+"<strong>Correction en un clic (facultative, payante).</strong> Connectez votre compte a11yfy et le plugin envoie les "
+"fichiers PDF sélectionnés au service a11yfy, qui génère une version accessible balisée et conforme à la norme PDF/UA — "
+"traitée au sein de l'UE. Le fichier corrigé remplace l'original à la même URL (l'original est conservé à titre de "
+"sauvegarde et peut être restauré en un clic) ou, en mode prudent, est mis à disposition parallèlement à celui-ci."
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Free accessibility scan — 100% local.</strong> The analysis engine runs in <em>your browser</em> (pdf.js + "
+"pdf-lib): it verifies your PDFs against 42 machine-verifiable checkpoints of the Matterhorn Protocol (PDF/UA-1) — tag "
+"structure, document metadata, heading hierarchy, alternative texts, language settings, annotation nesting and more. "
+"Your files never leave your site. The result is a risk rating and a concrete list of problems for every PDF in your "
+"Media Library."
+msgstr ""
+"<strong>Analyse gratuite de l'accessibilité — 100 % locale.</strong> Le moteur d'analyse fonctionne dans <em>votre "
+"navigateur</em> (pdf.js + pdf-lib) : il vérifie vos fichiers PDF par rapport aux 42 critères vérifiables "
+"automatiquement du protocole Matterhorn (PDF/UA-1) — structure des balises, métadonnées du document, hiérarchie des "
+"titres, textes alternatifs, paramètres linguistiques, imbrication des annotations, etc. Vos fichiers ne quittent jamais "
+"votre site. Le résultat se présente sous la forme d’une note de risque et d’une liste concrète de problèmes pour chaque "
+"PDF de votre médiathèque."
+
+#. Found in description paragraph.
+msgid "The a11yfy plugin gives you two things:"
+msgstr "Le plugin a11yfy vous offre deux fonctionnalités :"
+
+#. Found in description paragraph.
+msgid "https://youtu.be/O3wbNx5PUdA"
+msgstr "https://youtu.be/O3wbNx5PUdA"
+
+#. Found in description paragraph.
+msgid "See the plugin in action (58 seconds):"
+msgstr "Découvrez le plugin en action (58 secondes) :"
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Is your site ready for the European Accessibility Act (EAA) and the ADA?</strong> Most PDF documents on the web "
+"are not accessible: screen readers cannot read them in a meaningful order, images have no descriptions, forms have no "
+"labels. The requirements are similar on both sides of the Atlantic — the EAA in the EU, the ADA and Section 508 in the "
+"United States — and PDFs are the most commonly overlooked part."
+msgstr ""
+"<strong>Votre site est-il conforme à la loi européenne sur l'accessibilité (EAA) et à l'ADA ?</strong> La plupart des "
+"documents PDF présents sur le Web ne sont pas accessibles : les lecteurs d'écran ne peuvent pas les lire dans un ordre "
+"cohérent, les images ne comportent pas de descriptions et les formulaires ne disposent pas d'étiquettes. Les exigences "
+"sont similaires des deux côtés de l'Atlantique — l'EAA dans l'Union européenne, l'ADA et la Section 508 aux États-Unis "
+"— et les fichiers PDF constituent l'élément le plus souvent négligé."
+
+#. Found in description list item.
+msgid "<strong>Balance / job status checks</strong>: your API key is sent with each request; no document content."
+msgstr ""
+"<strong>Vérifications du solde et de l'état des tâches</strong>: votre clé API est transmise avec chaque requête ; "
+"aucun contenu de document n'est inclus."
+
+#. Found in description list item.
+msgid ""
+"<strong>When you remediate a PDF</strong> (manually, via bulk action, or through the automatic mode you enabled): the "
+"PDF file itself, its file name, and your API key are sent to <code>https://a11yfy.com/v1/jobs</code>. Processing "
+"happens in the EU."
+msgstr ""
+"<strong>Lorsque vous corrigez un fichier PDF</strong> (manuellement, via une action groupée ou grâce au mode "
+"automatique que vous avez activé) : le fichier PDF lui-même, son nom de fichier et votre clé API sont envoyés à "
+"<code>https://a11yfy.com/v1/jobs</code>. Le traitement s'effectue dans l'Union européenne."
+
+#. Found in description list item.
+msgid "Fully translation-ready — translations are delivered via translate.wordpress.org as they become available."
+msgstr ""
+"Entièrement prêt pour la traduction — les traductions sont mises à disposition via translate.wordpress.org dès qu'elles "
+"sont disponibles."
+
+#. Found in description list item.
+msgid ""
+"Every remediated PDF comes with a verifiable certificate — downloadable from the document page or the Media Library, "
+"with a public verification link you can share."
+msgstr ""
+"Chaque fichier PDF corrigé est accompagné d'un certificat vérifiable, téléchargeable depuis la page du document ou "
+"depuis la médiathèque, et comportant un lien de vérification public que vous pouvez partager."
+
+#. Found in description list item.
+msgid "The original file is always kept — one-click restore, tamper detection, free re-apply."
+msgstr "Le fichier d'origine est toujours conservé : restauration en un clic, détection des altérations, réapplication gratuite."
+
+#. Found in description list item.
+msgid "Works on scanned (image-only) PDFs too: OCR plus a full structural rebuild."
+msgstr ""
+"Fonctionne également avec les fichiers PDF numérisés (contenant uniquement des images) : reconnaissance optique de "
+"caractères (OCR) et reconstruction complète de la structure."
+
+#. Found in description list item.
+msgid "Files are processed in the EU, on EU infrastructure — GDPR-friendly by design."
+msgstr "Les fichiers sont traités au sein de l'UE, sur des infrastructures de l'UE — dans le respect du RGPD dès la conception."
+
+#. Found in description header.
+msgid "Source Code"
+msgstr "Code source"
+
+#. Found in description header.
+msgid "External Services"
+msgstr "Services externes"
+
+#. Screenshot description.
+msgid "One-question onboarding: automatic or manual remediation, with an optional monthly credit cap (0 = no limit)."
+msgstr ""
+"Intégration en une seule question : correction automatique ou manuelle, avec un plafond de crédit mensuel facultatif (0 "
+"= aucune limite)."
+
+#. Screenshot description.
+msgid "Accessibility column in the Media Library list view, with row actions."
+msgstr "Colonne « Accessibilité » dans la vue « Liste » de la médiathèque, avec des actions sur les lignes."
+
+#. Screenshot description.
+msgid ""
+"After remediation: the issues found before are shown crossed out with a \"Fixed\" chip — verified by re-running the "
+"free scan."
+msgstr ""
+"Après correction : les problèmes détectés précédemment apparaissent barrés et accompagnés d'une icône « Corrigé » — ce "
+"qui a été vérifié en relançant l'analyse gratuite."
+
+#. Screenshot description.
+msgid ""
+"Plain-language issue details with a live page preview — findings are highlighted right on the page, and each failed "
+"checkpoint explains what the remediation will do about it."
+msgstr ""
+"Détails des problèmes présentés en langage clair avec un aperçu en direct de la page : les résultats sont mis en "
+"évidence directement sur la page, et chaque point de contrôle non validé explique en quoi la mesure corrective "
+"permettra d'y remédier."
+
+#. Screenshot description.
+msgid ""
+"Dashboard: every PDF in your Media Library with its accessibility status — credit balance, filter chips, one-click Fix "
+"and \"Fix all\"."
+msgstr ""
+"Tableau de bord : tous les fichiers PDF de votre bibliothèque multimédia, avec leur statut d'accessibilité — solde de "
+"crédits, filtres, correction en un clic et « Tout corriger »."
+
+#. Found in changelog list item.
+#, gp-priority: low
+msgid "Initial release."
+msgstr "Première version."
