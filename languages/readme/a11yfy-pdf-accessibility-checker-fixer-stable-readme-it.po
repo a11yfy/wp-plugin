@@ -111,11 +111,11 @@ msgstr ""
 
 #. Found in faq header.
 msgid "In conservative mode, are all links to the PDF swapped?"
-msgstr "In modalità conservativa, tutti i collegamenti al PDF vengono invertiti?"
+msgstr "In modalità conservativa, tutti i collegamenti al PDF vengono sostituiti?"
 
 #. Found in faq header.
 msgid "Does it work with offloaded media (S3/CDN)?"
-msgstr "Funziona con contenuti trasferiti su piattaforme esterne (S3/CDN)?"
+msgstr "Funziona con file multimediali esternalizzati (S3/CDN)?"
 
 #. Found in faq header.
 msgid "What happens when I delete the plugin?"

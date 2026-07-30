@@ -45,8 +45,8 @@ msgid ""
 "Partially. Scanning works through a local proxy; in-place replacement automatically falls back to conservative mode for "
 "non-local files. Full offload support is planned."
 msgstr ""
-"En partie. L'analyse s'effectue via un proxy local ; le remplacement sur place bascule automatiquement en mode « "
-"prudent » pour les fichiers non locaux. La prise en charge complète du déchargement est prévue."
+"En partie. L'analyse s'effectue via un proxy local ; le remplacement sur place bascule automatiquement en mode "
+"conservateur pour les fichiers non locaux. La prise en charge complète du déchargement est prévue."
 
 #. Found in faq paragraph.
 msgid ""
@@ -100,8 +100,8 @@ msgid ""
 "https://a11yfy.com/pricing"
 msgstr ""
 "La correction utilise des crédits de votre compte a11yfy — généralement entre 1 et 3 crédits par page, selon le fichier "
-"PDF. Le tableau de bord affiche une estimation avant que vous ne validiez l'opération, et la numérisation en elle-même "
-"est toujours gratuite. Tarifs actuels : https://a11yfy.com/pricing"
+"PDF. Le tableau de bord affiche une estimation avant que vous ne validiez l'opération, et l'analyse en elle-même est "
+"toujours gratuite. Tarifs actuels : https://a11yfy.com/pricing"
 
 #. Found in faq paragraph.
 msgid "Yes. It runs in your browser using open-source libraries. It does not use the a11yfy API and works without an account."
@@ -178,7 +178,7 @@ msgid ""
 "API key and request remediation or balance information. The free scan never contacts any external service."
 msgstr ""
 "Ce plugin se connecte à <strong>l'API a11yfy</strong> (https://a11yfy.com), mais <em>uniquement</em> lorsque vous "
-"associez une clé API et que vous demandez des informations sur les mesures correctives ou le bilan. L'analyse gratuite "
+"associez une clé API et que vous demandez des informations sur les mesures correctives ou le solde. L'analyse gratuite "
 "ne contacte jamais aucun service externe."
 
 #. Found in description paragraph.
@@ -214,7 +214,7 @@ msgstr ""
 "<strong>Correction en un clic (facultative, payante).</strong> Connectez votre compte a11yfy et le plugin envoie les "
 "fichiers PDF sélectionnés au service a11yfy, qui génère une version accessible balisée et conforme à la norme PDF/UA — "
 "traitée au sein de l'UE. Le fichier corrigé remplace l'original à la même URL (l'original est conservé à titre de "
-"sauvegarde et peut être restauré en un clic) ou, en mode prudent, est mis à disposition parallèlement à celui-ci."
+"sauvegarde et peut être restauré en un clic) ou, en mode conservateur, est mis à disposition parallèlement à celui-ci."
 
 #. Found in description paragraph.
 msgid ""

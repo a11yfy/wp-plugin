@@ -37,15 +37,15 @@ msgstr ""
 "A konzervatív mód a bejegyzések és oldalak tartalmában (<code>the_content</code>) cseréli a linkeket, valamint "
 "mindenhol, ahol a WordPress a melléklet URL-jét oldja fel (<code>wp_get_attachment_url</code>). A máshol — oldalépítő "
 "modulokban (Elementor, Divi stb.), widgetekben, menükben vagy témasablonokban — beégetett linkek továbbra is az eredeti "
-"fájlra mutathatnak, ezeket kézzel érdemes ellenőrizni. Az alapértelmezett helyben csere módnak nincs ilyen korlátja: az "
-"akadálymentes fájl ugyanazon az URL-en váltja fel az eredetit."
+"fájlra mutathatnak, ezeket kézzel érdemes ellenőrizni. Az alapértelmezett helybeni csere módnak nincs ilyen korlátja: "
+"az akadálymentes fájl ugyanazon az URL-en váltja fel az eredetit."
 
 #. Found in faq paragraph.
 msgid ""
 "Partially. Scanning works through a local proxy; in-place replacement automatically falls back to conservative mode for "
 "non-local files. Full offload support is planned."
 msgstr ""
-"Részben. A vizsgálat helyi proxyn keresztül működik; a helyben csere nem helyi fájloknál automatikusan konzervatív "
+"Részben. A vizsgálat helyi proxyn keresztül működik; a helybeni csere nem helyi fájloknál automatikusan konzervatív "
 "módra vált. A teljes offload-támogatás tervben van."
 
 #. Found in faq paragraph.
@@ -125,7 +125,7 @@ msgstr "Mely PDF-ek nem javíthatók?"
 
 #. Found in faq header.
 msgid "Will the fixed PDF look different?"
-msgstr "Másképp fog kinézni a javított PDF?"
+msgstr "Másként fog kinézni a javított PDF?"
 
 #. Found in faq header.
 msgid "My PDFs are scans — can they be fixed?"

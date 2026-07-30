@@ -46,7 +46,7 @@ msgid ""
 "non-local files. Full offload support is planned."
 msgstr ""
 "Em parte. A verificação funciona através de um proxy local; a substituição no local recorre automaticamente ao modo "
-"conservador no caso de ficheiros não locais. Está previsto o suporte total à descarregamento."
+"conservador no caso de ficheiros não locais. O suporte completo para offload está planeado."
 
 #. Found in faq paragraph.
 msgid ""
@@ -177,7 +177,7 @@ msgid ""
 "API key and request remediation or balance information. The free scan never contacts any external service."
 msgstr ""
 "Este plugin liga-se à <strong>API do a11yfy</strong> (https://a11yfy.com) — mas <em>apenas</em> quando se introduz uma "
-"chave de API e se solicita a correção de problemas ou informações sobre o equilíbrio. A análise gratuita nunca contacta "
+"chave de API e se solicita a correção de problemas ou informações sobre o saldo. A análise gratuita nunca contacta "
 "qualquer serviço externo."
 
 #. Found in description paragraph.

@@ -19,7 +19,7 @@ msgid ""
 "PDFs via the a11yfy service."
 msgstr ""
 "Bezplatná kontrola přístupnosti souborů PDF přímo v prohlížeči (kontrolní body PDF/UA) a oprava souborů PDF ve vaší "
-"mediální knihovně jedním kliknutím prostřednictvím služby a11yfy."
+"knihovně médií jedním kliknutím prostřednictvím služby a11yfy."
 
 #. Plugin name.
 #, gp-priority: high
@@ -80,7 +80,7 @@ msgid ""
 "No. Remediation preserves the visual appearance; it adds the accessibility structure (tags, reading order, alternative "
 "texts, metadata) underneath."
 msgstr ""
-"Ne. Při optimalizaci se zachovává vizuální podoba; pod ní se přidává struktura pro přístupnost (značky, pořadí čtení, "
+"Ne. Při opravě se zachovává vizuální podoba; pod ní se přidává struktura pro přístupnost (značky, pořadí čtení, "
 "alternativní texty, metadata)."
 
 #. Found in faq paragraph.
@@ -175,8 +175,8 @@ msgid ""
 "API key and request remediation or balance information. The free scan never contacts any external service."
 msgstr ""
 "Tento plugin se připojuje k <strong>API a11yfy</strong> (https://a11yfy.com) – avšak <em>pouze</em> v případě, že "
-"zadáte API klíč a požádáte o informace týkající se nápravy nebo skóre. Bezplatná kontrola se nikdy nepřipojuje k žádné "
-"externí službě."
+"zadáte API klíč a požádáte o informace týkající se nápravy nebo zůstatku kreditů. Bezplatná kontrola se nikdy "
+"nepřipojuje k žádné externí službě."
 
 #. Found in description paragraph.
 msgid ""
@@ -209,8 +209,8 @@ msgid ""
 "conservative mode, is served alongside it."
 msgstr ""
 "<strong>Oprava jedním kliknutím (volitelná, placená).</strong> Propojte svůj účet a11yfy a plugin odešle vybrané "
-"soubory PDF do služby a11yfy, která vygeneruje označenou, na standard PDF/UA zaměřenou přístupnou verzi – zpracovanou v "
-"EU. Opravený soubor nahradí původní soubor na stejné URL adrese (původní soubor je uchován jako záloha s možností "
+"soubory PDF do služby a11yfy, která vygeneruje otagovanou, na standard PDF/UA zaměřenou přístupnou verzi – zpracovanou "
+"v EU. Opravený soubor nahradí původní soubor na stejné URL adrese (původní soubor je uchován jako záloha s možností "
 "obnovení jedním kliknutím) nebo je v konzervativním režimu poskytován souběžně s ním."
 
 #. Found in description paragraph.
@@ -263,9 +263,9 @@ msgid ""
 "PDF file itself, its file name, and your API key are sent to <code>https://a11yfy.com/v1/jobs</code>. Processing "
 "happens in the EU."
 msgstr ""
-"<strong>When you remediate a PDF</strong> (manually, via bulk action, or through the automatic mode you enabled): the "
-"PDF file itself, its file name, and your API key are sent to <code>https://a11yfy.com/v1/jobs</code>. Processing "
-"happens in the EU."
+"<strong>Když opravujete PDF</strong> (ručně, hromadnou akcí nebo v automatickém režimu, který jste povolili): samotný "
+"soubor PDF, jeho název a váš API klíč se odešlou na adresu <code>https://a11yfy.com/v1/jobs</code>. Zpracování probíhá "
+"v EU."
 
 #. Found in description list item.
 msgid "Fully translation-ready — translations are delivered via translate.wordpress.org as they become available."

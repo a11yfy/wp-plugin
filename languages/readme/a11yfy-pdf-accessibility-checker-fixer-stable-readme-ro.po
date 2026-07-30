@@ -38,7 +38,7 @@ msgstr ""
 "WordPress generează adresa URL a atașamentului (<code>wp_get_attachment_url</code>). Linkurile codificate direct în "
 "alte locuri — module de creare a paginilor (Elementor, Divi, …), widgeturi, meniuri de navigare sau șabloane de temă — "
 "pot continua să indice către fișierul original și trebuie verificate manual. Modul implicit „in-place” nu are această "
-"limitare: fișierul accesat înlocuiește fișierul original la aceeași adresă URL."
+"limitare: fișierul accesibil înlocuiește fișierul original la aceeași adresă URL."
 
 #. Found in faq paragraph.
 msgid ""
@@ -46,8 +46,7 @@ msgid ""
 "non-local files. Full offload support is planned."
 msgstr ""
 "Parțial. Scanarea se realizează prin intermediul unui proxy local; înlocuirea directă trece automat la modul "
-"conservator în cazul fișierelor care nu se află local. Se preconizează implementarea suportului complet pentru "
-"descărcarea sarcinilor."
+"conservator în cazul fișierelor care nu se află local. Suportul complet pentru offload este planificat."
 
 #. Found in faq paragraph.
 msgid ""
@@ -105,7 +104,7 @@ msgstr ""
 
 #. Found in faq paragraph.
 msgid "Yes. It runs in your browser using open-source libraries. It does not use the a11yfy API and works without an account."
-msgstr "Da. Se execută în browserul tău folosind biblioteci open-source. Nu utilizează API-ul a11yfy și funcționează fără cont."
+msgstr "Da. Se execută în browserul dvs. folosind biblioteci open-source. Nu utilizează API-ul a11yfy și funcționează fără cont."
 
 #. Found in faq header.
 msgid "In conservative mode, are all links to the PDF swapped?"
@@ -233,7 +232,7 @@ msgstr ""
 
 #. Found in description paragraph.
 msgid "The a11yfy plugin gives you two things:"
-msgstr "Pluginul a11yfy îți oferă două lucruri:"
+msgstr "Pluginul a11yfy vă oferă două lucruri:"
 
 #. Found in description paragraph.
 msgid "https://youtu.be/O3wbNx5PUdA"
@@ -283,7 +282,7 @@ msgid ""
 "with a public verification link you can share."
 msgstr ""
 "Fiecare fișier PDF remediat este însoțit de un certificat verificabil — care poate fi descărcat de pe pagina "
-"documentului sau din Biblioteca media, împreună cu un link public de verificare pe care îl poți partaja."
+"documentului sau din Biblioteca media, împreună cu un link public de verificare pe care îl puteți partaja."
 
 #. Found in description list item.
 msgid "The original file is always kept — one-click restore, tamper detection, free re-apply."
@@ -339,7 +338,7 @@ msgid ""
 "Dashboard: every PDF in your Media Library with its accessibility status — credit balance, filter chips, one-click Fix "
 "and \"Fix all\"."
 msgstr ""
-"Tablou de bord: fiecare fișier PDF din biblioteca ta media, împreună cu starea sa de accesibilitate — soldul de "
+"Tablou de bord: fiecare fișier PDF din biblioteca dvs. media, împreună cu starea sa de accesibilitate — soldul de "
 "credite, filtru, opțiunea „Corectează cu un singur clic” și „Corectează tot”."
 
 #. Found in changelog list item.

@@ -46,8 +46,6 @@ msgid ""
 "Partially. Scanning works through a local proxy; in-place replacement automatically falls back to conservative mode for "
 "non-local files. Full offload support is planned."
 msgstr ""
-"En parte. El escaneo funciona a través de un proxy local; la sustitución in situ pasa automáticamente al modo "
-"conservador en el caso de los archivos no locales. Está prevista la compatibilidad total con la descarga completa."
 
 #. Found in faq paragraph.
 msgid ""
@@ -83,7 +81,7 @@ msgid ""
 "No. Remediation preserves the visual appearance; it adds the accessibility structure (tags, reading order, alternative "
 "texts, metadata) underneath."
 msgstr ""
-"No. La adaptación conserva el aspecto visual; lo que hace es añadir la estructura de accesibilidad (etiquetas, orden de "
+"No. La corrección conserva el aspecto visual; lo que hace es añadir la estructura de accesibilidad (etiquetas, orden de "
 "lectura, textos alternativos, metadatos) en segundo plano."
 
 #. Found in faq paragraph.
