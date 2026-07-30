@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:44+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: da_DK\n"
@@ -1295,3 +1295,156 @@ msgstr "Anslået pris: ~%d kreditter"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Anslået pris: %1$d–%2$d kreditter"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "efter bedste evne"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Dokumentet er blevet optimeret bedst muligt, men opfylder ikke fuldt ud PDF/UA-1-standarden. Det færdige dokument kan "
+"downloades gratis."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "jeres partnerorganisation"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"Din tildelte kreditramme er lav (%1$d kreditter tilbage). Den stilles til rådighed af %2$s — bed dem om at hæve din "
+"ramme."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Din seneste korrektion blev blokeret: den delegerede kreditgrænse, der er fastsat af %s, er opbrugt."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "Den krypterede fil mangler sin adgangsrettighedsoplysning"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Filen er krypteret, men krypteringsindstillingerne indeholder ingen angivelse af tilladelser, så der er ingen garanti "
+"for, at skærmlæsere kan få adgang til indholdet."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Gem filen igen med krypteringsindstillinger, der udtrykkeligt tillader adgang for hjælpemidler."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Krypteringen blokerer adgangen for skærmlæsere"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Filen er krypteret på en måde, der forhindrer hjælpemidler i at udtrække indholdet, og derfor kan en skærmlæser slet "
+"ikke læse dokumentet."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Gem filen igen med krypteringsindstillinger, der giver adgang for hjælpemidler."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Umarkerede grafiske elementer i dokumentet"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Dokumentet indeholder linjer, udfyldte figurer eller farveovergange, der hverken er mærket som indhold eller som "
+"dekorative elementer. PDF/UA-validatorer markerer disse som umærket indhold."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"Remediation markerer dekorative grafiske elementer (kanter, skilletegn, baggrunde) som artefakter og mærker dem, der "
+"indeholder indhold."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Tildelte kreditter: %1$d af %2$d tilbage (leveret af %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Overførte kreditter: %1$d (leveret af %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Overførte kreditter: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] "Den gratis scanning fandt %d PDF-filer på dette websted, der ikke opfylder tilgængelighedskravene (EAA/ADA-risiko)."
+msgstr[1] "Den gratis scanning fandt %d PDF-filer på dette websted, der ikke opfylder tilgængelighedskravene (EAA/ADA-risiko)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d dokumenter opfylder ikke tilgængelighedskravene (EAA/ADA-risiko)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "Anslået: %1$d–%2$d kreditter — din saldo: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Der er foretaget en reparation efter bedste evne"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Forbundet til: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Bemærk: Dine kreditter leveres af %1$s med en separat grænse på %2$d kreditter pr. periode. Når den ene grænse nås "
+"først, afbrydes afhjælpningen."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Bemærk: Dine kreditter leveres af %s, som har sin egen separate grænse. Den af grænserne, der nås først, stopper "
+"genopretningen."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"Din tildelte kreditgrænse hos a11yfy er nu nede på %1$d kreditter. PDF-korrektionen stopper, når den når nul.\n"
+"\n"
+"Dine kreditter leveres af %2$s — bed dem om at hæve din grænse, eller skift til dine egne kreditter i indstillingerne "
+"for din a11yfy-organisation."

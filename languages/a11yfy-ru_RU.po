@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:45+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: ru_RU\n"
@@ -1314,3 +1314,164 @@ msgstr "Ориентировочная стоимость: ~%d кредитов"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Ориентировочная стоимость: от %1$d до %2$d кредитов"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "по мере возможности"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Документ был отремонтирован наилучшим образом, однако не соответствует стандарту PDF/UA-1 в полной мере. Результат "
+"преобразования доступен для бесплатной загрузки."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "ваша партнерская организация"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"Ваш лимит делегированных кредитов низкий (осталось %1$d кредитов). Его предоставляет %2$s — обратитесь к ним с просьбой "
+"увеличить ваш лимит."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Ваша последняя корректирующая операция была заблокирована: исчерпан делегированный кредитный лимит, установленный %s."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "В зашифрованном файле отсутствует запись о правах доступа"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Файл зашифрован, но в его настройках шифрования отсутствует запись о правах доступа, поэтому нет гарантии, что "
+"программы чтения с экрана смогут получить доступ к его содержимому."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Сохраните файл заново с настройками шифрования, которые явно разрешают доступ вспомогательным технологиям."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Шифрование блокирует доступ программ чтения с экрана"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Настройки шифрования файла не позволяют вспомогательным технологиям извлекать его содержимое, поэтому программа чтения "
+"с экрана не может прочитать этот документ вообще."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Сохраните файл заново с настройками шифрования, обеспечивающими доступ для вспомогательных технологий."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Необозначенные графические элементы в документе"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Документ содержит линии, заполненные фигуры или градиенты, которые не помечены ни как контент, ни как декоративные "
+"элементы. Валидаторы PDF/UA выделяют их как не помеченный контент."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"В ходе корректировки декоративные графические элементы (рамки, разделители, фоны) помечаются как артефакты, а элементы, "
+"содержащие контент, — как контентные."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Делегированные кредиты: %1$d из %2$d осталось (предоставлено %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Делегированные кредиты: %1$d (предоставлены %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Перенесенные кредиты: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] ""
+"В ходе бесплатного сканирования на этом сайте было обнаружено %d PDF-файлов, не соответствующих требованиям доступности "
+"(риск по стандартам EAA/ADA)."
+msgstr[1] ""
+"В ходе бесплатного сканирования на этом сайте было обнаружено %d PDF-файлов, не соответствующих требованиям доступности "
+"(риск EAA/ADA)."
+msgstr[2] ""
+"В ходе бесплатного сканирования на этом сайте было обнаружено %d PDF-файлов, не соответствующих требованиям доступности "
+"(риск EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d документов не соответствуют требованиям доступности (риск несоответствия стандартам EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "предполагаемое количество кредитов: %1$d–%2$d — ваш остаток: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Применено восстановление по принципу «наилучших усилий»"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Подключено к: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Примечание: ваши кредиты предоставляются %1$s с отдельным лимитом в %2$d кредитов за период. Как только будет достигнут "
+"любой из этих лимитов, восстановительные меры прекращаются."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Примечание: ваши кредиты предоставляются %s и имеют собственный отдельный лимит. Как только будет достигнут любой из "
+"этих лимитов, восстановление прекращается."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"Ваш лимит делегированных кредитов в a11yfy сократился до %1$d кредитов. Исправление PDF-файлов будет приостановлено, "
+"когда лимит достигнет нуля.\n"
+"\n"
+"Ваши кредиты предоставляются %2$s — обратитесь к ним с просьбой увеличить лимит или перейдите на использование "
+"собственных кредитов в настройках вашей организации a11yfy."

@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:44+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: cs_CZ\n"
@@ -1291,3 +1291,161 @@ msgstr "Odhadované náklady: ~%d kreditů"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Odhadované náklady: %1$d–%2$d kreditů"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "v rámci možností"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Dokument prošel co nejlepším možným opravným procesem, avšak standardu PDF/UA-1 nesplnil v plném rozsahu. Výsledný "
+"soubor je k dispozici ke stažení zdarma."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "vaše partnerská organizace"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr "Váš přidělený úvěrový limit je nízký (zbývá %1$d kreditů). Limit vám poskytuje %2$s – požádejte je o jeho zvýšení."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Vaše poslední nápravná akce byla zablokována: vyčerpán byl delegovaný úvěrový limit nastavený %s."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "V šifrovaném souboru chybí záznam o oprávněních"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Soubor je zašifrován, ale v jeho nastaveních šifrování není uvedena žádná položka týkající se oprávnění, takže není "
+"zaručeno, že čtečky obrazovky budou mít k obsahu přístup."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Soubor znovu uložte s nastavením šifrování, které výslovně povoluje přístup pro asistenční technologie."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Šifrování blokuje přístup čtečky obrazovky"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Nastavení šifrování souboru neumožňuje extrakci obsahu pomocí asistenčních technologií, takže čtečka obrazovky nemůže "
+"dokument vůbec přečíst."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Soubor znovu uložte s nastavením šifrování, které umožňuje přístup pomocí asistenčních technologií."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Neoznačené grafické prvky v dokumentu"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Dokument obsahuje čáry, vyplněné tvary nebo přechody, které nejsou označeny ani jako obsah, ani jako dekorativní prvky. "
+"Validátory PDF/UA tyto prvky označují jako neoznačený obsah."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"Funkce „Remediation“ označuje dekorativní grafické prvky (rámečky, oddělovače, pozadí) jako artefakty a označuje ty, "
+"které obsahují skutečný obsah."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Převedené kredity: %1$d z %2$d zbývá (poskytnuto %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Převedené kredity: %1$d (poskytnuto %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Převedené kredity: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] ""
+"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
+"EAA/ADA)."
+msgstr[1] ""
+"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
+"EAA/ADA)."
+msgstr[2] ""
+"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
+"EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d dokumentů nesplňuje požadavky na přístupnost (riziko z hlediska EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "odhad: %1$d–%2$d kreditů — váš zůstatek: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Byla použita oprava typu „best-effort“"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Připojeno k: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Poznámka: Vaše kredity poskytuje %1$s, přičemž pro každé období platí samostatný limit %2$d kreditů. Jakmile dojde k "
+"vyčerpání některého z těchto limitů, nápravná opatření se zastaví."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Poznámka: Vaše kredity poskytuje %s, které má svůj vlastní samostatný limit. Jakmile bude dosaženo některého z těchto "
+"limitů, náprava se zastaví."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"Váš limit kreditů přidělených službou a11yfy klesl na %1$d kreditů. Oprava PDF se zastaví, jakmile dosáhne nuly.\n"
+"\n"
+"Vaše kredity poskytuje %2$s – požádejte je o zvýšení limitu nebo přepněte na vlastní kredity v nastavení vaší "
+"organizace a11yfy."

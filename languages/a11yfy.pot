@@ -9,10 +9,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-23T13:48:07+00:00\n"
+"POT-Creation-Date: 2026-07-30T08:44:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
-"X-Domain: a11yfy\n"
+"X-Domain: a11yfy-pdf-accessibility-checker-fixer\n"
 
 #. Plugin Name of the plugin
 msgid "a11yfy – PDF Accessibility Checker & Fixer"
@@ -34,434 +34,461 @@ msgstr ""
 msgid "https://a11yfy.com"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:42
+#: includes/admin/class-a11yfy-admin.php:45
 #: includes/admin/views/dashboard.php:25
 msgid "a11yfy — PDF Accessibility"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:51
-#: includes/admin/class-a11yfy-admin.php:207
-#: includes/admin/class-a11yfy-admin.php:230
+#: includes/admin/class-a11yfy-admin.php:54
+#: includes/admin/class-a11yfy-admin.php:215
+#: includes/admin/class-a11yfy-admin.php:238
 msgid "Dashboard"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:52
-#: includes/admin/class-a11yfy-admin.php:231
+#: includes/admin/class-a11yfy-admin.php:55
+#: includes/admin/class-a11yfy-admin.php:239
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:57
+#: includes/admin/class-a11yfy-admin.php:60
 msgid "Document details"
 msgstr ""
 
 #. translators: 1: current position, 2: total number of PDFs.
-#: includes/admin/class-a11yfy-admin.php:87
+#: includes/admin/class-a11yfy-admin.php:90
 msgid "Scanning… %1$d / %2$d"
 msgstr ""
 
 #. translators: %d: number of PDFs checked.
-#: includes/admin/class-a11yfy-admin.php:89
+#: includes/admin/class-a11yfy-admin.php:92
 msgid "Scan finished: %d PDFs checked."
 msgstr ""
 
 #. translators: %s: file name.
-#: includes/admin/class-a11yfy-admin.php:91
+#: includes/admin/class-a11yfy-admin.php:94
 msgid "Scan failed for %s"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:92
+#: includes/admin/class-a11yfy-admin.php:95
 msgid "No PDFs need scanning — everything is up to date."
 msgstr ""
 
 #. translators: %d: number of PDFs queued.
-#: includes/admin/class-a11yfy-admin.php:94
+#: includes/admin/class-a11yfy-admin.php:97
 msgid "Remediation queued for %d PDFs."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:95
+#: includes/admin/class-a11yfy-admin.php:98
 msgid "Fix"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:96
-#: includes/admin/views/document.php:90
+#: includes/admin/class-a11yfy-admin.php:99
+#: includes/admin/views/document.php:93
 msgid "Connect your a11yfy account to enable PDF remediation."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:97
-#: includes/admin/class-a11yfy-admin.php:152
+#: includes/admin/class-a11yfy-admin.php:100
+#: includes/admin/class-a11yfy-admin.php:160
 msgid "This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want to continue?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:99
+#: includes/admin/class-a11yfy-admin.php:102
 msgid "technical repair"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:100
+#: includes/admin/class-a11yfy-admin.php:103
 msgid "full repair"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:101
+#: includes/admin/class-a11yfy-admin.php:104
 msgid "Restore"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:102
+#: includes/admin/class-a11yfy-admin.php:105
 msgid "Details"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:103
+#: includes/admin/class-a11yfy-admin.php:106
 msgid "Re-apply fix (free)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:104
+#: includes/admin/class-a11yfy-admin.php:107
 msgid "Modified by another program"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:105
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr ""
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid "The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available for free download."
+msgstr ""
+
+#: includes/admin/class-a11yfy-admin.php:111
 msgid "ShortPixel PDF optimization is now off."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:150
+#: includes/admin/class-a11yfy-admin.php:158
 msgid "Analyzing the document…"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:151
+#: includes/admin/class-a11yfy-admin.php:159
 msgid "The document could not be analyzed."
 msgstr ""
 
 #. translators: 1: number of failed checks, 2: number of passed checks.
-#: includes/admin/class-a11yfy-admin.php:154
+#: includes/admin/class-a11yfy-admin.php:162
 msgid "%1$d issue types found — %2$d checks passed."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:155
+#: includes/admin/class-a11yfy-admin.php:163
 msgid "No machine-detectable accessibility issues were found."
 msgstr ""
 
 #. translators: %d: score 0-100.
-#: includes/admin/class-a11yfy-admin.php:157
+#: includes/admin/class-a11yfy-admin.php:165
 msgid "Score: %d / 100"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:159
-#: includes/admin/class-a11yfy-admin.php:664
+#: includes/admin/class-a11yfy-admin.php:167
+#: includes/admin/class-a11yfy-admin.php:706
 msgid "Low risk"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:160
-#: includes/admin/class-a11yfy-admin.php:666
+#: includes/admin/class-a11yfy-admin.php:168
+#: includes/admin/class-a11yfy-admin.php:708
 msgid "Medium risk"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:161
-#: includes/admin/class-a11yfy-admin.php:668
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/class-a11yfy-admin.php:710
 msgid "High risk"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:162
-#: includes/admin/class-a11yfy-admin.php:670
-#: includes/admin/views/dashboard.php:185
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/class-a11yfy-admin.php:712
+#: includes/admin/views/dashboard.php:203
 msgid "Not accessible"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:164
+#: includes/admin/class-a11yfy-admin.php:172
 msgid "Affects the whole document"
 msgstr ""
 
 #. translators: 1: current page, 2: total pages.
-#: includes/admin/class-a11yfy-admin.php:166
+#: includes/admin/class-a11yfy-admin.php:174
 msgid "Page %1$d of %2$d"
 msgstr ""
 
 #. translators: %d: total number of pages.
-#: includes/admin/class-a11yfy-admin.php:168
+#: includes/admin/class-a11yfy-admin.php:176
 msgid "%d pages"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/class-a11yfy-admin.php:177
 msgid "Technical details"
 msgstr ""
 
 #. translators: %d: number of findings.
-#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/class-a11yfy-admin.php:179
 msgid "%d findings on this page"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/class-a11yfy-admin.php:180
 msgid "1 finding on this page"
 msgstr ""
 
 #. translators: %d: page number.
-#: includes/admin/class-a11yfy-admin.php:174
+#: includes/admin/class-a11yfy-admin.php:182
 msgid "Go to page %d"
 msgstr ""
 
 #. translators: %d: page number.
-#: includes/admin/class-a11yfy-admin.php:176
+#: includes/admin/class-a11yfy-admin.php:184
 msgid "Page %d"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:177
-#: includes/admin/views/document.php:178
+#: includes/admin/class-a11yfy-admin.php:185
+#: includes/admin/views/document.php:188
 msgid "Previous page"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:178
-#: includes/admin/views/document.php:180
+#: includes/admin/class-a11yfy-admin.php:186
+#: includes/admin/views/document.php:190
 msgid "Next page"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:179
-#: includes/admin/views/document.php:184
+#: includes/admin/class-a11yfy-admin.php:187
+#: includes/admin/views/document.php:194
 msgid "Zoom in"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:180
-#: includes/admin/views/document.php:183
+#: includes/admin/class-a11yfy-admin.php:188
+#: includes/admin/views/document.php:193
 msgid "Zoom out"
 msgstr ""
 
 #. translators: %d: how many times the issue occurs.
-#: includes/admin/class-a11yfy-admin.php:182
+#: includes/admin/class-a11yfy-admin.php:190
 msgid "%d×"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:183
+#: includes/admin/class-a11yfy-admin.php:191
 msgid "Remediation queued — track it on the Dashboard."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:184
+#: includes/admin/class-a11yfy-admin.php:192
 msgid "Something went wrong — please try again."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:185
+#: includes/admin/class-a11yfy-admin.php:193
 msgid "The preview could not be rendered (the analysis still works)."
 msgstr ""
 
 #. translators: %d: percentage of untagged text.
-#: includes/admin/class-a11yfy-admin.php:187
+#: includes/admin/class-a11yfy-admin.php:195
 msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:188
+#: includes/admin/class-a11yfy-admin.php:196
 msgid "Showing the original file (before remediation) — this analysis is not saved."
 msgstr ""
 
 #. translators: %d: estimated number of credits.
-#: includes/admin/class-a11yfy-admin.php:190
-#: includes/admin/class-a11yfy-admin.php:593
+#: includes/admin/class-a11yfy-admin.php:198
+#: includes/admin/class-a11yfy-admin.php:635
 msgid "Estimated cost: ~%d credits"
 msgstr ""
 
 #. translators: 1: minimum credits, 2: maximum credits.
-#: includes/admin/class-a11yfy-admin.php:192
-#: includes/admin/class-a11yfy-admin.php:596
+#: includes/admin/class-a11yfy-admin.php:200
+#: includes/admin/class-a11yfy-admin.php:638
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:211
-#: includes/admin/class-a11yfy-admin.php:411
+#: includes/admin/class-a11yfy-admin.php:219
+#: includes/admin/class-a11yfy-admin.php:432
 msgid "Connect account"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:233
+#: includes/admin/class-a11yfy-admin.php:241
 msgid "a11yfy pages"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:263
-#: includes/admin/class-a11yfy-admin.php:320
+#: includes/admin/class-a11yfy-admin.php:271
 #: includes/admin/class-a11yfy-admin.php:341
+#: includes/admin/class-a11yfy-admin.php:362
 msgid "You are not allowed to change a11yfy settings."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:361
+#: includes/admin/class-a11yfy-admin.php:382
 msgid "Settings saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:362
+#: includes/admin/class-a11yfy-admin.php:383
 msgid "Connected to a11yfy — the API key works."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:363
+#: includes/admin/class-a11yfy-admin.php:384
 msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:364
+#: includes/admin/class-a11yfy-admin.php:385
 msgid "Disconnected. The stored API key was removed."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:365
+#: includes/admin/class-a11yfy-admin.php:386
 msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:366
+#: includes/admin/class-a11yfy-admin.php:387
 msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:367
+#: includes/admin/class-a11yfy-admin.php:388
 msgid "The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host about the PHP sodium extension. Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:368
+#: includes/admin/class-a11yfy-admin.php:389
 msgid "Connection cancelled on a11yfy.com."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:369
+#: includes/admin/class-a11yfy-admin.php:390
 msgid "Connecting to a11yfy failed — please try again."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:370
+#: includes/admin/class-a11yfy-admin.php:391
 msgid "The connect response could not be verified (expired or tampered request). Please try again."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:371
+#: includes/admin/class-a11yfy-admin.php:392
 msgid "All set — a11yfy is ready to work."
 msgstr ""
 
 #. translators: %d: number of queued PDFs.
-#: includes/admin/class-a11yfy-admin.php:386
+#: includes/admin/class-a11yfy-admin.php:407
 msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:409
+#: includes/admin/class-a11yfy-admin.php:430
 msgid "PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either way."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:413
+#: includes/admin/class-a11yfy-admin.php:434
 msgid "Hide this notice"
 msgstr ""
 
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr ""
+
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+
+#. translators: %s: parent organization name.
+#: includes/admin/class-a11yfy-admin.php:455
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr ""
+
 #. translators: %d: remaining credits.
-#: includes/admin/class-a11yfy-admin.php:427
+#: includes/admin/class-a11yfy-admin.php:464
 msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:428
+#: includes/admin/class-a11yfy-admin.php:465
 msgid "Your last remediation was blocked: not enough credits."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:431
+#: includes/admin/class-a11yfy-admin.php:468
 msgid "Top up on a11yfy.com"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:459
+#: includes/admin/class-a11yfy-admin.php:497
+#: includes/admin/class-a11yfy-admin.php:503
 msgid "You are not allowed to download this certificate."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:466
+#: includes/admin/class-a11yfy-admin.php:508
 msgid "This document has no a11yfy certificate yet."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:487
+#: includes/admin/class-a11yfy-admin.php:529
 msgid "a11yfy PDF accessibility"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:495
+#: includes/admin/class-a11yfy-admin.php:537
 msgid "a11yfy is set up and working"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:498
-#: includes/admin/class-a11yfy-admin.php:533
+#: includes/admin/class-a11yfy-admin.php:540
+#: includes/admin/class-a11yfy-admin.php:575
 #: includes/class-a11yfy-optimizer-guard.php:223
 msgid "Accessibility"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:501
+#: includes/admin/class-a11yfy-admin.php:543
 msgid "Background queue is available and the a11yfy connection works."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:507
+#: includes/admin/class-a11yfy-admin.php:549
 msgid "a11yfy background processing is unavailable"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:508
+#: includes/admin/class-a11yfy-admin.php:550
 msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:514
+#: includes/admin/class-a11yfy-admin.php:556
 msgid "a11yfy is not connected"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:515
+#: includes/admin/class-a11yfy-admin.php:557
 msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
 msgstr ""
 
 #. translators: %d: number of non-compliant PDFs.
-#: includes/admin/class-a11yfy-admin.php:523
+#: includes/admin/class-a11yfy-admin.php:565
 msgid "%d PDFs on this site are not accessible"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:524
+#: includes/admin/class-a11yfy-admin.php:566
 msgid "Open the a11yfy Dashboard to review and fix them."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:630
+#: includes/admin/class-a11yfy-admin.php:672
 msgid "Compliant"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:631
+#: includes/admin/class-a11yfy-admin.php:673
 msgid "Remediated"
 msgstr ""
 
 #. translators: %d: number of issues fixed.
-#: includes/admin/class-a11yfy-admin.php:635
+#: includes/admin/class-a11yfy-admin.php:677
 msgid "(%d issues fixed)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:642
+#: includes/admin/class-a11yfy-admin.php:684
 msgid "Remediation in progress…"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:646
+#: includes/admin/class-a11yfy-admin.php:688
 msgid "Remediation failed"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:656
+#: includes/admin/class-a11yfy-admin.php:698
 msgid "Not sent"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:662
-#: includes/admin/views/dashboard.php:183
+#: includes/admin/class-a11yfy-admin.php:704
+#: includes/admin/views/dashboard.php:201
 msgid "Passed pre-check"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:672
-#: includes/admin/views/dashboard.php:187
+#: includes/admin/class-a11yfy-admin.php:714
+#: includes/admin/views/dashboard.php:205
 msgid "Not scanned yet"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:678
+#: includes/admin/class-a11yfy-admin.php:720
 msgid "Make accessible with a11yfy"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:708
+#: includes/admin/class-a11yfy-admin.php:750
 msgid "Restore original (a11yfy)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:723
+#: includes/admin/class-a11yfy-admin.php:765
 msgid "Make accessible (a11yfy)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:733
+#: includes/admin/class-a11yfy-admin.php:775
 msgid "Certificate (a11yfy)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-ajax.php:41
+#: includes/admin/class-a11yfy-ajax.php:51
 msgid "Session expired — reload the page."
 msgstr ""
 
-#: includes/admin/class-a11yfy-ajax.php:44
-#: includes/admin/class-a11yfy-ajax.php:149
-#: includes/admin/class-a11yfy-ajax.php:273
-#: includes/admin/class-a11yfy-ajax.php:303
+#: includes/admin/class-a11yfy-ajax.php:54
+#: includes/admin/class-a11yfy-ajax.php:192
+#: includes/admin/class-a11yfy-ajax.php:214
+#: includes/admin/class-a11yfy-ajax.php:344
+#: includes/admin/class-a11yfy-ajax.php:374
 msgid "You are not allowed to do that."
 msgstr ""
 
-#: includes/admin/class-a11yfy-ajax.php:362
+#: includes/admin/class-a11yfy-ajax.php:433
 msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
 msgstr ""
 
-#: includes/admin/class-a11yfy-ajax.php:378
-#: includes/admin/class-a11yfy-ajax.php:403
+#: includes/admin/class-a11yfy-ajax.php:449
+#: includes/admin/class-a11yfy-ajax.php:474
 msgid "Connect your a11yfy account first (Settings)."
 msgstr ""
 
@@ -490,150 +517,186 @@ msgid "Remediation sets the tagged-PDF flag together with a valid structure tree
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:69
-msgid "An image is invisible to screen readers"
+msgid "The encrypted file is missing its permissions entry"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:70
-msgid "The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it exists — even a text description cannot be attached."
+msgid "The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen readers may access the content."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:72
-msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:75
-msgid "The declared document language does not match the text"
+msgid "The encryption blocks screen reader access"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:76
-msgid "The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and pronunciation from the declared language, so the content would be read with the wrong voice."
+msgid "The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read the document at all."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:78
-msgid "Remediation sets the document language to the language the text is actually written in."
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:81
-msgid "The document has no headings at all"
+msgid "An image is invisible to screen readers"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:82
-msgid "The document contains substantial text but not a single heading element. Screen reader users navigate primarily by headings — without them the document must be read linearly from start to finish."
+msgid "The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it exists — even a text description cannot be attached."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:84
-msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:87
-msgid "A long document has no bookmarks"
+msgid "Unmarked graphic elements in the document"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:88
-msgid "The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive technology users — jump straight to a section."
+msgid "The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. PDF/UA validators flag these as untagged content."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:90
-msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgid "Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry content."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:93
-msgid "A table has no header cells"
+msgid "The declared document language does not match the text"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:94
-msgid "A data table contains no TH header cells. Screen readers announce the matching header before each cell — without headers the user hears bare numbers with no context."
+msgid "The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and pronunciation from the declared language, so the content would be read with the wrong voice."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:96
-msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgid "Remediation sets the document language to the language the text is actually written in."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:99
-msgid "An image description looks like a placeholder"
+msgid "The document has no headings at all"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:100
-msgid "An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen reader user learns nothing about what the image actually shows."
+msgid "The document contains substantial text but not a single heading element. Screen reader users navigate primarily by headings — without them the document must be read linearly from start to finish."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:102
-msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:105
+msgid "A long document has no bookmarks"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:106
+msgid "The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive technology users — jump straight to a section."
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:108
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:111
+msgid "A table has no header cells"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:112
-msgid "Critical"
-msgstr ""
-
-#: includes/admin/class-a11yfy-scan-report.php:113
-msgid "Serious"
+msgid "A data table contains no TH header cells. Screen readers announce the matching header before each cell — without headers the user hears bare numbers with no context."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:114
-msgid "Minor"
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:126
-msgid "Tagging & structure"
+#: includes/admin/class-a11yfy-scan-report.php:117
+msgid "An image description looks like a placeholder"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:127
-msgid "Headings"
+#: includes/admin/class-a11yfy-scan-report.php:118
+msgid "An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen reader user learns nothing about what the image actually shows."
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:128
-msgid "Images & formulas"
-msgstr ""
-
-#: includes/admin/class-a11yfy-scan-report.php:129
-msgid "Tables"
+#: includes/admin/class-a11yfy-scan-report.php:120
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:130
-msgid "Lists & table of contents"
+msgid "Critical"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:131
-msgid "Forms, links & annotations"
+msgid "Serious"
 msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Minor"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:144
+msgid "Tagging & structure"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:145
+msgid "Headings"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:146
+msgid "Images & formulas"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:147
+msgid "Tables"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:148
+msgid "Lists & table of contents"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:149
+msgid "Forms, links & annotations"
+msgstr ""
+
+#: includes/admin/class-a11yfy-scan-report.php:150
 msgid "Language"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:133
+#: includes/admin/class-a11yfy-scan-report.php:151
 msgid "Metadata & display"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:134
+#: includes/admin/class-a11yfy-scan-report.php:152
 msgid "Encryption & permissions"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:135
+#: includes/admin/class-a11yfy-scan-report.php:153
 msgid "Other technical"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:188
+#: includes/admin/class-a11yfy-scan-report.php:207
 msgid "Is the reading order logical when the content is read from start to finish?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:189
+#: includes/admin/class-a11yfy-scan-report.php:208
 msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:190
+#: includes/admin/class-a11yfy-scan-report.php:209
 msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:191
+#: includes/admin/class-a11yfy-scan-report.php:210
 msgid "Are link texts meaningful on their own (“click here” is not)?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:192
+#: includes/admin/class-a11yfy-scan-report.php:211
 msgid "Do tables have real header cells and a simple, regular structure?"
 msgstr ""
 
-#: includes/admin/class-a11yfy-scan-report.php:193
+#: includes/admin/class-a11yfy-scan-report.php:212
 msgid "Is the document title informative when shown in a reader’s title bar?"
 msgstr ""
 
@@ -641,379 +704,418 @@ msgstr ""
 msgid "Connected to a11yfy"
 msgstr ""
 
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+#: includes/admin/views/dashboard.php:41
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr ""
+
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+#: includes/admin/views/dashboard.php:44
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr ""
+
+#. translators: %d: remaining delegated credits.
+#: includes/admin/views/dashboard.php:47
+msgid "Delegated credits: %d"
+msgstr ""
+
 #. translators: %d: credit balance.
-#: includes/admin/views/dashboard.php:36
+#: includes/admin/views/dashboard.php:53
 msgid "Credits: %d"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:38
+#: includes/admin/views/dashboard.php:55
 msgid "Top up"
 msgstr ""
 
 #. translators: 1: credits spent this month, 2: monthly cap.
-#: includes/admin/views/dashboard.php:45
+#: includes/admin/views/dashboard.php:63
 msgid "This month: %1$d / %2$d credits"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:50
+#: includes/admin/views/dashboard.php:68
 msgid "Not connected — the free scan works without an account."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:53
+#: includes/admin/views/dashboard.php:71
 msgid "Connect a11yfy"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:65
+#: includes/admin/views/dashboard.php:83
 msgid "PDF optimization conflict detected"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:67
+#: includes/admin/views/dashboard.php:85
 msgid "The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:76
+#: includes/admin/views/dashboard.php:94
 msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:78
+#: includes/admin/views/dashboard.php:96
 msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:84
+#: includes/admin/views/dashboard.php:102
 msgid "Turn off ShortPixel PDF optimization"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:96
+#: includes/admin/views/dashboard.php:114
 msgid "Connected. How should we work?"
 msgstr ""
 
 #. translators: %d: number of non-compliant PDFs found by the free scan.
-#: includes/admin/views/dashboard.php:104
-msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
-msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+#: includes/admin/views/dashboard.php:122
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/admin/views/dashboard.php:122
-#: includes/admin/views/settings.php:80
+#: includes/admin/views/dashboard.php:140
+#: includes/admin/views/settings.php:91
 msgid "How should we work?"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:127
-#: includes/admin/views/settings.php:88
+#: includes/admin/views/dashboard.php:145
+#: includes/admin/views/settings.php:99
 msgid "Automatic (recommended)"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:129
+#: includes/admin/views/dashboard.php:147
 msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
 msgstr ""
 
 #. translators: %s: number input for the monthly credit cap.
-#: includes/admin/views/dashboard.php:135
+#: includes/admin/views/dashboard.php:153
 msgid "Monthly cap: %s credits"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:139
-#: includes/admin/views/settings.php:100
+#: includes/admin/views/dashboard.php:157
+#: includes/admin/views/settings.php:111
 msgid "Monthly credit cap"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:142
+#: includes/admin/views/dashboard.php:160
 msgid "0 = no monthly limit."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:150
-#: includes/admin/views/settings.php:93
+#: includes/admin/views/dashboard.php:168
+#: includes/admin/views/settings.php:104
 msgid "Manual"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:152
+#: includes/admin/views/dashboard.php:170
 msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:160
+#: includes/admin/views/dashboard.php:178
 msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:166
+#: includes/admin/views/dashboard.php:184
 msgid "Start working"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:174
+#: includes/admin/views/dashboard.php:192
 msgid "PDF status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:176
+#: includes/admin/views/dashboard.php:194
 msgid "Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves your site."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:184
+#: includes/admin/views/dashboard.php:202
 msgid "Partially accessible"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:186
+#: includes/admin/views/dashboard.php:204
 msgid "Remediated by a11yfy"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:190
+#: includes/admin/views/dashboard.php:208
 msgid "Filter the PDF list by status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:203
-#: includes/admin/views/dashboard.php:258
+#: includes/admin/views/dashboard.php:221
+#: includes/admin/views/dashboard.php:289
 msgid "File"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:204
-#: includes/admin/views/dashboard.php:259
+#: includes/admin/views/dashboard.php:222
+#: includes/admin/views/dashboard.php:290
 msgid "Status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:205
+#: includes/admin/views/dashboard.php:223
 msgid "Actions"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:210
+#: includes/admin/views/dashboard.php:228
 msgid "No PDFs match the selected filters."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:213
+#: includes/admin/views/dashboard.php:231
 msgid "Load more"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:219
+#: includes/admin/views/dashboard.php:237
 msgid "Scan PDF library"
 msgstr ""
 
 #. translators: %d: number of non-compliant PDFs.
-#: includes/admin/views/dashboard.php:229
-msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+#: includes/admin/views/dashboard.php:247
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:234
+#: includes/admin/views/dashboard.php:252
 msgid "Fix all"
 msgstr ""
 
 #. translators: 1: estimated credits, 2: current balance.
-#: includes/admin/views/dashboard.php:241
+#: includes/admin/views/dashboard.php:261
 msgid "estimated: up to ~%1$d credits — your balance: %2$d"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:253
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+#: includes/admin/views/dashboard.php:270
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr ""
+
+#: includes/admin/views/dashboard.php:284
 msgid "Remediation jobs"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:254
+#: includes/admin/views/dashboard.php:285
 msgid "No remediation has been run yet."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:260
+#: includes/admin/views/dashboard.php:291
 msgid "Result"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:261
+#: includes/admin/views/dashboard.php:292
 msgid "Credits"
 msgstr ""
 
-#: includes/admin/views/document.php:22
-#: includes/admin/views/document.php:59
+#: includes/admin/views/document.php:25
+#: includes/admin/views/document.php:62
 msgid "Back to the a11yfy Dashboard"
 msgstr ""
 
-#: includes/admin/views/document.php:25
+#: includes/admin/views/document.php:28
 msgid "Document not found"
 msgstr ""
 
-#: includes/admin/views/document.php:26
+#: includes/admin/views/document.php:29
 msgid "This link does not point to a PDF in the Media Library."
 msgstr ""
 
 #. translators: %s: human-readable time difference.
-#: includes/admin/views/document.php:74
+#: includes/admin/views/document.php:77
 msgid "last scanned %s ago"
 msgstr ""
 
-#: includes/admin/views/document.php:82
-#: includes/admin/views/document.php:86
-#: includes/admin/views/document.php:87
-#: includes/admin/views/document.php:91
+#: includes/admin/views/document.php:85
+#: includes/admin/views/document.php:89
+#: includes/admin/views/document.php:90
+#: includes/admin/views/document.php:94
 msgid "Fix with a11yfy"
 msgstr ""
 
-#: includes/admin/views/document.php:99
+#: includes/admin/views/document.php:102
 msgid "Re-run the check"
 msgstr ""
 
-#: includes/admin/views/document.php:100
+#: includes/admin/views/document.php:103
 msgid "Print report"
 msgstr ""
 
-#: includes/admin/views/document.php:102
+#: includes/admin/views/document.php:105
 msgid "Which version to inspect"
 msgstr ""
 
-#: includes/admin/views/document.php:104
+#: includes/admin/views/document.php:107
 msgid "Remediated (current)"
 msgstr ""
 
-#: includes/admin/views/document.php:107
+#: includes/admin/views/document.php:110
 msgid "Original (before)"
 msgstr ""
 
-#: includes/admin/views/document.php:113
+#: includes/admin/views/document.php:116
 msgid "Download certificate"
 msgstr ""
 
-#: includes/admin/views/document.php:117
+#: includes/admin/views/document.php:120
 msgid "Open in Media Library"
 msgstr ""
 
-#: includes/admin/views/document.php:121
+#: includes/admin/views/document.php:124
 msgid "Verify certificate online"
 msgstr ""
 
-#: includes/admin/views/document.php:131
+#: includes/admin/views/document.php:134
 msgid "Accessibility findings"
 msgstr ""
 
 #: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr ""
+
+#: includes/admin/views/document.php:150
 msgid "Issues found before remediation"
 msgstr ""
 
-#: includes/admin/views/document.php:149
+#: includes/admin/views/document.php:159
 msgid "Fixed"
 msgstr ""
 
-#: includes/admin/views/document.php:149
+#: includes/admin/views/document.php:159
 msgid "Still present"
 msgstr ""
 
-#: includes/admin/views/document.php:159
+#: includes/admin/views/document.php:169
 msgid "Manual review checklist"
 msgstr ""
 
-#: includes/admin/views/document.php:161
+#: includes/admin/views/document.php:171
 msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
 msgstr ""
 
-#: includes/admin/views/document.php:194
+#: includes/admin/views/document.php:204
 msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
 msgstr ""
 
-#: includes/admin/views/settings.php:16
+#: includes/admin/views/settings.php:20
 msgid "a11yfy Settings"
 msgstr ""
 
-#: includes/admin/views/settings.php:24
+#: includes/admin/views/settings.php:28
 msgid "Connection"
 msgstr ""
 
-#: includes/admin/views/settings.php:30
+#: includes/admin/views/settings.php:34
 msgid "Connect to a11yfy"
 msgstr ""
 
-#: includes/admin/views/settings.php:34
+#: includes/admin/views/settings.php:38
 msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
 msgstr ""
 
-#: includes/admin/views/settings.php:40
+#: includes/admin/views/settings.php:44
 msgid "API key"
 msgstr ""
 
-#: includes/admin/views/settings.php:45
+#: includes/admin/views/settings.php:49
 msgid "connected"
 msgstr ""
 
-#: includes/admin/views/settings.php:49
+#. translators: %s: organization name the key belongs to.
+#: includes/admin/views/settings.php:54
+msgid "Connected to: %s"
+msgstr ""
+
+#: includes/admin/views/settings.php:60
 msgid "Disconnect (remove the stored key)"
 msgstr ""
 
-#: includes/admin/views/settings.php:51
+#: includes/admin/views/settings.php:62
 msgid "To replace the key, paste a new one below."
 msgstr ""
 
 #. translators: %s: link to the a11yfy account page.
-#: includes/admin/views/settings.php:59
+#: includes/admin/views/settings.php:70
 msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
 msgstr ""
 
-#: includes/admin/views/settings.php:68
+#: includes/admin/views/settings.php:79
 msgid "Status updates"
 msgstr ""
 
-#: includes/admin/views/settings.php:71
+#: includes/admin/views/settings.php:82
 msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
 msgstr ""
 
-#: includes/admin/views/settings.php:73
+#: includes/admin/views/settings.php:84
 msgid "Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook updates when your site is publicly reachable."
 msgstr ""
 
-#: includes/admin/views/settings.php:83
+#: includes/admin/views/settings.php:94
 msgid "Mode"
 msgstr ""
 
-#: includes/admin/views/settings.php:89
+#: includes/admin/views/settings.php:100
 msgid "new PDF uploads are made accessible automatically."
 msgstr ""
 
-#: includes/admin/views/settings.php:94
+#: includes/admin/views/settings.php:105
 msgid "you pick what to fix in the Media Library or on the Dashboard."
 msgstr ""
 
-#: includes/admin/views/settings.php:104
+#: includes/admin/views/settings.php:115
 msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
 msgstr ""
 
-#: includes/admin/views/settings.php:108
+#. translators: 1: parent organization name, 2: delegated credit limit.
+#: includes/admin/views/settings.php:125
+msgid "Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached first stops remediation."
+msgstr ""
+
+#. translators: %s: parent organization name.
+#: includes/admin/views/settings.php:128
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+
+#: includes/admin/views/settings.php:136
 msgid "Low-credit warning below"
 msgstr ""
 
-#: includes/admin/views/settings.php:112
+#: includes/admin/views/settings.php:140
 msgid "Admin notice + email when the balance drops below this. 0 = off."
 msgstr ""
 
-#: includes/admin/views/settings.php:116
+#: includes/admin/views/settings.php:144
 msgid "Saving strategy"
 msgstr ""
 
-#: includes/admin/views/settings.php:121
+#: includes/admin/views/settings.php:149
 msgid "Replace in place (recommended)"
 msgstr ""
 
-#: includes/admin/views/settings.php:122
+#: includes/admin/views/settings.php:150
 msgid "same URL, original kept as a backup with one-click restore."
 msgstr ""
 
-#: includes/admin/views/settings.php:126
+#: includes/admin/views/settings.php:154
 msgid "Conservative"
 msgstr ""
 
-#: includes/admin/views/settings.php:127
+#: includes/admin/views/settings.php:155
 msgid "the original file is never touched; links are swapped when pages render."
 msgstr ""
 
-#: includes/admin/views/settings.php:133
+#: includes/admin/views/settings.php:161
 msgid "Notification email"
 msgstr ""
 
-#: includes/admin/views/settings.php:138
+#: includes/admin/views/settings.php:166
 msgid "Low-credit and failure notifications. Empty = site admin email."
 msgstr ""
 
-#: includes/admin/views/settings.php:142
+#: includes/admin/views/settings.php:170
 msgid "On plugin deletion"
 msgstr ""
 
-#: includes/admin/views/settings.php:147
+#: includes/admin/views/settings.php:175
 msgid "Keep the remediated PDFs (recommended — they are your content)."
 msgstr ""
 
-#: includes/admin/views/settings.php:151
+#: includes/admin/views/settings.php:179
 msgid "Restore the original files from backup."
 msgstr ""
 
-#: includes/admin/views/settings.php:158
+#: includes/admin/views/settings.php:186
 msgid "Save settings"
 msgstr ""
 
@@ -1109,23 +1211,31 @@ msgstr ""
 msgid "Review on the a11yfy Dashboard"
 msgstr ""
 
-#: includes/class-a11yfy-queue.php:123
-msgid "[a11yfy] Low credit balance"
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+#: includes/class-a11yfy-queue.php:149
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy organization settings."
 msgstr ""
 
 #. translators: 1: credit balance, 2: top-up URL.
-#: includes/class-a11yfy-queue.php:126
+#: includes/class-a11yfy-queue.php:156
 msgid ""
 "Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
 "\n"
 "Top up at: %2$s"
 msgstr ""
 
-#: includes/class-a11yfy-remediate-service.php:163
+#: includes/class-a11yfy-queue.php:163
+msgid "[a11yfy] Low credit balance"
+msgstr ""
+
+#: includes/class-a11yfy-remediate-service.php:169
 msgid "The job did not finish within 2 hours. Please contact a11yfy support."
 msgstr ""
 
-#: includes/class-a11yfy-remediate-service.php:273
+#: includes/class-a11yfy-remediate-service.php:283
 msgid "The job finished but no output file was provided."
 msgstr ""
 
@@ -1133,47 +1243,47 @@ msgstr ""
 msgid "The original file is not stored locally (offload plugin?) — not supported yet."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:148
+#: includes/class-a11yfy-replacer.php:149
 msgid "The remediated PDF URL is not a valid public https URL."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:155
+#: includes/class-a11yfy-replacer.php:156
 msgid "Could not download the remediated PDF from a11yfy."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:164
+#: includes/class-a11yfy-replacer.php:165
 msgid "The downloaded file is not a valid PDF."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:180
+#: includes/class-a11yfy-replacer.php:181
 msgid "Could not back up the original PDF — aborting the swap."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:189
+#: includes/class-a11yfy-replacer.php:190
 msgid "Could not write the remediated PDF over the original."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:213
+#: includes/class-a11yfy-replacer.php:214
 msgid "Could not store the remediated PDF next to the original."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:248
-#: includes/class-a11yfy-replacer.php:277
+#: includes/class-a11yfy-replacer.php:249
+#: includes/class-a11yfy-replacer.php:278
 msgid "No remediated version is recorded for this PDF."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:251
+#: includes/class-a11yfy-replacer.php:252
 msgid "No saved copy of the remediated PDF exists — run remediation again."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:254
+#: includes/class-a11yfy-replacer.php:255
 msgid "Could not write the remediated PDF back over the file."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:282
+#: includes/class-a11yfy-replacer.php:283
 msgid "The backup of the original PDF is missing."
 msgstr ""
 
-#: includes/class-a11yfy-replacer.php:286
+#: includes/class-a11yfy-replacer.php:287
 msgid "Could not restore the original PDF."
 msgstr ""

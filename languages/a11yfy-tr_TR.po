@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:45+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: tr_TR\n"
@@ -1305,3 +1305,161 @@ msgstr "Tahmini maliyet: ~%d kredi"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Tahmini maliyet: %1$d–%2$d kredi"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "elinden gelenin en iyisi"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Belge, mümkün olan en iyi şekilde onarıldı ancak PDF/UA-1 standardını tam olarak karşılamadı. Çıktı, ücretsiz olarak "
+"indirilebilir."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "ortak kuruluşunuz"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"Size tahsis edilen kredi limiti düşük (%1$d kredi kaldı). Bu limit %2$s tarafından sağlanmaktadır — limitinizin "
+"artırılmasını onlardan isteyin."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Son düzeltme işleminiz engellendi: %s tarafından belirlenen devredilen kredi limiti dolmuştur."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "Şifrelenmiş dosyada izin kaydı bulunmuyor"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Dosya şifrelenmiş olmakla birlikte, şifreleme ayarlarında herhangi bir izin girişi bulunmadığından, ekran okuyucuların "
+"içeriğe erişebileceğine dair bir garanti yoktur."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Yardımcı teknolojilerin erişimine açıkça izin veren şifreleme ayarlarıyla dosyayı yeniden kaydedin."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Şifreleme, ekran okuyucuların erişimini engelliyor"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Dosyanın şifreleme ayarları, yardımcı teknolojilerle içeriğin çıkarılmasına izin vermediğinden, ekran okuyucu bu "
+"belgeyi hiç okuyamaz."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Yardımcı teknolojilerin erişimine izin veren şifreleme ayarlarıyla dosyayı yeniden kaydedin."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Belgedeki etiketlenmemiş grafik öğeler"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Belgede, ne içerik olarak etiketlenmiş ne de dekoratif olarak işaretlenmiş çizgiler, dolgulu şekiller veya degrade "
+"efektler bulunmaktadır. PDF/UA doğrulayıcıları bunları etiketlenmemiş içerik olarak işaretler."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"Düzeltme işlemi, dekoratif grafikleri (çerçeveler, ayırıcılar, arka planlar) yapay öğeler olarak işaretler ve içerik "
+"barındıranları etiketler."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Devredilen krediler: %1$d / %2$d kaldı (%3$s tarafından sağlanmıştır)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Devredilen krediler: %1$d (%2$s tarafından sağlanmıştır)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Devredilen krediler: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] ""
+"Ücretsiz tarama sonucunda, bu sitede erişilebilirlik gerekliliklerini karşılamayan %d adet PDF dosyası tespit edildi "
+"(EAA/ADA riski)."
+msgstr[1] ""
+"Ücretsiz tarama sonucunda, bu sitede erişilebilirlik gerekliliklerini karşılamayan %d adet PDF dosyası tespit edildi "
+"(EAA/ADA riski)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d belge, erişilebilirlik gerekliliklerini karşılamamaktadır (EAA/ADA riski)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "tahmini: %1$d–%2$d kredi — bakiyeniz: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Elinden gelenin en iyisi onarım uygulandı"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Bağlı olduğu: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Not: Kredileriniz %1$s tarafından sağlanmaktadır ve her dönem için ayrı bir %2$d kredi limiti uygulanmaktadır. Hangi "
+"limit önce dolarsa, telafi süreci o anda sona erer."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Not: Kredileriniz, kendi ayrı limitine sahip %s tarafından sağlanmaktadır. Hangi limit önce dolarsa, düzeltme işlemi o "
+"anda durdurulur."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"a11yfy'de size tahsis edilen kredi bakiyeniz %1$d krediye düştü. Bu bakiye sıfıra ulaştığında PDF düzeltme işlemi "
+"durdurulacaktır.\n"
+"\n"
+"Kredileriniz %2$s tarafından sağlanmaktadır — limitinizin artırılmasını talep edin ya da a11yfy kuruluş ayarlarınızdan "
+"kendi kredilerinize geçin."

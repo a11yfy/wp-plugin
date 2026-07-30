@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:45+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: ar\n"
@@ -1285,3 +1285,158 @@ msgstr "التكلفة التقديرية: ~%d وحدة ائتمانية"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "التكلفة التقديرية: %1$d–%2$d وحدة ائتمانية"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "بذل أقصى جهد ممكن"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr "خضع المستند لأفضل عملية إصلاح ممكنة، لكنه لم يستوفِ معيار PDF/UA-1 بالكامل. ويمكن تنزيل النسخة النهائية مجانًا."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "المنظمة الشريكة لكم"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"الحد الائتماني المخصص لك منخفض (تبقى %1$d وحدة ائتمانية). يتم توفير هذا الحد من قِبل %2$s — اطلب منهم رفع الحد "
+"الائتماني الخاص بك."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "تم حظر عملية التصحيح الأخيرة التي قمت بها: فقد تم استنفاد حد الائتمان المفوض الذي حدده %s."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "الملف المشفر يفتقد إلى إدخال أذوناته"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"الملف مشفر، لكن إعدادات التشفير الخاصة به لا تتضمن أي بند يتعلق بالأذونات، لذا لا يوجد ما يضمن أن برامج قراءة الشاشة "
+"ستتمكن من الوصول إلى المحتوى."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "أعد حفظ الملف باستخدام إعدادات التشفير التي تسمح صراحةً بالوصول عبر تقنيات المساعدة."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "يمنع التشفير وصول برامج قراءة الشاشة"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"لا تسمح إعدادات تشفير الملف باستخراج المحتوى بواسطة التقنيات المساعدة، لذا لا يمكن لقارئ الشاشة قراءة المستند على "
+"الإطلاق."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "أعد حفظ الملف باستخدام إعدادات تشفير تسمح بالوصول عبر التقنيات المساعدة."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "العناصر الرسومية غير المُعلَّمة في المستند"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"تحتوي الوثيقة على خطوط أو أشكال مملوءة أو تدرجات لونية لم يتم تصنيفها كمحتوى ولا كعناصر زخرفية. وتقوم أدوات التحقق من "
+"صحة PDF/UA بتمييزها على أنها «محتوى غير مُصنَّف»."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"تقوم عملية التصحيح بتمييز العناصر الرسومية الزخرفية (الحدود، والفواصل، والخلفيات) باعتبارها عيوبًا، وتضع علامات على "
+"العناصر التي تحتوي على محتوى."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "الاعتمادات المفوضة: %1$d من %2$d متبقية (مقدمة من %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "الاعتمادات المفوضة: %1$d (مقدمة من %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "الاعتمادات المفوضة: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] "أظهر الفحص المجاني وجود %d ملفات PDF على هذا الموقع لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+msgstr[1] "أظهر الفحص المجاني وجود %d ملف PDF على هذا الموقع لا يفي بمتطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+msgstr[2] "أظهر الفحص المجاني وجود %d ملفات PDF على هذا الموقع لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+msgstr[3] "أظهر الفحص المجاني وجود %d ملفات PDF على هذا الموقع لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+msgstr[4] "أظهر الفحص المجاني وجود %d ملفات PDF على هذا الموقع لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+msgstr[5] "أظهر الفحص المجاني وجود %d ملفات PDF على هذا الموقع لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "هناك %d مستندًا لا تستوفي متطلبات إمكانية الوصول (مخاطر EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "التقدير: %1$d–%2$d وحدة ائتمان — رصيدك: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "تم تطبيق إصلاح «بأقصى جهد ممكن»"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "متصل بـ: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"ملاحظة: يتم توفير رصيدك من قبل %1$s بحد أقصى منفصل يبلغ %2$d رصيدًا لكل فترة. وعند بلوغ أي من الحدين الأقصىين أولاً، "
+"يتوقف برنامج التعويض."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"ملاحظة: يتم توفير رصيدك من قِبل %s، وله حد أقصى منفصل خاص به. وعند بلوغ أي من الحدين الأقصىين أولاً، تتوقف عملية "
+"التصحيح."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"انخفض رصيدك المخصص من a11yfy إلى %1$d نقطة. سيتوقف تصحيح ملفات PDF عندما يصل الرصيد إلى الصفر.\n"
+"\n"
+"يتم توفير نقاطك من قِبل %2$s — اطلب منهم زيادة الحد الأقصى لرصيدك، أو قم بالتبديل إلى نقاطك الخاصة من خلال إعدادات "
+"مؤسستك على a11yfy."

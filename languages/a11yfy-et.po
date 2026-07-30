@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:45+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: et\n"
@@ -1287,3 +1287,161 @@ msgstr "Eeldatav maksumus: ~%d krediiti"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Eeldatav maksumus: %1$d–%2$d krediiti"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "parim võimalik tulemus"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Dokument on parimal võimalikul viisil parandatud, kuid ei vasta täielikult PDF/UA-1 standardile. Tulemus on saadaval "
+"tasuta allalaadimiseks."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "teie partnerorganisatsioon"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"Teie delegeeritud krediidilimiit on madal (jäänud %1$d krediiti). Selle on andnud %2$s – paluge neil teie limiiti "
+"suurendada."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Teie viimane parandusmeetme rakendamine blokeeriti: %s poolt määratud delegeeritud krediidilimiit on ammendunud."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "Krüpteeritud failil puudub õiguste kirje"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Fail on krüpteeritud, kuid selle krüpteerimisseadetes puudub õiguste kirje, mistõttu ei ole tagatud, et ekraanilugejad "
+"saaksid selle sisu kätte."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Salvestage fail uuesti, kasutades krüpteerimisseadeid, mis lubavad selgesõnaliselt abitehnoloogiatele juurdepääsu."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Krüpteerimine takistab ekraanilugeja juurdepääsu"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Faili krüpteerimisseaded ei luba abitehnoloogial sisu välja lugeda, mistõttu ekraanilugeja ei suuda dokumenti üldse "
+"ette lugeda."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Salvestage fail uuesti selliste krüpteerimisseadetega, mis võimaldavad abitehnoloogiatel sellele juurde pääseda."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Dokumendis olevad märgistamata graafilised elemendid"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Dokument sisaldab jooni, täidetud kujundeid või värviüleminekuid, mida ei ole märgistatud ei sisuna ega kaunistusena. "
+"PDF/UA-validaatorid märgivad need märgistamata sisuna."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"Puhastamine märgistab dekoratiivsed graafikaelemendid (piirid, eraldajad, taustad) artefaktidena ja märgistab need, mis "
+"sisaldavad sisu."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Delegeeritud krediidid: %1$d / %2$d jäänud (pakub %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Delegeeritud krediidid: %1$d (pakub %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Delegeeritud krediidid: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] ""
+"Tasuta skannimise käigus leiti sellelt veebisaidilt %d PDF-faili, mis ei vasta juurdepääsetavuse nõuetele (EAA/ADA "
+"risk)."
+msgstr[1] ""
+"Tasuta skannimise käigus leiti sellelt veebisaidilt %d PDF-faili, mis ei vasta juurdepääsetavuse nõuetele (EAA/ADA "
+"risk)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d dokumenti ei vasta juurdepääsetavuse nõuetele (EAA/ADA risk)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "hinnanguliselt: %1$d–%2$d krediiti — sinu saldo: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Kohaldati parima püüdluse põhimõttel põhinevat parandamist"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Ühendatud: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Märkus: teie krediidid annab %1$s, kusjuures iga perioodi kohta kehtib eraldi piirang %2$d krediiti. Kui ükskõik kumb "
+"piirang esimesena täitub, peatatakse parandusmeetmed."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Märkus: teie krediidid pakub %s, millel on oma eraldi limiit. Kui ükskõik kumb limiit esimesena täitub, peatatakse "
+"parandusmeetmed."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"Teie a11yfy delegeeritud krediidilimiit on vähenenud %1$d krediidini. PDF-failide parandamine peatatakse, kui see jõuab "
+"nullini.\n"
+"\n"
+"Teie krediite pakub %2$s – paluge neil teie limiiti suurendada või vahetage a11yfy organisatsiooni seadetest üle "
+"omaenda krediitidele."

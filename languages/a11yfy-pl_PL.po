@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
-"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"PO-Revision-Date: 2026-07-30 08:45+0000\n"
 "X-Generator: a11yfy translate-po.mjs (DeepL)\n"
 "X-Domain: a11yfy\n"
 "Language: pl_PL\n"
@@ -1318,3 +1318,164 @@ msgstr "Szacowany koszt: ~%d kredytów"
 #. translators: 1: minimum credits, 2: maximum credits.
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr "Szacowany koszt: %1$d–%2$d kredytów"
+
+#: includes/admin/class-a11yfy-admin.php:109
+msgid "best effort"
+msgstr "z dołożeniem wszelkich starań"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid ""
+"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
+"for free download."
+msgstr ""
+"Dokument został poddany najlepszej możliwej obróbce, ale nie spełnia w pełni wymagań standardu PDF/UA-1. Plik wyjściowy "
+"można pobrać bezpłatnie."
+
+#: includes/admin/class-a11yfy-admin.php:447
+#: includes/admin/views/settings.php:121
+#: includes/class-a11yfy-queue.php:146
+msgid "your partner organization"
+msgstr "wasza organizacja partnerska"
+
+#: includes/admin/class-a11yfy-admin.php:453
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
+msgstr ""
+"Twój limit kredytowy przyznany przez inną osobę jest niski (pozostało %1$d punktów kredytowych). Limit ten został "
+"przyznany przez %2$s — poproś tę osobę o zwiększenie limitu."
+
+#: includes/admin/class-a11yfy-admin.php:455
+#. translators: %s: parent organization name.
+msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
+msgstr "Twoja ostatnia operacja naprawcza została zablokowana: wyczerpał się limit kredytowy ustalony przez %s."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "The encrypted file is missing its permissions entry"
+msgstr "W zaszyfrowanym pliku brakuje wpisu dotyczącego uprawnień"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
+"readers may access the content."
+msgstr ""
+"Plik jest zaszyfrowany, ale w jego ustawieniach szyfrowania nie ma pozycji dotyczącej uprawnień, więc nie ma gwarancji, "
+"że czytniki ekranu będą mogły uzyskać dostęp do jego treści."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
+msgstr "Zapisz plik ponownie, stosując ustawienia szyfrowania, które wyraźnie zezwalają na dostęp technologii wspomagających."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The encryption blocks screen reader access"
+msgstr "Szyfrowanie blokuje dostęp czytników ekranu"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
+"the document at all."
+msgstr ""
+"Ustawienia szyfrowania pliku uniemożliwiają wyodrębnienie treści za pomocą technologii wspomagających, w związku z czym "
+"czytnik ekranu nie jest w stanie odczytać tego dokumentu."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Re-save the file with encryption settings that allow assistive-technology access."
+msgstr "Zapisz plik ponownie, stosując ustawienia szyfrowania, które umożliwiają dostęp za pomocą technologii wspomagających."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "Unmarked graphic elements in the document"
+msgstr "Nieoznaczone elementy graficzne w dokumencie"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
+"PDF/UA validators flag these as untagged content."
+msgstr ""
+"Dokument zawiera linie, wypełnione kształty lub gradienty, które nie są oznaczone ani jako treść, ani jako elementy "
+"dekoracyjne. Narzędzia do sprawdzania zgodności z PDF/UA sygnalizują je jako treść nieoznaczoną."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid ""
+"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
+"content."
+msgstr ""
+"Funkcja „Remediation” oznacza elementy grafiki dekoracyjnej (ramki, separatory, tła) jako artefakty i oznacza te, które "
+"zawierają treść."
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
+msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
+msgstr "Punkty przyznane przez innych: pozostało %1$d z %2$d (przyznane przez %3$s)"
+
+#: includes/admin/views/dashboard.php:44
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid "Delegated credits: %1$d (provided by %2$s)"
+msgstr "Punkty przyznane przez innych: %1$d (przyznane przez %2$s)"
+
+#: includes/admin/views/dashboard.php:47
+#. translators: %d: remaining delegated credits.
+msgid "Delegated credits: %d"
+msgstr "Punkty przyznane przez innych: %d"
+
+#: includes/admin/views/dashboard.php:122
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr[0] ""
+"W ramach bezpłatnego skanowania wykryto na tej stronie %d plików PDF, które nie spełniają wymogów dotyczących "
+"dostępności (ryzyko związane z EAA/ADA)."
+msgstr[1] ""
+"W ramach bezpłatnego skanowania wykryto na tej stronie %d pliki PDF, które nie spełniają wymogów dotyczących "
+"dostępności (ryzyko związane z EAA/ADA)."
+msgstr[2] ""
+"W ramach bezpłatnego skanowania wykryto na tej stronie %d pliki PDF, które nie spełniają wymogów dotyczących "
+"dostępności (ryzyko związane z EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:247
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
+msgstr "%d dokumentów nie spełnia wymogów dotyczących dostępności (ryzyko związane z EAA/ADA)."
+
+#: includes/admin/views/dashboard.php:270
+#. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
+msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
+msgstr "szacowana liczba punktów: %1$d–%2$d — saldo: %3$d"
+
+#: includes/admin/views/document.php:140
+msgid "Best-effort repair applied"
+msgstr "Zastosowano naprawę w ramach najlepszych starań"
+
+#: includes/admin/views/settings.php:54
+#. translators: %s: organization name the key belongs to.
+msgid "Connected to: %s"
+msgstr "Połączono z: %s"
+
+#: includes/admin/views/settings.php:125
+#. translators: 1: parent organization name, 2: delegated credit limit.
+msgid ""
+"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
+"first stops remediation."
+msgstr ""
+"Uwaga: Twoje punkty są przyznawane przez %1$s, a ich limit wynosi %2$d punktów na okres. Osiągnięcie dowolnego z tych "
+"limitów powoduje przerwanie procesu naprawczego."
+
+#: includes/admin/views/settings.php:128
+#. translators: %s: parent organization name.
+msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
+msgstr ""
+"Uwaga: Twoje kredyty są przyznawane przez %s i podlegają odrębnemu limitowi. Osiągnięcie dowolnego z tych limitów "
+"spowoduje przerwanie procesu naprawczego."
+
+#: includes/class-a11yfy-queue.php:149
+#. translators: 1: remaining delegated credits, 2: parent organization name.
+msgid ""
+"Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
+"organization settings."
+msgstr ""
+"Twój limit kredytów przyznanych przez a11yfy spadł do %1$d kredytów. Naprawa plików PDF zostanie wstrzymana, gdy limit "
+"osiągnie zero.\n"
+"\n"
+"Twoje kredyty są zapewniane przez %2$s — poproś tę firmę o podwyższenie limitu lub przełącz się na własne kredyty w "
+"ustawieniach organizacji a11yfy."
