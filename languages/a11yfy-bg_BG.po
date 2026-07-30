@@ -1,0 +1,1307 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr ""
+"Безплатна проверка на достъпността на PDF файлове директно в браузъра (автоматични проверки по протокола „Матерхорн“) и "
+"коригиране на PDF файлове съгласно стандарта PDF/UA-1 с едно кликване чрез услугата a11yfy."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — Достъпност на PDF файлове"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "Табло"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "Сканиране… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "Сканирането приключи: Проверени са %d PDF файла."
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "Сканирането на %s се провали"
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "Няма нужда да сканирате PDF-файлове — всичко е актуализирано."
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "В опашката за поправка има %d PDF файла."
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Не ви е позволено да променяте настройките на a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "Настройките са запазени."
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "Свързан съм с a11yfy — API ключът работи."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "Свързано с a11yfy — активирани са незабавни актуализации на състоянието (чрез уебхук)."
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "Връзката е прекъсната. Запазеният API ключ беше премахнат."
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "Това не прилича на API ключ от a11yfy (очакваше се ak_live_… или ak_test_…). Останалите настройки бяха запазени."
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr ""
+"a11yfy отхвърли API ключа. Проверете го на a11yfy.com в раздела „Акаунт“ → „API ключове“. Останалите настройки бяха "
+"запазени."
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "Връзката с a11yfy.com беше прекъсната."
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "Свързването с a11yfy се провали — моля, опитайте отново."
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr ""
+"Не беше възможно да се провери отговорът на заявката за свързване (заявката е изтекла или е била подправена). Моля, "
+"опитайте отново."
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "Всичко е готово — a11yfy е готов за работа."
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: %d PDF файла в опашката за коригиране. Проследявайте напредъка в таблото за управление на a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "Кредитният ви баланс е нисък (остават %d кредита). Процесът на възстановяване ще спре, когато достигне нула."
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "Последната ви корекция беше блокирана: нямате достатъчно кредити."
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "Допълнете баланса си на a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy – достъпност на PDF файлове"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "a11yfy е настроен и работи"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "Достъпност"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "Опашката за работа на заден план е налична и връзката с a11yfy функционира."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "Фоновата обработка на a11yfy не е достъпна"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr ""
+"Не беше възможно да се зареди Action Scheduler — актуализациите на състоянието на отстраняването на проблема ще се "
+"извършват бавно (резервен вариант с WP-cron, задействан при посещение)."
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "a11yfy не е свързан"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "Безплатното сканиране работи, но за корекцията на PDF файлове е необходим API ключ за a11yfy (a11yfy → Настройки)."
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "%d PDF файла на този сайт не са достъпни"
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Отворете таблото за управление на a11yfy, за да ги прегледате и коригирате."
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "В съответствие с изискванията"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "Саниран"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d отстранени проблеми)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "В момента се извършва възстановяване…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "Възстановяването се провали"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "Преминала предварителна проверка"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "Нисък риск"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "Средно ниво на риск"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "Висок риск"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "Няма достъп"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "Все още не е сканирано"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "Осигурете достъпност с a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "Възстановяване на оригиналния вариант (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "Осигурете достъпност (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "Сесията изтече — презаредете страницата."
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "Не ти е позволено да правиш това."
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "Първо свържете профила си в a11yfy (Настройки)."
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "Свързано с a11yfy"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "Кредити: %d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "Допълни"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "Този месец: %1$d / %2$d кредита"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "Няма връзка — безплатното сканиране работи и без профил."
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "Свържете се с a11yfy"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "Свързани. Как трябва да работим?"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] "Безплатното сканиране откри %d PDF файла на този сайт, които не отговарят на изискванията за достъпност (риск по EAA)."
+msgstr[1] "Безплатното сканиране откри %d PDF файла на този сайт, които не отговарят на изискванията за достъпност (риск по EAA)."
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "Как трябва да работим?"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "Автоматично (препоръчително)"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "Няма нужда да правите нищо: всеки път, когато се качи PDF файл, той става достъпен автоматично."
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "Месечен лимит: %s кредита"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "Месечен кредитен лимит"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "Ръководство"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr ""
+"Можете да започнете коригирането сами — в медийната библиотека или на този контролен панел. Нищо не се случва без "
+"вашето действие."
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr ""
+"Съвет: първо стартирайте безплатното сканиране по-долу, за да видите как се представя този сайт — изборът ви по-горе е "
+"валиден и в двата случая."
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "Започнете работа"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "Статус на PDF файла"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr ""
+"Безплатна предварителна техническа проверка спрямо критериите за съответствие с PDF/UA-1, които могат да бъдат "
+"проверени автоматично — извършва се в браузъра ви, като нито един файл не напуска вашия сайт."
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "Частично достъпен"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "Преработено от a11yfy"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "Библиотека с сканирани PDF файлове"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d документа не отговарят на изискванията за достъпност (риск по EAA)."
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "Поправи всичко"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "очаквано: до ~%1$d кредита — вашето салдо: %2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "Работи по саниране"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "Все още не е извършено коригиране."
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "Файл"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "Статус"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "Резултат"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "Благодарности"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "Настройки на a11yfy"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "Връзка"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "Свържете се с a11yfy"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr ""
+"С едно кликване: влезте или се регистрирайте в a11yfy.com, потвърдете достъпа и готово. Като алтернатива можете да "
+"въведете API ключ по-долу."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "API ключ"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "свързан"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "Прекъсване на връзката (премахване на запаметения ключ)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "За да замените ключа, поставете нов под него."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr ""
+"Създайте ключ в %s в раздела „Акаунт“ → „API ключове“. Ключът се съхранява в криптиран вид и никога не се изпраща към "
+"браузъра."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "Актуализации на състоянието"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr ""
+"Незабавно (уебхук) — a11yfy уведомява този сайт веднага щом дадена задача приключи; периодичното проверяване остава "
+"като предпазна мярка."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr ""
+"Проверка — сайтът проверява състоянието на задачата във фонов режим. Повторното свързване чрез последователността от "
+"бутони позволява незабавни актуализации чрез уебхук, когато сайтът ви е публично достъпен."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "Режим"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "Новите качени PDF файлове стават достъпни автоматично."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "можете да изберете какво да редактирате в медийната библиотека или на таблото."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "Възстановяването се прекъсва, когато през календарния месец бъдат изразходвани толкова кредити. 0 = без ограничение."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "Предупреждение за нисък кредитен рейтинг по-долу"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "Уведомление от администратора + имейл, когато балансът падне под тази стойност. 0 = изключено."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "Стратегия за спестяване"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "Замяна на място (препоръчително)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "същият URL адрес, оригиналът се запазва като резервно копие с възможност за възстановяване с едно кликване."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "Консервативен"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "оригиналният файл остава непроменен; връзките се заменят при зареждането на страниците."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "Имейл с уведомление"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Уведомления за нисък кредитен рейтинг и неуспехи. Празно = имейл на администратора на сайта."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "При изтриване на плъгин"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Запазете коригираните PDF файлове (препоръчително — те представляват вашето съдържание)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "Възстановете оригиналните файлове от резервното копие."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "Запази настройките"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "Не беше възможно да се прочете PDF файлът от диска."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "Няма конфигуриран API ключ a11yfy."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "Грешка в API-то на a11yfy (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Нямате право да се свързвате с този сайт."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "Прикаченият файл не е наличен в локалната файлова система."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "Този PDF файл е по-голям от 50 MB — над текущия лимит за обработка."
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr ""
+"Няма достатъчно PHP памет, за да се качи този PDF файл безопасно. Увеличете стойността на `memory_limit` или "
+"използвайте по-малък файл."
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "Месечният лимит за кредити, определен за този сайт, е изчерпан."
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr ""
+"Този PDF файл вече е преминал предварителната проверка за достъпност — прескача се, за да се избегне ненужното "
+"използване на кредит."
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "Точно този файл вече е бил поправен."
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "За този PDF файл вече се изпълнява задача за поправка."
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] Нисък кредитен баланс"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"Кредитният ви баланс в a11yfy е спаднал до %1$d кредита. Корекцията на PDF файловете ще спре, когато балансът достигне "
+"нула.\n"
+"\n"
+"Допълнете баланса си на: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "Задачата не приключи в рамките на 2 часа. Моля, свържете се с отдела за поддръжка на a11yfy."
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "Задачата приключи, но не беше създаден изходен файл."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "Оригиналният файл не се съхранява локално (плъгин за прехвърляне?) — все още не се поддържа."
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "Не успях да изтегля коригирания PDF файл от a11yfy."
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "Изтегленият файл не е валиден PDF файл."
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "Не можа да се направи резервно копие на оригиналния PDF файл — прекъсване на замяната."
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "Не беше възможно да се запише коригираният PDF файл върху оригинала."
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "Не беше възможно да се запише коригираният PDF файл до оригинала."
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "За този PDF файл няма регистрирана коригирана версия."
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "Липсва резервното копие на оригиналния PDF файл."
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "Не успях да възстановя оригиналния PDF файл."
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "Поправка"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "Възстановяване"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "Подробности"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "Филтриране на списъка с PDF файлове по статус"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "Действия"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "Няма PDF файлове, отговарящи на избраните филтри."
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "Зареждане на още"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "Скрий подробностите"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "Отвори в медийната библиотека"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "Приложете отново поправката (безплатно)"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "Променено от друга програма"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "Засегнати страници: %s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "Не бяха открити проблеми с достъпността, които да могат да бъдат засечени от машини."
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "Не можаха да се заредят подробностите."
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "Намерени са %1$d вида проблеми — %2$d проверки са преминали успешно."
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "Оптимизацията на PDF файлове с ShortPixel вече е изключена."
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "Все още няма запазен резултат от сканиране за този PDF файл — първо изпълнете сканирането."
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "Не успях да променя настройките на ShortPixel — деактивирайте оптимизацията за PDF в „Настройки“ → „ShortPixel“."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "PDF файлът изобщо няма структура от тагове"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr ""
+"Документът не съдържа структурно дърво (етикети). Програмите за четене на екрана не получават заглавия, абзаци, списъци "
+"или таблици — съдържанието се чете като неструктуриран поток или изобщо не се чете."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "Функцията за поправка автоматично възстановява цялата структура на таговете."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "PDF файлът не е маркиран като файл с тагове"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr ""
+"Записът „MarkInfo“ липсва или не е зададен на „Marked“. Помощните технологии не могат да се доверят на структурата на "
+"етикетите, дори ако части от нея съществуват."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "Функцията „Remediation“ задава флага за маркиран PDF заедно с валидно дърво на структурата."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "Критично"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "Сериозно"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "Непълнолетен"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "Открит конфликт при оптимизацията на PDF файла"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"Посочените по-долу плъгини компресират PDF файлове. Компресирането презаписва PDF файла и премахва структурата му за "
+"достъпност (етикети, език, метаданни по стандарта PDF/UA) — то може също така да унищожи PDF файлове, които вече са "
+"били адаптирани с вашите кредити от a11yfy."
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr ""
+"Файловете, които са били коригирани от a11yfy, се изключват автоматично, но всички останали PDF файлове все още са "
+"изложени на риск."
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "този плъгин не предлага надеждно изключване на отделни файлове — a11yfy не може да защити отделни PDF файлове от него."
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "Деактивирайте оптимизацията на PDF файлове с ShortPixel"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "Достъпен PDF (a11yfy) — при оптимизацията биха били премахнати етикетите за достъпност."
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "Конфликти при оптимизацията на PDF файлове (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "Нито един оптимизатор на изображения не презаписва PDF файлове"
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr ""
+"Не беше открит активен плъгин, който да компресира PDF файлове. Компресирането на PDF файлове води до презаписване на "
+"файла и премахване на таговете за достъпност."
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "Оптимизацията на PDF файлове е активирана в %s — тя премахва таговете за достъпност от PDF файловете"
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"Компресирането на PDF файл води до презаписване на файла и премахване на структурата за достъпност (етикети, език, "
+"метаданни по стандарта PDF/UA) — включително и при PDF файлове, които вече са били оптимизирани с a11yfy. Деактивирайте "
+"оптимизацията на PDF файлове в настройките на приставката; a11yfy също така защитава индивидуално оптимизираните "
+"файлове, когато оптимизаторът поддържа тази функция."
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "Преглед на таблото за управление на a11yfy"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "Няма запазено копие на коригирания PDF файл — изпълнете корекцията отново."
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "Не беше възможно да се запише коригираният PDF файл върху оригиналния файл."
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "Проблеми, открити преди отстраняването им"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "Поправено"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "Все още налице"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "Извършете сканирането отново, за да проверите текущото състояние на поправения файл."
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "Редактиране"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "Свържете профила си в a11yfy, за да активирате корекцията на PDF файлове."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "технически ремонт"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "пълна ремонти"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "Свързване на профил"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr ""
+"API ключът не можеше да бъде съхранен по сигурен начин на този сървър (криптирането не е налично). Ключът НЕ беше "
+"запазен — попитайте вашия хостинг доставчик за разширението „sodium“ за PHP. Останалите настройки бяха запазени."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr ""
+"В момента функцията за коригиране на PDF файлове не е достъпна. Свържете своя акаунт в a11yfy, за да я активирате — "
+"безплатното сканиране продължава да работи и в двата случая."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "Скрий това съобщение"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = без месечен лимит."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr ""
+"Този PDF файл е защитен с парола или е криптиран. Премахнете защитата, след което изпълнете процедурата за поправка "
+"отново."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "URL адресът на коригирания PDF файл не е валиден публичен https адрес."
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "Подробности за документа"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "Анализ на документа…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "Документът не можа да бъде анализиран."
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "Резултат: %d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "Засяга целия документ"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "Страница %1$d от %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%d страници"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "Технически подробности"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d резултата на тази страница"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "Отиди на страница %d"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "Страница %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "Предишна страница"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "Следваща страница"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "Увеличи"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "Намали мащаба"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "Корекцията е в опашката — проследете я на таблото за управление."
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "Възникна проблем — моля, опитайте отново."
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "Не беше възможно да се визуализира предварителният преглед (анализът все пак работи)."
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~%d%% от текста не е маркиран — екранните четци го пропускат или го четат в неправилен ред."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "Показване на оригиналния файл (преди поправката) — този анализ не се запазва."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "Изображението е невидимо за екранните четци"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr ""
+"Изображението не е обозначено нито като „фигура“, нито като декоративно (артефакт). Потребител на екранен четец никога "
+"няма да разбере за неговото съществуване — дори не може да бъде прикачено текстово описание."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr "Функцията за коригиране маркира реалните изображения като „Фигури“ с описание, а декоративните – като „артефакти“."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "Декларираният език на документа не съвпада с текста"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"В PDF файла е зададен един език, но текстът на страницата изглежда е написан на друг. Екранните четци избират гласа и "
+"произношението си според зададения език, така че съдържанието би било прочетено с грешен глас."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "Функцията „Корекция“ задава езика на документа според езика, на който действително е написан текстът."
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "В документа изобщо няма заглавия"
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr ""
+"Документът съдържа значителен обем текст, но няма нито един елемент „заглавие“. Потребителите на екранни четци се "
+"ориентират предимно по заглавията — без тях документът трябва да се чете линейно от началото до края."
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Маркирайте заглавията на разделите като заглавни елементи (H1–H6), за да може да се навигира в структурата на документа."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "Дългият документ няма маркери"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr ""
+"Документът е с обем от десет страници или повече, но няма структура с маркери. Маркерите позволяват на всеки читател — "
+"а не само на потребителите на помощни технологии — да премине директно към даден раздел."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "Добавете структура на маркерите, която отразява структурата на разделите в документа."
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "Таблицата няма клетки за заглавие"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr ""
+"Таблицата с данни не съдържа заглавни клетки с буквата „TH“. Програмите за четене на екрана обявяват съответстващото "
+"заглавие преди всяка клетка — без заглавията потребителят чува само числа без контекст."
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Маркирайте първия ред и/или първата колона като заглавни клетки TH с подходящ обхват."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "Описанието на изображението изглежда като заместващ текст"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr ""
+"Изображението има алтернативен текст, но той прилича на име на файл или на общ заместващ текст (например „image3.png“). "
+"Потребителят на екранен четец не получава никаква информация за това, какво всъщност показва изображението."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "Заменете мястото за текст с описание, което отразява смисъла на изображението."
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "Маркиране и структура"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "Заглавия"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "Изображения и формули"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "Таблици"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "Списъци и съдържание"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "Формуляри, връзки и бележки"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "Език"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "Метаданни и визуализация"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "Криптиране и разрешения"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "Други технически"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Логичен ли е редът на четене, когато съдържанието се чете от началото до края?"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "Описанията на изображенията (алтернативните текстове) предават ли смисъла — а не само името на файла?"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "Достатъчен ли е контрастът на текста (най-малко 4,5:1 спрямо фона)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "Имат ли текстовете на линковете самостоятелен смисъл („кликнете тук“ например няма)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Имат ли таблиците истински заглавни клетки и проста, редовна структура?"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "Заглавието на документа информативно ли е, когато се показва в лентата с заглавието на браузъра?"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "Назад към таблото за управление на a11yfy"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "Документът не беше намерен"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "Този линк не води към PDF файл в медийната библиотека."
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "последно сканирано преди %s"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "Поправка с a11yfy"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "Извършете проверката отново"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "Отпечатай отчета"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "Коя версия да се провери"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "Възстановено (текущо състояние)"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "Оригинал (преди)"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "Констатации относно достъпността"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "Контролен списък за ръчна проверка"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "Тези аспекти не могат да бъдат определени от машина — бързата проверка от човек допълва цялостната картина."
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr ""
+"Предварителният преглед е визуална помощ — списъкът с резултатите вляво представлява официалния доклад, съобразен с "
+"изискванията за екранни четци."
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "1 резултат на тази страница"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "Не е изпратено"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr ""
+"Този PDF файл е подписан цифрово. Процесът на поправка презаписва файла, което би направило подписа невалиден — вместо "
+"това изпратете неподписано копие."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr ""
+"Този PDF файл съдържа XFA формуляр, който не може да бъде запазен по време на корекцията. Преобразувайте го първо в "
+"обикновен PDF формуляр."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr "Този PDF файл представлява портфолио (съдържание от вградени файлове). Вместо това коригирайте отделните документи."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "Страници на a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "Не ви е позволено да изтеглите този сертификат."
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "Този документ все още няма сертификат за достъпност (a11yfy)."
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "Сертификат (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "Изтегляне на сертификат"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "Проверете сертификата онлайн"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "Изтеглянето на сертификата се провали — моля, опитайте отново."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr ""
+"Този документ е подписан цифрово. Корекцията променя файла, поради което подписът вече няма да е валиден. Искате ли да "
+"продължите?"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr ""
+"Този PDF файл е подписан цифрово. Процесът на поправка презаписва файла, поради което подписът вече няма да е валиден — "
+"поправката започва едва след като потвърдите."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "Приблизителна цена: ~%d кредита"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "Приблизителна цена: %1$d–%2$d кредита"

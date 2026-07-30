@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakt označen kot dejanska vsebina",
+    "description": "Artefakt strani (glava, noga, dekorativni element) je v strukturnem drevesu napačno označen kot dejanska vsebina. Bralniki zaslona bodo poskušali dekorativne elemente prebrati kot vsebino dokumenta.",
+    "severity_label": "critical",
+    "suggested_fix": "Spremenite tip strukturnega elementa v Artefakt ali vsebino zavijte v zaporedje z oznako Artefakt."
+  },
+  "01-002": {
+    "title": "Dejanska vsebina označena kot artefakt",
+    "description": "Pravilna vsebina dokumenta (besedilo telesa, naslov, napis) je napačno označena kot Artefakt. Bralniki zaslona bodo to vsebino v celoti preskočili.",
+    "severity_label": "critical",
+    "suggested_fix": "Odstranite oznako Artefakt z dejanske vsebine in zagotovite, da je pravilno označena z ustreznim strukturnim elementom."
+  },
+  "01-003": {
+    "title": "Artefakt znotraj označene vsebine",
+    "description": "Element, označen kot artefakt, se pojavi znotraj strukturnega elementa, ki predstavlja dejansko vsebino, kar kvari hierarhijo vsebine.",
+    "severity_label": "critical",
+    "suggested_fix": "Premaknite vsebino, označeno kot artefakt, izven strukturnega elementa dejanske vsebine ali prestrukturirajte hierarhijo elementov."
+  },
+  "01-004": {
+    "title": "Označena vsebina znotraj artefakta",
+    "description": "Označeni element dejanske vsebine je ugnezden znotraj vsebnika Artefakt. Bralniki zaslona lahko to vsebino preskočijo.",
+    "severity_label": "critical",
+    "suggested_fix": "Premaknite označeno vsebino iz vsebnika Artefakt in jo postavite na pravilno raven v strukturnem drevesu."
+  },
+  "01-005": {
+    "title": "Vsebina ni ne označena ne artefakt",
+    "description": "Vsebina na strani ni ne označena kot strukturni element ne označena kot artefakt. To je najpogostejša kršitev PDF/UA in glavni vzrok za tišino bralnikov zaslona pri branju vsebine.",
+    "severity_label": "critical",
+    "suggested_fix": "Vsebino označite z ustreznim strukturnim elementom (P, H1-H6, Figure itd.) ali jo označite kot Artefakt, če je dekorativna."
+  },
+  "01-006": {
+    "title": "Manjkajoč StructTreeRoot",
+    "description": "Katalog dokumenta mora vsebovati vnos StructTreeRoot, ki služi kot koren logične strukture dokumenta. Brez njega bralniki zaslona sploh ne morejo interpretirati strukture dokumenta.",
+    "severity_label": "critical",
+    "suggested_fix": "Dodajte objekt StructTreeRoot v slovar kataloga dokumenta in zgradite hierarhijo strukturnih elementov za vse strani z vsebino."
+  },
+  "01-007": {
+    "title": "Oznaka Suspect je nastavljena na true",
+    "description": "Vnos Suspects v slovarju MarkInfo dokumenta je nastavljen na true, kar pomeni, da strukturno drevo morda vsebuje nezanesljive oznake. Pomožne tehnologije lahko strukturno drevo v celoti prezrejo.",
+    "severity_label": "critical",
+    "suggested_fix": "Po preverjanju, da je vsa vsebina pravilno označena, nastavite oznako Suspects na false v slovarju MarkInfo."
+  },
+  "02-001": {
+    "title": "Nestandardna preslikava vlog se ne konča s standardnim tipom",
+    "description": "Vloga po meri v RoleMap se ne preslika v standardni tip strukture PDF. Končni cilj verige preslikav mora biti standardni tip iz nabora vlog PDF 32000-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Zagotovite, da se vsaka nestandardna vloga v RoleMap neposredno ali posredno preslika v standardni tip (npr. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure itd.)."
+  },
+  "02-002": {
+    "title": "Semantično neustrezna preslikava vlog",
+    "description": "Vloga strukturnega elementa je bila preslikana v standardni tip, ki ne ustreza semantičnemu namenu elementa (npr. naslov preslikan v Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Preglejte RoleMap in zagotovite, da vsaka preslikava odraža dejansko semantično vlogo vsebine. Morda bo potrebna človeška presoja."
+  },
+  "02-003": {
+    "title": "Krožna preslikava vlog",
+    "description": "RoleMap vsebuje krožno verigo, kjer se vloga A preslika v B, B v C, C pa nazaj v A, kar ustvari neskončno zanko za procesorje.",
+    "severity_label": "major",
+    "suggested_fix": "Prekinite krožno verigo tako, da končno vlogo neposredno preslikate v ustrezen standardni tip."
+  },
+  "02-004": {
+    "title": "Standardni tip ponovno preslikan",
+    "description": "Standardni tip strukture PDF (npr. P, H1, Table) se prek RoleMap preslikava v drug tip, kar po standardu PDF/UA-1 ni dovoljeno.",
+    "severity_label": "critical",
+    "suggested_fix": "Odstranite preslikavo za ta standardni tip iz RoleMap. Standardnih tipov ni dovoljeno ponovno preslikavati."
+  },
+  "06-001": {
+    "title": "Manjkajoč tok metapodatkov XMP",
+    "description": "Dokument ne vsebuje toka metapodatkov XMP v vnosu Metadata kataloga. PDF/UA-1 zahteva metapodatke XMP.",
+    "severity_label": "major",
+    "suggested_fix": "V katalog dokumenta dodajte tok metapodatkov XMP z vsaj dc:format (application/pdf), pdfuaid:part (1) in dc:title."
+  },
+  "06-002": {
+    "title": "Manjkajoč identifikator PDF/UA",
+    "description": "Metapodatki XMP ne vsebujejo lastnosti pdfuaid:part, ki identificira dokument kot skladen s PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Dodajte lastnost pdfuaid:part z vrednostjo 1 v tok metapodatkov XMP, da deklarirate skladnost s PDF/UA-1."
+  },
+  "06-003": {
+    "title": "Manjkajoč dc:title v metapodatkih",
+    "description": "Metapodatki XMP ali slovar informacij o dokumentu ne vsebujeta vnosa dc:title. PDF/UA-1 zahteva, da ima dokument naslov.",
+    "severity_label": "major",
+    "suggested_fix": "V tok metapodatkov XMP dodajte vnos dc:title. Uporabite dejanski naslov dokumenta ali smiselno nadomestilo."
+  },
+  "07-001": {
+    "title": "Manjkajoča nastavitev pregledovalnika DisplayDocTitle",
+    "description": "Slovar nastavitev pregledovalnika dokumenta ne vsebuje ključa DisplayDocTitle. Če ga ni ali je nastavljen na false, pregledovalniki namesto naslova dokumenta prikažejo ime datoteke.",
+    "severity_label": "major",
+    "suggested_fix": "Nastavite DisplayDocTitle na true v slovarju nastavitev pregledovalnika dokumenta (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle nastavljen na false",
+    "description": "Ključ DisplayDocTitle v nastavitvah pregledovalnika je nastavljen na false, zaradi česar pregledovalniki v naslovni vrstici namesto naslova dokumenta prikažejo ime datoteke.",
+    "severity_label": "major",
+    "suggested_fix": "Spremenite DisplayDocTitle na true v slovarju nastavitev pregledovalnika."
+  },
+  "08-002": {
+    "title": "Besedilo OCR ni označeno v strukturnem drevesu",
+    "description": "Dokument vsebuje besedilo, ustvarjeno z OCR (pogosto pri skeniranih PDF-jih), ki ni označeno v strukturnem drevesu. Uporabniki bralnikov zaslona do te vsebine ne morejo dostopati.",
+    "severity_label": "critical",
+    "suggested_fix": "Zagotovite, da je vse besedilo, ustvarjeno z OCR, vključeno v strukturno drevo z ustreznimi oznakami. Za skenirane PDF-je ponovno zgradite dokument s prekrivno plastjo celotnega besedila."
+  },
+  "09-001": {
+    "title": "Oznake niso v logičnem bralnem vrstnem redu",
+    "description": "Strukturni elementi v drevesu niso urejeni v logičnem bralnem vrstnem redu dokumenta. Bralniki zaslona krmarijo po dokumentu v vrstnem redu drevesa, ki se lahko razlikuje od vizualnega vrstnega reda.",
+    "severity_label": "critical",
+    "suggested_fix": "Ponovno razvrstite strukturne elemente v drevesu, da se ujemajo z logičnim bralnim vrstnim redom (običajno od zgoraj navzdol, od leve proti desni za določen jezik)."
+  },
+  "09-002": {
+    "title": "Semantično neustrezna ugnezdenost",
+    "description": "Strukturni element je ugnezden znotraj nadrejenega elementa, kamor semantično ne spada (npr. vrstica tabele znotraj odstavka ali naslov znotraj seznama).",
+    "severity_label": "critical",
+    "suggested_fix": "Prestrukturirajte hierarhijo elementov, da zagotovite, da je vsak element ugnezden znotraj semantično ustreznega nadrejenega elementa."
+  },
+  "09-003": {
+    "title": "Neustrezen tip strukture po preslikavi vlog",
+    "description": "Po razrešitvi preslikave vlog končni tip strukture semantično ni primeren za vsebino, ki jo vsebuje.",
+    "severity_label": "major",
+    "suggested_fix": "Prilagodite RoleMap ali spremenite prvotni tip strukture, tako da se razrešeni tip ujema s semantično vlogo vsebine."
+  },
+  "09-004": {
+    "title": "Element tabele ni skladen s tabelo 337",
+    "description": "Strukturni element tipa Table ni skladen z dovoljeno podrejeno strukturo (tabela 337 v ISO 32000-1). Tabela mora vsebovati vsaj TBody s podrejenimi elementi TR ali sekcije THead/TBody/TFoot.",
+    "severity_label": "major",
+    "suggested_fix": "Zagotovite, da element Table vsebuje pravilno strukturirane vrstice: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Vsaj vrstice zavijte v TBody."
+  },
+  "09-005": {
+    "title": "Element seznama ni skladen s tabelo 336",
+    "description": "Strukturni element tipa L (List) ni skladen z dovoljeno podrejeno strukturo (tabela 336 v ISO 32000-1). Seznam mora vsebovati elemente LI, element LI pa mora vsebovati Lbl (neobvezno) in LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturirajte sezname kot: L > LI > (Lbl)? + LBody. Zagotovite, da ima vsaka postavka seznama podrejeni element LBody, ki vsebuje vsebino postavke."
+  },
+  "09-006": {
+    "title": "Element TOC ni skladen s tabelo 333",
+    "description": "Strukturni element tipa TOC (kazalo vsebine) ni skladen z dovoljeno podrejeno strukturo. TOC mora vsebovati elemente TOCI.",
+    "severity_label": "minor",
+    "suggested_fix": "Vnose v kazalu vsebine strukturirajte kot: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Element rubi ni skladen",
+    "description": "Strukturni element rubi (uporabljen za fonetične opombe) ne sledi zahtevani podrejeni strukturi: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Prestrukturirajte element rubi z zahtevanimi podrejenimi elementi RB (osnova rubi) in RT (besedilo rubi)."
+  },
+  "09-008": {
+    "title": "Element variču ni skladen",
+    "description": "Strukturni element variču (vmesna opomba ali anotacija v besedilu CJK) ne sledi zahtevani strukturi: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Prestrukturirajte element variču z zahtevanimi podrejenimi elementi WT (besedilo variču) in WP (ločila variču)."
+  },
+  "10-001": {
+    "title": "Znakovne kode ni mogoče preslikati v Unicode",
+    "description": "Znakovne kode v besedilu dokumenta ni mogoče preslikati v vrednost Unicode. To povzroči popačene ali manjkajoče znake, ko pomožne tehnologije pridobivajo besedilo.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da imajo vse pisave preslikavo znakov (ToUnicode CMap), ki vsako uporabljeno znakovno kodo preslika v veljavno vrednost Unicode. Preverite, ali CMap pokriva vse glife, uporabljene v dokumentu."
+  },
+  "11-001": {
+    "title": "Jezika vsebine strani ni mogoče določiti",
+    "description": "Naravnega jezika vsebine strani ni mogoče določiti, ker v katalogu dokumenta ali strukturnih elementih na ravni strani manjka vnos /Lang.",
+    "severity_label": "critical",
+    "suggested_fix": "V katalogu dokumenta nastavite vnos /Lang na primarni jezik dokumenta (npr. 'en-US', 'sl-SI'). Dodajte /Lang posameznim strukturnim elementom, če vsebina menja jezike."
+  },
+  "11-002": {
+    "title": "Jezika nadomestnega/dejanskega besedila ni mogoče določiti",
+    "description": "Jezika opisov nadomestnega besedila (Alt) ali zamenjav ActualText ni mogoče določiti.",
+    "severity_label": "minor",
+    "suggested_fix": "Strukturnim elementom, ki vsebujejo Alt ali ActualText, dodajte atribute /Lang, kadar se jezik besedila razlikuje od privzetega jezika dokumenta."
+  },
+  "11-003": {
+    "title": "Jezik orisa ni nastavljen",
+    "description": "Oris dokumenta (zaznamki) nima vnosa /Lang, kar pomožnim tehnologijam preprečuje pravilno izgovorjavo postavk orisa.",
+    "severity_label": "minor",
+    "suggested_fix": "V slovar orisa dodajte vnos /Lang, ki se ujema s primarnim jezikom dokumenta."
+  },
+  "11-004": {
+    "title": "Jezik vsebine opombe ni nastavljen",
+    "description": "Nizi vsebine opomb (namigi, vrednosti obraznih polj) nimajo povezane deklaracije jezika.",
+    "severity_label": "minor",
+    "suggested_fix": "Slovarjem videza opomb dodajte /Lang, kadar se besedilo opombe razlikuje od jezika dokumenta."
+  },
+  "11-005": {
+    "title": "Jezik TU obraznega polja ni nastavljen",
+    "description": "Vnos namiga (TU) obraznih polj nima povezanega jezika, kar lahko povzroči nepravilno izgovorjavo s strani bralnikov zaslona.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da besedilo namiga obraznega polja vključuje identifikacijo jezika, če se razlikuje od privzetega jezika dokumenta."
+  },
+  "11-006": {
+    "title": "Jezik metapodatkov dokumenta ni nastavljen",
+    "description": "Metapodatki XMP ne deklarirajo lastnosti dc:language ali pa vnos /Lang v katalogu dokumenta manjka oziroma je prazen.",
+    "severity_label": "major",
+    "suggested_fix": "V metapodatke XMP dodajte dc:language in v katalogu dokumenta nastavite /Lang na jezikovno oznako RFC 3066."
+  },
+  "12-001": {
+    "title": "Raztegljivim znakom manjka ActualText",
+    "description": "Raztegljivi znaki (oklepaji, oglati oklepaji, zaviti oklepaji, korenska znamenja), uporabljeni v matematičnem ali dekorativnem kontekstu, nimajo zamenjav ActualText.",
+    "severity_label": "minor",
+    "suggested_fix": "Zaporedjem raztegljivih znakov dodajte ActualText, ki opisuje njihov semantični pomen (npr. ActualText='(' za raztegljiv levi oklepaj)."
+  },
+  "13-001": {
+    "title": "Grafika ni označena kot Figure",
+    "description": "Grafični element (slika, grafikon, diagram) v vsebini dokumenta ni označen s strukturnim elementom Figure.",
+    "severity_label": "major",
+    "suggested_fix": "Vse nedekorativne grafike v strukturnem drevesu označite kot elemente Figure z ustreznim nadomestnim besedilom."
+  },
+  "13-002": {
+    "title": "Povezavi s pomenljivim ozadjem manjka nadomestno besedilo",
+    "description": "Anotacija povezave ima pomenljiv vizualni videz (npr. slika, uporabljena kot gumb), vendar nima nadomestnega besedila, ki bi opisovalo njen namen.",
+    "severity_label": "major",
+    "suggested_fix": "Anotaciji povezave dodajte vnos Contents, ki opisuje njen cilj ali namen."
+  },
+  "13-003": {
+    "title": "Napis ni označen kot Caption",
+    "description": "Napis (napis pod sliko, naslov tabele, legenda slike) je označen kot običajno besedilo (P) namesto z uporabo tipa strukture Caption.",
+    "severity_label": "major",
+    "suggested_fix": "Napise označite s tipom strukture Caption in zagotovite, da so pravilno povezani s svojim nadrejenim elementom Figure ali Table."
+  },
+  "13-004": {
+    "title": "Elementu Figure manjka nadomestno besedilo",
+    "description": "Strukturni element Figure je prisoten, vendar nima atributa Alt, ki bi zagotavljal nadomestno besedilo. Bralniki zaslona bodo napovedali prisotnost slike, vendar ne morejo opisati njene vsebine.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturnemu elementu Figure dodajte vnos /Alt s kratkim opisom vsebine slike."
+  },
+  "14-001": {
+    "title": "Naslovi niso označeni",
+    "description": "Vsebina, ki vizualno deluje kot naslov (večja pisava, krepko, izrazito oblikovanje), ni označena s tipom strukture naslova (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identificirajte vse naslove v dokumentu in jih označite z ustreznimi strukturnimi elementi H1-H6, ki odražajo njihovo raven hierarhije."
+  },
+  "14-002": {
+    "title": "Prvi naslov ni H1",
+    "description": "Prvi naslov v strukturnem drevesu dokumenta ni tipa H1. Najboljša praksa PDF/UA-1 je, da mora biti naslov najvišje ravni H(n) in da naslednji naslovi ne smejo preskakovati ravni.",
+    "severity_label": "major",
+    "suggested_fix": "Zagotovite, da je prvi naslov H1 (ali H2, če je naslov dokumenta v metapodatkih). Ponovno oštevilčite naslednje naslove, da se izognete preskoku ravni."
+  },
+  "14-003": {
+    "title": "Preskočena raven naslova",
+    "description": "Ravni naslovov v strukturnem drevesu preskočijo raven (npr. H1, ki mu neposredno sledi H3 brez vmesnega H2). To prekine logično hierarhijo naslovov za uporabnike pomožnih tehnologij.",
+    "severity_label": "major",
+    "suggested_fix": "Zagotovite, da so ravni naslovov zaporedne brez vrzeli. Ponovno oštevilčite naslove tako, da H1 sledi H2, nato H3 itd."
+  },
+  "14-005": {
+    "title": "Globok naslov brez tipa H7+",
+    "description": "Naslov na ravni ugnezdenosti 7 ali globlje nima ustreznega tipa strukture H7+. PDF definira le H1 do H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Sploščite hierarhijo naslovov na največ 6 ravni ali previdno uporabite nestandardno preslikavo vlog."
+  },
+  "14-006": {
+    "title": "Več oznak H v enem strukturnem vozlišču",
+    "description": "En sam strukturni element vsebuje več kot eno oznako naslova (npr. Sect, ki vsebuje tako H1 kot H2). Vsak naslov bi moral ustvariti novo raven ugnezdenosti.",
+    "severity_label": "major",
+    "suggested_fix": "Razdelite strukturno vozlišče tako, da vsak naslov začne novo sekcijo ali podsekcijo na ustrezni ravni."
+  },
+  "14-007": {
+    "title": "Nedosledno mešanje oznak H in Hn",
+    "description": "Nekateri naslovi uporabljajo generični tip 'H', medtem ko drugi v istem dokumentu nedosledno uporabljajo oštevilčene tipe 'H1'-'H6'.",
+    "severity_label": "major",
+    "suggested_fix": "Vse generične oznake H pretvorite v oštevilčene tipe H1-H6 glede na njihov položaj v hierarhiji naslovov."
+  },
+  "15-001": {
+    "title": "Naslov vrstice ni označen kot glava celice",
+    "description": "Celica tabele, ki služi kot naslov vrstice, je označena kot TD (podatkovna celica) namesto kot TH (glava celice). To bralnikom zaslona preprečuje pravilno povezovanje glav s podatkovnimi celicami.",
+    "severity_label": "major",
+    "suggested_fix": "Spremenite tip strukture celic glave vrstice iz TD v TH in dodajte ustrezen atribut Scope (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Naslov stolpca ni označen kot glava celice",
+    "description": "Celica tabele, ki služi kot naslov stolpca, je označena kot TD namesto kot TH. Bralniki zaslona ne morejo logično krmariti po tabeli.",
+    "severity_label": "major",
+    "suggested_fix": "Spremenite tip strukture celic glave stolpca iz TD v TH in dodajte ustrezen atribut Scope (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH manjka Scope brez Headers/ID",
+    "description": "Element TH (glava tabele) nima atributa Scope, tabela pa ne uporablja povezav Headers/ID za povezovanje glav s podatkovnimi celicami.",
+    "severity_label": "major",
+    "suggested_fix": "Elementom TH dodajte Scope='Row', Scope='Column' ali Scope='Both' ali implementirajte povezave Headers/ID."
+  },
+  "15-005": {
+    "title": "Dvosmiselna povezava glave celice",
+    "description": "Povezanih glav celic podatkovne celice ni mogoče nedvoumno določiti zaradi zapletene strukture tabele (združene celice, nepravilna postavitev).",
+    "severity_label": "major",
+    "suggested_fix": "Uporabite eksplicitne atribute Headers/ID za povezavo vsake celice TD z ustreznimi elementi TH ali poenostavite strukturo tabele."
+  },
+  "16-001": {
+    "title": "Urejenemu seznamu manjka ListNumbering",
+    "description": "Urejen seznam (tip L z oštevilčenimi postavkami) nima atributa ListNumbering, ki določa format oštevilčevanja.",
+    "severity_label": "minor",
+    "suggested_fix": "Elementu L dodajte atribut ListNumbering z vrednostjo, kot je 'Decimal', 'UpperRoman', 'LowerAlpha' itd."
+  },
+  "16-002": {
+    "title": "Neveljavna vrednost ListNumbering",
+    "description": "Atribut ListNumbering na elementu L ima neprepoznano ali neveljavno vrednost.",
+    "severity_label": "minor",
+    "suggested_fix": "Nastavite ListNumbering na veljavno vrednost: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha ali LowerAlpha."
+  },
+  "16-003": {
+    "title": "Vsebina seznama ni označena kot seznam",
+    "description": "Vsebina, ki je vizualno in semantično seznam (označene ali oštevilčene postavke), je označena kot posamezni odstavki ali drugi elementi, ki niso seznami.",
+    "severity_label": "major",
+    "suggested_fix": "Prestrukturirajte vsebino kot seznam (L) s postavkami seznama (LI), od katerih vsaka vsebuje neobvezen Lbl in zahtevan LBody."
+  },
+  "17-001": {
+    "title": "Matematični izraz ni označen kot Formula",
+    "description": "Matematični izraz v dokumentu je označen kot običajen odstavek ali slika namesto z uporabo tipa strukture Formula.",
+    "severity_label": "minor",
+    "suggested_fix": "Matematične izraze označite s tipom strukture Formula in zagotovite nadomestno besedilo, ki opisuje izraz."
+  },
+  "17-002": {
+    "title": "Elementu Formula manjka nadomestno besedilo",
+    "description": "Strukturni element Formula je prisoten, vendar nima nadomestnega besedila, ki bi opisovalo matematični izraz.",
+    "severity_label": "minor",
+    "suggested_fix": "Elementu Formula dodajte vnos /Alt s tekstovno predstavitvijo matematičnega izraza."
+  },
+  "17-003": {
+    "title": "Znak formule ni preslikan v Unicode",
+    "description": "Znaka v matematični formuli ni mogoče preslikati v Unicode, zaradi česar pomožne tehnologije berejo popačen izpis.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da ima pisava, uporabljena za matematične simbole, popolno preslikavo ToUnicode CMap, ki pokriva vse glife. Glejte tudi 10-001."
+  },
+  "18-001": {
+    "title": "Glava/noga ni označena kot artefakt paginacije",
+    "description": "Tekoče glave in noge (številke strani, naslovi poglavij, ki se ponavljajo na vsaki strani) so označene kot dejanska vsebina namesto kot artefakti paginacije.",
+    "severity_label": "major",
+    "suggested_fix": "Tekoče glave in noge označite kot Artefakt s podtipom 'Pagination', da jih bralniki zaslona med neprekinjenim branjem preskočijo."
+  },
+  "18-002": {
+    "title": "Glavi/nogi manjka pravilen podtip artefakta",
+    "description": "Glave in noge so označene kot artefakt, vendar nimajo podvrste 'Pagination' ali pa uporabljajo napačno podvrsto.",
+    "severity_label": "major",
+    "suggested_fix": "Nastavite podvrsto artefakta na 'Pagination' za tekoče glave in noge, ter 'Header' ali 'Footer' samo za vsebino na vrhu/dnu prve ali zadnje strani."
+  },
+  "19-001": {
+    "title": "Sprotna opomba ni označena kot opomba",
+    "description": "Sprotna ali končna opomba v dokumentu je označena kot običajen odstavek, namesto da bi uporabljala tip strukture opombe.",
+    "severity_label": "major",
+    "suggested_fix": "Sprotne in končne opombe označite kot elemente opombe z edinstvenim atributom ID in referenčnim elementom v telesu besedila, ki kaže nanje."
+  },
+  "19-002": {
+    "title": "Referenca ni označena kot referenca",
+    "description": "Citiranje v besedilu ali označba navzkrižnega sklicevanja je označena kot običajno besedilo, namesto da bi uporabljala tip strukture reference.",
+    "severity_label": "major",
+    "suggested_fix": "Označbe citatov in navzkrižna sklicevanja označite kot referenčne elemente in jih povežite z ustrezno opombo ali ciljem."
+  },
+  "19-003": {
+    "title": "Manjka ID opombe",
+    "description": "Strukturni element opombe nima atributa ID, kar preprečuje referenčno povezavo iz referenčnega elementa v telesu besedila.",
+    "severity_label": "major",
+    "suggested_fix": "Vsakemu elementu opombe dodajte edinstven atribut ID, da lahko referenčni elementi kažejo nanje."
+  },
+  "19-004": {
+    "title": "ID opombe ni edinstven",
+    "description": "Dva ali več strukturnih elementov opombe si deli isto vrednost atributa ID, kar povzroča dvoumnost pri razreševanju referenc.",
+    "severity_label": "major",
+    "suggested_fix": "Zagotovite, da ima vsak element opombe globalno edinstven ID znotraj dokumenta."
+  },
+  "20-001": {
+    "title": "Konfiguracija izbirne vsebine nima imena (polje Configs)",
+    "description": "Slovar konfiguracije izbirne vsebine v polju OCConfigs dokumenta nima vnosa Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Vsaki konfiguraciji izbirne vsebine v polju OCProperties/Configs dodajte opisni vnos /Name."
+  },
+  "20-002": {
+    "title": "Konfiguracija izbirne vsebine nima imena (privzeto D)",
+    "description": "Privzeti slovar konfiguracije izbirne vsebine (vnos D v OCProperties) nima vnosa Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Privzetemu slovarju konfiguracije izbirne vsebine dodajte vnos /Name."
+  },
+  "20-003": {
+    "title": "Ključ AS je prisoten v konfiguraciji izbirne vsebine",
+    "description": "Slovar konfiguracije izbirne vsebine vsebuje vnos AS (Application Specific), ki ga PDF/UA-1 ne dovoljuje, saj lahko spremeni vizualni videz dokumenta brez vednosti uporabnika.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstranite ključ AS iz slovarja konfiguracije izbirne vsebine."
+  },
+  "21-001": {
+    "title": "Vdelani datoteki manjkata ključa F in UF",
+    "description": "Slovarju specifikacije vdelane datoteke manjka zahtevan vnos F (niz specifikacije datoteke) ali UF (niz specifikacije datoteke z besedilom Unicode).",
+    "severity_label": "minor",
+    "suggested_fix": "Slovarju specifikacije datoteke, ki opisuje vdelano datoteko, dodajte oba vnosa, F in UF."
+  },
+  "22-001": {
+    "title": "Članska nit ni skladna",
+    "description": "Struktura članske niti ne sledi zahtevanemu formatu članskih kroglic PDF s pravilnim povezovanjem V (naslednja kroglica) in N (prejšnja kroglica).",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da so članske kroglice pravilno povezane z vnosi V in N ter da je vsaka kroglica povezana s pravilno stranjo."
+  },
+  "24-001": {
+    "title": "Neinteraktivnemu obrazcu manjka PrintFields",
+    "description": "Neinteraktivni obrazec (npr. ploščat obrazec, natisnjen iz digitalnega vnosa) nima nastavljene zastavice NeedAppearances ali pa v parametrih transformacije FieldMDP manjka bit PrintFields.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da imajo obrazna polja, namenjena samo za tiskanje, pravilne nastavitve FieldMDP z omogočenim bitom PrintFields."
+  },
+  "25-001": {
+    "title": "XFA obrazec dynamicRender ni zahtevan",
+    "description": "Obrazec XFA (XML Forms Architecture) vsebuje elemente dynamicRender, ki niso nastavljeni na 'required', kar lahko povzroči nedoslednosti pri upodabljanju.",
+    "severity_label": "critical",
+    "suggested_fix": "Na elementih obrazca XFA nastavite dynamicRender='required' ali pa za boljšo podporo dostopnosti preidite z XFA na AcroForms."
+  },
+  "28-001": {
+    "title": "Opomba ni v bralnem vrstnem redu",
+    "description": "Opomba (povezava, obrazno polje, komentar) je prisotna na strani, vendar njen povezani strukturni element ni postavljen na pravilno mesto v bralnem vrstnem redu v strukturnem drevesu.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturne elemente opomb (povezava, obrazec, opomba) postavite na pravilno mesto v strukturnem drevesu glede na okoliško vsebino."
+  },
+  "28-002": {
+    "title": "Opomba ni znotraj strukturnega elementa opombe",
+    "description": "Objekt opombe na strani ni zavit v strukturni element opombe (ali ustrezno podvrsto: povezava, obrazec).",
+    "severity_label": "major",
+    "suggested_fix": "Vsak objekt opombe zavijte v ustrezni strukturni element (povezava za hiperpovezave, obrazec za gradnike)."
+  },
+  "28-003": {
+    "title": "Opomba se uporablja samo za vizualno oblikovanje",
+    "description": "Opomba se uporablja izključno za vizualno oblikovanje (npr. pravokotnik, narisan kot okras) in ni ustrezno označena.",
+    "severity_label": "minor",
+    "suggested_fix": "Opombe, ki služijo le oblikovanju, označite kot artefakt ali jih odstranite in namesto njih uporabite ustrezne operaterje za risanje v PDF."
+  },
+  "28-004": {
+    "title": "Opombi manjka vsebina in nadomestno besedilo",
+    "description": "Opomba nima vnosa Contents (besedilni opis) ali vnosa Alt (nadomestno besedilo), zaradi česar uporabniki bralnika zaslona nimajo konteksta.",
+    "severity_label": "major",
+    "suggested_fix": "Vsaki opombi dodajte niz /Contents, ki opisuje njen namen. Za nebesedilne opombe zagotovite /Alt."
+  },
+  "28-005": {
+    "title": "Obraznemu polju manjka TU ali Alt",
+    "description": "Opomba gradnika obraznega polja nima namiga (TU) ali vnosa Alt, zaradi česar uporabniki bralnika zaslona ne morejo razumeti namena polja.",
+    "severity_label": "major",
+    "suggested_fix": "Vsakemu obraznemu polju dodajte vnos /TU (namig), ki opisuje njegov namen in pričakovano obliko vnosa."
+  },
+  "28-006": {
+    "title": "Nedoločena podvrsta opombe",
+    "description": "Opomba ima vrednost podvrste, ki ni definirana v ISO 32000-1, kar lahko povzroči nepredvidljivo vedenje v procesorjih PDF.",
+    "severity_label": "minor",
+    "suggested_fix": "Zamenjajte ali odstranite opombe z nedoločenimi podvrstami ali zagotovite, da je podvrsta po meri registrirana in pravilno obdelana."
+  },
+  "28-007": {
+    "title": "Prisotna je opomba TrapNet",
+    "description": "Opomba TrapNet (uporablja se v potekih dela za pripravo na tisk) je prisotna v dokumentu in ni ustrezno označena ali obravnavana kot artefakt.",
+    "severity_label": "minor",
+    "suggested_fix": "Opombe TrapNet označite kot artefakt, saj za uporabnike dokumenta nimajo nobenega pomenskega pomena."
+  },
+  "28-008": {
+    "title": "Strani z opombami manjka ključ Tabs",
+    "description": "Stran, ki vsebuje opombe (povezave, obrazna polja), nima vnosa Tabs, ki določa vrstni red tabulatorjev za navigacijo s tipkovnico.",
+    "severity_label": "major",
+    "suggested_fix": "Vnosu strani dodajte /Tabs. Uporabite /Tabs=S za strukturni vrstni red (priporočeno za dostopne dokumente)."
+  },
+  "28-009": {
+    "title": "Tabs ni nastavljen na S (strukturni vrstni red)",
+    "description": "Ključ Tabs na strani je nastavljen na vrednost, ki ni 'S' (npr. 'R' za vrstni red po vrsticah, 'C' za vrstni red po stolpcih), kar morda ne ustreza logičnemu bralnemu vrstnemu redu dokumenta.",
+    "severity_label": "major",
+    "suggested_fix": "Na straneh z opombami nastavite /Tabs na 'S' (strukturni vrstni red), da navigacija s tipkovnico sledi vrstnemu redu strukturnega drevesa."
+  },
+  "28-010": {
+    "title": "Opomba gradnika ni znotraj elementa obrazca",
+    "description": "Opomba gradnika (obrazno polje) ni zavita v strukturni element obrazca v drevesu.",
+    "severity_label": "major",
+    "suggested_fix": "Vsako opombo gradnika zavijte v strukturni element obrazca. Povezana obrazna polja združite znotraj istega vsebnika obrazca."
+  },
+  "28-011": {
+    "title": "Opomba povezave ni znotraj elementa povezave",
+    "description": "Opomba povezave (hiperpovezava) ni zavita v strukturni element povezave v drevesu.",
+    "severity_label": "major",
+    "suggested_fix": "Vsako opombo povezave zavijte v strukturni element povezave, ki je postavljen na pravilno mesto v bralnem vrstnem redu."
+  },
+  "28-012": {
+    "title": "Opombi povezave manjka vsebina",
+    "description": "Opomba povezave nima vnosa Contents, ki bi opisoval cilj ali namen povezave.",
+    "severity_label": "major",
+    "suggested_fix": "Vsaki opombi povezave dodajte niz /Contents, ki opisuje, kam povezava kaže."
+  },
+  "28-013": {
+    "title": "IsMap=true brez slikovne karte na strani strežnika",
+    "description": "Opomba povezave ima IsMap nastavljen na true, vendar povezana slika ne deluje kot slikovna karta na strani strežnika.",
+    "severity_label": "minor",
+    "suggested_fix": "Če slika ni aktivna slikovna karta na strani strežnika z vedenjem, občutljivim na koordinate, nastavite IsMap na false."
+  },
+  "28-016": {
+    "title": "Priloga datoteke ni skladna s 7.11",
+    "description": "Opomba priloge datoteke se sklicuje na vdelano datoteko, ki ni skladna z zahtevami člena 7.11 (tokovi vdelanih datotek).",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da imajo vdelane datoteke vnosa F in UF ter da je slovar specifikacije datoteke popoln. Glejte tudi 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark v logični strukturi",
+    "description": "Opomba PrinterMark (oznake za obrezovanje, registracijske oznake, barvni trakovi) se pojavi v drevesu logične strukture dokumenta, kjer nima nobenega pomenskega pomena.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstranite opombe PrinterMark iz strukturnega drevesa in jih označite kot artefakt."
+  },
+  "28-018": {
+    "title": "Videz PrinterMark ni artefakt",
+    "description": "Tok videza opombe PrinterMark ni označen kot artefakt, kar povzroča, da bralniki zaslona poskušajo opisati tiskarske oznake.",
+    "severity_label": "minor",
+    "suggested_fix": "Vsebino videza PrinterMark v toku vsebine označite kot artefakt."
+  },
+  "30-001": {
+    "title": "Prisoten je referenčni XObject",
+    "description": "V dokumentu se uporablja referenčni XObject. Referenčni XObjecti uvažajo vsebino iz zunanjih datotek PDF, kar lahko prekine dostopnost, ker uvožena vsebina ni pravilno vključena v strukturno drevo.",
+    "severity_label": "major",
+    "suggested_fix": "Izogibajte se referenčnim XObjectom. Če so potrebni, zagotovite, da je vsa uvožena vsebina pravilno označena v strukturnem drevesu gostiteljskega dokumenta."
+  },
+  "30-002": {
+    "title": "Form XObject z MCID-ji, na katerega se sklicuje večkrat",
+    "description": "Form XObject, ki vsebuje označeno vsebino z MCID-ji (identifikatorji označene vsebine), je referenciran z več lokacij, kar povzroča konflikte MCID v zaporedju označene vsebine na strani.",
+    "severity_label": "major",
+    "suggested_fix": "Izogibajte se ponovni uporabi Form XObjectov, ki vsebujejo označeno vsebino. Sploščite ali podvojite XObject za vsako lokacijo uporabe."
+  },
+  "31-001": {
+    "title": "Neujemanje registra CIDSystemInfo med potomci Type0",
+    "description": "CIDFonti potomcev pisave Type0 imajo nedosledne vrednosti registra CIDSystemInfo, kar lahko povzroči napake pri preslikavi znakov.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da imajo vsi potomci CIDFont pisave Type0 dosledne vrednosti CIDSystemInfo (Registry, Ordering, Supplement)."
+  },
+  "31-002": {
+    "title": "Neujemanje naročila CIDSystemInfo med potomci Type0",
+    "description": "CIDFonti potomcev pisave Type0 imajo nedosledne vrednosti naročila CIDSystemInfo.",
+    "severity_label": "minor",
+    "suggested_fix": "Poravnajte vrednosti naročila med vsemi potomci CIDFont pisave Type0."
+  },
+  "31-003": {
+    "title": "Neujemanje dodatka CIDSystemInfo med potomci Type0",
+    "description": "CIDFonti potomcev pisave Type0 imajo nedosledne vrednosti dodatka CIDSystemInfo.",
+    "severity_label": "minor",
+    "suggested_fix": "Poravnajte vrednosti dodatka med vsemi potomci CIDFont pisave Type0."
+  },
+  "31-004": {
+    "title": "CIDFontu manjka CIDToGIDMap",
+    "description": "Slovar CIDFont ne vsebuje vnosa CIDToGIDMap in ne uporablja preslikave Identity, zaradi česar je iskanje glifov nezanesljivo.",
+    "severity_label": "minor",
+    "suggested_fix": "CIDFontu dodajte vnos CIDToGIDMap ali ga nastavite na 'Identity', če pisava uporablja identitetne CID-je."
+  },
+  "31-005": {
+    "title": "CIDFont zahteva CIDToGIDMap, ki ni Identity",
+    "description": "CIDFont, katerega zbirka znakov ni Adobe-Identity, zahteva eksplicitni tok CIDToGIDMap za pravilno preslikavo glifov.",
+    "severity_label": "minor",
+    "suggested_fix": "Če CIDFont ne uporablja zbirke znakov Adobe-Identity, zanj zagotovite eksplicitni tok CIDToGIDMap."
+  },
+  "31-006": {
+    "title": "CMap ni naveden ali vdelan",
+    "description": "Vir CMap, ki ga uporablja pisava Type0, ni naveden v standardnih CMapih specifikacije PDF in ni vdelan v dokument.",
+    "severity_label": "minor",
+    "suggested_fix": "Uporabite standardni CMap iz specifikacije PDF ali pa v dokument vdelajte tok CMap po meri."
+  },
+  "31-007": {
+    "title": "Neujemanje WMode v pisavi Type0",
+    "description": "Vrednosti WMode (način pisanja) se razlikujejo med CMapom in potomci CIDFont pisave Type0.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite dosledne vrednosti WMode (0 za vodoravno, 1 za navpično) med CMapom in vsemi potomci CIDFont."
+  },
+  "31-008": {
+    "title": "CMap se sklicuje na nenaveden CMap",
+    "description": "Tok CMap se sklicuje na drug CMap, ki ni standardni CMap in ni vdelan v dokument.",
+    "severity_label": "minor",
+    "suggested_fix": "Vse referencirane nestandardne CMape vdelajte v dokument ali uporabljajte samo standardne CMape."
+  },
+  "31-009": {
+    "title": "Pisava ni vdelana",
+    "description": "Pisava, uporabljena v dokumentu, ni vdelana. Nevdelane pisave povzročijo preklop na sistemske pisave, ki imajo lahko drugačne meritve in pokritost glifov, kar prekine ekstrakcijo besedila in vizualno zvestobo.",
+    "severity_label": "critical",
+    "suggested_fix": "Vdelajte vse pisave, uporabljene v dokumentu. Za standardnih 14 pisav, ki jih ni mogoče vdelati, zagotovite, da je program pisave na voljo, ali pa jih nadomestite z vdelanim ekvivalentom."
+  },
+  "31-011": {
+    "title": "Vdelanemu programu pisave manjka glif",
+    "description": "Glif, na katerega se sklicuje besedilo v dokumentu, ni prisoten v vdelanem programu pisave.",
+    "severity_label": "major",
+    "suggested_fix": "Pisavo bodisi podnaborite tako, da vključuje vse zahtevane glife, bodisi uporabite drugo pisavo, ki vključuje potrebne glife."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glif ni naveden",
+    "description": "CharSet pisave Type1 ne navaja glifa, ki je dejansko prisoten v programu pisave in uporabljen v dokumentu.",
+    "severity_label": "minor",
+    "suggested_fix": "Posodobite CharSet tako, da vključuje vse glife, prisotne v programu pisave, na katere se sklicuje dokument."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: naveden glif ni v pisavi",
+    "description": "CharSet pisave Type1 navaja ime glifa, ki ne obstaja v vdelanem programu pisave.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstranite neobstoječa imena glifov iz CharSeta ali vdelajte celotno pisavo."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glif ni naveden",
+    "description": "CIDSet CIDFonta ne vključuje CID-ja, ki je dejansko prisoten v vdelanem programu pisave in uporabljen v dokumentu.",
+    "severity_label": "minor",
+    "suggested_fix": "Posodobite CIDSet tako, da vključuje vse vrednosti CID, uporabljene v dokumentu."
+  },
+  "31-015": {
+    "title": "CID CIDSet: naveden CID ni v pisavi",
+    "description": "CIDSet CIDFonta navaja CID, ki ne ustreza nobenemu glifu v vdelanem programu pisave.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstranite neobstoječe CID-je iz CIDSeta ali ga ponovno ustvarite iz dejanskega programa pisave."
+  },
+  "31-016": {
+    "title": "Razlika v širini glifa > 1/1000",
+    "description": "Širina glifa, določena v slovarju pisave, se razlikuje za več kot 1 enoto na 1000 od širine v vdelanem programu pisave.",
+    "severity_label": "minor",
+    "suggested_fix": "Popravite polje Widths (ali vnos W2) v slovarju pisave, da se ujema z dejanskimi širinami glifov v vdelanem programu pisave."
+  },
+  "31-017": {
+    "title": "Nesimbolični TrueType nima nesimboličnega cmap",
+    "description": "Pisava TrueType z nesimboličnim kodiranjem (vnos Encoding je prisoten ali pa je zastavica symbolic izklopljena) ne vsebuje podtabele (3,1) cmap za preslikavo Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da program pisave TrueType vsebuje podtabelo (3,1) Microsoft Unicode BMP cmap za pravilno preslikavo znakov Unicode."
+  },
+  "31-018": {
+    "title": "Nesimbolični glif TrueType ni v cmap",
+    "description": "Glifa v nesimbolični pisavi TrueType ni mogoče poiskati prek podtabel cmap pisave.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da so vsi glifi, uporabljeni v dokumentu, dostopni prek vsaj ene podtabele cmap v pisavi."
+  },
+  "31-019": {
+    "title": "Slovarju nesimbolične pisave TrueType manjka Encoding",
+    "description": "Slovar nesimbolične pisave TrueType nima vnosa Encoding, ki je potreben za razreševanje imen glifov.",
+    "severity_label": "minor",
+    "suggested_fix": "Slovarju pisave dodajte ustrezen vnos Encoding (npr. WinAnsiEncoding, MacRomanEncoding)."
+  },
+  "31-020": {
+    "title": "Slovarju Encoding manjka BaseEncoding",
+    "description": "Slovar Encoding s poljem Differences ne določa vnosa BaseEncoding.",
+    "severity_label": "minor",
+    "suggested_fix": "V slovarju Encoding določite BaseEncoding (npr. WinAnsiEncoding), od katerega polje Differences odstopa."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding ni MacRoman ali WinAnsi",
+    "description": "Kodiranje ali BaseEncoding nesimbolične pisave TrueType ni niti MacRomanEncoding niti WinAnsiEncoding, kar sta dve standardni osnovni kodiranji.",
+    "severity_label": "minor",
+    "suggested_fix": "Kot osnovno kodiranje za pisavo uporabite WinAnsiEncoding ali MacRomanEncoding."
+  },
+  "31-022": {
+    "title": "Imena glifov v Differences niso v Adobe Glyph List",
+    "description": "Polje Differences v slovarju Encoding pisave uporablja imena glifov, ki niso v seznamu Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "V polju Differences uporabljajte samo standardna imena glifov iz seznama Adobe Glyph List."
+  },
+  "31-023": {
+    "title": "Differences so prisotne, vendar ni cmap (3,1)",
+    "description": "Pisava ima v svojem kodiranju polje Differences, vendar program pisave TrueType ne vsebuje podtabele (3,1) cmap za preslikavo Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Pisavi dodajte ToUnicode CMap, da zagotovite zanesljivo preslikavo Unicode."
+  },
+  "31-024": {
+    "title": "Slovar simbolične pisave TrueType ima Encoding",
+    "description": "Simbolična pisava TrueType (nastavljen bit 3 zastavic) ima v svojem slovarju pisave vnos Encoding, kar za simbolične pisave ni dovoljeno.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstranite vnos Encoding iz slovarjev simboličnih pisav TrueType. Simbolične pisave se za preslikavo znakov zanašajo na cmap programa pisave."
+  },
+  "31-025": {
+    "title": "Programu simbolične pisave TrueType manjka cmap",
+    "description": "Vdelan program simbolične pisave TrueType ne vsebuje nobene tabele cmap.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da vdelan program pisave vključuje vsaj podtabelo (3,0) cmap za simbolično preslikavo znakov."
+  },
+  "31-026": {
+    "title": "Simbolični TrueType z več cmapi nima (3,0)",
+    "description": "Simbolična pisava TrueType ima več podtabel cmap, vendar ji manjka zahtevana podtabela (3,0) Microsoft Symbol cmap.",
+    "severity_label": "minor",
+    "suggested_fix": "Zagotovite, da vdelan program pisave vključuje podtabelo (3,0) Microsoft Symbol cmap za pravilno preslikavo znakov."
+  },
+  "31-027": {
+    "title": "Manjka ToUnicode CMap",
+    "description": "Pisava, uporabljena za besedilno vsebino, nima ToUnicode CMap in ne velja nobeden od pogojev za izvzetje. Brez ToUnicode CMap pomožne tehnologije ne morejo pridobiti berljivega besedila.",
+    "severity_label": "critical",
+    "suggested_fix": "Slovarju pisave dodajte tok ToUnicode CMap, ki vsako znakovno kodo, uporabljeno v dokumentu, preslika v ustrezno vrednost Unicode."
+  },
+  "31-028": {
+    "title": "ToUnicode se preslika v CID 0",
+    "description": "ToUnicode CMap preslika znakovno kodo v vrednost Unicode U+0000 (null), kar ni veljaven besedilni znak.",
+    "severity_label": "minor",
+    "suggested_fix": "Popravite ToUnicode CMap tako, da znakovno kodo preslika v veljavno, ne-null vrednost Unicode."
+  },
+  "31-029": {
+    "title": "ToUnicode se preslika v U+FEFF ali U+FFFE",
+    "description": "ToUnicode CMap preslika znakovno kodo v U+FEFF (BOM) ali U+FFFE (oznaka vrstnega reda bajtov), ki sta krmilna znaka in nista veljavno prikazljivo besedilo.",
+    "severity_label": "minor",
+    "suggested_fix": "Zamenjajte preslikave U+FEFF/U+FFFE v ToUnicode CMap z dejansko vrednostjo Unicode znaka."
+  },
+  "31-030": {
+    "title": "Glif .notdef referenciran v besedilu",
+    "description": "Operater za prikaz besedila v dokumentu se sklicuje na glif .notdef (indeks glifa 0), kar pomeni manjkajoč ali nedostopen znak. Besedilo, ki uporablja .notdef, se prikaže kot prazni ali tofu znaki.",
+    "severity_label": "major",
+    "suggested_fix": "Zagotovite, da vse znakovne kode, uporabljene v dokumentu, ustrezajo dejanskim glifom v vdelanem programu pisave."
+  }
+}

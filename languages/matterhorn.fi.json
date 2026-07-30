@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakti tägätty todelliseksi sisällöksi",
+    "description": "Sivun artefakti (ylätunniste, alatunniste, koristeellinen elementti) on tägätty virheellisesti todelliseksi sisällöksi rakenne-puussa. Ruudunlukuohjelmat yrittävät lukea koristeellisia elementtejä dokumentin sisältönä.",
+    "severity_label": "critical",
+    "suggested_fix": "Muuta rakenne-elementin tyypiksi Artefakti tai kääri sisältö Artefakti-merkittyyn sisältösekvenssiin."
+  },
+  "01-002": {
+    "title": "Todellinen sisältö merkitty artefaktiksi",
+    "description": "Aito dokumentin sisältö (leipäteksti, otsikko, kuvateksti) on merkitty virheellisesti artefaktiksi. Ruudunlukuohjelmat ohittavat tämän sisällön kokonaan.",
+    "severity_label": "critical",
+    "suggested_fix": "Poista artefakti-merkintä todellisesta sisällöstä ja varmista, että se on tägätty asianmukaisella rakenne-elementillä."
+  },
+  "01-003": {
+    "title": "Artefakti tägätyn sisällön sisällä",
+    "description": "Artefaktiksi merkitty elementti esiintyy todellista sisältöä edustavan rakenne-elementin sisällä, mikä korruptoi sisältöhierarkian.",
+    "severity_label": "critical",
+    "suggested_fix": "Siirrä artefaktiksi merkitty sisältö todellisen sisällön rakenne-elementin ulkopuolelle tai uudelleenjärjestä elementtihierarkia."
+  },
+  "01-004": {
+    "title": "Tägätty sisältö artefaktin sisällä",
+    "description": "Tägätty todellisen sisällön elementti on sisäkkäin Artefakti-säilön sisällä. Ruudunlukuohjelmat saattavat ohittaa tämän sisällön.",
+    "severity_label": "critical",
+    "suggested_fix": "Siirrä tägätty sisältö pois Artefakti-säilöstä ja aseta se oikealle tasolle rakenne-puussa."
+  },
+  "01-005": {
+    "title": "Sisältöä ei ole tägätty eikä merkitty artefaktiksi",
+    "description": "Sivulla olevaa sisältöä ei ole tägätty rakenne-elementiksi eikä merkitty artefaktiksi. Tämä on yleisin PDF/UA-rikkomus ja ensisijainen syy ruudunlukuohjelmien hiljaisuuteen sisällön kohdalla.",
+    "severity_label": "critical",
+    "suggested_fix": "Tägää sisältö asianmukaisella rakenne-elementillä (P, H1-H6, Figure jne.) tai merkitse se Artefaktiksi, jos se on koristeellinen."
+  },
+  "01-006": {
+    "title": "StructTreeRoot puuttuu",
+    "description": "Dokumenttiluettelo-sanakirjan on sisällettävä StructTreeRoot-merkintä, joka toimii dokumentin loogisen rakenteen juurena. Ilman sitä ruudunlukuohjelmat eivät voi tulkita dokumentin rakennetta lainkaan.",
+    "severity_label": "critical",
+    "suggested_fix": "Lisää StructTreeRoot-objekti dokumenttiluettelo-sanakirjaan ja rakenna rakenne-elementtien hierarkia kaikille sisältösivuille."
+  },
+  "01-007": {
+    "title": "Suspect-lippu on tosi",
+    "description": "Dokumentin MarkInfo-sanakirjan Suspects-merkintä on asetettu todeksi, mikä osoittaa, että rakenne-puu saattaa sisältää epäluotettavaa tägäystä. Avustavat teknologiat saattavat ohittaa rakenne-puun kokonaan.",
+    "severity_label": "critical",
+    "suggested_fix": "Aseta Suspects-lippu epätodeksi MarkInfo-sanakirjassa varmistettuasi, että kaikki sisältö on tägätty oikein."
+  },
+  "02-001": {
+    "title": "Standardin vastainen roolikuvaus ei pääty standardityyppiin",
+    "description": "Mukautettu rooli RoleMap-kartassa ei vastaa standardia PDF-rakennetta. Kuvausketjun lopullisen kohteen on oltava standardityyppi PDF 32000-1 -roolijoukosta.",
+    "severity_label": "critical",
+    "suggested_fix": "Varmista, että jokainen RoleMap-kartan standardin vastainen rooli vastaa suoraan tai välillisesti standardityyppiä (esim. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure jne.)."
+  },
+  "02-002": {
+    "title": "Semanttisesti sopimaton roolikuvaus",
+    "description": "Rakenne-elementin rooli on kuvattu standardityyppiin, joka ei vastaa elementin semanttista tarkoitusta (esim. otsikko kuvattu Span-tyyppiin).",
+    "severity_label": "critical",
+    "suggested_fix": "Tarkista RoleMap ja varmista, että jokainen kuvaus heijastaa sisällön todellista semanttista roolia. Ihmisen arviointia saatetaan tarvita."
+  },
+  "02-003": {
+    "title": "Kehämäinen roolikuvaus",
+    "description": "RoleMap sisältää kehämäisen ketjun, jossa rooli A kuvautuu B:hen, B C:hen ja C takaisin A:han, mikä luo äärettömän silmukan prosessoreille.",
+    "severity_label": "major",
+    "suggested_fix": "Katkaise kehämäinen ketju kuvaamalla lopullinen rooli suoraan asianmukaiseen standardityyppiin."
+  },
+  "02-004": {
+    "title": "Standardityyppi kuvattu uudelleen",
+    "description": "Standardi PDF-rakennetyyppi (esim. P, H1, Table) kuvataan uudelleen toiseen tyyppiin RoleMap-kartan kautta, mikä ei ole sallittua PDF/UA-1-standardissa.",
+    "severity_label": "critical",
+    "suggested_fix": "Poista tämän standardityypin kuvaus RoleMap-kartasta. Standardityyppejä ei saa kuvata uudelleen."
+  },
+  "06-001": {
+    "title": "XMP-metatietovirta puuttuu",
+    "description": "Dokumentti ei sisällä XMP-metatietovirtaa luettelon Metadata-merkinnässä. PDF/UA-1 vaatii XMP-metatiedot.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää XMP-metatietovirta dokumenttiluetteloon, jossa on vähintään dc:format (application/pdf), pdfuaid:part (1) ja dc:title."
+  },
+  "06-002": {
+    "title": "PDF/UA-tunniste puuttuu",
+    "description": "XMP-metatiedot eivät sisällä pdfuaid:part-ominaisuutta, joka tunnistaa dokumentin PDF/UA-1-yhteensopivaksi (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Lisää pdfuaid:part-ominaisuus arvolla 1 XMP-metatietovirtaan PDF/UA-1-yhteensopivuuden ilmoittamiseksi."
+  },
+  "06-003": {
+    "title": "dc:title puuttuu metatiedoista",
+    "description": "XMP-metatiedot tai dokumentin tietosanakirja ei sisällä dc:title-merkintää. PDF/UA-1 vaatii, että dokumentilla on otsikko.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää dc:title-merkintä XMP-metatietovirtaan. Käytä dokumentin todellista otsikkoa tai merkityksellistä varavaihtoehtoa."
+  },
+  "07-001": {
+    "title": "DisplayDocTitle-katseluasetus puuttuu",
+    "description": "Dokumentin katseluasetusten sanakirja ei sisällä DisplayDocTitle-avainta. Jos se puuttuu tai on epätosi, katseluohjelmat näyttävät tiedostonimen dokumentin otsikon sijaan.",
+    "severity_label": "major",
+    "suggested_fix": "Aseta DisplayDocTitle todeksi dokumentin katseluasetusten sanakirjassa (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle asetettu epätodeksi",
+    "description": "Katseluasetusten DisplayDocTitle-avain on asetettu epätodeksi, mikä saa katseluohjelmat näyttämään tiedostonimen otsikkopalkissa dokumentin otsikon sijaan.",
+    "severity_label": "major",
+    "suggested_fix": "Muuta DisplayDocTitle todeksi katseluasetusten sanakirjassa."
+  },
+  "08-002": {
+    "title": "OCR-tekstiä ei ole tägätty rakenne-puuhun",
+    "description": "Dokumentti sisältää OCR-tuotettua tekstiä (yleistä skannatuissa PDF-tiedostoissa), jota ei ole tägätty rakenne-puuhun. Ruudunlukuohjelmien käyttäjät eivät pääse käsiksi tähän sisältöön.",
+    "severity_label": "critical",
+    "suggested_fix": "Varmista, että kaikki OCR-tuotettu teksti sisältyy rakenne-puuhun asianmukaisilla tägeillä. Skannatuissa PDF-tiedostoissa rakenna dokumentti uudelleen täydellä tekstikerroksella."
+  },
+  "09-001": {
+    "title": "Tägit eivät ole loogisessa lukujärjestyksessä",
+    "description": "Puun rakenne-elementtejä ei ole järjestetty dokumentin loogiseen lukujärjestykseen. Ruudunlukuohjelmat navigoivat dokumentissa puun järjestyksessä, mikä voi poiketa visuaalisesta järjestyksestä.",
+    "severity_label": "critical",
+    "suggested_fix": "Järjestä rakenne-elementit puussa uudelleen vastaamaan loogista lukujärjestystä (yleensä ylhäältä alas, vasemmalta oikealle kyseisellä kielellä)."
+  },
+  "09-002": {
+    "title": "Semanttisesti sopimaton sisäkkäisyys",
+    "description": "Rakenne-elementti on sisäkkäin emoelementin sisällä, johon se ei semanttisesti kuulu (esim. taulukon rivi kappaleen sisällä tai otsikko luettelon sisällä).",
+    "severity_label": "critical",
+    "suggested_fix": "Uudelleenjärjestä elementtihierarkia varmistaaksesi, että jokainen elementti on sisäkkäin semanttisesti sopivan emoelementin sisällä."
+  },
+  "09-003": {
+    "title": "Sopimaton rakennetyyppi roolikuvauksen jälkeen",
+    "description": "Roolikuvauksen ratkaisemisen jälkeen lopullinen rakennetyyppi ei ole semanttisesti sopiva sisältämälleen sisällölle.",
+    "severity_label": "major",
+    "suggested_fix": "Säädä RoleMap-karttaa tai muuta alkuperäistä rakennetyyppiä siten, että ratkaistu tyyppi vastaa sisällön semanttista roolia."
+  },
+  "09-004": {
+    "title": "Taulukko-elementti ei vastaa taulukkoa 337",
+    "description": "Table-tyyppinen rakenne-elementti ei vastaa sallittua alirakennetta (ISO 32000-1:n taulukko 337). Taulukon on sisällettävä vähintään TBody, jossa on TR-lapsia, tai THead/TBody/TFoot-osioita.",
+    "severity_label": "major",
+    "suggested_fix": "Varmista, että Table-elementti sisältää oikein jäsennellyt rivit: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Kääri rivit vähintään TBody-elementtiin."
+  },
+  "09-005": {
+    "title": "Luettelo-elementti ei vastaa taulukkoa 336",
+    "description": "L-tyyppinen (List) rakenne-elementti ei vastaa sallittua alirakennetta (ISO 32000-1:n taulukko 336). Luettelon on sisällettävä LI-elementtejä, ja LI:n on sisällettävä Lbl (valinnainen) ja LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Jäsennä luettelot muodossa: L > LI > (Lbl)? + LBody. Varmista, että jokaisella luettelokohdalla on LBody-lapsi, joka sisältää kohdan sisällön."
+  },
+  "09-006": {
+    "title": "TOC-elementti ei vastaa taulukkoa 333",
+    "description": "TOC-tyyppinen (sisällysluettelo) rakenne-elementti ei vastaa sallittua alirakennetta. TOC:n on sisällettävä TOCI-elementtejä.",
+    "severity_label": "minor",
+    "suggested_fix": "Jäsennä sisällysluettelon merkinnät muodossa: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby-elementti ei ole yhteensopiva",
+    "description": "Ruby-rakenne-elementti (käytetään ääntämishuomautuksissa) ei noudata vaadittua alirakennetta: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Uudelleenjärjestä Ruby-elementti vaadituilla RB (ruby-perus) ja RT (ruby-teksti) -lapsilla."
+  },
+  "09-008": {
+    "title": "Warichu-elementti ei ole yhteensopiva",
+    "description": "Warichu-rakenne-elementti (CJK-tekstin sisäinen kommentti tai huomautus) ei noudata vaadittua rakennetta: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Uudelleenjärjestä Warichu-elementti vaadituilla WT (warichu-teksti) ja WP (warichu-välimerkki) -lapsilla."
+  },
+  "10-001": {
+    "title": "Merkkikoodia ei voi kuvata Unicode-muotoon",
+    "description": "Dokumentin tekstin merkkikoodia ei voi kuvata Unicode-arvoksi. Tämä aiheuttaa vääristyneitä tai puuttuvia merkkejä, kun avustavat teknologiat purkavat tekstiä.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että kaikilla fonteilla on ToUnicode CMap, joka kuvaa jokaisen käytetyn merkkikoodin kelvolliseksi Unicode-arvoksi. Varmista, että CMap kattaa kaikki dokumentissa käytetyt glyyfit."
+  },
+  "11-001": {
+    "title": "Sivun sisällön kieltä ei voida määrittää",
+    "description": "Sivun sisällön luonnollista kieltä ei voida määrittää, koska /Lang-merkintä puuttuu dokumenttiluettelosta tai sivutason rakenne-elementeistä.",
+    "severity_label": "critical",
+    "suggested_fix": "Aseta dokumenttiluettelon /Lang-merkintä dokumentin pääkieleksi (esim. 'fi-FI', 'en-US'). Lisää /Lang yksittäisiin rakenne-elementteihin, jos sisältö vaihtaa kieltä."
+  },
+  "11-002": {
+    "title": "Alt/ActualText-kieltä ei voida määrittää",
+    "description": "Vaihtoehtoisen tekstin (Alt) tai ActualText-korvausten kieltä ei voida määrittää.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää /Lang-attribuutit rakenne-elementteihin, jotka sisältävät Alt- tai ActualText-tekstiä, kun tekstin kieli poikkeaa dokumentin oletuskielestä."
+  },
+  "11-003": {
+    "title": "Jäsennysrakennetta ei ole asetettu",
+    "description": "Dokumentin jäsennysrakenteella (kirjanmerkit) ei ole /Lang-merkintää, mikä estää avustavia teknologioita ääntämästä jäsennyskohtia oikein.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää /Lang-merkintä jäsennysrakenteen sanakirjaan, joka vastaa dokumentin pääkieltä."
+  },
+  "11-004": {
+    "title": "Huomautuksen sisällön kieltä ei ole asetettu",
+    "description": "Huomautuksen sisältömerkkijonoilla (työkaluvihjeet, lomakekenttien arvot) ei ole liitettyä kielimääritystä.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää /Lang huomautusten ulkoasusanakirjoihin, kun huomautusteksti poikkeaa dokumentin kielestä."
+  },
+  "11-005": {
+    "title": "Lomakekentän TU-kieltä ei ole asetettu",
+    "description": "Lomakekenttien työkaluvihje-merkinnällä (TU) ei ole liitettyä kieltä, mikä voi aiheuttaa ruudunlukuohjelmien virheellisen ääntämisen.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että lomakekentän työkaluvihjeteksti sisältää kielitunnisteen, jos se poikkeaa dokumentin oletuskielestä."
+  },
+  "11-006": {
+    "title": "Dokumentin metatietojen kieltä ei ole asetettu",
+    "description": "XMP-metatiedot eivät ilmoita dc:language-ominaisuutta, tai dokumenttiluettelon /Lang-merkintä puuttuu tai on tyhjä.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää dc:language XMP-metatietoihin ja aseta dokumenttiluettelon /Lang RFC 3066 -kielitunnisteeksi."
+  },
+  "12-001": {
+    "title": "Venytettäviltä merkeiltä puuttuu ActualText",
+    "description": "Matemaattisissa tai koristeellisissa yhteyksissä käytetyillä venytettävillä merkeillä (sulkeet, hakasulkeet, aaltosulkeet, juurimerkit) ei ole ActualText-korvauksia.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää ActualText venytettäville merkkisarjoille, jotka kuvaavat niiden semanttista merkitystä (esim. ActualText='(' venytettävälle vasemmalle sulkeelle)."
+  },
+  "13-001": {
+    "title": "Grafiikkaa ei ole tägätty Figure-elementiksi",
+    "description": "Dokumentin sisällössä olevaa graafista elementtiä (kuva, kaavio, diagrammi) ei ole tägätty Figure-rakenne-elementillä.",
+    "severity_label": "major",
+    "suggested_fix": "Tägää kaikki ei-koristeelliset grafiikat Figure-elementeiksi rakenne-puussa asianmukaisella Alt-tekstillä."
+  },
+  "13-002": {
+    "title": "Merkityksellisellä taustalla varustetusta linkistä puuttuu Alt-teksti",
+    "description": "Linkkihuomautuksella on merkityksellinen visuaalinen ulkoasu (esim. painikkeena käytetty kuva), mutta siitä puuttuu sen tarkoitusta kuvaava vaihtoehtoinen teksti.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää linkkihuomautukseen Contents-merkintä, joka kuvaa sen kohdetta tai tarkoitusta."
+  },
+  "13-003": {
+    "title": "Kuvatekstiä ei ole tägätty Caption-elementiksi",
+    "description": "Kuvateksti (kuvan kuvateksti, taulukon otsikko, kuvion selite) on tägätty tavalliseksi tekstiksi (P) sen sijaan, että käytettäisiin Caption-rakennetyyppiä.",
+    "severity_label": "major",
+    "suggested_fix": "Tägää kuvatekstit Caption-rakennetyypillä ja varmista, että ne on liitetty oikein emoelementtiinsä (Figure tai Table)."
+  },
+  "13-004": {
+    "title": "Figure-elementiltä puuttuu Alt-teksti",
+    "description": "Figure-rakenne-elementti on olemassa, mutta sillä ei ole Alt-attribuuttia, joka tarjoaisi vaihtoehtoisen tekstin. Ruudunlukuohjelmat ilmoittavat kuvion olemassaolosta, mutta eivät voi kuvailla sen sisältöä.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää /Alt-merkintä Figure-rakenne-elementtiin, jossa on tiivis kuvaus kuvan sisällöstä."
+  },
+  "14-001": {
+    "title": "Otsikoita ei ole tägätty",
+    "description": "Sisältöä, joka toimii visuaalisesti otsikkona (suurempi fontti, lihavointi, erottuva tyyli), ei ole tägätty otsikkorakennetyypillä (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Tunnista kaikki dokumentin otsikot ja tägää ne asianmukaisilla H1-H6-rakenne-elementeillä, jotka heijastavat niiden hierarkiatasoa."
+  },
+  "14-002": {
+    "title": "Ensimmäinen otsikko ei ole H1",
+    "description": "Dokumentin rakenne-puun ensimmäinen otsikko ei ole tyyppiä H1. PDF/UA-1-käytännön mukaan ylimmän tason otsikon tulisi olla H(n) ja seuraavien otsikoiden ei tulisi hypätä tasojen yli.",
+    "severity_label": "major",
+    "suggested_fix": "Varmista, että ensimmäinen otsikko on H1 (tai H2, jos dokumentin nimi on metatiedoissa). Numeroi seuraavat otsikot uudelleen tasohyppyjen välttämiseksi."
+  },
+  "14-003": {
+    "title": "Otsikkotaso hypätty yli",
+    "description": "Rakenne-puun otsikkotasot hyppäävät tason yli (esim. H1:tä seuraa suoraan H3 ilman väliin jäävää H2:ta). Tämä rikkoo loogisen otsikkohierarkian avustavien teknologioiden käyttäjiltä.",
+    "severity_label": "major",
+    "suggested_fix": "Varmista, että otsikkotasot ovat peräkkäisiä ilman aukkoja. Numeroi otsikot uudelleen siten, että H1:tä seuraa H2, sitten H3 jne."
+  },
+  "14-005": {
+    "title": "Syvä otsikko ilman H7+-tyyppiä",
+    "description": "Otsikolla, joka on tasolla 7 tai syvemmällä, ei ole vastaavaa H7+-rakennetyyppiä. PDF määrittelee vain H1–H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Tasoita otsikkohierarkia enintään 6 tasoon tai käytä standardin vastaista roolikuvausta varoen."
+  },
+  "14-006": {
+    "title": "Useita H-tägejä yhdessä rakenne-solmussa",
+    "description": "Yksittäinen rakenne-elementti sisältää useamman kuin yhden otsikkotägin (esim. Sect, joka sisältää sekä H1:n että H2:n). Jokaisen otsikon tulisi luoda uusi sisäkkäisyystaso.",
+    "severity_label": "major",
+    "suggested_fix": "Jaa rakenne-solmu siten, että jokainen otsikko aloittaa uuden osion tai alaosion asianmukaisella tasolla."
+  },
+  "14-007": {
+    "title": "H- ja Hn-tägien epäjohdonmukainen sekoittaminen",
+    "description": "Jotkut otsikot käyttävät yleistä H-tyyppiä, kun taas toiset käyttävät numeroituja H1–H6-tyyppejä epäjohdonmukaisesti samassa dokumentissa.",
+    "severity_label": "major",
+    "suggested_fix": "Muunna kaikki yleiset H-tägit numeroiduiksi H1–H6-tyypeiksi niiden sijainnin perusteella otsikkohierarkiassa."
+  },
+  "15-001": {
+    "title": "Riviotsikkoa ei ole tägätty otsikkosoluksi",
+    "description": "Taulukon solu, joka toimii riviotsikkona, on tägätty TD-soluksi (datasolu) TH-solun (otsikkosolu) sijaan. Tämä estää ruudunlukuohjelmia yhdistämästä otsikoita oikein datasoluihin.",
+    "severity_label": "major",
+    "suggested_fix": "Muuta riviotsikkosolujen rakennetyyppi TD:stä TH:ksi ja lisää asianmukainen Scope-attribuutti (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Sarakeotsikkoa ei ole tägätty otsikkosoluksi",
+    "description": "Taulukon solu, joka toimii sarakeotsikkona, on tägätty TD:ksi TH:n sijaan. Ruudunlukuohjelmat eivät voi navigoida taulukossa loogisesti.",
+    "severity_label": "major",
+    "suggested_fix": "Muuta sarakeotsikkosolujen rakennetyyppi TD:stä TH:ksi ja lisää asianmukainen Scope-attribuutti (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH-solulta puuttuu Scope ilman Headers/ID-määritystä",
+    "description": "TH-elementillä (taulukon otsikko) ei ole Scope-attribuuttia, eikä taulukko käytä Headers/ID-yhteyksiä otsikoiden yhdistämiseen datasoluihin.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää Scope='Row', Scope='Column' tai Scope='Both' TH-elementteihin tai toteuta Headers/ID-yhteydet."
+  },
+  "15-005": {
+    "title": "Epäselvä solun otsikkoyhteys",
+    "description": "Datasolun liittyviä otsikkosoluja ei voida määrittää yksiselitteisesti monimutkaisen taulukkorakenteen (yhdistetyt solut, epäsäännöllinen asettelu) vuoksi.",
+    "severity_label": "major",
+    "suggested_fix": "Käytä eksplisiittisiä Headers/ID-attribuutteja yhdistämään jokainen TD vastaaviin TH-elementteihin tai yksinkertaista taulukkorakennetta."
+  },
+  "16-001": {
+    "title": "Järjestetystä luettelosta puuttuu ListNumbering",
+    "description": "Järjestetystä luettelosta (L-tyyppi numeroiduilla kohdilla) puuttuu ListNumbering-attribuutti, joka määrittää numerointimuodon.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää ListNumbering-attribuutti L-elementtiin arvolla, kuten 'Decimal', 'UpperRoman', 'LowerAlpha' jne."
+  },
+  "16-002": {
+    "title": "Virheellinen ListNumbering-arvo",
+    "description": "L-elementin ListNumbering-attribuutilla on tunnistamaton tai virheellinen arvo.",
+    "severity_label": "minor",
+    "suggested_fix": "Aseta ListNumbering kelvolliseen arvoon: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha tai LowerAlpha."
+  },
+  "16-003": {
+    "title": "Luettelon sisältöä ei ole tägätty luetteloksi",
+    "description": "Sisältö, joka on visuaalisesti ja semanttisesti luettelo (luettelomerkein tai numeroin varustetut kohdat), on tägätty yksittäisiksi kappaleiksi tai muiksi kuin luettelo-elementeiksi.",
+    "severity_label": "major",
+    "suggested_fix": "Uudelleenjärjestä sisältö luetteloksi (L), jossa on luettelokohtia (LI), joista jokainen sisältää valinnaisen Lbl- ja vaaditun LBody-elementin."
+  },
+  "17-001": {
+    "title": "Matemaattista lauseketta ei ole tägätty Formula-elementiksi",
+    "description": "Dokumentin matemaattinen lauseke on tägätty tavalliseksi kappaleeksi tai kuvioksi Formula-rakennetyypin sijaan.",
+    "severity_label": "minor",
+    "suggested_fix": "Tägää matemaattiset lausekkeet Formula-rakennetyypillä ja anna lauseketta kuvaava Alt-teksti."
+  },
+  "17-002": {
+    "title": "Formula-elementiltä puuttuu Alt-teksti",
+    "description": "Formula-rakenne-elementti on olemassa, mutta sillä ei ole vaihtoehtoista tekstiä, joka kuvailisi matemaattista lauseketta.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää /Alt-merkintä Formula-elementtiin, jossa on matemaattisen lausekkeen tekstimuotoinen esitys."
+  },
+  "17-003": {
+    "title": "Formula-merkkiä ei ole kuvattu Unicode-muotoon",
+    "description": "Matemaattisen kaavan merkkiä ei voida kuvata Unicode-muotoon, mikä aiheuttaa avustavien teknologioiden lukevan vääristynyttä tulostetta.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että matemaattisissa symboleissa käytetyllä fontilla on täydellinen ToUnicode CMap, joka kattaa kaikki glyyfit. Katso myös 10-001."
+  },
+  "18-001": {
+    "title": "Ylä-/alatunnistetta ei ole tägätty sivunumerointi-artefaktiksi",
+    "description": "Juoksevat ylä- ja alatunnisteet (sivunumerot, jokaisella sivulla toistuvat luvun otsikot) on tägätty todelliseksi sisällöksi sen sijaan, että ne olisi merkitty sivunumerointi-artefakteiksi.",
+    "severity_label": "major",
+    "suggested_fix": "Merkitse juoksevat ylä- ja alatunnisteet Artefaktiksi alatyypillä 'Pagination', jotta ruudunlukuohjelmat ohittavat ne jatkuvassa lukemisessa."
+  },
+  "18-002": {
+    "title": "Ylä-/alatunnisteelta puuttuu oikea artefakti-alatyyppi",
+    "description": "Ylä- ja alatunnisteet on merkitty artefakti-elementeiksi, mutta niillä ei ole 'Pagination'-alatyyppiä tai ne käyttävät virheellistä alatyyppiä.",
+    "severity_label": "major",
+    "suggested_fix": "Aseta artefakti-elementin alatyypiksi 'Pagination' juokseville ylä- ja alatunnisteille, ja 'Header' tai 'Footer' vain ensimmäisen tai viimeisen sivun ylä- tai alatunnisteille."
+  },
+  "19-001": {
+    "title": "Alaviitettä ei ole tägätty Note-elementiksi",
+    "description": "Dokumentin alaviite tai loppuviite on tägätty tavalliseksi kappaleeksi sen sijaan, että käytettäisiin Note-rakenne-elementtiä.",
+    "severity_label": "major",
+    "suggested_fix": "Tägää alaviitteet ja loppuviitteet Note-elementeiksi, joilla on yksilöllinen ID-attribuutti ja leipätekstissä niihin viittaava Reference-elementti."
+  },
+  "19-002": {
+    "title": "Viittausta ei ole tägätty Reference-elementiksi",
+    "description": "Tekstinsisäinen viittaus tai ristiviittauksen merkintä on tägätty tavalliseksi tekstiksi sen sijaan, että käytettäisiin Reference-rakenne-elementtiä.",
+    "severity_label": "major",
+    "suggested_fix": "Tägää viittausmerkinnät ja ristiviittaukset Reference-elementeiksi ja linkitä ne vastaavaan Note-elementtiin tai kohteeseen."
+  },
+  "19-003": {
+    "title": "Note-elementin ID puuttuu",
+    "description": "Note-rakenne-elementiltä puuttuu ID-attribuutti, mikä estää viittauksen leipätekstin Reference-elementistä.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää yksilöllinen ID-attribuutti jokaiseen Note-elementtiin, jotta Reference-elementit voivat viitata niihin."
+  },
+  "19-004": {
+    "title": "Note-elementin ID ei ole yksilöllinen",
+    "description": "Kahdella tai useammalla Note-rakenne-elementillä on sama ID-attribuutin arvo, mikä aiheuttaa epäselvyyttä viittauksen ratkaisemisessa.",
+    "severity_label": "major",
+    "suggested_fix": "Varmista, että jokaisella Note-elementillä on dokumentin sisällä maailmanlaajuisesti yksilöllinen ID."
+  },
+  "20-001": {
+    "title": "Valinnaisen sisällön konfiguraatiosta puuttuu Name (Configs-taulukko)",
+    "description": "Dokumentin OCConfigs-taulukon valinnaisen sisällön konfiguraatiosanakirjasta puuttuu Name-merkintä.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää kuvaava /Name-merkintä jokaiseen valinnaisen sisällön konfiguraatioon OCProperties/Configs-taulukossa."
+  },
+  "20-002": {
+    "title": "Valinnaisen sisällön konfiguraatiosta puuttuu Name (D-oletus)",
+    "description": "Oletusarvoisesta valinnaisen sisällön konfiguraatiosanakirjasta (D-merkintä OCProperties-kohdassa) puuttuu Name-merkintä.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää /Name-merkintä oletusarvoiseen valinnaisen sisällön konfiguraatiosanakirjaan."
+  },
+  "20-003": {
+    "title": "AS-avain sisältyy valinnaisen sisällön konfiguraatioon",
+    "description": "Valinnaisen sisällön konfiguraatiosanakirja sisältää AS (Application Specific) -merkinnän, jota PDF/UA-1 ei salli, koska se voi muuttaa dokumentin visuaalista ulkoasua käyttäjän tietämättä.",
+    "severity_label": "minor",
+    "suggested_fix": "Poista AS-avain valinnaisen sisällön konfiguraatiosanakirjasta."
+  },
+  "21-001": {
+    "title": "Upotetusta tiedostosta puuttuvat F- ja UF-avaimet",
+    "description": "Upotetun tiedoston määrityssanakirjasta puuttuu vaadittu F- (tiedostomääritysmerkkijono) tai UF-merkintä (Unicode-tekstitiedoston määritysmerkkijono).",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää sekä F- että UF-merkinnät upotettua tiedostoa kuvaavaan tiedostomäärityssanakirjaan."
+  },
+  "22-001": {
+    "title": "Artikkeliketju ei ole vaatimusten mukainen",
+    "description": "Artikkeliketjun rakenne ei noudata vaadittua PDF-artikkelin osien muotoa asianmukaisine V- (seuraava osa) ja N- (edellinen osa) linkityksineen.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että artikkelin osat on linkitetty oikein V- ja N-merkinnöillä ja että jokainen osa on yhdistetty oikeaan sivuun."
+  },
+  "24-001": {
+    "title": "Ei-interaktiivisesta lomakkeesta puuttuu PrintFields",
+    "description": "Ei-interaktiivisesta lomakkeesta (esim. digitaalisesta syötteestä tulostettu tasainen lomake) puuttuu NeedAppearances-lippu tai FieldMDP-muunnosparametreista puuttuu PrintFields-bitti.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että vain tulostettavaksi tarkoitetuilla lomakekentillä on oikeat FieldMDP-asetukset ja PrintFields-bitti on käytössä."
+  },
+  "25-001": {
+    "title": "XFA-lomakkeen dynamicRender ei ole pakollinen",
+    "description": "XFA-lomake (XML Forms Architecture) sisältää dynamicRender-elementtejä, joita ei ole asetettu 'required'-tilaan, mikä voi aiheuttaa renderöinnin epäjohdonmukaisuuksia.",
+    "severity_label": "critical",
+    "suggested_fix": "Aseta dynamicRender='required' XFA-lomake-elementeille tai siirry XFA-muodosta AcroForms-muotoon paremman saavutettavuustuen saamiseksi."
+  },
+  "28-001": {
+    "title": "Huomautus ei ole lukujärjestyksessä",
+    "description": "Sivulla on huomautus (linkki, lomakekenttä, kommentti), mutta sen vastaavaa rakenne-elementtiä ei ole sijoitettu oikeaan lukujärjestykseen rakenne-puussa.",
+    "severity_label": "major",
+    "suggested_fix": "Sijoita huomautusten rakenne-elementit (Link, Form, Annot) oikeaan kohtaan rakenne-puussa suhteessa ympäröivään sisältöön."
+  },
+  "28-002": {
+    "title": "Huomautus ei ole Annot-rakenne-elementin sisällä",
+    "description": "Sivulla olevaa huomautusobjektia ei ole kääritty Annot-rakenne-elementtiin (tai sopivaan alatyyppiin: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Kääri jokainen huomautusobjekti sopivaan rakenne-elementtiin (Link hyperlinkeille, Form widgeteille)."
+  },
+  "28-003": {
+    "title": "Huomautusta käytetään vain visuaaliseen muotoiluun",
+    "description": "Huomautusta käytetään pelkästään visuaaliseen muotoiluun (esim. koristeena piirretty suorakulmio), eikä sitä ole tägätty asianmukaisesti.",
+    "severity_label": "minor",
+    "suggested_fix": "Merkitse vain muotoiluun tarkoitetut huomautukset artefakti-elementeiksi tai poista ne ja käytä sen sijaan asianmukaisia PDF-piirto-operaattoreita."
+  },
+  "28-004": {
+    "title": "Huomautuksesta puuttuvat Contents- ja Alt-merkinnät",
+    "description": "Huomautuksella ei ole Contents-merkintää (tekstikuvaus) tai Alt-merkintää (vaihtoehtoinen teksti), jolloin ruudunlukuohjelman käyttäjät jäävät ilman kontekstia.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää /Contents-merkkijono jokaiseen huomautukseen sen tarkoituksen kuvaamiseksi. Anna /Alt-merkintä ei-tekstuaalisille huomautuksille."
+  },
+  "28-005": {
+    "title": "Lomakekentästä puuttuu TU tai Alt",
+    "description": "Lomakekentän widget-huomautuksella ei ole työkaluvihjettä (TU) tai Alt-merkintää, mikä tekee ruudunlukuohjelman käyttäjille mahdottomaksi ymmärtää kentän tarkoitusta.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää /TU-merkintä (työkaluvihje) jokaiseen lomakekenttään sen tarkoituksen ja odotetun syöttömuodon kuvaamiseksi."
+  },
+  "28-006": {
+    "title": "Määrittelemätön huomautuksen alatyyppi",
+    "description": "Huomautuksella on Subtype-arvo, jota ei ole määritelty ISO 32000-1 -standardissa, mikä voi aiheuttaa arvaamatonta käyttäytymistä PDF-käsittelijöissä.",
+    "severity_label": "minor",
+    "suggested_fix": "Korvaa tai poista huomautukset, joilla on määrittelemätön alatyyppi, tai varmista, että mukautettu alatyyppi on rekisteröity ja sitä käsitellään oikein."
+  },
+  "28-007": {
+    "title": "TrapNet-huomautus löytyi",
+    "description": "Dokumentissa on TrapNet-huomautus (käytetään prepress-työnkuluissa), eikä sitä ole tägätty tai merkitty artefaktiksi asianmukaisesti.",
+    "severity_label": "minor",
+    "suggested_fix": "Merkitse TrapNet-huomautukset artefakti-elementeiksi, koska niillä ei ole semanttista merkitystä dokumentin käyttäjille."
+  },
+  "28-008": {
+    "title": "Sivulta, jolla on huomautuksia, puuttuu Tabs-avain",
+    "description": "Sivulla, joka sisältää huomautuksia (linkkejä, lomakekenttiä), ei ole Tabs-merkintää, joka määrittää näppäimistönavigoinnin sarkainjärjestyksen.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää /Tabs-merkintä sivusanakirjaan. Käytä /Tabs=S rakennejärjestykselle (suositellaan saavutettaville dokumenteille)."
+  },
+  "28-009": {
+    "title": "Tabs-asetus ei ole S (rakennejärjestys)",
+    "description": "Sivun Tabs-avain on asetettu muuhun arvoon kuin 'S' (esim. 'R' rivijärjestykselle, 'C' sarakejärjestykselle), mikä ei välttämättä vastaa dokumentin loogista lukujärjestystä.",
+    "severity_label": "major",
+    "suggested_fix": "Aseta /Tabs-arvoksi 'S' (rakennejärjestys) sivuille, joilla on huomautuksia, jotta näppäimistönavigointi seuraa rakenne-puun järjestystä."
+  },
+  "28-010": {
+    "title": "Widget-huomautus ei ole Form-elementin sisällä",
+    "description": "Widget-huomautusta (lomakekenttä) ei ole kääritty puun Form-rakenne-elementtiin.",
+    "severity_label": "major",
+    "suggested_fix": "Kääri jokainen widget-huomautus Form-rakenne-elementtiin. Ryhmittele toisiinsa liittyvät lomakekentät saman Form-säilön sisään."
+  },
+  "28-011": {
+    "title": "Linkki-huomautus ei ole Link-elementin sisällä",
+    "description": "Linkki-huomautusta (hyperlinkki) ei ole kääritty puun Link-rakenne-elementtiin.",
+    "severity_label": "major",
+    "suggested_fix": "Kääri jokainen linkki-huomautus Link-rakenne-elementtiin, joka on sijoitettu oikeaan lukujärjestykseen."
+  },
+  "28-012": {
+    "title": "Linkki-huomautuksesta puuttuu Contents",
+    "description": "Linkki-huomautuksella ei ole Contents-merkintää, joka kuvaisi linkin kohteen tai tarkoituksen.",
+    "severity_label": "major",
+    "suggested_fix": "Lisää /Contents-merkkijono jokaiseen Linkki-huomautukseen kuvaamaan, mihin linkki osoittaa."
+  },
+  "28-013": {
+    "title": "IsMap=true ilman palvelinpuolen kuvakarttaa",
+    "description": "Linkki-huomautuksella on IsMap asetettuna todeksi, mutta siihen liittyvä kuva ei toimi palvelinpuolen kuvakarttana.",
+    "severity_label": "minor",
+    "suggested_fix": "Aseta IsMap epätodeksi, jos kuva ei ole aktiivinen palvelinpuolen kuvakartta, jolla on koordinaatteihin perustuva toiminta."
+  },
+  "28-016": {
+    "title": "Tiedostoliite ei vastaa kohtaa 7.11",
+    "description": "Tiedostoliitehuomautus viittaa upotettuun tiedostoon, joka ei vastaa kohdan 7.11 (Embedded File Streams) vaatimuksia.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että upotetuilla tiedostoilla on sekä F- että UF-merkinnät ja että tiedostomäärityssanakirja on täydellinen. Katso myös 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark loogisessa rakenteessa",
+    "description": "PrinterMark-huomautus (leikkuumerkit, kohdistusmerkit, väripalkit) näkyy dokumentin loogisessa rakenne-puussa, jossa sillä ei ole semanttista merkitystä.",
+    "severity_label": "minor",
+    "suggested_fix": "Poista PrinterMark-huomautukset rakenne-puusta ja merkitse ne artefakti-elementeiksi."
+  },
+  "28-018": {
+    "title": "PrinterMark-ulkoasu ei ole artefakti",
+    "description": "PrinterMark-huomautuksen ulkoasuvirtaa ei ole merkitty artefakti-elementiksi, mikä saa ruudunlukuohjelmat yrittämään tulostusmerkkien kuvailemista.",
+    "severity_label": "minor",
+    "suggested_fix": "Merkitse PrinterMark-ulkoasun sisältö artefakti-elementiksi sisältövirrassa."
+  },
+  "30-001": {
+    "title": "Reference XObject löytyi",
+    "description": "Dokumentissa käytetään Reference XObject -objektia. Reference XObjectit tuovat sisältöä ulkoisista PDF-tiedostoista, mikä voi rikkoa saavutettavuuden, koska tuotua sisältöä ei ole integroitu oikein rakenne-puuhun.",
+    "severity_label": "major",
+    "suggested_fix": "Vältä Reference XObject -objekteja. Jos ne ovat välttämättömiä, varmista, että kaikki tuotu sisältö on tägätty oikein isäntädokumentin rakenne-puussa."
+  },
+  "30-002": {
+    "title": "Form XObject, jossa on useita kertoja viitattuja MCID-tunnisteita",
+    "description": "Form XObject, joka sisältää merkittyä sisältöä MCID-tunnisteilla (Marked Content Identifiers), on viitattu useista kohdista, mikä aiheuttaa MCID-ristiriitoja sivun merkityn sisällön sarjassa.",
+    "severity_label": "major",
+    "suggested_fix": "Vältä sellaisten Form XObject -objektien uudelleenkäyttöä, jotka sisältävät merkittyä sisältöä. Litistä tai kopioi XObject jokaiselle käyttöpaikalle."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo-rekisterin epäsuhta Type0-jälkeläisten välillä",
+    "description": "Type0-fontin jälkeläisillä CIDFonteilla on epäjohdonmukaiset CIDSystemInfo Registry -arvot, mikä voi aiheuttaa merkistökartan epäonnistumisia.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että kaikilla Type0-fontin jälkeläisillä CIDFonteilla on johdonmukaiset CIDSystemInfo-arvot (Registry, Ordering, Supplement)."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo-järjestyksen epäsuhta Type0-jälkeläisten välillä",
+    "description": "Type0-fontin jälkeläisillä CIDFonteilla on epäjohdonmukaiset CIDSystemInfo Ordering -arvot.",
+    "severity_label": "minor",
+    "suggested_fix": "Kohdista Ordering-arvot kaikilla Type0-fontin jälkeläisillä CIDFonteilla."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo-lisäyksen epäsuhta Type0-jälkeläisten välillä",
+    "description": "Type0-fontin jälkeläisillä CIDFonteilla on epäjohdonmukaiset CIDSystemInfo Supplement -arvot.",
+    "severity_label": "minor",
+    "suggested_fix": "Kohdista Supplement-arvot kaikilla Type0-fontin jälkeläisillä CIDFonteilla."
+  },
+  "31-004": {
+    "title": "CIDFontista puuttuu CIDToGIDMap",
+    "description": "CIDFont-sanakirja ei sisällä CIDToGIDMap-merkintää eikä käytä Identity-kuvausta, mikä tekee glyyfihausta epäluotettavan.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää CIDToGIDMap-merkintä CIDFontiin tai aseta se 'Identity'-tilaan, jos fontti käyttää Identity CID-tunnisteita."
+  },
+  "31-005": {
+    "title": "CIDFont vaatii muun kuin Identity CIDToGIDMapin",
+    "description": "CIDFont, jonka merkistökokoelma ei ole Adobe-Identity, vaatii eksplisiittisen CIDToGIDMap-virran oikeaa glyyfikuvausta varten.",
+    "severity_label": "minor",
+    "suggested_fix": "Tarjoa eksplisiittinen CIDToGIDMap-virta CIDFontille, jos se ei käytä Adobe-Identity-merkistökokoelmaa."
+  },
+  "31-006": {
+    "title": "CMapia ei ole luetteloitu tai upotettu",
+    "description": "Type0-fontin käyttämää CMap-resurssia ei ole luetteloitu PDF-spesifikaation standardeissa CMap-tiedostoissa eikä upotettu dokumenttiin.",
+    "severity_label": "minor",
+    "suggested_fix": "Käytä joko PDF-spesifikaation mukaista standardia CMapia tai upota mukautettu CMap-virta dokumenttiin."
+  },
+  "31-007": {
+    "title": "WMode-epäsuhta Type0-fontissa",
+    "description": "WMode-arvot (kirjoitustila) eroavat CMapin ja Type0-fontin jälkeläisten CIDFonttien välillä.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista johdonmukaiset WMode-arvot (0 vaakasuuntainen, 1 pystysuuntainen) CMapin ja kaikkien jälkeläisten CIDFonttien välillä."
+  },
+  "31-008": {
+    "title": "CMap viittaa luetteloimattomaan CMap-tiedostoon",
+    "description": "CMap-virta viittaa toiseen CMap-tiedostoon, joka ei ole standardi CMap eikä upotettu dokumenttiin.",
+    "severity_label": "minor",
+    "suggested_fix": "Upota kaikki viitatut ei-standardit CMap-tiedostot dokumenttiin tai käytä vain standardeja CMap-tiedostoja."
+  },
+  "31-009": {
+    "title": "Fonttia ei ole upotettu",
+    "description": "Dokumentissa käytettyä fonttia ei ole upotettu. Upottamattomat fontit aiheuttavat varautumisen järjestelmäfontteihin, joilla voi olla erilaiset mittasuhteet ja glyyfi-kattavuus, mikä rikkoo tekstin erottamisen ja visuaalisen tarkkuuden.",
+    "severity_label": "critical",
+    "suggested_fix": "Upota kaikki dokumentissa käytetyt fontit. Varmista standardien 14 fontin kohdalla, joita ei voi upottaa, että fonttiohjelma on saatavilla tai korvaa se upotetulla vastineella."
+  },
+  "31-011": {
+    "title": "Upotetusta fonttiohjelmasta puuttuu glyyfi",
+    "description": "Dokumentin tekstissä viitattua glyyfiä ei ole upotetussa fonttiohjelmassa.",
+    "severity_label": "major",
+    "suggested_fix": "Rajaa fontti sisältämään kaikki tarvittavat glyyfit tai käytä toista fonttia, joka sisältää tarvittavat glyyfit."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glyyfiä ei ole luetteloitu",
+    "description": "Type1-fontin CharSet ei luettele glyyfiä, joka on todellisuudessa fonttiohjelmassa ja käytössä dokumentissa.",
+    "severity_label": "minor",
+    "suggested_fix": "Päivitä CharSet sisältämään kaikki fonttiohjelmassa olevat glyyfit, joihin dokumentissa viitataan."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: luetteloitu glyyfi ei ole fontissa",
+    "description": "Type1-fontin CharSet luettelee glyyfin nimen, jota ei ole upotetussa fonttiohjelmassa.",
+    "severity_label": "minor",
+    "suggested_fix": "Poista olemattomat glyyfinimet CharSet-luettelosta tai upota koko fontti."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glyyfiä ei ole luetteloitu",
+    "description": "CIDFontin CIDSet ei sisällä CID-tunnistetta, joka on todellisuudessa upotetussa fonttiohjelmassa ja käytössä dokumentissa.",
+    "severity_label": "minor",
+    "suggested_fix": "Päivitä CIDSet sisältämään kaikki dokumentissa käytetyt CID-arvot."
+  },
+  "31-015": {
+    "title": "CID CIDSet: luetteloitu CID ei ole fontissa",
+    "description": "CIDFontin CIDSet luettelee CID-tunnisteen, joka ei vastaa mitään upotetun fonttiohjelman glyyfiä.",
+    "severity_label": "minor",
+    "suggested_fix": "Poista olemattomat CID-tunnisteet CIDSet-luettelosta tai luo se uudelleen varsinaisesta fonttiohjelmasta."
+  },
+  "31-016": {
+    "title": "Glyyfin leveyden poikkeama > 1/1000",
+    "description": "Fonttisanakirjassa määritetty glyyfin leveys eroaa enemmän kuin 1 yksikön per 1000 upotetun fonttiohjelman leveydestä.",
+    "severity_label": "minor",
+    "suggested_fix": "Korjaa fonttisanakirjan Widths-taulukko (tai W2-merkintä) vastaamaan upotetun fonttiohjelman todellisia glyyfileveyksiä."
+  },
+  "31-017": {
+    "title": "Ei-symbolisesta TrueTypestä puuttuu ei-symbolinen cmap",
+    "description": "TrueType-fontti, jossa on ei-symbolinen koodaus (Encoding-merkintä olemassa tai symbolinen lippu pois päältä), ei sisällä (3,1) cmap-alitaulukkoa Unicode-kuvausta varten.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että TrueType-fonttiohjelma sisältää (3,1) Microsoft Unicode BMP cmap -alitaulukon oikeaa Unicode-merkistökuvausta varten."
+  },
+  "31-018": {
+    "title": "Ei-symbolinen TrueType-glyyfi ei ole cmap-taulukossa",
+    "description": "Ei-symbolisen TrueType-fontin glyyfiä ei voida hakea fontin cmap-alitaulukoiden kautta.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että kaikki dokumentissa käytetyt glyyfit ovat käytettävissä vähintään yhden fontin cmap-alitaulukon kautta."
+  },
+  "31-019": {
+    "title": "Ei-symbolisesta TrueType-fonttisanakirjasta puuttuu Encoding",
+    "description": "Ei-symbolisesta TrueType-fonttisanakirjasta puuttuu Encoding-merkintä, joka vaaditaan glyyfin nimen ratkaisemiseen.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää sopiva Encoding-merkintä (esim. WinAnsiEncoding, MacRomanEncoding) fonttisanakirjaan."
+  },
+  "31-020": {
+    "title": "Encoding-sanakirjasta puuttuu BaseEncoding",
+    "description": "Encoding-sanakirja, jossa on Differences-taulukko, ei määritä BaseEncoding-merkintää.",
+    "severity_label": "minor",
+    "suggested_fix": "Määritä BaseEncoding (esim. WinAnsiEncoding) Encoding-sanakirjassa, josta Differences-taulukko poikkeaa."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding ei ole MacRoman tai WinAnsi",
+    "description": "Ei-symbolisen TrueType-fontin Encoding tai BaseEncoding ei ole MacRomanEncoding eikä WinAnsiEncoding, jotka ovat kaksi standardia peruskoodausta.",
+    "severity_label": "minor",
+    "suggested_fix": "Käytä WinAnsiEncoding- tai MacRomanEncoding-koodausta fontin peruskoodauksena."
+  },
+  "31-022": {
+    "title": "Differences-taulukon glyyfinimet eivät ole Adobe Glyph List -luettelossa",
+    "description": "Fontin Encoding-sanakirjan Differences-taulukko käyttää glyyfinimiä, joita ei ole Adobe Glyph List (AGL) -luettelossa.",
+    "severity_label": "minor",
+    "suggested_fix": "Käytä Differences-taulukossa vain standardeja glyyfinimiä Adobe Glyph List -luettelosta."
+  },
+  "31-023": {
+    "title": "Differences-taulukko on olemassa, mutta (3,1) cmap-taulukkoa ei ole",
+    "description": "Fontin Encoding-sanakirjassa on Differences-taulukko, mutta TrueType-fonttiohjelma ei sisällä (3,1) cmap-alitaulukkoa Unicode-kuvausta varten.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisää ToUnicode CMap fontille luotettavan Unicode-kuvauksen varmistamiseksi."
+  },
+  "31-024": {
+    "title": "Symbolisella TrueType-fonttisanakirjalla on Encoding",
+    "description": "Symbolisella TrueType-fontilla (Flags-bitin 3 asetus) on Encoding-merkintä fonttisanakirjassaan, mikä ei ole sallittua symbolisille fonteille.",
+    "severity_label": "minor",
+    "suggested_fix": "Poista Encoding-merkintä symbolisista TrueType-fonttisanakirjoista. Symboliset fontit luottavat fonttiohjelman cmap-taulukkoon merkistökuvauksessa."
+  },
+  "31-025": {
+    "title": "Symbolisesta TrueType-fonttiohjelmasta puuttuu cmap",
+    "description": "Symbolisen TrueType-fontin upotettu fonttiohjelma ei sisällä yhtään cmap-taulukkoa.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että upotettu fonttiohjelma sisältää vähintään (3,0) cmap-alitaulukon symbolista merkistökuvausta varten."
+  },
+  "31-026": {
+    "title": "Symbolisesta TrueTypestä, jossa on useita cmap-taulukoita, puuttuu (3,0)",
+    "description": "Symbolisella TrueType-fontilla on useita cmap-alitaulukkoja, mutta siitä puuttuu vaadittu (3,0) Microsoft Symbol cmap -alitaulukko.",
+    "severity_label": "minor",
+    "suggested_fix": "Varmista, että upotettu fonttiohjelma sisältää (3,0) Microsoft Symbol cmap -alitaulukon oikeaa merkistökuvausta varten."
+  },
+  "31-027": {
+    "title": "ToUnicode CMap puuttuu",
+    "description": "Tekstisisällössä käytetyllä fontilla ei ole ToUnicode CMap -tiedostoa, eikä mitään poikkeusehtoja sovelleta. Ilman ToUnicode CMap -tiedostoa avustavat teknologiat eivät voi poimia luettavaa tekstiä.",
+    "severity_label": "critical",
+    "suggested_fix": "Lisää ToUnicode CMap -virta fonttisanakirjaan, joka kuvaa jokaisen dokumentissa käytetyn merkkikoodin vastaavaan Unicode-arvoon."
+  },
+  "31-028": {
+    "title": "ToUnicode kuvaa CID 0 -tunnisteeseen",
+    "description": "ToUnicode CMap kuvaa merkkikoodin Unicode-arvoon U+0000 (null), joka ei ole kelvollinen tekstimerkki.",
+    "severity_label": "minor",
+    "suggested_fix": "Korjaa ToUnicode CMap kuvaamaan merkkikoodi kelvolliseen, ei-null Unicode-arvoon."
+  },
+  "31-029": {
+    "title": "ToUnicode kuvaa U+FEFF tai U+FFFE -arvoihin",
+    "description": "ToUnicode CMap kuvaa merkkikoodin arvoon U+FEFF (BOM) tai U+FFFE (tavujärjestysmerkki), jotka ovat ohjausmerkkejä, eivätkä kelvollisia näytettäviä tekstimerkkejä.",
+    "severity_label": "minor",
+    "suggested_fix": "Korvaa U+FEFF/U+FFFE-kuvaukset ToUnicode CMap -tiedostossa merkin todellisella Unicode-arvolla."
+  },
+  "31-030": {
+    "title": ".notdef-glyyfiin viitataan tekstissä",
+    "description": "Dokumentin tekstin näyttöoperaattori viittaa .notdef-glyyfiin (glyyfi-indeksi 0), mikä osoittaa puuttuvan tai saatavilla olevan merkin. .notdef-merkkiä käyttävä teksti näkyy tyhjänä tai tofu-merkkeinä.",
+    "severity_label": "major",
+    "suggested_fix": "Varmista, että kaikki dokumentissa käytetyt merkkikoodit vastaavat upotetun fonttiohjelman todellisia glyyfejä."
+  }
+}

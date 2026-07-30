@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artifact tagged as real content",
+    "description": "A page artifact (header, footer, decorative element) is incorrectly tagged as real content in the structure tree. Screen readers will attempt to read decorative elements as document content.",
+    "severity_label": "critical",
+    "suggested_fix": "Change the structure element type to Artifact or wrap the content in an Artifact marked-content sequence."
+  },
+  "01-002": {
+    "title": "Real content marked as artifact",
+    "description": "Genuine document content (body text, heading, caption) is incorrectly marked as an Artifact. Screen readers will skip this content entirely.",
+    "severity_label": "critical",
+    "suggested_fix": "Remove the Artifact marking from real content and ensure it is properly tagged with an appropriate structure element."
+  },
+  "01-003": {
+    "title": "Artifact inside tagged content",
+    "description": "An artifact-marked element appears inside a structure element that represents real content, corrupting the content hierarchy.",
+    "severity_label": "critical",
+    "suggested_fix": "Move artifact-marked content outside the real-content structure element, or restructure the element hierarchy."
+  },
+  "01-004": {
+    "title": "Tagged content inside artifact",
+    "description": "A tagged real-content element is nested inside an Artifact container. Screen readers may skip this content.",
+    "severity_label": "critical",
+    "suggested_fix": "Move the tagged content out of the Artifact container and place it at the correct level in the structure tree."
+  },
+  "01-005": {
+    "title": "Content neither tagged nor artifact",
+    "description": "Content on the page is neither tagged as a structure element nor marked as an artifact. This is the most common PDF/UA violation and the primary cause of screen reader silence on content.",
+    "severity_label": "critical",
+    "suggested_fix": "Either tag the content with an appropriate structure element (P, H1-H6, Figure, etc.) or mark it as Artifact if it is decorative."
+  },
+  "01-006": {
+    "title": "Missing StructTreeRoot",
+    "description": "The document catalog dictionary must include the StructTreeRoot entry, which serves as the root of the document's logical structure. Without it, screen readers cannot interpret the document structure at all.",
+    "severity_label": "critical",
+    "suggested_fix": "Add a StructTreeRoot object to the document catalog dictionary and build the structure element hierarchy for all content pages."
+  },
+  "01-007": {
+    "title": "Suspect flag is true",
+    "description": "The Suspects entry in the document's MarkInfo dictionary is set to true, indicating that the structure tree may contain unreliable tagging. Assistive technologies may ignore the structure tree entirely.",
+    "severity_label": "critical",
+    "suggested_fix": "Set the Suspects flag to false in the MarkInfo dictionary after verifying that all content is correctly tagged."
+  },
+  "02-001": {
+    "title": "Non-standard role mapping does not end in standard type",
+    "description": "A custom role in the RoleMap does not map to a standard PDF structure type. The final target of the mapping chain must be a standard type from the PDF 32000-1 role set.",
+    "severity_label": "critical",
+    "suggested_fix": "Ensure every non-standard role in the RoleMap maps directly or transitively to a standard type (e.g., Document, Part, Sect, P, H1-H6, L, LI, Table, Figure, etc.)."
+  },
+  "02-002": {
+    "title": "Semantically inappropriate role mapping",
+    "description": "A structure element's role has been mapped to a standard type that does not match the element's semantic purpose (e.g., a heading mapped to Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Review the RoleMap and ensure each mapping reflects the actual semantic role of the content. Human judgment may be required."
+  },
+  "02-003": {
+    "title": "Circular role mapping",
+    "description": "The RoleMap contains a circular chain where role A maps to B, B maps to C, and C maps back to A, creating an infinite loop for processors.",
+    "severity_label": "major",
+    "suggested_fix": "Break the circular chain by mapping the final role directly to an appropriate standard type."
+  },
+  "02-004": {
+    "title": "Standard type remapped",
+    "description": "A standard PDF structure type (e.g., P, H1, Table) is being remapped to a different type via the RoleMap, which is not permitted by PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Remove the mapping for this standard type from the RoleMap. Standard types must not be remapped."
+  },
+  "06-001": {
+    "title": "Missing XMP metadata stream",
+    "description": "The document does not contain an XMP metadata stream in the catalog's Metadata entry. PDF/UA-1 requires XMP metadata.",
+    "severity_label": "major",
+    "suggested_fix": "Add an XMP metadata stream to the document catalog with at minimum dc:format (application/pdf), pdfuaid:part (1), and dc:title."
+  },
+  "06-002": {
+    "title": "Missing PDF/UA identifier",
+    "description": "The XMP metadata does not contain the pdfuaid:part property, which identifies the document as conforming to PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Add the pdfuaid:part property with value 1 to the XMP metadata stream to declare PDF/UA-1 conformance."
+  },
+  "06-003": {
+    "title": "Missing dc:title in metadata",
+    "description": "The XMP metadata or document information dictionary does not contain a dc:title entry. PDF/UA-1 requires the document to have a title.",
+    "severity_label": "major",
+    "suggested_fix": "Add a dc:title entry to the XMP metadata stream. Use the document's actual title or a meaningful fallback."
+  },
+  "07-001": {
+    "title": "Missing DisplayDocTitle viewer preference",
+    "description": "The document's viewer preferences dictionary does not contain the DisplayDocTitle key. When absent or false, viewers display the filename instead of the document title.",
+    "severity_label": "major",
+    "suggested_fix": "Set DisplayDocTitle to true in the document's viewer preferences dictionary (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle set to false",
+    "description": "The DisplayDocTitle key in the viewer preferences is set to false, causing viewers to display the filename in the title bar instead of the document title.",
+    "severity_label": "major",
+    "suggested_fix": "Change DisplayDocTitle to true in the viewer preferences dictionary."
+  },
+  "08-002": {
+    "title": "OCR text not tagged in structure tree",
+    "description": "The document contains OCR-generated text (common in scanned PDFs) that is not tagged in the structure tree. Screen reader users cannot access this content.",
+    "severity_label": "critical",
+    "suggested_fix": "Ensure all OCR-generated text is included in the structure tree with appropriate tags. For scanned PDFs, rebuild the document with a full text layer overlay."
+  },
+  "09-001": {
+    "title": "Tags not in logical reading order",
+    "description": "Structure elements in the tree are not arranged in the logical reading order of the document. Screen readers navigate the document in tree order, which may differ from visual order.",
+    "severity_label": "critical",
+    "suggested_fix": "Reorder the structure elements in the tree to match the logical reading order (typically top-to-bottom, left-to-right for the given language)."
+  },
+  "09-002": {
+    "title": "Semantically inappropriate nesting",
+    "description": "A structure element is nested inside a parent element where it does not semantically belong (e.g., a Table row inside a Paragraph, or a heading inside a List).",
+    "severity_label": "critical",
+    "suggested_fix": "Restructure the element hierarchy to ensure each element is nested inside a semantically appropriate parent."
+  },
+  "09-003": {
+    "title": "Inappropriate structure type after role mapping",
+    "description": "After role mapping resolution, the final structure type is not semantically appropriate for the content it contains.",
+    "severity_label": "major",
+    "suggested_fix": "Adjust the RoleMap or change the original structure type so the resolved type matches the content's semantic role."
+  },
+  "09-004": {
+    "title": "Table element does not conform to Table 337",
+    "description": "A structure element of type Table does not conform to the allowed child structure (Table 337 in ISO 32000-1). A Table must contain at least a TBody with TR children, or THead/TBody/TFoot sections.",
+    "severity_label": "major",
+    "suggested_fix": "Ensure the Table element contains properly structured rows: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. At minimum, wrap rows in a TBody."
+  },
+  "09-005": {
+    "title": "List element does not conform to Table 336",
+    "description": "A structure element of type L (List) does not conform to the allowed child structure (Table 336 in ISO 32000-1). A List must contain LI elements, and an LI must contain Lbl (optional) and LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Structure lists as: L > LI > (Lbl)? + LBody. Ensure each list item has an LBody child containing the item content."
+  },
+  "09-006": {
+    "title": "TOC element does not conform to Table 333",
+    "description": "A structure element of type TOC (Table of Contents) does not conform to the allowed child structure. TOC must contain TOCI elements.",
+    "severity_label": "minor",
+    "suggested_fix": "Structure table of contents entries as: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby element non-conformant",
+    "description": "A Ruby structure element (used for pronunciation annotations) does not follow the required child structure: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Restructure the Ruby element with required RB (ruby base) and RT (ruby text) children."
+  },
+  "09-008": {
+    "title": "Warichu element non-conformant",
+    "description": "A Warichu structure element (inline comment or annotation in CJK text) does not follow the required structure: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Restructure the Warichu element with required WT (warichu text) and WP (warichu punctuation) children."
+  },
+  "10-001": {
+    "title": "Character code cannot be mapped to Unicode",
+    "description": "A character code in the document's text cannot be mapped to a Unicode value. This causes garbled or missing characters when assistive technologies extract text.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure all fonts have a ToUnicode CMap that maps every used character code to a valid Unicode value. Verify the CMap covers all glyphs used in the document."
+  },
+  "11-001": {
+    "title": "Page content language not determinable",
+    "description": "The natural language of the page content cannot be determined because the /Lang entry is missing from the document catalog or page-level structure elements.",
+    "severity_label": "critical",
+    "suggested_fix": "Set the /Lang entry in the document catalog to the document's primary language (e.g., 'en-US', 'hu-HU'). Add /Lang to individual structure elements if content switches languages."
+  },
+  "11-002": {
+    "title": "Alt/ActualText language not determinable",
+    "description": "The language of alternative text descriptions (Alt) or ActualText replacements cannot be determined.",
+    "severity_label": "minor",
+    "suggested_fix": "Add /Lang attributes to structure elements containing Alt or ActualText when the text language differs from the document default."
+  },
+  "11-003": {
+    "title": "Outline language not set",
+    "description": "The document outline (bookmarks) does not have a /Lang entry, preventing assistive technologies from pronouncing outline items correctly.",
+    "severity_label": "minor",
+    "suggested_fix": "Add a /Lang entry to the outline dictionary matching the document's primary language."
+  },
+  "11-004": {
+    "title": "Annotation Contents language not set",
+    "description": "Annotation Contents strings (tooltips, form field values) do not have an associated language declaration.",
+    "severity_label": "minor",
+    "suggested_fix": "Add /Lang to annotation appearance dictionaries when the annotation text differs from the document language."
+  },
+  "11-005": {
+    "title": "Form field TU language not set",
+    "description": "The Tooltip (TU) entry of form fields does not have an associated language, which may cause incorrect pronunciation by screen readers.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure form field tooltip text includes language identification if it differs from the document default language."
+  },
+  "11-006": {
+    "title": "Document metadata language not set",
+    "description": "The XMP metadata does not declare a dc:language property, or the document catalog /Lang entry is missing or empty.",
+    "severity_label": "major",
+    "suggested_fix": "Add dc:language to the XMP metadata and set /Lang in the document catalog to an RFC 3066 language tag."
+  },
+  "12-001": {
+    "title": "Stretchable characters missing ActualText",
+    "description": "Stretchable characters (parentheses, brackets, braces, radical signs) used in mathematical or decorative contexts do not have ActualText replacements.",
+    "severity_label": "minor",
+    "suggested_fix": "Add ActualText to stretchable character sequences describing their semantic meaning (e.g., ActualText='(' for a stretchable left parenthesis)."
+  },
+  "13-001": {
+    "title": "Graphic not tagged as Figure",
+    "description": "A graphic element (image, chart, diagram) in the document content is not tagged with a Figure structure element.",
+    "severity_label": "major",
+    "suggested_fix": "Tag all non-decorative graphics as Figure elements in the structure tree, with appropriate Alt text."
+  },
+  "13-002": {
+    "title": "Link with meaningful background lacks Alt",
+    "description": "A link annotation has a meaningful visual appearance (e.g., an image used as a button) but lacks alternative text describing its purpose.",
+    "severity_label": "major",
+    "suggested_fix": "Add a Contents entry to the link annotation describing its destination or purpose."
+  },
+  "13-003": {
+    "title": "Caption not tagged as Caption",
+    "description": "A caption (image caption, table title, figure legend) is tagged as regular text (P) instead of using the Caption structure type.",
+    "severity_label": "major",
+    "suggested_fix": "Tag captions with the Caption structure type and ensure they are properly associated with their parent Figure or Table element."
+  },
+  "13-004": {
+    "title": "Figure missing Alt text",
+    "description": "A Figure structure element is present but does not have an Alt attribute providing alternative text. Screen readers will announce the figure's presence but cannot describe its content.",
+    "severity_label": "major",
+    "suggested_fix": "Add an /Alt entry to the Figure structure element with a concise description of the image content."
+  },
+  "14-001": {
+    "title": "Headings not tagged",
+    "description": "Content that visually functions as a heading (larger font, bold, distinct styling) is not tagged with a heading structure type (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identify all headings in the document and tag them with appropriate H1-H6 structure elements reflecting their hierarchy level."
+  },
+  "14-002": {
+    "title": "First heading is not H1",
+    "description": "The first heading in the document structure tree is not of type H1. PDF/UA-1 best practice is that the top-level heading should be H(n) and subsequent headings should not skip levels.",
+    "severity_label": "major",
+    "suggested_fix": "Ensure the first heading is H1 (or H2 if the document title is in metadata). Renumber subsequent headings to avoid level skips."
+  },
+  "14-003": {
+    "title": "Heading level skipped",
+    "description": "Heading levels in the structure tree skip a level (e.g., H1 followed directly by H3 without an intervening H2). This breaks the logical heading hierarchy for assistive technology users.",
+    "severity_label": "major",
+    "suggested_fix": "Ensure heading levels are sequential without gaps. Renumber headings so H1 is followed by H2, then H3, etc."
+  },
+  "14-005": {
+    "title": "Deep heading without H7+ type",
+    "description": "A heading at nesting level 7 or deeper does not have a corresponding H7+ structure type. PDF only defines H1 through H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Flatten the heading hierarchy to a maximum of 6 levels, or use non-standard role mapping with caution."
+  },
+  "14-006": {
+    "title": "Multiple H tags in one structure node",
+    "description": "A single structure element contains more than one heading tag (e.g., a Sect containing both H1 and H2). Each heading should create a new nesting level.",
+    "severity_label": "major",
+    "suggested_fix": "Split the structure node so each heading starts a new section or subsection at the appropriate level."
+  },
+  "14-007": {
+    "title": "Mixed H and Hn tags inconsistently",
+    "description": "Some headings use the generic 'H' type while others use numbered 'H1'-'H6' types inconsistently within the same document.",
+    "severity_label": "major",
+    "suggested_fix": "Convert all generic H tags to numbered H1-H6 types based on their position in the heading hierarchy."
+  },
+  "15-001": {
+    "title": "Row header not tagged as header cell",
+    "description": "A table cell that serves as a row header is tagged as TD (data cell) instead of TH (header cell). This prevents screen readers from correctly associating headers with data cells.",
+    "severity_label": "major",
+    "suggested_fix": "Change the structure type of row header cells from TD to TH and add an appropriate Scope attribute (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Column header not tagged as header cell",
+    "description": "A table cell that serves as a column header is tagged as TD instead of TH. Screen readers cannot navigate the table logically.",
+    "severity_label": "major",
+    "suggested_fix": "Change the structure type of column header cells from TD to TH and add an appropriate Scope attribute (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH missing Scope without Headers/ID",
+    "description": "A TH (table header) element does not have a Scope attribute, and the table does not use Headers/ID associations to link headers to data cells.",
+    "severity_label": "major",
+    "suggested_fix": "Add Scope='Row', Scope='Column', or Scope='Both' to TH elements, or implement Headers/ID associations."
+  },
+  "15-005": {
+    "title": "Ambiguous cell header association",
+    "description": "A data cell's associated header cells cannot be unambiguously determined due to complex table structure (merged cells, irregular layout).",
+    "severity_label": "major",
+    "suggested_fix": "Use explicit Headers/ID attributes to link each TD to its corresponding TH elements, or simplify the table structure."
+  },
+  "16-001": {
+    "title": "Ordered list missing ListNumbering",
+    "description": "An ordered list (type L with numbered items) does not have the ListNumbering attribute, which specifies the numbering format.",
+    "severity_label": "minor",
+    "suggested_fix": "Add the ListNumbering attribute to the L element with a value such as 'Decimal', 'UpperRoman', 'LowerAlpha', etc."
+  },
+  "16-002": {
+    "title": "Invalid ListNumbering value",
+    "description": "The ListNumbering attribute on an L element has an unrecognized or invalid value.",
+    "severity_label": "minor",
+    "suggested_fix": "Set ListNumbering to a valid value: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha, or LowerAlpha."
+  },
+  "16-003": {
+    "title": "List content not tagged as list",
+    "description": "Content that is visually and semantically a list (bulleted or numbered items) is tagged as individual paragraphs or other non-list elements.",
+    "severity_label": "major",
+    "suggested_fix": "Restructure the content as a List (L) with List Items (LI), each containing an optional Lbl and required LBody."
+  },
+  "17-001": {
+    "title": "Mathematical expression not tagged as Formula",
+    "description": "A mathematical expression in the document is tagged as a regular paragraph or figure instead of using the Formula structure type.",
+    "severity_label": "minor",
+    "suggested_fix": "Tag mathematical expressions with the Formula structure type and provide Alt text describing the expression."
+  },
+  "17-002": {
+    "title": "Formula missing Alt text",
+    "description": "A Formula structure element is present but does not have alternative text describing the mathematical expression.",
+    "severity_label": "minor",
+    "suggested_fix": "Add an /Alt entry to the Formula element with a textual representation of the mathematical expression."
+  },
+  "17-003": {
+    "title": "Formula character not Unicode-mapped",
+    "description": "A character in a mathematical formula cannot be mapped to Unicode, causing assistive technologies to read garbled output.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure the font used for mathematical symbols has a complete ToUnicode CMap covering all glyphs. See also 10-001."
+  },
+  "18-001": {
+    "title": "Header/footer not tagged as pagination artifact",
+    "description": "Running headers and footers (page numbers, chapter titles repeating on each page) are tagged as real content instead of being marked as pagination artifacts.",
+    "severity_label": "major",
+    "suggested_fix": "Mark running headers and footers as Artifact with subtype 'Pagination' so screen readers skip them during continuous reading."
+  },
+  "18-002": {
+    "title": "Header/footer missing correct artifact subtype",
+    "description": "Headers and footers are marked as Artifact but do not have the 'Pagination' subtype, or use an incorrect subtype.",
+    "severity_label": "major",
+    "suggested_fix": "Set the Artifact subtype to 'Pagination' for running headers and footers, and 'Header' or 'Footer' only for top/bottom matter on the first/last page."
+  },
+  "19-001": {
+    "title": "Footnote not tagged as Note",
+    "description": "A footnote or endnote in the document is tagged as a regular paragraph instead of using the Note structure type.",
+    "severity_label": "major",
+    "suggested_fix": "Tag footnotes and endnotes as Note elements, with a unique ID attribute and a Reference element in the body text pointing to it."
+  },
+  "19-002": {
+    "title": "Reference not tagged as Reference",
+    "description": "An in-text citation or cross-reference marker is tagged as regular text instead of using the Reference structure type.",
+    "severity_label": "major",
+    "suggested_fix": "Tag citation markers and cross-references as Reference elements, linking them to their corresponding Note or destination."
+  },
+  "19-003": {
+    "title": "Note ID missing",
+    "description": "A Note structure element does not have an ID attribute, preventing referential linkage from the body text Reference element.",
+    "severity_label": "major",
+    "suggested_fix": "Add a unique ID attribute to every Note element so that Reference elements can point to them."
+  },
+  "19-004": {
+    "title": "Note ID not unique",
+    "description": "Two or more Note structure elements share the same ID attribute value, causing ambiguous reference resolution.",
+    "severity_label": "major",
+    "suggested_fix": "Ensure each Note element has a globally unique ID within the document."
+  },
+  "20-001": {
+    "title": "Optional content config missing Name (Configs array)",
+    "description": "An optional content configuration dictionary in the document's OCConfigs array does not have a Name entry.",
+    "severity_label": "minor",
+    "suggested_fix": "Add a descriptive /Name entry to each optional content configuration in the OCProperties/Configs array."
+  },
+  "20-002": {
+    "title": "Optional content config missing Name (D default)",
+    "description": "The default optional content configuration dictionary (D entry in OCProperties) does not have a Name entry.",
+    "severity_label": "minor",
+    "suggested_fix": "Add a /Name entry to the default optional content configuration dictionary."
+  },
+  "20-003": {
+    "title": "AS key present in optional content config",
+    "description": "An optional content configuration dictionary contains an AS (Application Specific) entry, which is not permitted by PDF/UA-1 as it can alter the document's visual appearance without the user's knowledge.",
+    "severity_label": "minor",
+    "suggested_fix": "Remove the AS key from the optional content configuration dictionary."
+  },
+  "21-001": {
+    "title": "Embedded file missing F and UF keys",
+    "description": "An embedded file specification dictionary is missing the required F (file specification string) or UF (Unicode text file specification string) entry.",
+    "severity_label": "minor",
+    "suggested_fix": "Add both F and UF entries to the file specification dictionary describing the embedded file."
+  },
+  "22-001": {
+    "title": "Article thread non-conformant",
+    "description": "An article thread structure does not follow the required PDF article bead format with proper V (next bead) and N (previous bead) linking.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure article beads are properly linked with V and N entries, and each bead is associated with the correct page."
+  },
+  "24-001": {
+    "title": "Non-interactive form missing PrintFields",
+    "description": "A non-interactive form (e.g., a flat form printed from digital input) does not have the NeedAppearances flag set, or PrintFields bit is missing from FieldMDP transform parameters.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure form fields intended for print-only display have correct FieldMDP settings with PrintFields bit enabled."
+  },
+  "25-001": {
+    "title": "XFA form dynamicRender not required",
+    "description": "An XFA (XML Forms Architecture) form contains dynamicRender elements that are not set to 'required', potentially causing rendering inconsistencies.",
+    "severity_label": "critical",
+    "suggested_fix": "Set dynamicRender='required' on XFA form elements, or migrate away from XFA to AcroForms for better accessibility support."
+  },
+  "28-001": {
+    "title": "Annotation not in reading order",
+    "description": "An annotation (link, form field, comment) is present on a page but its associated structure element is not placed in the correct reading order position in the structure tree.",
+    "severity_label": "major",
+    "suggested_fix": "Place annotation structure elements (Link, Form, Annot) at the correct position in the structure tree relative to surrounding content."
+  },
+  "28-002": {
+    "title": "Annotation not inside Annot structure element",
+    "description": "An annotation object on the page is not wrapped in an Annot structure element (or appropriate subtype: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Wrap every annotation object in the appropriate structure element (Link for hyperlinks, Form for widgets)."
+  },
+  "28-003": {
+    "title": "Annotation used for visual formatting only",
+    "description": "An annotation is used purely for visual formatting (e.g., a rectangle drawn as decoration) and is not tagged appropriately.",
+    "severity_label": "minor",
+    "suggested_fix": "Mark formatting-only annotations as Artifact or remove them and use proper PDF drawing operators instead."
+  },
+  "28-004": {
+    "title": "Annotation missing Contents and Alt",
+    "description": "An annotation does not have a Contents entry (text description) or Alt entry (alternative text), leaving screen reader users without context.",
+    "severity_label": "major",
+    "suggested_fix": "Add a /Contents string to every annotation describing its purpose. Provide /Alt for non-text annotations."
+  },
+  "28-005": {
+    "title": "Form field missing TU or Alt",
+    "description": "A form field widget annotation does not have a Tooltip (TU) or Alt entry, making it impossible for screen reader users to understand the field's purpose.",
+    "severity_label": "major",
+    "suggested_fix": "Add a /TU (tooltip) entry to each form field describing its purpose and expected input format."
+  },
+  "28-006": {
+    "title": "Undefined annotation subtype",
+    "description": "An annotation has a Subtype value that is not defined in ISO 32000-1, which may cause unpredictable behavior in PDF processors.",
+    "severity_label": "minor",
+    "suggested_fix": "Replace or remove annotations with undefined subtypes, or ensure the custom subtype is registered and properly handled."
+  },
+  "28-007": {
+    "title": "TrapNet annotation present",
+    "description": "A TrapNet annotation (used in prepress trapping workflows) is present in the document and is not appropriately tagged or artifacted.",
+    "severity_label": "minor",
+    "suggested_fix": "Mark TrapNet annotations as Artifact since they carry no semantic meaning for document consumers."
+  },
+  "28-008": {
+    "title": "Page with annotations missing Tabs key",
+    "description": "A page containing annotations (links, form fields) does not have a Tabs entry, which specifies the tab order for keyboard navigation.",
+    "severity_label": "major",
+    "suggested_fix": "Add a /Tabs entry to the page dictionary. Use /Tabs=S for structure order (recommended for accessible documents)."
+  },
+  "28-009": {
+    "title": "Tabs not set to S (structure order)",
+    "description": "The Tabs key on a page is set to a value other than 'S' (e.g., 'R' for row order, 'C' for column order), which may not match the document's logical reading order.",
+    "severity_label": "major",
+    "suggested_fix": "Set /Tabs to 'S' (structure order) on pages with annotations so keyboard navigation follows the structure tree order."
+  },
+  "28-010": {
+    "title": "Widget annotation not inside Form element",
+    "description": "A widget annotation (form field) is not wrapped in a Form structure element in the tree.",
+    "severity_label": "major",
+    "suggested_fix": "Wrap every widget annotation in a Form structure element. Group related form fields within the same Form container."
+  },
+  "28-011": {
+    "title": "Link annotation not inside Link element",
+    "description": "A link annotation (hyperlink) is not wrapped in a Link structure element in the tree.",
+    "severity_label": "major",
+    "suggested_fix": "Wrap every link annotation in a Link structure element positioned at the correct reading-order location."
+  },
+  "28-012": {
+    "title": "Link annotation missing Contents",
+    "description": "A Link annotation does not have a Contents entry describing the link's destination or purpose.",
+    "severity_label": "major",
+    "suggested_fix": "Add a /Contents string to every Link annotation describing what the link points to."
+  },
+  "28-013": {
+    "title": "IsMap=true without server-side image map",
+    "description": "A link annotation has IsMap set to true but the associated image does not function as a server-side image map.",
+    "severity_label": "minor",
+    "suggested_fix": "Set IsMap to false if the image is not an active server-side image map with coordinate-sensitive behavior."
+  },
+  "28-016": {
+    "title": "File attachment not conforming to 7.11",
+    "description": "A file attachment annotation references an embedded file that does not conform to the requirements of clause 7.11 (Embedded File Streams).",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure embedded files have both F and UF entries and the file specification dictionary is complete. See also 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark in logical structure",
+    "description": "A PrinterMark annotation (crop marks, registration marks, color bars) appears in the document's logical structure tree, where it has no semantic meaning.",
+    "severity_label": "minor",
+    "suggested_fix": "Remove PrinterMark annotations from the structure tree and mark them as Artifact."
+  },
+  "28-018": {
+    "title": "PrinterMark appearance not artifact",
+    "description": "A PrinterMark annotation's appearance stream is not marked as Artifact, causing screen readers to attempt to describe print marks.",
+    "severity_label": "minor",
+    "suggested_fix": "Mark PrinterMark appearance content as Artifact in the content stream."
+  },
+  "30-001": {
+    "title": "Reference XObject present",
+    "description": "A Reference XObject is used in the document. Reference XObjects import content from external PDF files, which can break accessibility because the imported content is not properly integrated into the structure tree.",
+    "severity_label": "major",
+    "suggested_fix": "Avoid Reference XObjects. If they are necessary, ensure all imported content is properly tagged in the host document's structure tree."
+  },
+  "30-002": {
+    "title": "Form XObject with MCIDs referenced multiple times",
+    "description": "A Form XObject containing marked content with MCIDs (Marked Content Identifiers) is referenced from multiple locations, causing MCID conflicts in the page's marked-content sequence.",
+    "severity_label": "major",
+    "suggested_fix": "Avoid reusing Form XObjects that contain marked content. Flatten or duplicate the XObject for each usage location."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo Registry mismatch across Type0 descendants",
+    "description": "Type0 font descendant CIDFonts have inconsistent CIDSystemInfo Registry values, which can cause character mapping failures.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure all descendant CIDFonts of a Type0 font have consistent CIDSystemInfo (Registry, Ordering, Supplement) values."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo Ordering mismatch across Type0 descendants",
+    "description": "Type0 font descendant CIDFonts have inconsistent CIDSystemInfo Ordering values.",
+    "severity_label": "minor",
+    "suggested_fix": "Align the Ordering values across all descendant CIDFonts of the Type0 font."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo Supplement mismatch across Type0 descendants",
+    "description": "Type0 font descendant CIDFonts have inconsistent CIDSystemInfo Supplement values.",
+    "severity_label": "minor",
+    "suggested_fix": "Align the Supplement values across all descendant CIDFonts of the Type0 font."
+  },
+  "31-004": {
+    "title": "CIDFont missing CIDToGIDMap",
+    "description": "A CIDFont dictionary does not contain a CIDToGIDMap entry and is not using an Identity mapping, making glyph lookup unreliable.",
+    "severity_label": "minor",
+    "suggested_fix": "Add a CIDToGIDMap entry to the CIDFont, or set it to 'Identity' if the font uses identity CIDs."
+  },
+  "31-005": {
+    "title": "CIDFont requires non-Identity CIDToGIDMap",
+    "description": "A CIDFont whose character collection is not Adobe-Identity requires an explicit CIDToGIDMap stream for correct glyph mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Provide an explicit CIDToGIDMap stream for the CIDFont if it does not use Adobe-Identity character collection."
+  },
+  "31-006": {
+    "title": "CMap not listed or embedded",
+    "description": "A CMap resource used by a Type0 font is neither listed in the PDF specification's standard CMaps nor embedded in the document.",
+    "severity_label": "minor",
+    "suggested_fix": "Either use a standard CMap from the PDF specification or embed the custom CMap stream in the document."
+  },
+  "31-007": {
+    "title": "WMode mismatch in Type0 font",
+    "description": "The WMode (writing mode) values differ across the CMap and descendant CIDFonts of a Type0 font.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure consistent WMode values (0 for horizontal, 1 for vertical) across CMap and all descendant CIDFonts."
+  },
+  "31-008": {
+    "title": "CMap references unlisted CMap",
+    "description": "A CMap stream references another CMap that is neither a standard CMap nor embedded in the document.",
+    "severity_label": "minor",
+    "suggested_fix": "Embed all referenced non-standard CMaps in the document or use standard CMaps only."
+  },
+  "31-009": {
+    "title": "Font not embedded",
+    "description": "A font used in the document is not embedded. Non-embedded fonts cause fallback to system fonts, which may have different metrics and glyph coverage, breaking text extraction and visual fidelity.",
+    "severity_label": "critical",
+    "suggested_fix": "Embed all fonts used in the document. For standard 14 fonts that cannot be embedded, ensure the font program is available or substitute with an embedded equivalent."
+  },
+  "31-011": {
+    "title": "Embedded font program missing glyph",
+    "description": "A glyph referenced in the document's text is not present in the embedded font program.",
+    "severity_label": "major",
+    "suggested_fix": "Either subset the font to include all required glyphs, or use a different font that includes the needed glyphs."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glyph not listed",
+    "description": "A Type1 font's CharSet does not list a glyph that is actually present in the font program and used in the document.",
+    "severity_label": "minor",
+    "suggested_fix": "Update the CharSet to include all glyphs present in the font program that are referenced in the document."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: listed glyph not in font",
+    "description": "A Type1 font's CharSet lists a glyph name that does not exist in the embedded font program.",
+    "severity_label": "minor",
+    "suggested_fix": "Remove non-existent glyph names from the CharSet or embed the complete font."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glyph not listed",
+    "description": "A CIDFont's CIDSet does not include a CID that is actually present in the embedded font program and used in the document.",
+    "severity_label": "minor",
+    "suggested_fix": "Update the CIDSet to include all CID values used in the document."
+  },
+  "31-015": {
+    "title": "CID CIDSet: listed CID not in font",
+    "description": "A CIDFont's CIDSet lists a CID that does not correspond to any glyph in the embedded font program.",
+    "severity_label": "minor",
+    "suggested_fix": "Remove non-existent CIDs from the CIDSet or regenerate it from the actual font program."
+  },
+  "31-016": {
+    "title": "Glyph width discrepancy > 1/1000",
+    "description": "The glyph width specified in the font dictionary differs by more than 1 unit per 1000 from the width in the embedded font program.",
+    "severity_label": "minor",
+    "suggested_fix": "Correct the Widths array (or W2 entry) in the font dictionary to match the actual glyph widths in the embedded font program."
+  },
+  "31-017": {
+    "title": "Non-symbolic TrueType missing non-symbolic cmap",
+    "description": "A TrueType font with non-symbolic encoding (Encoding entry present or symbolic flag off) does not contain a (3,1) cmap subtable for Unicode mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure the TrueType font program contains a (3,1) Microsoft Unicode BMP cmap subtable for proper Unicode character mapping."
+  },
+  "31-018": {
+    "title": "Non-symbolic TrueType glyph not in cmap",
+    "description": "A glyph in a non-symbolic TrueType font cannot be looked up through the font's cmap subtables.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure all glyphs used in the document are accessible through at least one cmap subtable in the font."
+  },
+  "31-019": {
+    "title": "Non-symbolic TrueType font dict missing Encoding",
+    "description": "A non-symbolic TrueType font dictionary does not have an Encoding entry, which is required for glyph name resolution.",
+    "severity_label": "minor",
+    "suggested_fix": "Add an appropriate Encoding entry (e.g., WinAnsiEncoding, MacRomanEncoding) to the font dictionary."
+  },
+  "31-020": {
+    "title": "Encoding dict missing BaseEncoding",
+    "description": "An Encoding dictionary with a Differences array does not specify a BaseEncoding entry.",
+    "severity_label": "minor",
+    "suggested_fix": "Specify the BaseEncoding (e.g., WinAnsiEncoding) in the Encoding dictionary, from which the Differences array deviates."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding not MacRoman or WinAnsi",
+    "description": "The Encoding or BaseEncoding of a non-symbolic TrueType font is neither MacRomanEncoding nor WinAnsiEncoding, which are the two standard base encodings.",
+    "severity_label": "minor",
+    "suggested_fix": "Use WinAnsiEncoding or MacRomanEncoding as the base encoding for the font."
+  },
+  "31-022": {
+    "title": "Differences glyph names not in Adobe Glyph List",
+    "description": "A Differences array in a font's Encoding dictionary uses glyph names that are not in the Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Use only standard glyph names from the Adobe Glyph List in the Differences array."
+  },
+  "31-023": {
+    "title": "Differences present but no (3,1) cmap",
+    "description": "A font has a Differences array in its Encoding but the TrueType font program does not contain a (3,1) cmap subtable for Unicode mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Add a ToUnicode CMap for the font to ensure reliable Unicode mapping."
+  },
+  "31-024": {
+    "title": "Symbolic TrueType font dict has Encoding",
+    "description": "A symbolic TrueType font (Flags bit 3 set) has an Encoding entry in its font dictionary, which is not permitted for symbolic fonts.",
+    "severity_label": "minor",
+    "suggested_fix": "Remove the Encoding entry from symbolic TrueType font dictionaries. Symbolic fonts rely on the font program's cmap for character mapping."
+  },
+  "31-025": {
+    "title": "Symbolic TrueType font program missing cmap",
+    "description": "A symbolic TrueType font's embedded font program does not contain any cmap table.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure the embedded font program includes at least a (3,0) cmap subtable for symbolic character mapping."
+  },
+  "31-026": {
+    "title": "Symbolic TrueType with multiple cmaps missing (3,0)",
+    "description": "A symbolic TrueType font has multiple cmap subtables but is missing the required (3,0) Microsoft Symbol cmap subtable.",
+    "severity_label": "minor",
+    "suggested_fix": "Ensure the embedded font program includes a (3,0) Microsoft Symbol cmap subtable for correct character mapping."
+  },
+  "31-027": {
+    "title": "Missing ToUnicode CMap",
+    "description": "A font used for text content does not have a ToUnicode CMap, and none of the exemption conditions apply. Without a ToUnicode CMap, assistive technologies cannot extract readable text.",
+    "severity_label": "critical",
+    "suggested_fix": "Add a ToUnicode CMap stream to the font dictionary mapping every character code used in the document to its corresponding Unicode value."
+  },
+  "31-028": {
+    "title": "ToUnicode maps to CID 0",
+    "description": "A ToUnicode CMap maps a character code to Unicode value U+0000 (null), which is not a valid text character.",
+    "severity_label": "minor",
+    "suggested_fix": "Correct the ToUnicode CMap to map the character code to a valid, non-null Unicode value."
+  },
+  "31-029": {
+    "title": "ToUnicode maps to U+FEFF or U+FFFE",
+    "description": "A ToUnicode CMap maps a character code to U+FEFF (BOM) or U+FFFE (byte-order mark), which are control characters and not valid displayable text.",
+    "severity_label": "minor",
+    "suggested_fix": "Replace U+FEFF/U+FFFE mappings in the ToUnicode CMap with the actual Unicode value of the character."
+  },
+  "31-030": {
+    "title": ".notdef glyph referenced in text",
+    "description": "A text showing operator in the document references the .notdef glyph (glyph index 0), which indicates a missing or unavailable character. Text using .notdef appears as blank or tofu characters.",
+    "severity_label": "major",
+    "suggested_fix": "Ensure all character codes used in the document correspond to actual glyphs in the embedded font program."
+  }
+}

@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefaktas pažymėtas kaip tikrasis turinys",
+    "description": "Puslapio artefaktas (antraštė, poraštė, dekoratyvinis elementas) struktūros medyje klaidingai pažymėtas kaip tikrasis turinys. Ekrano skaitytuvai bandys skaityti dekoratyvinius elementus kaip dokumento turinį.",
+    "severity_label": "critical",
+    "suggested_fix": "Pakeiskite struktūros elemento tipą į artefaktą arba apgaubkite turinį artefakto pažymėto turinio seka."
+  },
+  "01-002": {
+    "title": "Tikrasis turinys pažymėtas kaip artefaktas",
+    "description": "Tikrasis dokumento turinys (pagrindinis tekstas, antraštė, prierašas) klaidingai pažymėtas kaip artefaktas. Ekrano skaitytuvai visiškai praleis šį turinį.",
+    "severity_label": "critical",
+    "suggested_fix": "Pašalinkite artefakto žymą nuo tikrojo turinio ir užtikrinkite, kad jis būtų tinkamai pažymėtas atitinkamu struktūros elementu."
+  },
+  "01-003": {
+    "title": "Artefaktas pažymėto turinio viduje",
+    "description": "Artefaktu pažymėtas elementas yra tikrąjį turinį atvaizduojančio struktūros elemento viduje, taip sugadinant turinio hierarchiją.",
+    "severity_label": "critical",
+    "suggested_fix": "Perkelkite artefaktu pažymėtą turinį už tikrojo turinio struktūros elemento ribų arba pertvarkykite elementų hierarchiją."
+  },
+  "01-004": {
+    "title": "Pažymėtas turinys artefakto viduje",
+    "description": "Pažymėtas tikrojo turinio elementas yra įdėtas į artefakto konteinerį. Ekrano skaitytuvai gali praleisti šį turinį.",
+    "severity_label": "critical",
+    "suggested_fix": "Iškelkite pažymėtą turinį iš artefakto konteinerio ir padėkite jį tinkamoje struktūros medžio vietoje."
+  },
+  "01-005": {
+    "title": "Turinys nei pažymėtas, nei artefaktas",
+    "description": "Puslapyje esantis turinys nėra nei pažymėtas kaip struktūros elementas, nei pažymėtas kaip artefaktas. Tai dažniausias PDF/UA pažeidimas ir pagrindinė priežastis, kodėl ekrano skaitytuvai nutyli turinį.",
+    "severity_label": "critical",
+    "suggested_fix": "Arba pažymėkite turinį atitinkamu struktūros elementu (P, H1-H6, Figure ir kt.), arba, jei jis dekoratyvinis, pažymėkite kaip artefaktą."
+  },
+  "01-006": {
+    "title": "Trūksta StructTreeRoot",
+    "description": "Dokumentų katalogas privalo turėti StructTreeRoot įrašą, kuris tarnauja kaip dokumento loginės struktūros šaknis. Be jo ekrano skaitytuvai negali interpretuoti dokumento struktūros.",
+    "severity_label": "critical",
+    "suggested_fix": "Į dokumentų katalogą įtraukite StructTreeRoot objektą ir sukurkite struktūros elementų hierarchiją visiems turinio puslapiams."
+  },
+  "01-007": {
+    "title": "Suspect vėliavėlė nustatyta kaip teigiama",
+    "description": "Dokumento MarkInfo žodyne esantis Suspects įrašas nustatytas kaip teigiamas, nurodantis, kad struktūros medyje gali būti nepatikimų žymų. Pagalbinės technologijos gali visiškai ignoruoti struktūros medį.",
+    "severity_label": "critical",
+    "suggested_fix": "Patikrinę, ar visas turinys tinkamai pažymėtas, MarkInfo žodyne nustatykite Suspects vėliavėlę kaip neigiamą."
+  },
+  "02-001": {
+    "title": "Nestandartinis vaidmenų susiejimas nesibaigia standartiniu tipu",
+    "description": "Pasirinktinis vaidmuo RoleMap žodyne nesusietas su standartiniu PDF struktūros tipu. Galutinis susiejimo grandinės tikslas turi būti standartinis tipas iš PDF 32000-1 vaidmenų rinkinio.",
+    "severity_label": "critical",
+    "suggested_fix": "Užtikrinkite, kad kiekvienas nestandartinis vaidmuo RoleMap žodyne būtų tiesiogiai arba netiesiogiai susietas su standartiniu tipu (pvz., Document, Part, Sect, P, H1-H6, L, LI, Table, Figure ir kt.)."
+  },
+  "02-002": {
+    "title": "Semantiškai netinkamas vaidmenų susiejimas",
+    "description": "Struktūros elemento vaidmuo susietas su standartiniu tipu, kuris neatitinka elemento semantinės paskirties (pvz., antraštė susieta su Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Peržiūrėkite RoleMap ir užtikrinkite, kad kiekvienas susiejimas atspindėtų tikrąjį turinio semantinį vaidmenį. Gali prireikti žmogaus vertinimo."
+  },
+  "02-003": {
+    "title": "Ciklinis vaidmenų susiejimas",
+    "description": "RoleMap žodyne yra ciklinė grandinė, kurioje vaidmuo A susietas su B, B su C, o C vėl su A, taip sukuriant begalinį ciklą procesoriams.",
+    "severity_label": "major",
+    "suggested_fix": "Nutraukite ciklinę grandinę susiedami galutinį vaidmenį tiesiogiai su atitinkamu standartiniu tipu."
+  },
+  "02-004": {
+    "title": "Standartinis tipas susietas iš naujo",
+    "description": "Standartinis PDF struktūros tipas (pvz., P, H1, Table) RoleMap žodyne susiejamas su kitu tipu, o tai neleidžiama pagal PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Pašalinkite šio standartinio tipo susiejimą iš RoleMap. Standartiniai tipai negali būti susiejami iš naujo."
+  },
+  "06-001": {
+    "title": "Trūksta XMP metaduomenų srauto",
+    "description": "Dokumente nėra XMP metaduomenų srauto katalogo Metadata įraše. PDF/UA-1 reikalauja XMP metaduomenų.",
+    "severity_label": "major",
+    "suggested_fix": "Į dokumentų katalogą įtraukite XMP metaduomenų srautą su bent dc:format (application/pdf), pdfuaid:part (1) ir dc:title."
+  },
+  "06-002": {
+    "title": "Trūksta PDF/UA identifikatoriaus",
+    "description": "XMP metaduomenyse nėra pdfuaid:part savybės, kuri nurodo, kad dokumentas atitinka PDF/UA-1 (ISO 14289-1) standartą.",
+    "severity_label": "major",
+    "suggested_fix": "Į XMP metaduomenų srautą įtraukite pdfuaid:part savybę su reikšme 1, kad deklaruotumėte atitiktį PDF/UA-1."
+  },
+  "06-003": {
+    "title": "Metaduomenyse trūksta dc:title",
+    "description": "XMP metaduomenyse arba dokumento informacijos žodyne nėra dc:title įrašo. PDF/UA-1 reikalauja, kad dokumentas turėtų pavadinimą.",
+    "severity_label": "major",
+    "suggested_fix": "Į XMP metaduomenų srautą įtraukite dc:title įrašą. Naudokite tikrąjį dokumento pavadinimą arba prasmingą alternatyvą."
+  },
+  "07-001": {
+    "title": "Trūksta DisplayDocTitle peržiūros nuostatos",
+    "description": "Dokumento peržiūros nuostatų žodyne nėra DisplayDocTitle rakto. Kai jo nėra arba jis neigiamas, peržiūros programos rodo failo pavadinimą, o ne dokumento pavadinimą.",
+    "severity_label": "major",
+    "suggested_fix": "Dokumento peržiūros nuostatų žodyne (Catalog/ViewerPreferences) nustatykite DisplayDocTitle kaip teigiamą."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle nustatytas kaip neigiamas",
+    "description": "Peržiūros nuostatose DisplayDocTitle raktas nustatytas kaip neigiamas, todėl peržiūros programos pavadinimo juostoje rodo failo pavadinimą, o ne dokumento pavadinimą.",
+    "severity_label": "major",
+    "suggested_fix": "Peržiūros nuostatų žodyne pakeiskite DisplayDocTitle į teigiamą."
+  },
+  "08-002": {
+    "title": "OCR tekstas nepažymėtas struktūros medyje",
+    "description": "Dokumente yra OCR sugeneruotas tekstas (dažnas nuskaitytuose PDF failuose), kuris nėra pažymėtas struktūros medyje. Ekrano skaitytuvų naudotojai negali pasiekti šio turinio.",
+    "severity_label": "critical",
+    "suggested_fix": "Užtikrinkite, kad visas OCR sugeneruotas tekstas būtų įtrauktas į struktūros medį su atitinkamomis žymomis. Nuskaitytiems PDF failams atkurkite dokumentą su visu teksto sluoksniu."
+  },
+  "09-001": {
+    "title": "Žymos neatitinka loginės skaitymo tvarkos",
+    "description": "Struktūros elementai medyje nėra išdėstyti pagal dokumento loginę skaitymo tvarką. Ekrano skaitytuvai naršo dokumentą medžio tvarka, kuri gali skirtis nuo vizualiosios tvarkos.",
+    "severity_label": "critical",
+    "suggested_fix": "Pertvarkykite struktūros elementus medyje, kad jie atitiktų loginę skaitymo tvarką (paprastai iš viršaus į apačią, iš kairės į dešinę nurodytai kalbai)."
+  },
+  "09-002": {
+    "title": "Semantiškai netinkamas įdėjimas",
+    "description": "Struktūros elementas įdėtas į tėvinį elementą, kuriam jis semantiškai nepriklauso (pvz., lentelės eilutė pastraipos viduje arba antraštė sąrašo viduje).",
+    "severity_label": "critical",
+    "suggested_fix": "Pertvarkykite elementų hierarchiją, kad užtikrintumėte, jog kiekvienas elementas būtų įdėtas į semantiškai tinkamą tėvinį elementą."
+  },
+  "09-003": {
+    "title": "Netinkamas struktūros tipas po vaidmenų susiejimo",
+    "description": "Po vaidmenų susiejimo rezoliucijos galutinis struktūros tipas nėra semantiškai tinkamas jame esančiam turiniui.",
+    "severity_label": "major",
+    "suggested_fix": "Koreguokite RoleMap arba pakeiskite pradinį struktūros tipą, kad išspręstas tipas atitiktų turinio semantinį vaidmenį."
+  },
+  "09-004": {
+    "title": "Lentelės elementas neatitinka 337 lentelės",
+    "description": "Table tipo struktūros elementas neatitinka leistinos antrinės struktūros (ISO 32000-1 337 lentelė). Lentelė privalo turėti bent TBody su TR elementais arba THead/TBody/TFoot sekcijas.",
+    "severity_label": "major",
+    "suggested_fix": "Užtikrinkite, kad Table elementas turėtų tinkamai sukonstruotas eilutes: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Eilutes bent jau apgaubkite TBody."
+  },
+  "09-005": {
+    "title": "Sąrašo elementas neatitinka 336 lentelės",
+    "description": "L (sąrašo) tipo struktūros elementas neatitinka leistinos antrinės struktūros (ISO 32000-1 336 lentelė). Sąrašas privalo turėti LI elementus, o LI privalo turėti Lbl (nebūtina) ir LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Struktūrizuokite sąrašus taip: L > LI > (Lbl)? + LBody. Užtikrinkite, kad kiekvienas sąrašo elementas turėtų LBody vaiką, kuriame yra elemento turinys."
+  },
+  "09-006": {
+    "title": "TOC elementas neatitinka 333 lentelės",
+    "description": "TOC (turinio) tipo struktūros elementas neatitinka leistinos antrinės struktūros. TOC privalo turėti TOCI elementus.",
+    "severity_label": "minor",
+    "suggested_fix": "Struktūrizuokite turinio įrašus taip: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby elementas neatitinka reikalavimų",
+    "description": "Ruby struktūros elementas (naudojamas tarimo anotacijoms) neatitinka reikalaujamos antrinės struktūros: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Pertvarkykite Ruby elementą su reikalaujamais RB (rubi pagrindas) ir RT (rubi tekstas) vaikais."
+  },
+  "09-008": {
+    "title": "Warichu elementas neatitinka reikalavimų",
+    "description": "Warichu struktūros elementas (įterptasis komentaras ar anotacija CJK tekste) neatitinka reikalaujamos struktūros: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Pertvarkykite Warichu elementą su reikalaujamais WT (varičiu tekstas) ir WP (varičiu skyryba) vaikais."
+  },
+  "10-001": {
+    "title": "Simbolio kodas negali būti susietas su unikodu",
+    "description": "Dokumento tekste esantis simbolio kodas negali būti susietas su unikodo reikšme. Dėl to pagalbinės technologijos išgauna iškraipytus arba trūkstamus simbolius.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad visi šriftai turėtų ToUnicode simbolių žemėlapį, kuris susieja kiekvieną panaudotą simbolio kodą su galiojančia unikodo reikšme. Patikrinkite, ar simbolių žemėlapis apima visus dokumente panaudotus glifus."
+  },
+  "11-001": {
+    "title": "Nepavyksta nustatyti puslapio turinio kalbos",
+    "description": "Natūralios puslapio turinio kalbos nustatyti neįmanoma, nes dokumentų kataloge arba puslapio lygio struktūros elementuose trūksta /Lang įrašo.",
+    "severity_label": "critical",
+    "suggested_fix": "Dokumentų kataloge nustatykite /Lang įrašą į pagrindinę dokumento kalbą (pvz., 'lt-LT', 'en-US'). Jei turinyje kalbos keičiasi, į atskirus struktūros elementus įtraukite /Lang."
+  },
+  "11-002": {
+    "title": "Nepavyksta nustatyti Alt/ActualText kalbos",
+    "description": "Neįmanoma nustatyti alternatyviojo teksto aprašymų (Alt) arba faktinio teksto (ActualText) pakaitalų kalbos.",
+    "severity_label": "minor",
+    "suggested_fix": "Kai teksto kalba skiriasi nuo numatytosios dokumento kalbos, į struktūros elementus, kuriuose yra Alt arba faktinis tekstas, įtraukite /Lang atributus."
+  },
+  "11-003": {
+    "title": "Nenustatyta dokumento struktūros kalba",
+    "description": "Dokumento struktūroje (žymelėse) nėra /Lang įrašo, todėl pagalbinės technologijos negali teisingai ištarti struktūros elementų.",
+    "severity_label": "minor",
+    "suggested_fix": "Į struktūros žodyną įtraukite /Lang įrašą, atitinkantį pagrindinę dokumento kalbą."
+  },
+  "11-004": {
+    "title": "Nenustatyta anotacijos turinio kalba",
+    "description": "Anotacijos turinio eilutės (paaiškinimai, formos laukų reikšmės) neturi susietos kalbos deklaracijos.",
+    "severity_label": "minor",
+    "suggested_fix": "Kai anotacijos tekstas skiriasi nuo dokumento kalbos, į anotacijos išvaizdos žodynus įtraukite /Lang."
+  },
+  "11-005": {
+    "title": "Nenustatyta formos lauko TU kalba",
+    "description": "Formos laukų paaiškinimo (TU) įrašas neturi susietos kalbos, todėl ekrano skaitytuvai gali neteisingai ištarti tekstą.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad formos lauko paaiškinimo tekstas apimtų kalbos identifikavimą, jei jis skiriasi nuo numatytosios dokumento kalbos."
+  },
+  "11-006": {
+    "title": "Nenustatyta dokumento metaduomenų kalba",
+    "description": "XMP metaduomenyse nėra deklaruotos dc:language savybės arba dokumentų kataloge trūksta /Lang įrašo, arba jis tuščias.",
+    "severity_label": "major",
+    "suggested_fix": "Į XMP metaduomenis įtraukite dc:language, o dokumentų kataloge nustatykite /Lang į RFC 3066 kalbos žymą."
+  },
+  "12-001": {
+    "title": "Trūksta išplečiamų simbolių faktinio teksto",
+    "description": "Matematiniame ar dekoratyviniame kontekste naudojami išplečiami simboliai (skliaustai, laužtiniai skliaustai, riestiniai skliaustai, šaknies ženklai) neturi faktinio teksto (ActualText) pakaitalų.",
+    "severity_label": "minor",
+    "suggested_fix": "Į išplečiamų simbolių sekas įtraukite faktinį tekstą, aprašantį jų semantinę reikšmę (pvz., ActualText='(' išplečiamam kairiajam skliaustui)."
+  },
+  "13-001": {
+    "title": "Grafinis elementas nepažymėtas kaip paveikslėlis",
+    "description": "Dokumento turinyje esantis grafinis elementas (paveikslėlis, diagrama, brėžinys) nepažymėtas Figure struktūros elementu.",
+    "severity_label": "major",
+    "suggested_fix": "Visus ne dekoratyvinius grafinius elementus struktūros medyje pažymėkite kaip Figure elementus su atitinkamu alternatyviuoju tekstu."
+  },
+  "13-002": {
+    "title": "Nuorodai su prasmingu fonu trūksta alternatyviojo teksto",
+    "description": "Nuorodos anotacija turi prasmingą vizualią išvaizdą (pvz., kaip mygtukas naudojamas paveikslėlis), tačiau neturi alternatyviojo teksto, aprašančio jos paskirtį.",
+    "severity_label": "major",
+    "suggested_fix": "Į nuorodos anotaciją įtraukite Contents įrašą, aprašantį jos paskirtį ar tikslą."
+  },
+  "13-003": {
+    "title": "Prierašas nepažymėtas kaip antraštė",
+    "description": "Prierašas (paveikslėlio prierašas, lentelės pavadinimas, figūros legenda) pažymėtas kaip paprastas tekstas (P), o ne naudojant Caption struktūros tipą.",
+    "severity_label": "major",
+    "suggested_fix": "Prierašus pažymėkite Caption struktūros tipu ir užtikrinkite, kad jie būtų tinkamai susieti su tėviniu Figure arba Table elementu."
+  },
+  "13-004": {
+    "title": "Paveikslėliui trūksta alternatyviojo teksto",
+    "description": "Yra Figure struktūros elementas, tačiau jis neturi Alt atributo, teikiančio alternatyvųjį tekstą. Ekrano skaitytuvai praneš apie paveikslėlio buvimą, bet negalės aprašyti jo turinio.",
+    "severity_label": "major",
+    "suggested_fix": "Į Figure struktūros elementą įtraukite /Alt įrašą su glaustu paveikslėlio turinio aprašymu."
+  },
+  "14-001": {
+    "title": "Antraštės nepažymėtos",
+    "description": "Turinys, kuris vizualiai veikia kaip antraštė (didesnis šriftas, paryškintas tekstas, išskirtinis stilius), nėra pažymėtas antraštės struktūros tipu (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identifikuokite visas dokumento antraštes ir pažymėkite jas atitinkamais H1-H6 struktūros elementais, atspindinčiais jų hierarchijos lygį."
+  },
+  "14-002": {
+    "title": "Pirma antraštė nėra H1",
+    "description": "Pirma antraštė dokumento struktūros medyje nėra H1 tipo. PDF/UA-1 geriausia praktika yra tokia, kad aukščiausio lygio antraštė turėtų būti H(n), o vėlesnės antraštės neturėtų praleisti lygių.",
+    "severity_label": "major",
+    "suggested_fix": "Užtikrinkite, kad pirma antraštė būtų H1 (arba H2, jei dokumento pavadinimas yra metaduomenyse). Pervardykite vėlesnes antraštes, kad išvengtumėte lygių praleidimų."
+  },
+  "14-003": {
+    "title": "Praleistas antraštės lygis",
+    "description": "Struktūros medyje antraščių lygiai praleidžia lygį (pvz., po H1 iškart eina H3 be tarpinio H2). Tai sugadina loginę antraščių hierarchiją pagalbinių technologijų naudotojams.",
+    "severity_label": "major",
+    "suggested_fix": "Užtikrinkite, kad antraščių lygiai būtų nuoseklūs be tarpų. Pervardykite antraštes taip, kad po H1 eitų H2, tada H3 ir t. t."
+  },
+  "14-005": {
+    "title": "Gili antraštė be H7+ tipo",
+    "description": "7 ar gilesnio lygio įdėjimo antraštė neturi atitinkamo H7+ struktūros tipo. PDF apibrėžia tik antraštes nuo H1 iki H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Sulyginkite antraščių hierarchiją iki ne daugiau kaip 6 lygių arba atsargiai naudokite nestandartinį vaidmenų susiejimą."
+  },
+  "14-006": {
+    "title": "Keli H žymos viename struktūros mazge",
+    "description": "Viename struktūros elemente yra daugiau nei viena antraštės žyma (pvz., Sect, kuriame yra ir H1, ir H2). Kiekviena antraštė turėtų sukurti naują įdėjimo lygį.",
+    "severity_label": "major",
+    "suggested_fix": "Padalinkite struktūros mazgą taip, kad kiekviena antraštė pradėtų naują skyrių ar poskyrį atitinkamame lygyje."
+  },
+  "14-007": {
+    "title": "Nenuosekliai maišomos H ir Hn žymos",
+    "description": "Kai kurios antraštės naudoja bendrą H tipą, o kitos nenuosekliai naudoja sunumeruotus H1-H6 tipus tame pačiame dokumente.",
+    "severity_label": "major",
+    "suggested_fix": "Konvertuokite visas bendras H žymas į sunumeruotus H1-H6 tipus pagal jų vietą antraščių hierarchijoje."
+  },
+  "15-001": {
+    "title": "Eilutės antraštė nepažymėta kaip antraštės langelis",
+    "description": "Lentelės langelis, kuris tarnauja kaip eilutės antraštė, pažymėtas kaip TD (duomenų langelis), o ne TH (antraštės langelis). Tai neleidžia ekrano skaitytuvams teisingai susieti antraščių su duomenų langeliais.",
+    "severity_label": "major",
+    "suggested_fix": "Pakeiskite eilutės antraštės langelių struktūros tipą iš TD į TH ir pridėkite atitinkamą Scope atributą (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Stulpelio antraštė nepažymėta kaip antraštės langelis",
+    "description": "Lentelės langelis, kuris tarnauja kaip stulpelio antraštė, pažymėtas kaip TD, o ne TH. Ekrano skaitytuvai negali logiškai naršyti lentelės.",
+    "severity_label": "major",
+    "suggested_fix": "Pakeiskite stulpelio antraštės langelių struktūros tipą iš TD į TH ir pridėkite atitinkamą Scope atributą (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH trūksta Scope be Headers/ID",
+    "description": "TH (lentelės antraštės) elementas neturi Scope atributo, o lentelė nenaudoja Headers/ID susiejimų antraštėms su duomenų langeliais susieti.",
+    "severity_label": "major",
+    "suggested_fix": "Į TH elementus įtraukite Scope='Row', Scope='Column' arba Scope='Both' arba įdiekite Headers/ID susiejimus."
+  },
+  "15-005": {
+    "title": "Dviprasmiškas langelio antraštės susiejimas",
+    "description": "Dėl sudėtingos lentelės struktūros (sujungti langeliai, netaisyklingas išdėstymas) neįmanoma vienareikšmiškai nustatyti duomenų langelio susietų antraščių langelių.",
+    "severity_label": "major",
+    "suggested_fix": "Naudokite aiškius Headers/ID atributus kiekvienam TD susieti su atitinkamais TH elementais arba supaprastinkite lentelės struktūrą."
+  },
+  "16-001": {
+    "title": "Sunumeruotam sąrašui trūksta ListNumbering",
+    "description": "Sunumeruotame sąraše (L tipas su sunumeruotais elementais) nėra ListNumbering atributo, kuris nurodo numeravimo formatą.",
+    "severity_label": "minor",
+    "suggested_fix": "Į L elementą įtraukite ListNumbering atributą su tokia reikšme kaip 'Decimal', 'UpperRoman', 'LowerAlpha' ir t. t."
+  },
+  "16-002": {
+    "title": "Netinkama ListNumbering reikšmė",
+    "description": "L elemento ListNumbering atributas turi neatpažintą arba netinkamą reikšmę.",
+    "severity_label": "minor",
+    "suggested_fix": "Nustatykite ListNumbering į galiojančią reikšmę: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha arba LowerAlpha."
+  },
+  "16-003": {
+    "title": "Sąrašo turinys nepažymėtas kaip sąrašas",
+    "description": "Turinys, kuris vizualiai ir semantiškai yra sąrašas (ženklinti arba sunumeruoti elementai), pažymėtas kaip atskiros pastraipos arba kiti ne sąrašo elementai.",
+    "severity_label": "major",
+    "suggested_fix": "Pertvarkykite turinį kaip sąrašą (L) su sąrašo elementais (LI), kurių kiekvienas turi nebūtiną Lbl ir reikalaujamą LBody."
+  },
+  "17-001": {
+    "title": "Matematinė išraiška nepažymėta kaip formulė",
+    "description": "Matematinė išraiška dokumente pažymėta kaip paprasta pastraipa ar figūra, o ne naudojant Formula struktūros tipą.",
+    "severity_label": "minor",
+    "suggested_fix": "Matematines išraiškas pažymėkite Formula struktūros tipu ir pateikite alternatyvųjį tekstą, aprašantį išraišką."
+  },
+  "17-002": {
+    "title": "Formulei trūksta alternatyviojo teksto",
+    "description": "Yra Formula struktūros elementas, tačiau jis neturi alternatyviojo teksto, aprašančio matematinę išraišką.",
+    "severity_label": "minor",
+    "suggested_fix": "Į Formula elementą įtraukite /Alt įrašą su tekstiniu matematinės išraiškos atvaizdavimu."
+  },
+  "17-003": {
+    "title": "Formulės simbolis nesusietas su unikodu",
+    "description": "Matematinėje formulėje esantis simbolis negali būti susietas su unikodu, todėl pagalbinės technologijos skaito iškraipytą tekstą.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad matematiniams simboliams naudojamas šriftas turėtų pilną ToUnicode simbolių žemėlapį, apimantį visus glifus. Taip pat žr. 10-001."
+  },
+  "18-001": {
+    "title": "Antraštė/poraštė nepažymėta kaip puslapiavimo artefaktas",
+    "description": "Bėgančios antraštės ir poraštės (puslapių numeriai, kiekviename puslapyje besikartojantys skyrių pavadinimai) pažymėtos kaip tikrasis turinys, o ne kaip puslapiavimo artefaktai.",
+    "severity_label": "major",
+    "suggested_fix": "Bėgančias antraštes ir poraštę pažymėkite kaip artefaktą su porūšiu 'Pagination', kad ekrano skaitytuvai praleistų juos nepertraukiamo skaitymo metu."
+  },
+  "18-002": {
+    "title": "Antraštėje/poraštėje trūksta teisingo artefakto porūšio",
+    "description": "Antraštės ir poraštės pažymėtos kaip artefaktas, tačiau neturi „Pagination“ potipio arba naudojamas netinkamas potipis.",
+    "severity_label": "major",
+    "suggested_fix": "Nustatykite artefakto potipį į „Pagination“ einamosioms antraštėms ir poraštėms, o „Header“ arba „Footer“ naudokite tik viršutinei/apatiniai daliai pirmajame/paskutiniame puslapyje."
+  },
+  "19-001": {
+    "title": "Išnaša nepažymėta kaip pastaba",
+    "description": "Dokumento išnaša arba baigiamoji išnaša pažymėta kaip įprasta pastraipa, o ne naudojant „Note“ struktūros tipą.",
+    "severity_label": "major",
+    "suggested_fix": "Pažymėkite išnašas ir baigiamąsias išnašas kaip „Note“ elementus su unikaliu ID atributu ir „Reference“ elementu pagrindiniame tekste, nukreipiančiu į ją."
+  },
+  "19-002": {
+    "title": "Nuoroda nepažymėta kaip „Reference“",
+    "description": "Tekste esanti citata arba kryžminė nuoroda pažymėta kaip įprastas tekstas, o ne naudojant „Reference“ struktūros tipą.",
+    "severity_label": "major",
+    "suggested_fix": "Pažymėkite citatų žymeklius ir kryžmines nuorodas kaip „Reference“ elementus, susiedami juos su atitinkama pastaba arba paskirties vieta."
+  },
+  "19-003": {
+    "title": "Trūksta pastabos ID",
+    "description": "„Note“ struktūros elementas neturi ID atributo, todėl neįmanoma sukurti nuorodos iš pagrindinio teksto „Reference“ elemento.",
+    "severity_label": "major",
+    "suggested_fix": "Pridėkite unikalų ID atributą prie kiekvieno „Note“ elemento, kad „Reference“ elementai galėtų į juos nukreipti."
+  },
+  "19-004": {
+    "title": "Pastabos ID nėra unikalus",
+    "description": "Du ar daugiau „Note“ struktūros elementų turi tą patį ID atributo reikšmę, todėl nuorodos išsprendimas tampa dviprasmiškas.",
+    "severity_label": "major",
+    "suggested_fix": "Užtikrinkite, kad kiekvienas „Note“ elementas dokumente turėtų pasauliniu mastu unikalų ID."
+  },
+  "20-001": {
+    "title": "Pasirenkamojo turinio konfigūracijoje trūksta pavadinimo (Configs masyvas)",
+    "description": "Dokumento „OCConfigs“ masyve esančiame pasirenkamojo turinio konfigūracijos žodyne nėra „Name“ įrašo.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite aprašomąjį /Name įrašą prie kiekvienos pasirenkamojo turinio konfigūracijos „OCProperties/Configs“ masyve."
+  },
+  "20-002": {
+    "title": "Pasirenkamojo turinio konfigūracijoje trūksta pavadinimo (D numatytoji)",
+    "description": "Numatytojo pasirenkamojo turinio konfigūracijos žodyne („D“ įrašas „OCProperties“) nėra „Name“ įrašo.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite /Name įrašą prie numatytojo pasirenkamojo turinio konfigūracijos žodyno."
+  },
+  "20-003": {
+    "title": "Pasirenkamojo turinio konfigūracijoje yra AS raktas",
+    "description": "Pasirenkamojo turinio konfigūracijos žodyne yra AS („Application Specific“) įrašas, kuris neleidžiamas pagal PDF/UA-1, nes gali pakeisti dokumento vizualinę išvaizdą vartotojui nežinant.",
+    "severity_label": "minor",
+    "suggested_fix": "Pašalinkite AS raktą iš pasirenkamojo turinio konfigūracijos žodyno."
+  },
+  "21-001": {
+    "title": "Įdėtajame faile trūksta F ir UF raktų",
+    "description": "Įdėtojo failo specifikacijos žodyne trūksta būtino F (failo specifikacijos eilutė) arba UF (unikodo teksto failo specifikacijos eilutė) įrašo.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite tiek F, tiek UF įrašus prie failo specifikacijos žodyno, aprašančio įdėtąjį failą."
+  },
+  "22-001": {
+    "title": "Straipsnio seka neatitinka reikalavimų",
+    "description": "Straipsnio sekos struktūra neatitinka reikalaujamo PDF straipsnio formato su tinkamu V (kitas elementas) ir N (ankstesnis elementas) susiejimu.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad straipsnio elementai būtų tinkamai susieti su V ir N įrašais, o kiekvienas elementas būtų susietas su tinkamu puslapiu."
+  },
+  "24-001": {
+    "title": "Neinteraktyvioje formoje trūksta PrintFields",
+    "description": "Neinteraktyvioje formoje (pvz., iš skaitmeninės įvesties atspausdintoje plokščioje formoje) nenustatyta „NeedAppearances“ vėliavėlė arba „FieldMDP“ transformacijos parametruose trūksta „PrintFields“ bito.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad formos laukai, skirti tik spausdinimui, turėtų tinkamus „FieldMDP“ nustatymus su įjungtu „PrintFields“ bitu."
+  },
+  "25-001": {
+    "title": "XFA formos „dynamicRender“ nereikalingas",
+    "description": "XFA („XML Forms Architecture“) formoje yra „dynamicRender“ elementų, kurie nenustatyti kaip „required“, o tai gali sukelti atvaizdavimo neatitikimų.",
+    "severity_label": "critical",
+    "suggested_fix": "Nustatykite „dynamicRender='required'“ XFA formos elementams arba pereikite nuo XFA prie „AcroForms“, kad užtikrintumėte geresnį pritaikymą neįgaliesiems."
+  },
+  "28-001": {
+    "title": "Anotacija nėra skaitymo tvarkoje",
+    "description": "Puslapyje yra anotacija (nuoroda, formos laukas, komentaras), tačiau jos susietas struktūros elementas nėra tinkamoje skaitymo tvarkos vietoje struktūros medyje.",
+    "severity_label": "major",
+    "suggested_fix": "Padėkite anotacijos struktūros elementus („Link“, „Form“, „Annot“) tinkamoje vietoje struktūros medyje, atsižvelgiant į aplinkinį turinį."
+  },
+  "28-002": {
+    "title": "Anotacija nėra „Annot“ struktūros elemento viduje",
+    "description": "Puslapyje esantis anotacijos objektas nėra įtrauktas į „Annot“ struktūros elementą (arba atitinkamą potipį: „Link“, „Form“).",
+    "severity_label": "major",
+    "suggested_fix": "Įtraukite kiekvieną anotacijos objektą į atitinkamą struktūros elementą („Link“ hipersaitams, „Form“ valdikliams)."
+  },
+  "28-003": {
+    "title": "Anotacija naudojama tik vizualiniam formatavimui",
+    "description": "Anotacija naudojama tik vizualiniam formatavimui (pvz., kaip dekoracija nupieštas stačiakampis) ir nėra tinkamai pažymėta.",
+    "severity_label": "minor",
+    "suggested_fix": "Pažymėkite tik formatavimui skirtas anotacijas kaip artefaktus arba pašalinkite jas ir naudokite tinkamus PDF piešimo operatorius."
+  },
+  "28-004": {
+    "title": "Anotacijoje trūksta „Contents“ ir „Alt“",
+    "description": "Anotacija neturi „Contents“ įrašo (tekstinis aprašymas) arba „Alt“ įrašo (alternatyvusis tekstas), todėl ekrano skaitytuvo vartotojai lieka be konteksto.",
+    "severity_label": "major",
+    "suggested_fix": "Pridėkite /Contents eilutę prie kiekvienos anotacijos, aprašančios jos paskirtį. Pateikite /Alt netekstinėms anotacijoms."
+  },
+  "28-005": {
+    "title": "Formos lauke trūksta „TU“ arba „Alt“",
+    "description": "Formos lauko valdiklio anotacija neturi patarimo (TU) arba „Alt“ įrašo, todėl ekrano skaitytuvo vartotojams neįmanoma suprasti lauko paskirties.",
+    "severity_label": "major",
+    "suggested_fix": "Pridėkite /TU (patarimas) įrašą prie kiekvieno formos lauko, aprašydami jo paskirtį ir tikėtiną įvesties formatą."
+  },
+  "28-006": {
+    "title": "Nenustatytas anotacijos potipis",
+    "description": "Anotacija turi „Subtype“ reikšmę, kuri nėra apibrėžta ISO 32000-1, o tai gali sukelti nenuspėjamą elgseną PDF procesoriuose.",
+    "severity_label": "minor",
+    "suggested_fix": "Pakeiskite arba pašalinkite anotacijas su nenustatytais potipiais arba užtikrinkite, kad pasirinktinis potipis būtų užregistruotas ir tinkamai apdorotas."
+  },
+  "28-007": {
+    "title": "Yra „TrapNet“ anotacija",
+    "description": "Dokumente yra „TrapNet“ anotacija (naudojama spaudos paruošimo procesuose), kuri nėra tinkamai pažymėta arba priskirta artefaktams.",
+    "severity_label": "minor",
+    "suggested_fix": "Pažymėkite „TrapNet“ anotacijas kaip artefaktus, nes jos neturi semantinės reikšmės dokumento vartotojams."
+  },
+  "28-008": {
+    "title": "Puslapyje su anotacijomis trūksta „Tabs“ rakto",
+    "description": "Puslapyje, kuriame yra anotacijų (nuorodų, formos laukų), nėra „Tabs“ įrašo, kuris nurodo klaviatūros naršymo tvarką.",
+    "severity_label": "major",
+    "suggested_fix": "Pridėkite /Tabs įrašą prie puslapio žodyno. Naudokite /Tabs=S struktūros tvarkai (rekomenduojama prieinamiems dokumentams)."
+  },
+  "28-009": {
+    "title": "„Tabs“ nenustatytas į „S“ (struktūros tvarka)",
+    "description": "Puslapio „Tabs“ raktas nustatytas į kitą reikšmę nei „S“ (pvz., „R“ eilutės tvarkai, „C“ stulpelio tvarkai), kuri gali neatitikti dokumento loginės skaitymo tvarkos.",
+    "severity_label": "major",
+    "suggested_fix": "Nustatykite /Tabs į „S“ (struktūros tvarka) puslapiuose su anotacijomis, kad klaviatūros naršymas atitiktų struktūros medžio tvarką."
+  },
+  "28-010": {
+    "title": "Valdiklio anotacija nėra „Form“ elemento viduje",
+    "description": "Valdiklio anotacija (formos laukas) nėra įtraukta į „Form“ struktūros elementą medyje.",
+    "severity_label": "major",
+    "suggested_fix": "Įtraukite kiekvieną valdiklio anotaciją į „Form“ struktūros elementą. Grupuokite susijusius formos laukus tame pačiame „Form“ konteineryje."
+  },
+  "28-011": {
+    "title": "Nuorodos anotacija nėra „Link“ elemento viduje",
+    "description": "Nuorodos anotacija (hipersaitas) nėra įtraukta į „Link“ struktūros elementą medyje.",
+    "severity_label": "major",
+    "suggested_fix": "Įtraukite kiekvieną nuorodos anotaciją į „Link“ struktūros elementą, esantį tinkamoje skaitymo tvarkos vietoje."
+  },
+  "28-012": {
+    "title": "Nuorodos anotacijoje trūksta „Contents“",
+    "description": "Nuorodos anotacija neturi „Contents“ įrašo, aprašančio nuorodos paskirtį ar tikslą.",
+    "severity_label": "major",
+    "suggested_fix": "Pridėkite /Contents eilutę prie kiekvienos „Link“ anotacijos, aprašančios, kur nuoroda veda."
+  },
+  "28-013": {
+    "title": "„IsMap=true“ be serverio pusės vaizdo žemėlapio",
+    "description": "Nuorodos anotacijoje „IsMap“ nustatyta į „true“, tačiau susietas vaizdas neveikia kaip serverio pusės vaizdo žemėlapis.",
+    "severity_label": "minor",
+    "suggested_fix": "Nustatykite „IsMap“ į „false“, jei vaizdas nėra aktyvus serverio pusės vaizdo žemėlapis su koordinatėmis pagrįsta elgsena."
+  },
+  "28-016": {
+    "title": "Failo priedas neatitinka 7.11 skyriaus",
+    "description": "Failo priedo anotacija nurodo įdėtąjį failą, kuris neatitinka 7.11 skyriaus (įdėtieji failų srautai) reikalavimų.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad įdėtieji failai turėtų tiek F, tiek UF įrašus ir failo specifikacijos žodynas būtų išsamus. Taip pat žr. 21-001."
+  },
+  "28-017": {
+    "title": "„PrinterMark“ loginėje struktūroje",
+    "description": "„PrinterMark“ anotacija (apkarpymo žymės, registracijos žymės, spalvų juostos) rodoma dokumento loginės struktūros medyje, kur ji neturi semantinės reikšmės.",
+    "severity_label": "minor",
+    "suggested_fix": "Pašalinkite „PrinterMark“ anotacijas iš struktūros medžio ir pažymėkite jas kaip artefaktus."
+  },
+  "28-018": {
+    "title": "„PrinterMark“ išvaizda nėra artefaktas",
+    "description": "„PrinterMark“ anotacijos išvaizdos srautas nėra pažymėtas kaip artefaktas, todėl ekrano skaitytuvai bando aprašyti spaudos žymes.",
+    "severity_label": "minor",
+    "suggested_fix": "Pažymėkite „PrinterMark“ išvaizdos turinį kaip artefaktą turinio sraute."
+  },
+  "30-001": {
+    "title": "Yra „Reference XObject“",
+    "description": "Dokumente naudojamas „Reference XObject“. „Reference XObject“ importuoja turinį iš išorinių PDF failų, o tai gali pakenkti prieinamumui, nes importuotas turinys nėra tinkamai integruotas į struktūros medį.",
+    "severity_label": "major",
+    "suggested_fix": "Venkite „Reference XObject“. Jei jie būtini, užtikrinkite, kad visas importuotas turinys būtų tinkamai pažymėtas pagrindinio dokumento struktūros medyje."
+  },
+  "30-002": {
+    "title": "„Form XObject“ su kelis kartus nurodytais MCID",
+    "description": "„Form XObject“, turintis pažymėtą turinį su MCID (pažymėto turinio identifikatoriais), nurodomas iš kelių vietų, o tai sukelia MCID konfliktus puslapio pažymėto turinio sekoje.",
+    "severity_label": "major",
+    "suggested_fix": "Venkite pakartotinai naudoti „Form XObject“, kuriuose yra pažymėto turinio. Suvienodinkite arba dubliuokite XObject kiekvienai naudojimo vietai."
+  },
+  "31-001": {
+    "title": "„CIDSystemInfo“ registro neatitikimas tarp „Type0“ palikuonių",
+    "description": "„Type0“ šrifto palikuonių „CIDFonts“ turi nenuoseklias „CIDSystemInfo“ registro reikšmes, o tai gali sukelti simbolių susiejimo klaidas.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad visi „Type0“ šrifto palikuonys „CIDFonts“ turėtų nuoseklias „CIDSystemInfo“ (Registry, Ordering, Supplement) reikšmes."
+  },
+  "31-002": {
+    "title": "„CIDSystemInfo“ užsakymo neatitikimas tarp „Type0“ palikuonių",
+    "description": "„Type0“ šrifto palikuonių „CIDFonts“ turi nenuoseklias „CIDSystemInfo“ užsakymo (Ordering) reikšmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Suderinkite „Ordering“ reikšmes visuose „Type0“ šrifto palikuonyse „CIDFonts“."
+  },
+  "31-003": {
+    "title": "„CIDSystemInfo“ papildymo neatitikimas tarp „Type0“ palikuonių",
+    "description": "„Type0“ šrifto palikuonių „CIDFonts“ turi nenuoseklias „CIDSystemInfo“ papildymo (Supplement) reikšmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Suderinkite „Supplement“ reikšmes visuose „Type0“ šrifto palikuonyse „CIDFonts“."
+  },
+  "31-004": {
+    "title": "„CIDFont“ trūksta „CIDToGIDMap“",
+    "description": "„CIDFont“ žodyne nėra „CIDToGIDMap“ įrašo ir nenaudojamas „Identity“ susiejimas, todėl glifų paieška tampa nepatikima.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite „CIDToGIDMap“ įrašą prie „CIDFont“ arba nustatykite jį į „Identity“, jei šriftas naudoja „Identity CID“."
+  },
+  "31-005": {
+    "title": "„CIDFont“ reikalauja ne „Identity“ „CIDToGIDMap“",
+    "description": "„CIDFont“, kurio simbolių rinkinys nėra „Adobe-Identity“, reikalauja aiškaus „CIDToGIDMap“ srauto tinkamam glifų susiejimui.",
+    "severity_label": "minor",
+    "suggested_fix": "Pateikite aiškų „CIDToGIDMap“ srautą „CIDFont“, jei jis nenaudoja „Adobe-Identity“ simbolių rinkinio."
+  },
+  "31-006": {
+    "title": "CMap neįtrauktas į sąrašą arba neįdėtas",
+    "description": "„Type0“ šrifto naudojamas „CMap“ išteklius nėra įtrauktas į PDF specifikacijos standartinius „CMap“ ir nėra įdėtas į dokumentą.",
+    "severity_label": "minor",
+    "suggested_fix": "Naudokite standartinį „CMap“ iš PDF specifikacijos arba įdėkite pasirinktinį „CMap“ srautą į dokumentą."
+  },
+  "31-007": {
+    "title": "WMode neatitikimas „Type0“ šrifte",
+    "description": "WMode (rašymo režimo) reikšmės skiriasi „CMap“ ir „Type0“ šrifto palikuonyse „CIDFonts“.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite nuoseklias WMode reikšmes (0 horizontaliam, 1 vertikaliam) visame „CMap“ ir visuose palikuonyse „CIDFonts“."
+  },
+  "31-008": {
+    "title": "„CMap“ nurodo neįtrauktą „CMap“",
+    "description": "„CMap“ srautas nurodo kitą „CMap“, kuris nėra nei standartinis „CMap“, nei įdėtas į dokumentą.",
+    "severity_label": "minor",
+    "suggested_fix": "Įdėkite visus nurodytus nestandartinius „CMap“ į dokumentą arba naudokite tik standartinius „CMap“."
+  },
+  "31-009": {
+    "title": "Šriftas neįdėtas",
+    "description": "Dokumente naudojamas šriftas nėra įdėtas. Neįdėti šriftai sukelia grįžimą prie sistemos šriftų, kurie gali turėti skirtingas metrikas ir glifų aprėptį, o tai sugadina teksto išgavimą ir vizualinį tikslumą.",
+    "severity_label": "critical",
+    "suggested_fix": "Įdėkite visus dokumente naudojamus šriftus. Standartiniams 14 šriftų, kurių negalima įdėti, užtikrinkite, kad šrifto programa būtų prieinama arba pakeiskite ją įdėtu atitikmeniu."
+  },
+  "31-011": {
+    "title": "Įdėtoje šrifto programoje trūksta glifo",
+    "description": "Dokumento tekste nurodytas glifas nėra įdėtoje šrifto programoje.",
+    "severity_label": "major",
+    "suggested_fix": "Arba apkarpykite šriftą, kad įtrauktumėte visus reikiamus glifus, arba naudokite kitą šriftą, kuriame yra reikiami glifai."
+  },
+  "31-012": {
+    "title": "„Type1 CharSet“: glifas neįtrauktas į sąrašą",
+    "description": "„Type1“ šrifto „CharSet“ neįtraukia glifo, kuris iš tikrųjų yra šrifto programoje ir naudojamas dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Atnaujinkite „CharSet“, kad įtrauktumėte visus šrifto programoje esančius ir dokumente nurodytus glifus."
+  },
+  "31-013": {
+    "title": "„Type1 CharSet“: įtrauktas glifas ne šrifte",
+    "description": "„Type1“ šrifto „CharSet“ nurodo glifo pavadinimą, kurio nėra įdėtoje šrifto programoje.",
+    "severity_label": "minor",
+    "suggested_fix": "Pašalinkite neegzistuojančius glifų pavadinimus iš „CharSet“ arba įdėkite visą šriftą."
+  },
+  "31-014": {
+    "title": "„CID CIDSet“: glifas neįtrauktas į sąrašą",
+    "description": "„CIDFont“ „CIDSet“ neįtraukia CID, kuris iš tikrųjų yra įdėtoje šrifto programoje ir naudojamas dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Atnaujinkite „CIDSet“, kad įtrauktumėte visas dokumente naudojamas CID reikšmes."
+  },
+  "31-015": {
+    "title": "„CID CIDSet“: įtrauktas CID ne šrifte",
+    "description": "„CIDFont“ „CIDSet“ nurodo CID, kuris neatitinka jokio įdėtos šrifto programos glifo.",
+    "severity_label": "minor",
+    "suggested_fix": "Pašalinkite neegzistuojančius CID iš „CIDSet“ arba sugeneruokite jį iš tikrosios šrifto programos."
+  },
+  "31-016": {
+    "title": "Glifo pločio neatitikimas > 1/1000",
+    "description": "Šrifto žodyne nurodytas glifo plotis skiriasi daugiau nei 1 vienetu iš 1000 nuo pločio įdėtoje šrifto programoje.",
+    "severity_label": "minor",
+    "suggested_fix": "Pataisykite „Widths“ masyvą (arba W2 įrašą) šrifto žodyne, kad jis atitiktų tikruosius glifų pločius įdėtoje šrifto programoje."
+  },
+  "31-017": {
+    "title": "Nesimboliniam „TrueType“ trūksta nesimbolinio „cmap“",
+    "description": "„TrueType“ šriftas su nesimboliniu kodavimu (yra „Encoding“ įrašas arba simbolinis vėliavėlė išjungta) neturi (3,1) „cmap“ sublentelės unikodo susiejimui.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad „TrueType“ šrifto programoje būtų (3,1) „Microsoft Unicode BMP cmap“ sublentelė tinkamam unikodo simbolių susiejimui."
+  },
+  "31-018": {
+    "title": "Nesimbolinis „TrueType“ glifas ne „cmap“",
+    "description": "Nesimbolinio „TrueType“ šrifto glifo negalima rasti per šrifto „cmap“ sublenteles.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad visi dokumente naudojami glifai būtų pasiekiami per bent vieną šrifto „cmap“ sublentelę."
+  },
+  "31-019": {
+    "title": "Nesimbolinio „TrueType“ šrifto žodyne trūksta „Encoding“",
+    "description": "Nesimbolinio „TrueType“ šrifto žodyne nėra „Encoding“ įrašo, kuris būtinas glifų pavadinimų išsprendimui.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite tinkamą „Encoding“ įrašą (pvz., „WinAnsiEncoding“, „MacRomanEncoding“) prie šrifto žodyno."
+  },
+  "31-020": {
+    "title": "„Encoding“ žodyne trūksta „BaseEncoding“",
+    "description": "„Encoding“ žodynas su „Differences“ masyvu nenurodo „BaseEncoding“ įrašo.",
+    "severity_label": "minor",
+    "suggested_fix": "Nurodykite „BaseEncoding“ (pvz., „WinAnsiEncoding“) „Encoding“ žodyne, nuo kurio nukrypsta „Differences“ masyvas."
+  },
+  "31-021": {
+    "title": "„Encoding/BaseEncoding“ nėra „MacRoman“ arba „WinAnsi“",
+    "description": "Nesimbolinio „TrueType“ šrifto „Encoding“ arba „BaseEncoding“ nėra nei „MacRomanEncoding“, nei „WinAnsiEncoding“, kurie yra du standartiniai baziniai kodavimai.",
+    "severity_label": "minor",
+    "suggested_fix": "Naudokite „WinAnsiEncoding“ arba „MacRomanEncoding“ kaip bazinį šrifto kodavimą."
+  },
+  "31-022": {
+    "title": "„Differences“ glifų pavadinimų nėra „Adobe Glyph List“",
+    "description": "Šrifto „Encoding“ žodyno „Differences“ masyve naudojami glifų pavadinimai, kurių nėra „Adobe Glyph List“ (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "„Differences“ masyve naudokite tik standartinius glifų pavadinimus iš „Adobe Glyph List“."
+  },
+  "31-023": {
+    "title": "Yra „Differences“, bet nėra (3,1) „cmap“",
+    "description": "Šriftas turi „Differences“ masyvą savo „Encoding“, tačiau „TrueType“ šrifto programoje nėra (3,1) „cmap“ sublentelės unikodo susiejimui.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridėkite „ToUnicode CMap“ šriftui, kad užtikrintumėte patikimą unikodo susiejimą."
+  },
+  "31-024": {
+    "title": "Simbolinio „TrueType“ šrifto žodyne yra „Encoding“",
+    "description": "Simbolinis „TrueType“ šriftas (nustatytas 3 vėliavėlės bitas) turi „Encoding“ įrašą savo šrifto žodyne, o tai neleidžiama simboliniams šriftams.",
+    "severity_label": "minor",
+    "suggested_fix": "Pašalinkite „Encoding“ įrašą iš simbolinių „TrueType“ šriftų žodynų. Simboliniai šriftai simbolių susiejimui remiasi šrifto programos „cmap“."
+  },
+  "31-025": {
+    "title": "Simbolinio „TrueType“ šrifto programoje trūksta „cmap“",
+    "description": "Simbolinio „TrueType“ šrifto įdėtoje šrifto programoje nėra jokios „cmap“ lentelės.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad įdėtoje šrifto programoje būtų bent (3,0) „cmap“ sublentelė simboliniam simbolių susiejimui."
+  },
+  "31-026": {
+    "title": "Simboliniam „TrueType“ su keliais „cmap“ trūksta (3,0)",
+    "description": "Simbolinis „TrueType“ šriftas turi kelias „cmap“ sublenteles, tačiau jam trūksta būtinos (3,0) „Microsoft Symbol cmap“ sublentelės.",
+    "severity_label": "minor",
+    "suggested_fix": "Užtikrinkite, kad įdėtoje šrifto programoje būtų (3,0) „Microsoft Symbol cmap“ sublentelė tinkamam simbolių susiejimui."
+  },
+  "31-027": {
+    "title": "Trūksta „ToUnicode CMap“",
+    "description": "Tekstiniam turiniui naudojamas šriftas neturi „ToUnicode CMap“ ir netaikoma jokia išimtis. Be „ToUnicode CMap“ pagalbinės technologijos negali išgauti skaitomo teksto.",
+    "severity_label": "critical",
+    "suggested_fix": "Pridėkite „ToUnicode CMap“ srautą prie šrifto žodyno, susiedami kiekvieną dokumente naudojamą simbolio kodą su atitinkama unikodo reikšme."
+  },
+  "31-028": {
+    "title": "„ToUnicode“ susieja su CID 0",
+    "description": "„ToUnicode CMap“ susieja simbolio kodą su unikodo reikšme U+0000 (null), kuri nėra galiojantis teksto simbolis.",
+    "severity_label": "minor",
+    "suggested_fix": "Pataisykite „ToUnicode CMap“, kad susietumėte simbolio kodą su galiojančia, ne „null“ unikodo reikšme."
+  },
+  "31-029": {
+    "title": "„ToUnicode“ susieja su U+FEFF arba U+FFFE",
+    "description": "„ToUnicode CMap“ susieja simbolio kodą su U+FEFF (BOM) arba U+FFFE (byte-order mark), kurie yra valdymo simboliai ir nėra galiojantis atvaizduojamas tekstas.",
+    "severity_label": "minor",
+    "suggested_fix": "Pakeiskite U+FEFF/U+FFFE susiejimus „ToUnicode CMap“ tikrąja simbolio unikodo reikšme."
+  },
+  "31-030": {
+    "title": ".notdef glifas nurodytas tekste",
+    "description": "Dokumento teksto rodymo operatorius nurodo .notdef glifą (glifo indeksas 0), o tai rodo trūkstamą arba neprieinamą simbolį. Tekstas, naudojantis .notdef, rodomas kaip tušti arba „tofu“ simboliai.",
+    "severity_label": "major",
+    "suggested_fix": "Užtikrinkite, kad visi dokumente naudojami simbolių kodai atitiktų tikrus glifus įdėtoje šrifto programoje."
+  }
+}

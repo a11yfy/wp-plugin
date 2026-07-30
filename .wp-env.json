@@ -1,0 +1,17 @@
+{
+	"core": null,
+	"phpVersion": "7.4",
+	"plugins": [ "." ],
+	"config": {
+		"WP_DEBUG": true,
+		"SCRIPT_DEBUG": true,
+		"A11YFY_API_BASE": "https://dev.a11yfy.com/v1"
+	},
+	"env": {
+		"tests": {
+			"config": {
+				"WP_DEBUG": true
+			}
+		}
+	}
+}

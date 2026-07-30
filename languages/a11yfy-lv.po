@@ -1,0 +1,1300 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: lv\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2);\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr ""
+"Bezmaksas PDF pieejamības pārbaude pārlūkprogrammā (Matterhorn Protocol automātiskās pārbaudes) un PDF/UA-1 atbilstības "
+"nodrošināšana ar vienu klikšķi, izmantojot a11yfy pakalpojumu."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — PDF pieejamība"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "Skenēšana… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "Skenēšana pabeigta: pārbaudīti %d PDF faili."
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "Skenēšana neizdevās: %s"
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "PDF failus nav nepieciešams skenēt — viss ir atjaunināts."
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "%d PDF failiem ir iesākta labošana."
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Jums nav atļauts mainīt a11yfy iestatījumus."
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "Iestatījumi saglabāti."
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "Ir izveidots savienojums ar a11yfy — API atslēga darbojas."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "Savienots ar a11yfy — ir ieslēgti tūlītējie (webhook) statusa atjauninājumi."
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "Savienojums pārtraukts. Saglabātā API atslēga tika dzēsta."
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "Tas neizskatās pēc a11yfy API atslēgas (būtu jābūt ak_live_… vai ak_test_…). Pārējie iestatījumi tika saglabāti."
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr ""
+"a11yfy noraidīja API atslēgu. Pārbaudiet to vietnē a11yfy.com sadaļā „Konts“ → „API atslēgas“. Pārējie iestatījumi tika "
+"saglabāti."
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "Savienojums ar a11yfy.com ir pārtraukts."
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "Neizdevās izveidot savienojumu ar a11yfy — lūdzu, mēģiniet vēlreiz."
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr ""
+"Nav iespējams pārbaudīt savienojuma atbildi (pieprasījuma derīguma termiņš ir beidzies vai tas ir bojāts). Lūdzu, "
+"mēģiniet vēlreiz."
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "Viss ir gatavs — a11yfy ir gatavs darbam."
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: %d PDF faili, kas iekļauti labošanas rindā. Sekojiet līdzi procesa norisei a11yfy paneļā."
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "Jūsu kredītu atlikums ir neliels (atlikuši %d kredīti). Korekcija tiks pārtraukta, kad atlikums sasniegs nulli."
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "Jūsu pēdējā kļūdu labošana tika bloķēta: nepietiekams kredītu skaits."
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "Papildiniet kontu vietnē a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy PDF pieejamība"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "a11yfy ir uzstādīts un darbojas"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "Piekļuve"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "Fona rinda ir pieejama, un a11yfy savienojums darbojas."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "a11yfy fona apstrāde nav pieejama"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr ""
+"Neizdevās ielādēt „Action Scheduler“ — atjauninājumi par problēmu novēršanas gaitu tiks publicēti ar kavēšanos "
+"(izmantojot WP-cron kā rezerves risinājumu, ko aktivizē apmeklējums)."
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "a11yfy nav pieslēgts"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "Bezmaksas skenēšana darbojas, taču PDF failu pielāgošanai ir nepieciešama a11yfy API atslēga (a11yfy → Iestatījumi)."
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "%d PDF faili šajā vietnē nav pieejami"
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Atveriet a11yfy vadības paneli, lai tos pārskatītu un izlabotu."
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "Atbilstošs"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "Sanitāri attīrīts"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d problēmas novērstas)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "Notiek sanācija…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "Atjaunošana neizdevās"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "Izkārta iepriekšējo pārbaudi"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "Zems risks"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "Vidējs risks"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "Augsts risks"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "Nav pieejams"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "Vēl nav ieskenēts"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "Padarīt pieejamu ar a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "Atjaunot sākotnējo versiju (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "Padarīt pieejamu (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "Sesija ir beigusies — atjaunojiet lapu."
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "Tā darīt nedrīkst."
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "Vispirms savienojiet savu a11yfy kontu (Iestatījumi)."
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "Saistīts ar a11yfy"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "Kredīti: %d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "Papildināt"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "Šomēnes: %1$d / %2$d kredīti"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "Nav pieslēgts — bezmaksas skenēšana darbojas bez konta."
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "Pievienot a11yfy"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "Savienoti. Kā mums vajadzētu strādāt?"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] "Bezmaksas pārbaudē šajā vietnē tika atrasti %d PDF faili, kas neatbilst pieejamības prasībām (EAA risks)."
+msgstr[1] "Bezmaksas pārbaudē šajā vietnē tika atrasti %d PDF faili, kas neatbilst pieejamības prasībām (EAA risks)."
+msgstr[2] "Bezmaksas pārbaudē šajā vietnē tika atrasti %d PDF faili, kas neatbilst pieejamības prasībām (EAA risks)."
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "Kā mums vajadzētu strādāt?"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "Automātiski (ieteicams)"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "Jums nekas nav jādara: tiklīdz PDF fails tiek augšupielādēts, tas automātiski kļūst pieejams."
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "Mēneša limits: %s kredīti"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "Mēneša kredīta limits"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "Lietošanas rokasgrāmata"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr "Jūs pats uzsākat problēmu novēršanu — mediju bibliotēkā vai šajā vadības panelī. Bez jūsu rīcības nekas nenotiek."
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr ""
+"Padoms: vispirms veiciet zemāk minēto bezmaksas pārbaudi, lai redzētu, kāda ir šīs vietnes situācija — jūsu iepriekš "
+"izdarītā izvēle darbojas abos gadījumos."
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "Sākt darbu"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "PDF statuss"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr ""
+"Bezmaksas tehniskā iepriekšējā pārbaude atbilstoši mašīnlasāmiem PDF/UA-1 pārbaudes kritērijiem — tiek veikta jūsu "
+"pārlūkprogrammā, neviens fails netiek nosūtīts ārpus jūsu vietnes."
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "Daļēji pieejams"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "Pārstrādājis a11yfy"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "Skenēto PDF failu bibliotēka"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d dokumenti neatbilst pieejamības prasībām (EAA risks)."
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "Izlabot visu"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "aptuvenais apjoms: līdz ~%1$d kredītiem — jūsu atlikums: %2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "Sanācijas darbi"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "Vēl nav veikta nekāda sanācija."
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "Fails"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "Stāvoklis"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "Rezultāts"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "Pateicības"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "a11yfy iestatījumi"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "Savienojums"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "Izveidot savienojumu ar a11yfy"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr ""
+"Vienu klikšķi: ieejiet vai reģistrējieties vietnē a11yfy.com, apstipriniet piekļuvi, un viss. Vai arī ievietojiet API "
+"atslēgu zemāk."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "API atslēga"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "savienots"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "Atvienot (izdzēst saglabāto atslēgu)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "Lai aizstātu atslēgu, ielīmējiet jaunu zemāk."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr ""
+"Izveidojiet atslēgu %s sadaļā „Konta” → „API atslēgas”. Atslēga tiek glabāta šifrētā veidā un nekad netiek nosūtīta "
+"pārlūkprogrammai."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "Stāvokļa atjauninājumi"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr ""
+"Tūlītēji (webhook) — a11yfy paziņo šai vietnei, tiklīdz uzdevums ir pabeigts; regulārā pārbaude paliek kā drošības "
+"pasākums."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr ""
+"Pārbaude — vietne fonā pārbauda uzdevuma statusu. Atkārtota savienošanās, izmantojot pogu secību, nodrošina tūlītējus "
+"webhook atjauninājumus, kad jūsu vietne ir publiski pieejama."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "Režīms"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "jauni augšupielādētie PDF faili kļūst pieejami automātiski."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "jūs izvēlaties, ko labot multivides bibliotēkā vai vadības panelī."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "Sanācija tiek apturēta, ja kalendārajā mēnesī ir iztērēts šāds kredītu skaits. 0 = nav ierobežojuma."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "Zemā kredītspējas brīdinājums zemāk"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "Paziņojums administratoriem + e-pasts, ja atlikums nokrīt zem šīs summas. 0 = izslēgts."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "Uzkrājumu veidošanas stratēģija"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "Aizstāt, nemainot atrašanās vietu (ieteicams)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "tā pati URL adrese, oriģināls tiek saglabāts kā rezerves kopija, ko var atjaunot ar vienu klikšķi."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "Konservatīvais"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "oriģinālais fails netiek mainīts; saites tiek aizstātas, kad lapas tiek attēlotas."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "Paziņojuma e-pasts"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Paziņojumi par zemu kredītpunktu skaitu un neveiksmēm. Tukšs = vietnes administratora e-pasts."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "Par spraudņa dzēšanu"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Saglabājiet labotos PDF failus (ieteicams — tie ir jūsu saturs)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "Atjaunojiet sākotnējos failus no rezerves kopijas."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "Saglabāt iestatījumus"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "PDF failu neizdevās nolasīt no diska."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "Nav konfigurēts a11yfy API atslēgas kods."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "a11yfy API kļūda (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Šo vietni nav atļauts pieslēgt."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "Pievienotais fails nav pieejams vietējā failu sistēmā."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "Šī PDF faila izmērs pārsniedz 50 MB — tas ir lielāks par pašreizējo apstrādes limitu."
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr ""
+"PHP atmiņas nepietiek, lai droši augšupielādētu šo PDF failu. Palieliniet `memory_limit` vai augšupielādējiet mazāku "
+"failu."
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "Ir sasniegts šai vietnei noteiktais ikmēneša kredītu limits."
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr ""
+"Šis PDF fails jau ir izgājis pieejamības iepriekšējo pārbaudi — to izlaižam, lai izvairītos no nevajadzīgas kredītu "
+"izmantošanas."
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "Šis konkrētais fails jau ir labots."
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "Šim PDF failam jau tiek veikta kļūdu labošana."
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] Zems kredīta atlikums"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"Jūsu „a11yfy“ kredītu atlikums ir samazinājies līdz %1$d kredītiem. PDF failu labošana tiks pārtraukta, kad atlikums "
+"sasniegs nulli.\n"
+"\n"
+"Papildiniet kontu šeit: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "Darbs netika pabeigts 2 stundu laikā. Lūdzu, sazinieties ar „a11yfy“ atbalsta dienestu."
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "Darbs ir pabeigts, taču izvades fails netika sagatavots."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "Oriģinālais fails netiek saglabāts lokāli (izlādēšanas spraudnis?) — šī funkcija pagaidām netiek atbalstīta."
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "Neizdevās lejupielādēt laboto PDF failu no a11yfy."
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "Lejupielādētais fails nav derīgs PDF fails."
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "Neizdevās izveidot oriģinālā PDF faila dublikātu — apmaiņa tiek pārtraukta."
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "Neizdevās pārrakstīt laboto PDF failu virs sākotnējā."
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "Neizdevās saglabāt laboto PDF failu blakus oriģinālam."
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "Šim PDF failam nav reģistrēta nekāda labota versija."
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "Trūkst sākotnējā PDF faila rezerves kopija."
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "Neizdevās atjaunot sākotnējo PDF failu."
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "Labot"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "Atjaunot"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "Sīkāka informācija"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "Filtrēt PDF sarakstu pēc statusa"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "Darbības"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "Nav PDF failu, kas atbilstu izvēlētajiem filtriem."
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "Ielādēt vairāk"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "Paslēpt informāciju"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "Atvērt multivides bibliotēkā"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "Atkārtoti piemērot labojumu (bez maksas)"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "Pārveidots ar citas programmas palīdzību"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "Ietekmētās lapas: %s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "Netika konstatētas nekādas ar mašīnu atklājamas pieejamības problēmas."
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "Neizdevās ielādēt informāciju."
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "Atrasti %1$d problēmu veidi — izpildīti %2$d pārbaudes."
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "ShortPixel PDF optimizācija tagad ir atspējota."
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "Šim PDF failam vēl nav saglabāti skenēšanas rezultāti — vispirms veiciet skenēšanu."
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "Neizdevās mainīt „ShortPixel“ iestatījumus — atspējojiet PDF optimizāciju sadaļā „Iestatījumi“ → „ShortPixel“."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "PDF failā vispār nav tagu struktūras"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr ""
+"Dokumentā nav struktūras koka (birku). Ekrāna lasītāji nesaņem ne virsrakstus, ne rindkopas, ne sarakstus, ne tabulas — "
+"saturs tiek nolasīts kā nestrukturēta plūsma vai vispār netiek nolasīts."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "Kļūdu labošana automātiski atjauno pilnu tagu struktūru."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "PDF fails nav norādīts kā marķēts"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr ""
+"Trūkst ieraksta „MarkInfo” vai tam nav piešķirts statuss „Atzīmēts”. Palīgtehnoloģijas nevar paļauties uz birku "
+"struktūru, pat ja daļa no tās ir pieejama."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "Remediation iestata „tagged-PDF” atzīmi kopā ar derīgu struktūras koku."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "Kritisks"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "Nopietns"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "Nepilngadīgais"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "Konstatēts PDF optimizācijas konflikts"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"Zemāk minētie spraudņi saspiež PDF failus. Saspiešana pārraksta PDF failu un izdzēš tā pieejamības struktūru (birkas, "
+"valoda, PDF/UA metadati) — tā var arī sabojāt PDF failus, kas jau ir pielāgoti, izmantojot jūsu „a11yfy“ kredītus."
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr "a11yfy labotie faili tiek automātiski izslēgti, taču visi pārējie PDF faili joprojām ir pakļauti riskam."
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "Šis spraudnis nenodrošina uzticamu izslēgšanu atsevišķiem failiem — „a11yfy“ nevar pasargāt atsevišķus PDF failus no tā."
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "Atvienojiet „ShortPixel“ PDF optimizāciju"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "Piekļūstams PDF (a11yfy) — optimizācijas rezultātā tiktu noņemtas pieejamības atzīmes."
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "Konflikti PDF optimizācijas procesā (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "Neviens attēlu optimizētājs nepārraksta PDF failus"
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr ""
+"Netika atrasts neviens aktīvs spraudnis, kas saspiež PDF failus. PDF saspiešana pārraksta failu un noņem tā pieejamības "
+"tagus."
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "PDF optimizācija ir ieslēgta %s — tā noņem PDF pieejamības tagus"
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"PDF saspiešana pārraksta failu un izdzēš tā pieejamības struktūru (birkas, valoda, PDF/UA metadati) — tostarp arī tos "
+"PDF failus, kas jau ir laboti, izmantojot a11yfy. Atvienojiet PDF optimizāciju spraudņa iestatījumos; a11yfy arī "
+"individuāli aizsargā labotos failus, ja optimizētājs to atbalsta."
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "Atsauksme par a11yfy vadības paneli"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "Nav saglabāta labotā PDF faila kopija — atkārtojiet labošanas procesu."
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "Neizdevās pārrakstīt laboto PDF failu pār esošo failu."
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "Pirms problēmu novēršanas konstatētās problēmas"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "Izlabots"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "Joprojām klāt"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "Veiciet skenēšanu vēlreiz, lai pārliecinātos par labotā faila pašreizējo stāvokli."
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "Rediģēt"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "Savienojiet savu a11yfy kontu, lai iespējotu PDF labošanu."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "tehniskā labošana"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "pilna labošana"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "Savienot kontu"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr ""
+"API atslēgu nevarēja droši saglabāt šajā serverī (šifrēšana nav pieejama). Atslēga NETIKA saglabāta — jautājiet savam "
+"mitinātājam par PHP sodium paplašinājumu. Pārējie iestatījumi tika saglabāti."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr ""
+"PDF labošana pašlaik nav pieejama. Savienojiet savu a11yfy kontu, lai to iespējotu — bezmaksas skenēšana tik un tā "
+"turpinās darboties."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "Paslēpt šo paziņojumu"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = nav ikmēneša limita."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr "Šis PDF ir aizsargāts ar paroli vai šifrēts. Noņemiet aizsardzību un pēc tam palaidiet labošanu vēlreiz."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "Labotā PDF URL nav derīgs publisks https URL."
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "Dokumenta informācija"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "Dokumenta analīze…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "Dokumentu neizdevās analizēt."
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "Rezultāts: %d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "Ietekmē visu dokumentu"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "Lapa %1$d no %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%d lappuses"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "Tehniskā informācija"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d secinājumi šajā lapā"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "Pāriet uz lappusi %d"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "Lapa %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "Iepriekšējā lapa"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "Nākamā lappuse"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "Palielināt"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "Samazināt attēlu"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "Koriģēšana ir iekļauta rindā — to var izsekot vadības panelī."
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "Kaut kas neizdevās — lūdzu, mēģiniet vēlreiz."
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "Priekšskatījumu neizdevās attēlot (analīze joprojām darbojas)."
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~%d%% teksta nav atzīmēts ar tagiem — ekrāna nolasītāji to izlaiž vai nolasa nepareizā secībā."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "Tiek parādīts sākotnējais fails (pirms labošanas) — šī analīze netiek saglabāta."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "Attēls nav redzams ekrāna lasītājiem"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr ""
+"Attēls nav ne atzīmēts kā attēls, ne arī kā dekoratīvs elements (artefakts). Ekrāna lasītāja lietotājs nekad neuzzinās "
+"par tā esamību — pat teksta aprakstu tam nevar pievienot."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr "Remediation reālos attēlus marķē kā „Attēlus” ar aprakstu, bet dekoratīvos attēlus — kā „artefaktus”."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "Dokumentā norādītā valoda neatbilst tekstam"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"PDF failā ir norādīta viena valoda, taču lapas teksts, šķiet, ir rakstīts citā valodā. Ekrāna lasītāji izvēlas balsi un "
+"izrunu atbilstoši norādītajai valodai, tāpēc saturs tiktu nolasīts ar nepareizu balsi."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "Korekcijas funkcija nosaka dokumenta valodu atbilstoši valodai, kurā teksts faktiski ir rakstīts."
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "Dokumentā vispār nav virsrakstu"
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr ""
+"Dokumentā ir ievērojams teksta apjoms, taču tajā nav neviena virsraksta elementa. Ekrāna lasītāju lietotāji orientējas "
+"galvenokārt pēc virsrakstiem — bez tiem dokuments ir jālasa lineāri no sākuma līdz beigām."
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Atzīmējiet sadaļu nosaukumus kā virsrakstus (H1–H6), lai dokumenta struktūra kļūtu pārskatāma."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "Garā dokumentā nav grāmatzīmju"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr ""
+"Dokuments ir desmit lappuses garš vai garāks, taču tam nav grāmatzīmju satura rādītāja. Grāmatzīmes ļauj ikvienam "
+"lasītājam — ne tikai palīgtehnoloģiju lietotājiem — tieši pāriet uz konkrētu sadaļu."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "Pievienojiet grāmatzīmes struktūru, kas atspoguļo dokumenta nodaļu struktūru."
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "Tabulā nav virsraksta šūnu"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr ""
+"Datu tabulā nav TH virsraksta šūnu. Ekrāna nolasītāji pirms katras šūnas nosauc atbilstošo virsrakstu — bez "
+"virsrakstiem lietotājs dzird tikai skaitļus bez konteksta."
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Atzīmējiet pirmo rindu un/vai kolonnu kā TH galvenes šūnas ar atbilstošu darbības jomu."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "Attēla apraksts izskatās kā aizstājējteksts"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr ""
+"Attēlam ir alternatīvais teksts, taču tas izskatās kā faila nosaukums vai vispārīgs aizstājējteksts (piemēram, "
+"„image3.png”). Ekrāna lasītāja lietotājs nesaņem nekādu informāciju par to, kas attēlā faktiski redzams."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "Aizstājiet vietas turētāju ar aprakstu, kas atspoguļo attēla nozīmi."
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "Marķēšana un struktūra"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "Sadaļas"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "Attēli un formulas"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "Tabulas"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "Saraksti un satura rādītājs"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "Veidlapas, saites un piezīmes"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "Valoda"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "Metadati un attēlošana"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "Šifrēšana un atļaujas"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "Citi tehniskie"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Vai lasīšanas secība ir loģiska, ja saturu lasa no sākuma līdz beigām?"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "Vai attēlu apraksti (alternatīvie teksti) atspoguļo attēla nozīmi — nevis tikai faila nosaukumu?"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "Vai teksta kontrasts ir pietiekams (vismaz 4,5:1 pret fonu)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "Vai saites teksti ir jēgpilni paši par sevi („noklikšķiniet šeit” nav)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Vai tabulām ir reālas virsraksta šūnas un vienkārša, regulāra struktūra?"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "Vai dokumenta nosaukums ir informatīvs, kad tas tiek parādīts lasītāja virsraksta joslā?"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "Atgriezties uz a11yfy vadības paneli"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "Dokuments nav atrasts"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "Šī saite neved uz PDF failu multivides bibliotēkā."
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "pēdējā skenēšana %s pirms"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "Izlabot ar a11yfy"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "Veiciet pārbaudi atkārtoti"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "Izdrukāt atskaiti"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "Kuru versiju pārbaudīt"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "Sanitāri atjaunots (pašreizējais stāvoklis)"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "Oriģināls (pirms)"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "Secinājumi par pieejamību"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "Pārbaudes saraksts manuālai pārskatīšanai"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "Par šiem aspektiem nevar lemt mašīna — ātra cilvēka veikta pārbaude sniedz pilnīgu priekšstatu."
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr ""
+"Priekšskatījums ir vizuāls palīglīdzeklis — rezultātu saraksts pa kreisi ir oficiālais, ekrāna lasītājam piemērots "
+"ziņojums."
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "Šajā lapā ir 1 rezultāts"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "Nav nosūtīts"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr ""
+"Šis PDF fails ir digitāli parakstīts. Kļūdu labošana pārraksta failu, kas padarītu parakstu nederīgu — tā vietā "
+"nosūtiet neparakstītu kopiju."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr ""
+"Šajā PDF failā ir iekļauta XFA veidlapa, kuru nevar saglabāt korekcijas laikā. Vispirms to pārveidojiet par parastu PDF "
+"veidlapu."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr "Šis PDF fails ir portfelis (ievietotu failu kopums). Tā vietā labojiet atsevišķos dokumentus."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "a11yfy lapas"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "Šo sertifikātu nav atļauts lejupielādēt."
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "Šim dokumentam vēl nav a11yfy sertifikāta."
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "Sertifikāts (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "Lejupielādēt sertifikātu"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "Pārbaudiet sertifikātu tiešsaistē"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "Sertifikāta lejupielāde neizdevās — lūdzu, mēģiniet vēlreiz."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr ""
+"Šis dokuments ir digitāli parakstīts. Kļūdu labošana izmainīs failu, tāpēc paraksts vairs nebūs derīgs. Vai vēlaties "
+"turpināt?"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr ""
+"Šis PDF fails ir digitāli parakstīts. Kļūdu labošana pārraksta failu, tāpēc paraksts vairs nebūs derīgs — labošana "
+"sāksies tikai pēc tam, kad jūs to apstiprināsiet."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "Aplēstās izmaksas: ~%d kredīti"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "Aplēstās izmaksas: %1$d–%2$d kredīti"

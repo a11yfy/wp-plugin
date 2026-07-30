@@ -1,0 +1,1242 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr "a11yfy 서비스를 통해 브라우저 내에서 무료로 PDF 접근성 검사(Matterhorn Protocol 자동 검사)를 수행하고, 원클릭으로 PDF/UA-1 준수 문제를 해결할 수 있습니다."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — PDF 접근성"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "설정"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "스캔 중… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "스캔 완료: %d개의 PDF 파일을 확인했습니다."
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "%s에 대한 스캔에 실패했습니다."
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "PDF 파일을 스캔할 필요가 없습니다. 모든 내용이 최신 상태입니다."
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "%d개의 PDF 파일에 대한 수정 작업이 대기 중입니다."
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "a11yfy 설정을 변경할 수 없습니다."
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "설정이 저장되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "a11yfy에 연결됨 — API 키가 정상적으로 작동합니다."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "a11yfy에 연결됨 — 실시간(웹훅) 상태 업데이트가 활성화되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "연결이 끊어졌습니다. 저장된 API 키가 삭제되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "이는 a11yfy API 키로 보이지 않습니다(ak_live_… 또는 ak_test_… 형식이어야 합니다). 다른 설정들은 저장되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr "a11yfy에서 API 키를 거부했습니다. a11yfy.com의 ‘계정 → API 키’에서 확인해 주세요. 다른 설정은 저장되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "a11yfy.com에서 연결이 취소되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "a11yfy에 연결하는 데 실패했습니다. 다시 시도해 주세요."
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "연결 응답을 확인할 수 없습니다(요청이 만료되었거나 변조된 경우). 다시 시도해 주십시오."
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "모든 준비가 끝났습니다. a11yfy를 사용할 준비가 되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: 수정 대기 중인 PDF %d개. a11yfy 대시보드에서 진행 상황을 확인하세요."
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "크레딧 잔액이 부족합니다 (남은 크레딧 %d). 잔액이 0이 되면 복구 작업이 중단됩니다."
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "마지막 시정 조치가 차단되었습니다: 크레딧이 부족합니다."
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "a11yfy.com에서 충전하기"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy PDF 접근성"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "a11yfy가 설정되어 정상적으로 작동 중입니다"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "접근성"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "백그라운드 큐가 사용 가능하며 a11yfy 연결도 정상적으로 작동합니다."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "a11yfy 백그라운드 처리를 사용할 수 없습니다"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr "Action Scheduler를 불러올 수 없습니다. 이로 인해 문제 해결 상태 업데이트가 느려질 수 있습니다(방문 시 트리거되는 WP-cron 대체 방식)."
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "a11yfy가 연결되어 있지 않습니다"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "무료 스캔 기능은 정상적으로 작동하지만, PDF 수정 기능을 사용하려면 a11yfy API 키가 필요합니다(a11yfy → 설정)."
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "이 사이트의 %d개 PDF 파일은 접근이 불가능합니다."
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "a11yfy 대시보드를 열어 해당 사항을 확인하고 수정하세요."
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "규정 준수"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "정화됨"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d 건 수정됨)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "복구 작업 진행 중…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "복구 실패"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "사전 심사를 통과했습니다"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "저위험"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "중간 위험"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "고위험"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "접근 불가"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "아직 스캔되지 않았습니다"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "a11yfy를 사용하여 접근성 확보하기"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "원본 복원 (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "접근성 확보 (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "세션이 만료되었습니다. 페이지를 새로 고침하세요."
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "그렇게 해서는 안 됩니다."
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "먼저 a11yfy 계정을 연결하세요(설정)."
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "a11yfy와 연결됨"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "크레딧: %d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "충전하기"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "이번 달: %1$d / %2$d 크레딧"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "연결되지 않음 — 무료 스캔은 계정 없이도 이용할 수 있습니다."
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "a11yfy 연결하기"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "연결. 우리는 어떻게 일해야 할까요?"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] "무료 스캔 결과, 이 사이트에서 접근성 요구 사항을 충족하지 않는 %d개의 PDF 파일(EAA 위험)이 발견되었습니다."
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "우리는 어떻게 일해야 할까요?"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "자동 (권장)"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "별도로 할 일은 없습니다. PDF 파일이 업로드될 때마다 자동으로 열람 가능 상태가 됩니다."
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "월별 한도: %s 크레딧"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "월별 신용 한도"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "사용 설명서"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr "미디어 라이브러리나 이 대시보드에서 직접 수정 작업을 시작하세요. 사용자의 조치가 없으면 어떤 작업도 진행되지 않습니다."
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr "팁: 먼저 아래의 무료 스캔을 실행하여 이 사이트의 상태를 확인해 보세요. 위에서 선택한 옵션은 어느 쪽이든 상관없이 작동합니다."
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "작업 시작하기"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "PDF 상태"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr "기계로 검증 가능한 PDF/UA-1 점검 항목에 대한 무료 기술 사전 점검 — 브라우저에서 바로 실행되며, 파일이 사이트를 벗어나지 않습니다."
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "일부 이용 가능"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "a11yfy에 의해 수정됨"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "PDF 라이브러리 스캔"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d개의 문서가 접근성 요구 사항을 충족하지 않습니다(EAA 위험)."
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "모두 수정"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "예상: 최대 ~%1$d 크레딧 — 현재 잔액: %2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "정화 작업"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "아직 어떤 수정 조치도 실행되지 않았습니다."
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "파일"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "상태"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "결과"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "제작진"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "a11yfy 설정"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "연결"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "a11yfy에 접속하기"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr "한 번의 클릭: a11yfy.com에 로그인하거나 회원가입을 한 뒤, 액세스 권한을 승인하면 끝입니다. 또는 아래에 API 키를 붙여넣으세요."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "API 키"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "연결된"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "연결 해제 (저장된 키 제거)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "키를 교체하려면 아래에 새로운 키를 붙여넣으세요."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr "‘계정’ → ‘API 키’에서 %s에 대한 키를 생성하세요. 이 키는 암호화된 형태로 저장되며, 브라우저로 전송되지 않습니다."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "상태 업데이트"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr "즉시 (웹훅) — 작업이 완료되는 즉시 a11yfy가 이 사이트에 알림을 보냅니다. 폴링 기능은 안전 장치로 유지됩니다."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr "폴링 — 사이트가 백그라운드에서 작업 상태를 확인합니다. 버튼 흐름을 통해 다시 연결하면 사이트에 공개적으로 접속할 수 있게 되었을 때 웹훅이 즉시 업데이트됩니다."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "모드"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "새로 업로드된 PDF 파일은 자동으로 열람 가능해집니다."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "미디어 라이브러리나 대시보드에서 수정할 항목을 직접 선택하면 됩니다."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "한 달 동안 이만큼의 크레딧이 소모되면 복구 작업이 일시 중지됩니다. 0 = 제한 없음."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "아래는 신용등급이 낮은 분들을 위한 주의사항입니다."
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "잔액이 이 금액 이하로 떨어지면 관리자 알림 및 이메일 발송. 0 = 비활성화."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "저축 전략"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "원본을 그대로 교체 (권장)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "동일한 URL이며, 원본은 백업으로 보관되어 원클릭 복원이 가능합니다."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "보수적"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "원본 파일은 절대 수정되지 않으며, 페이지가 렌더링될 때 링크가 교체됩니다."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "알림 이메일"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "신용 점수 부족 및 실패 알림. 비어 있음 = 사이트 관리자 이메일."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "플러그인 삭제 시"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "수정된 PDF 파일은 보관해 두세요(권장 — 이 파일들이 바로 여러분의 콘텐츠입니다)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "백업본에서 원본 파일을 복원하십시오."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "설정 저장"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "디스크에서 PDF 파일을 읽을 수 없습니다."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "a11yfy API 키가 설정되어 있지 않습니다."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "a11yfy API 오류 (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "이 사이트에 접속할 수 없습니다."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "첨부 파일이 로컬 파일 시스템에 없습니다."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "이 PDF 파일의 크기가 50MB를 초과하여 현재 처리 한도를 넘었습니다."
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr "이 PDF를 안전하게 업로드하기에는 PHP 메모리가 부족합니다. memory_limit 값을 높이거나 더 작은 파일을 처리하십시오."
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "이 사이트에 설정된 월간 크레딧 한도에 도달했습니다."
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr "이 PDF 파일은 이미 접근성 사전 검사를 통과했으므로, 불필요한 크레딧 소모를 피하기 위해 이 단계를 건너뜁니다."
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "이 파일은 이미 수정되었습니다."
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "이 PDF에 대한 수정 작업이 이미 진행 중입니다."
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] 잔액이 부족합니다"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"a11yfy 크레딧 잔액이 %1$d 크레딧으로 줄었습니다. 잔액이 0이 되면 PDF 수정 작업이 중단됩니다.\n"
+"\n"
+"충전하기: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "작업이 2시간 이내에 완료되지 않았습니다. a11yfy 지원팀에 문의해 주십시오."
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "작업이 완료되었지만 출력 파일이 제공되지 않았습니다."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "원본 파일은 로컬에 저장되지 않습니다(오프로드 플러그인?). — 아직 지원되지 않습니다."
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "a11yfy에서 수정된 PDF를 다운로드할 수 없습니다."
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "다운로드한 파일은 유효한 PDF 파일이 아닙니다."
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "원본 PDF를 백업할 수 없습니다. 스왑을 중단합니다."
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "수정된 PDF 파일을 원본 파일에 덮어쓰지 못했습니다."
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "수정된 PDF를 원본 옆에 저장할 수 없습니다."
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "이 PDF 파일에는 수정된 버전이 등록되어 있지 않습니다."
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "원본 PDF의 백업 파일이 없습니다."
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "원본 PDF를 복원할 수 없습니다."
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "수정"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "복원"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "상세 정보"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "상태별로 PDF 목록 필터링하기"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "작업"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "선택한 필터에 해당하는 PDF 파일이 없습니다."
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "더 보기"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "세부 정보 숨기기"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "미디어 라이브러리에서 열기"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "수정 사항 재적용 (무료)"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "다른 프로그램에 의해 수정됨"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "영향을 받은 페이지: %s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "컴퓨터로 감지할 수 있는 접근성 문제는 발견되지 않았습니다."
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "상세 정보를 불러올 수 없습니다."
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "%1$d개의 문제 유형이 발견되었습니다 — %2$d개의 검사가 통과되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "ShortPixel PDF 최적화 기능이 현재 비활성화되어 있습니다."
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "이 PDF에 대해서는 아직 스캔 결과가 저장되어 있지 않습니다. 먼저 스캔을 실행하십시오."
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "ShortPixel 설정을 변경할 수 없습니다. ‘설정 → ShortPixel’에서 PDF 최적화 기능을 비활성화하세요."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "이 PDF 파일에는 태그 구조가 전혀 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr "이 문서에는 구조 트리(태그)가 포함되어 있지 않습니다. 스크린 리더는 제목, 단락, 목록 또는 표 정보를 인식하지 못하며, 콘텐츠는 구조가 없는 데이터 흐름으로 읽히거나 아예 읽히지 않습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "복구 과정에서는 전체 태그 구조가 자동으로 재구성됩니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "이 PDF 파일은 태그가 지정된 파일로 선언되어 있지 않습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr "MarkInfo 항목이 없거나 ‘Marked’로 설정되어 있지 않습니다. 보조 기술은 태그 구조의 일부가 존재하더라도 해당 구조를 신뢰할 수 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "정정 작업은 유효한 구조 트리와 함께 태그가 지정된 PDF 플래그를 설정합니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "중요"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "진지한"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "사소한"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "PDF 최적화 충돌이 감지되었습니다"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"아래 플러그인들은 PDF 파일을 압축합니다. 압축 과정에서는 PDF 파일이 다시 작성되며, 접근성 구조(태그, 언어, PDF/UA 메타데이터)가 제거됩니다. 또한, a11yfy 크레딧을 사용하여 이미 접근성 보정이 "
+"완료된 PDF 파일도 손상될 수 있습니다."
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr "a11yfy를 통해 수정된 파일은 자동으로 제외되지만, 그 외의 모든 PDF 파일은 여전히 위험에 노출되어 있습니다."
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "이 플러그인은 파일 단위의 신뢰할 수 있는 제외 기능을 제공하지 않으므로, a11yfy는 개별 PDF 파일을 이 플러그인의 적용으로부터 보호할 수 없습니다."
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "ShortPixel PDF 최적화 기능 끄기"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "접근성 지원 PDF (a11yfy) — 최적화 과정에서 접근성 태그가 제거될 수 있습니다."
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "PDF 최적화 관련 충돌 (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "어떤 이미지 최적화 도구도 PDF 파일을 재작성하지 않습니다."
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr "PDF 파일을 압축하는 활성 플러그인이 발견되지 않았습니다. PDF 압축은 파일을 다시 작성하며, 이 과정에서 접근성 태그가 제거됩니다."
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "%s에서 PDF 최적화 기능이 활성화되어 있습니다. 이 기능은 PDF 접근성 태그를 제거합니다."
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"PDF를 압축하면 파일이 다시 작성되며, 접근성 구조(태그, 언어, PDF/UA 메타데이터)가 제거됩니다. 이는 a11yfy 크레딧을 통해 이미 접근성 보정이 완료된 PDF 파일도 예외가 아닙니다. 플러그인 "
+"설정에서 PDF 최적화 기능을 비활성화하십시오. 또한 a11yfy는 최적화 도구가 지원하는 경우, 보정된 파일을 개별적으로 보호합니다."
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "a11yfy 대시보드에 대한 리뷰"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "수정된 PDF의 저장본이 없습니다. 수정 작업을 다시 실행하십시오."
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "수정된 PDF 파일을 기존 파일에 덮어쓰지 못했습니다."
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "시정 조치 이전에 발견된 문제점"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "수정됨"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "여전히 존재함"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "스캔을 다시 실행하여 수정된 파일의 현재 상태를 확인하십시오."
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "편집"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "PDF 수정 기능을 활성화하려면 a11yfy 계정을 연결하세요."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "기술적 수정"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "전체 수정"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "계정 연결"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr "이 서버에서는 암호화 기능을 사용할 수 없어 API 키를 안전하게 저장할 수 없습니다. 키는 저장되지 않았습니다. 호스팅 업체에 PHP sodium 확장에 대해 문의하세요. 다른 설정은 저장되었습니다."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr "현재 PDF 수정 기능을 사용할 수 없습니다. 기능을 활성화하려면 a11yfy 계정을 연결하세요. 무료 스캔 기능은 계속 작동합니다."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "이 알림 숨기기"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = 월간 제한 없음."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr "이 PDF는 암호로 보호되어 있거나 암호화되어 있습니다. 보호를 해제한 후 다시 수정하세요."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "수정된 PDF URL이 올바른 공개 https URL이 아닙니다."
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "문서 상세 정보"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "문서 분석 중…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "문서를 분석할 수 없습니다."
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "점수: %d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "문서 전체에 적용됩니다"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "%2$d 페이지 중 %1$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%d 페이지"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "기술적 세부 사항"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d 이 페이지의 조사 결과"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "%d 페이지로 이동"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "페이지 %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "이전 페이지"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "다음 페이지"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "확대하기"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "축소하기"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "정정 작업이 대기 중입니다. 대시보드에서 진행 상황을 확인하세요."
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "문제가 발생했습니다. 다시 시도해 주세요."
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "미리보기를 표시할 수 없습니다(분석 기능은 정상적으로 작동합니다)."
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~텍스트의 %d%%에 태그가 지정되지 않았습니다. 스크린 리더는 이 부분을 건너뛰거나 순서대로 읽지 않습니다."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "원본 파일(수정 전) 표시 — 이 분석 결과는 저장되지 않습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "이 이미지는 스크린 리더에서 인식되지 않습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr "이 이미지는 ‘그림’으로 태그 처리되지도 않았고, 장식용(아티팩트)으로 표시되지도 않았습니다. 스크린 리더 사용자는 이 이미지가 존재한다는 사실을 전혀 알 수 없으며, 텍스트 설명조차 첨부할 수 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr "정제 과정에서는 실제 이미지를 ‘그림(Figures)’으로 분류하고 설명을 추가하며, 장식용 이미지는 ‘유물(artifacts)’로 분류합니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "지정된 문서 언어와 텍스트가 일치하지 않습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"PDF 파일에는 한 가지 언어가 지정되어 있지만, 페이지의 텍스트는 다른 언어로 작성된 것으로 보입니다. 화면 낭독기는 지정된 언어를 기준으로 음성과 발음을 선택하기 때문에, 콘텐츠가 잘못된 음성으로 읽힐 수 "
+"있습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "수정 기능을 사용하면 문서 언어를 텍스트가 실제로 작성된 언어로 설정할 수 있습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "이 문서에는 제목이 하나도 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr "이 문서에는 상당한 분량의 본문이 포함되어 있지만, 제목 요소는 하나도 없습니다. 스크린 리더 사용자는 주로 제목을 통해 내용을 탐색하므로, 제목이 없으면 문서를 처음부터 끝까지 순차적으로 읽어야 합니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "문서 구조를 쉽게 탐색할 수 있도록 섹션 제목에 제목 태그(H1–H6)를 지정하십시오."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "긴 문서에는 북마크가 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr "이 문서는 10페이지 이상이지만 북마크 개요가 없습니다. 북마크가 있으면 보조 기술 사용자뿐만 아니라 모든 독자가 원하는 섹션으로 바로 이동할 수 있습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "문서의 섹션 구조를 반영하는 북마크 개요를 추가합니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "표에 머리글 셀이 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr "데이터 표에는 TH 헤더 셀이 포함되어 있지 않습니다. 화면 낭독기는 각 셀 앞에 해당 헤더를 읽어주는데, 헤더가 없으면 사용자는 맥락 없이 숫자만 듣게 됩니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "첫 번째 행 및/또는 열을 적절한 범위를 지정하여 TH 헤더 셀로 지정하십시오."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "이미지 설명이 자리 표시자처럼 보입니다"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr "이미지에 대체 텍스트가 있지만, 파일 이름이나 일반적인 자리 표시자(예: “image3.png”)처럼 보입니다. 스크린 리더 사용자는 해당 이미지에 실제로 무엇이 표시되어 있는지 전혀 알 수 없습니다."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "이 자리 표시자를 이미지의 의미를 잘 전달하는 설명으로 바꾸세요."
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "태그 지정 및 구조"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "제목"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "이미지 및 수식"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "표"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "목록 및 목차"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "양식, 링크 및 주석"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "언어"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "메타데이터 및 표시"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "암호화 및 권한"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "기타 기술적 사항"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "내용을 처음부터 끝까지 읽었을 때, 읽기 순서가 논리적인가요?"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "이미지 설명(alt 텍스트)은 단순히 파일 이름뿐만 아니라 그 의미를 제대로 전달하고 있나요?"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "텍스트의 명암비가 충분한가요(배경 대비 최소 4.5:1)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "링크 텍스트는 그 자체로 의미가 있는가(“여기를 클릭하세요”는 의미가 없다)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "표에는 실제 머리글 셀이 있고, 단순하고 규칙적인 구조를 갖추고 있습니까?"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "문서 제목이 독자의 제목 표시줄에 표시될 때 정보를 잘 전달하고 있나요?"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "a11yfy 대시보드로 돌아가기"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "문서를 찾을 수 없습니다"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "이 링크는 미디어 라이브러리에 있는 PDF 파일을 가리키지 않습니다."
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "마지막 스캔: %s 전"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "a11yfy로 수정"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "검사를 다시 실행하십시오"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "보고서 인쇄"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "어떤 버전을 검토해야 할까요?"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "정화 완료 (현재 상태)"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "원본 (이전)"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "접근성 조사 결과"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "수동 검토 체크리스트"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "이러한 측면들은 기계만으로는 결정할 수 없으며, 사람이 간단히 검토해 주어야 전체적인 그림이 완성됩니다."
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr "미리보기는 시각적 참고 자료일 뿐이며, 왼쪽에 있는 결과 목록이 공식적이고 스크린 리더에 최적화된 보고서입니다."
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "이 페이지의 검색 결과 1건"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "보내지 않음"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr "이 PDF 파일에는 디지털 서명이 되어 있습니다. 수정 작업을 수행하면 파일이 다시 작성되어 서명이 무효화되므로, 대신 서명이 없는 사본을 보내주십시오."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr "이 PDF 파일에는 XFA 양식이 포함되어 있으며, 이 양식은 수정 과정에서 유지될 수 없습니다. 먼저 일반 PDF 양식으로 변환하십시오."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr "이 PDF는 포트폴리오(파일이 포함된 컨테이너)입니다. 대신 개별 문서를 수정하십시오."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "a11yfy 페이지"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "이 인증서를 다운로드할 수 없습니다."
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "이 문서는 아직 a11yfy 인증서를 받지 않았습니다."
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "인증서 (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "인증서 다운로드"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "온라인으로 인증서 확인하기"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "인증서 다운로드에 실패했습니다. 다시 시도해 주세요."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr "이 문서는 디지털 서명이 되어 있습니다. 수정 작업을 수행하면 파일이 변경되므로 서명이 더 이상 유효하지 않게 됩니다. 계속하시겠습니까?"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr "이 PDF 파일에는 디지털 서명이 되어 있습니다. 수정 작업이 진행되면 파일이 다시 작성되므로 서명이 더 이상 유효하지 않게 됩니다. 확인을 누른 후에야 수정 작업이 시작됩니다."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "예상 비용: ~%d 크레딧"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "예상 비용: %1$d–%2$d 크레딧"

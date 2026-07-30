@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakt označený ako skutočný obsah",
+    "description": "Artefakt stránky (hlavička, päta, dekoratívny prvok) je nesprávne označený ako skutočný obsah v štruktúrnom strome. Čítačky obrazovky sa budú pokúšať čítať dekoratívne prvky ako obsah dokumentu.",
+    "severity_label": "critical",
+    "suggested_fix": "Zmeňte typ štruktúrneho prvku na Artefakt alebo zabaľte obsah do sekvencie označeného obsahu Artefakt."
+  },
+  "01-002": {
+    "title": "Skutočný obsah označený ako artefakt",
+    "description": "Skutočný obsah dokumentu (text tela, nadpis, popis) je nesprávne označený ako Artefakt. Čítačky obrazovky tento obsah úplne preskočia.",
+    "severity_label": "critical",
+    "suggested_fix": "Odstráňte označenie Artefakt zo skutočného obsahu a uistite sa, že je správne označený príslušným štruktúrnym prvkom."
+  },
+  "01-003": {
+    "title": "Artefakt vo vnútri označeného obsahu",
+    "description": "Prvok označený ako artefakt sa nachádza vo vnútri štruktúrneho prvku, ktorý predstavuje skutočný obsah, čím sa narúša hierarchia obsahu.",
+    "severity_label": "critical",
+    "suggested_fix": "Presuňte obsah označený ako artefakt mimo štruktúrneho prvku skutočného obsahu alebo preštruktúrujte hierarchiu prvkov."
+  },
+  "01-004": {
+    "title": "Označený obsah vo vnútri artefaktu",
+    "description": "Označený prvok skutočného obsahu je vnorený do kontajnera Artefakt. Čítačky obrazovky môžu tento obsah preskočiť.",
+    "severity_label": "critical",
+    "suggested_fix": "Presuňte označený obsah mimo kontajnera Artefakt a umiestnite ho na správnu úroveň v štruktúrnom strome."
+  },
+  "01-005": {
+    "title": "Obsah nie je označený ani ako štruktúrny prvok, ani ako artefakt",
+    "description": "Obsah na stránke nie je označený ako štruktúrny prvok ani ako artefakt. Toto je najčastejšie porušenie normy PDF/UA a hlavná príčina ticha čítačky obrazovky pri čítaní obsahu.",
+    "severity_label": "critical",
+    "suggested_fix": "Buď označte obsah príslušným štruktúrnym prvkom (P, H1-H6, Figure atď.), alebo ho označte ako Artefakt, ak je dekoratívny."
+  },
+  "01-006": {
+    "title": "Chýba StructTreeRoot",
+    "description": "Slovník katalógu dokumentu musí obsahovať položku StructTreeRoot, ktorá slúži ako koreň logickej štruktúry dokumentu. Bez nej čítačky obrazovky nedokážu interpretovať štruktúru dokumentu.",
+    "severity_label": "critical",
+    "suggested_fix": "Pridajte objekt StructTreeRoot do slovníka katalógu dokumentu a vytvorte hierarchiu štruktúrnych prvkov pre všetky strany obsahu."
+  },
+  "01-007": {
+    "title": "Príznak Suspect je nastavený na true",
+    "description": "Položka Suspects v slovníku MarkInfo dokumentu je nastavená na true, čo naznačuje, že štruktúrny strom môže obsahovať nespoľahlivé značky. Asistenčné technológie môžu štruktúrny strom úplne ignorovať.",
+    "severity_label": "critical",
+    "suggested_fix": "Po overení, že je všetok obsah správne označený, nastavte príznak Suspects na false v slovníku MarkInfo."
+  },
+  "02-001": {
+    "title": "Neštandardné mapovanie rolí nekončí štandardným typom",
+    "description": "Vlastná rola v RoleMap sa nemapuje na štandardný typ štruktúry PDF. Konečný cieľ reťazca mapovania musí byť štandardný typ zo sady rolí PDF 32000-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Zabezpečte, aby sa každá neštandardná rola v RoleMap mapovala priamo alebo tranzitívne na štandardný typ (napr. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure atď.)."
+  },
+  "02-002": {
+    "title": "Sémanticky nevhodné mapovanie rolí",
+    "description": "Rola štruktúrneho prvku bola namapovaná na štandardný typ, ktorý nezodpovedá sémantickému účelu prvku (napr. nadpis namapovaný na Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Skontrolujte RoleMap a uistite sa, že každé mapovanie odráža skutočnú sémantickú rolu obsahu. Môže byť potrebný ľudský úsudok."
+  },
+  "02-003": {
+    "title": "Cirkulárne mapovanie rolí",
+    "description": "RoleMap obsahuje kruhový reťazec, kde sa rola A mapuje na B, B na C a C späť na A, čo vytvára nekonečnú slučku pre procesory.",
+    "severity_label": "major",
+    "suggested_fix": "Prerušte kruhový reťazec namapovaním konečnej roly priamo na príslušný štandardný typ."
+  },
+  "02-004": {
+    "title": "Štandardný typ bol premapovaný",
+    "description": "Štandardný typ štruktúry PDF (napr. P, H1, Table) sa premapováva na iný typ prostredníctvom RoleMap, čo norma PDF/UA-1 nepovoľuje.",
+    "severity_label": "critical",
+    "suggested_fix": "Odstráňte mapovanie pre tento štandardný typ z RoleMap. Štandardné typy sa nesmú premapovávať."
+  },
+  "06-001": {
+    "title": "Chýba prúd metadát XMP",
+    "description": "Dokument neobsahuje prúd metadát XMP v položke Metadata katalógu. PDF/UA-1 vyžaduje metadáta XMP.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte prúd metadát XMP do katalógu dokumentu minimálne s dc:format (application/pdf), pdfuaid:part (1) a dc:title."
+  },
+  "06-002": {
+    "title": "Chýba identifikátor PDF/UA",
+    "description": "Metadáta XMP neobsahujú vlastnosť pdfuaid:part, ktorá identifikuje dokument ako vyhovujúci norme PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte vlastnosť pdfuaid:part s hodnotou 1 do prúdu metadát XMP, aby ste deklarovali zhodu s PDF/UA-1."
+  },
+  "06-003": {
+    "title": "Chýba dc:title v metadátach",
+    "description": "Metadáta XMP alebo slovník informácií o dokumente neobsahujú položku dc:title. PDF/UA-1 vyžaduje, aby mal dokument názov.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte položku dc:title do prúdu metadát XMP. Použite skutočný názov dokumentu alebo zmysluplnú alternatívu."
+  },
+  "07-001": {
+    "title": "Chýba predvoľba prehliadača DisplayDocTitle",
+    "description": "Slovník predvolieb prehliadača dokumentu neobsahuje kľúč DisplayDocTitle. Ak chýba alebo je nastavený na false, prehliadače zobrazujú názov súboru namiesto názvu dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Nastavte DisplayDocTitle na true v slovníku predvolieb prehliadača dokumentu (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle je nastavený na false",
+    "description": "Kľúč DisplayDocTitle v predvoľbách prehliadača je nastavený na false, čo spôsobuje, že prehliadače zobrazujú v záhlaví názov súboru namiesto názvu dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Zmeňte DisplayDocTitle na true v slovníku predvolieb prehliadača."
+  },
+  "08-002": {
+    "title": "Text OCR nie je označený v štruktúrnom strome",
+    "description": "Dokument obsahuje text vygenerovaný pomocou OCR (bežné v skenovaných PDF), ktorý nie je označený v štruktúrnom strome. Používatelia čítačiek obrazovky nemajú k tomuto obsahu prístup.",
+    "severity_label": "critical",
+    "suggested_fix": "Zabezpečte, aby bol všetok text vygenerovaný pomocou OCR zahrnutý v štruktúrnom strome s príslušnými značkami. V prípade skenovaných PDF dokument prestavte s úplnou vrstvou textu."
+  },
+  "09-001": {
+    "title": "Značky nie sú v logickom poradí čítania",
+    "description": "Štruktúrne prvky v strome nie sú usporiadané v logickom poradí čítania dokumentu. Čítačky obrazovky navigujú dokument v poradí stromu, ktoré sa môže líšiť od vizuálneho poradia.",
+    "severity_label": "critical",
+    "suggested_fix": "Preusporiadajte štruktúrne prvky v strome tak, aby zodpovedali logickému poradiu čítania (zvyčajne zhora nadol, zľava doprava pre daný jazyk)."
+  },
+  "09-002": {
+    "title": "Sémanticky nevhodné vnorenie",
+    "description": "Štruktúrny prvok je vnorený do nadradeného prvku, kam sémanticky nepatrí (napr. riadok tabuľky v odseku alebo nadpis v zozname).",
+    "severity_label": "critical",
+    "suggested_fix": "Preštruktúrujte hierarchiu prvkov tak, aby bol každý prvok vnorený do sémanticky vhodného nadradeného prvku."
+  },
+  "09-003": {
+    "title": "Nevhodný typ štruktúry po mapovaní rolí",
+    "description": "Po vyriešení mapovania rolí nie je konečný typ štruktúry sémanticky vhodný pre obsah, ktorý obsahuje.",
+    "severity_label": "major",
+    "suggested_fix": "Upravte RoleMap alebo zmeňte pôvodný typ štruktúry tak, aby vyriešený typ zodpovedal sémantickej role obsahu."
+  },
+  "09-004": {
+    "title": "Prvok tabuľky nevyhovuje tabuľke 337",
+    "description": "Štruktúrny prvok typu Table nevyhovuje povolenej podriadenej štruktúre (tabuľka 337 v ISO 32000-1). Tabuľka musí obsahovať aspoň TBody s podriadenými TR alebo sekcie THead/TBody/TFoot.",
+    "severity_label": "major",
+    "suggested_fix": "Zabezpečte, aby prvok Table obsahoval správne štruktúrované riadky: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Minimálne zabaľte riadky do TBody."
+  },
+  "09-005": {
+    "title": "Prvok zoznamu nevyhovuje tabuľke 336",
+    "description": "Štruktúrny prvok typu L (List) nevyhovuje povolenej podriadenej štruktúre (tabuľka 336 v ISO 32000-1). Zoznam musí obsahovať prvky LI a LI musí obsahovať Lbl (voliteľné) a LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Štruktúrujte zoznamy ako: L > LI > (Lbl)? + LBody. Zabezpečte, aby každá položka zoznamu mala podriadený prvok LBody obsahujúci obsah položky."
+  },
+  "09-006": {
+    "title": "Prvok TOC nevyhovuje tabuľke 333",
+    "description": "Štruktúrny prvok typu TOC (obsah) nevyhovuje povolenej podriadenej štruktúre. TOC musí obsahovať prvky TOCI.",
+    "severity_label": "minor",
+    "suggested_fix": "Štruktúrujte položky obsahu ako: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Prvok Ruby nevyhovuje",
+    "description": "Štruktúrny prvok Ruby (používaný pre anotácie výslovnosti) nedodržiava požadovanú podriadenú štruktúru: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Preštruktúrujte prvok Ruby s požadovanými podriadenými prvkami RB (ruby base) a RT (ruby text)."
+  },
+  "09-008": {
+    "title": "Prvok Warichu nevyhovuje",
+    "description": "Štruktúrny prvok Warichu (vložený komentár alebo anotácia v texte CJK) nedodržiava požadovanú štruktúru: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Preštruktúrujte prvok Warichu s požadovanými podriadenými prvkami WT (warichu text) a WP (warichu punctuation)."
+  },
+  "10-001": {
+    "title": "Kód znaku nemožno namapovať na Unicode",
+    "description": "Kód znaku v texte dokumentu nemožno namapovať na hodnotu Unicode. To spôsobuje skomolené alebo chýbajúce znaky, keď asistenčné technológie extrahujú text.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby všetky súbory písma mali ToUnicode CMap, ktorá mapuje každý použitý kód znaku na platnú hodnotu Unicode. Overte, či CMap pokrýva všetky glyfy použité v dokumente."
+  },
+  "11-001": {
+    "title": "Jazyk obsahu stránky nie je určiteľný",
+    "description": "Prirodzený jazyk obsahu stránky nemožno určiť, pretože v katalógu dokumentu alebo v štruktúrnych prvkoch na úrovni stránky chýba položka /Lang.",
+    "severity_label": "critical",
+    "suggested_fix": "Nastavte položku /Lang v katalógu dokumentu na primárny jazyk dokumentu (napr. 'sk-SK', 'en-US'). Ak sa jazyk obsahu mení, pridajte /Lang k jednotlivým štruktúrnym prvkom."
+  },
+  "11-002": {
+    "title": "Jazyk Alt/ActualText nie je určiteľný",
+    "description": "Jazyk popisov alternatívneho textu (Alt) alebo nahradení ActualText nemožno určiť.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte atribúty /Lang k štruktúrnym prvkom obsahujúcim Alt alebo ActualText, ak sa jazyk textu líši od predvoleného jazyka dokumentu."
+  },
+  "11-003": {
+    "title": "Jazyk osnovy nie je nastavený",
+    "description": "Osnova dokumentu (záložky) nemá položku /Lang, čo bráni asistenčným technológiám v správnej výslovnosti položiek osnovy.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte položku /Lang do slovníka osnovy, ktorá zodpovedá primárnemu jazyku dokumentu."
+  },
+  "11-004": {
+    "title": "Jazyk obsahu anotácie nie je nastavený",
+    "description": "Reťazce obsahu anotácií (popisy nástrojov, hodnoty formulárových polí) nemajú priradenú deklaráciu jazyka.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte /Lang do slovníkov vzhľadu anotácií, ak sa text anotácie líši od jazyka dokumentu."
+  },
+  "11-005": {
+    "title": "Jazyk TU formulárového poľa nie je nastavený",
+    "description": "Položka Tooltip (TU) formulárových polí nemá priradený jazyk, čo môže spôsobiť nesprávnu výslovnosť čítačkami obrazovky.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby text popisu formulárového poľa obsahoval identifikáciu jazyka, ak sa líši od predvoleného jazyka dokumentu."
+  },
+  "11-006": {
+    "title": "Jazyk metadát dokumentu nie je nastavený",
+    "description": "Metadáta XMP nedeklarujú vlastnosť dc:language, alebo položka /Lang v katalógu dokumentu chýba či je prázdna.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte dc:language do metadát XMP a nastavte /Lang v katalógu dokumentu na jazykovú značku RFC 3066."
+  },
+  "12-001": {
+    "title": "Roztiahnuteľným znakom chýba ActualText",
+    "description": "Roztiahnuteľné znaky (zátvorky, hranaté zátvorky, zložené zátvorky, znaky odmocniny) použité v matematickom alebo dekoratívnom kontexte nemajú náhrady ActualText.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte ActualText k sekvenciám roztiahnuteľných znakov, ktoré opisujú ich sémantický význam (napr. ActualText='(' pre roztiahnuteľnú ľavú zátvorku)."
+  },
+  "13-001": {
+    "title": "Grafika nie je označená ako Figure",
+    "description": "Grafický prvok (obrázok, graf, diagram) v obsahu dokumentu nie je označený štruktúrnym prvkom Figure.",
+    "severity_label": "major",
+    "suggested_fix": "Označte všetku nedekoratívnu grafiku ako prvky Figure v štruktúrnom strome s príslušným alternatívnym textom."
+  },
+  "13-002": {
+    "title": "Odkaz so zmysluplným pozadím nemá Alt",
+    "description": "Anotácia odkazu má zmysluplný vizuálny vzhľad (napr. obrázok použitý ako tlačidlo), ale chýba mu alternatívny text opisujúci jeho účel.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte položku Contents k anotácii odkazu, ktorá opisuje jeho cieľ alebo účel."
+  },
+  "13-003": {
+    "title": "Popisok nie je označený ako Caption",
+    "description": "Popisok (popis obrázka, názov tabuľky, legenda obrázka) je označený ako bežný text (P) namiesto použitia typu štruktúry Caption.",
+    "severity_label": "major",
+    "suggested_fix": "Označte popisky typom štruktúry Caption a uistite sa, že sú správne priradené k nadradenému prvku Figure alebo Table."
+  },
+  "13-004": {
+    "title": "Figure chýba alternatívny text",
+    "description": "Štruktúrny prvok Figure je prítomný, ale nemá atribút Alt poskytujúci alternatívny text. Čítačky obrazovky oznámia prítomnosť obrázka, ale nedokážu opísať jeho obsah.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte položku /Alt k štruktúrnemu prvku Figure so stručným opisom obsahu obrázka."
+  },
+  "14-001": {
+    "title": "Nadpisy nie sú označené",
+    "description": "Obsah, ktorý vizuálne funguje ako nadpis (väčšie písmo, tučné písmo, odlišný štýl), nie je označený typom štruktúry nadpisu (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identifikujte všetky nadpisy v dokumente a označte ich príslušnými štruktúrnymi prvkami H1-H6 odrážajúcimi ich úroveň hierarchie."
+  },
+  "14-002": {
+    "title": "Prvý nadpis nie je H1",
+    "description": "Prvý nadpis v štruktúrnom strome dokumentu nie je typu H1. Osvedčeným postupom PDF/UA-1 je, že nadpis najvyššej úrovne by mal byť H(n) a nasledujúce nadpisy by nemali preskakovať úrovne.",
+    "severity_label": "major",
+    "suggested_fix": "Zabezpečte, aby bol prvý nadpis H1 (alebo H2, ak je názov dokumentu v metadátach). Prečíslujte nasledujúce nadpisy, aby ste sa vyhli preskakovaniu úrovní."
+  },
+  "14-003": {
+    "title": "Úroveň nadpisu bola preskočená",
+    "description": "Úrovne nadpisov v štruktúrnom strome preskakujú úroveň (napr. H1 nasledovaný priamo H3 bez medziprvku H2). To narúša logickú hierarchiu nadpisov pre používateľov asistenčných technológií.",
+    "severity_label": "major",
+    "suggested_fix": "Zabezpečte, aby boli úrovne nadpisov postupné bez medzier. Prečíslujte nadpisy tak, aby po H1 nasledoval H2, potom H3 atď."
+  },
+  "14-005": {
+    "title": "Hlboký nadpis bez typu H7+",
+    "description": "Nadpis na úrovni vnorenia 7 alebo hlbšie nemá zodpovedajúci štruktúrny typ H7+. PDF definuje iba H1 až H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Zjednodušte hierarchiu nadpisov na maximálne 6 úrovní alebo opatrne použite neštandardné mapovanie rolí."
+  },
+  "14-006": {
+    "title": "Viacero značiek H v jednom štruktúrnom uzle",
+    "description": "Jeden štruktúrny prvok obsahuje viac ako jednu značku nadpisu (napr. Sect obsahujúci H1 aj H2). Každý nadpis by mal vytvoriť novú úroveň vnorenia.",
+    "severity_label": "major",
+    "suggested_fix": "Rozdeľte štruktúrny uzol tak, aby každý nadpis začínal novú sekciu alebo podsekciu na príslušnej úrovni."
+  },
+  "14-007": {
+    "title": "Konzistentne zmiešané značky H a Hn",
+    "description": "Niektoré nadpisy používajú všeobecný typ 'H', zatiaľ čo iné používajú číslované typy 'H1'-'H6' nekonzistentne v rámci toho istého dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Preveďte všetky všeobecné značky H na číslované typy H1-H6 na základe ich pozície v hierarchii nadpisov."
+  },
+  "15-001": {
+    "title": "Záhlavie riadku nie je označené ako hlavičková bunka",
+    "description": "Bunka tabuľky, ktorá slúži ako záhlavie riadku, je označená ako TD (dátová bunka) namiesto TH (hlavičková bunka). To bráni čítačkám obrazovky správne priradiť záhlavia k dátovým bunkám.",
+    "severity_label": "major",
+    "suggested_fix": "Zmeňte typ štruktúry buniek záhlavia riadku z TD na TH a pridajte príslušný atribút Scope (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Záhlavie stĺpca nie je označené ako hlavičková bunka",
+    "description": "Bunka tabuľky, ktorá slúži ako záhlavie stĺpca, je označená ako TD namiesto TH. Čítačky obrazovky nedokážu logicky navigovať v tabuľke.",
+    "severity_label": "major",
+    "suggested_fix": "Zmeňte typ štruktúry buniek záhlavia stĺpca z TD na TH a pridajte príslušný atribút Scope (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH chýba Scope bez Headers/ID",
+    "description": "Prvok TH (hlavička tabuľky) nemá atribút Scope a tabuľka nepoužíva asociácie Headers/ID na prepojenie záhlaví s dátovými bunkami.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte Scope='Row', Scope='Column' alebo Scope='Both' k prvkom TH alebo implementujte asociácie Headers/ID."
+  },
+  "15-005": {
+    "title": "Nejednoznačná asociácia záhlavia bunky",
+    "description": "Priradené hlavičkové bunky dátovej bunky nemožno jednoznačne určiť kvôli zložitej štruktúre tabuľky (zlúčené bunky, nepravidelné rozloženie).",
+    "severity_label": "major",
+    "suggested_fix": "Použite explicitné atribúty Headers/ID na prepojenie každej bunky TD s príslušnými prvkami TH alebo zjednodušte štruktúru tabuľky."
+  },
+  "16-001": {
+    "title": "Usporiadanému zoznamu chýba ListNumbering",
+    "description": "Usporiadaný zoznam (typ L s číslovanými položkami) nemá atribút ListNumbering, ktorý určuje formát číslovania.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte atribút ListNumbering k prvku L s hodnotou ako 'Decimal', 'UpperRoman', 'LowerAlpha' atď."
+  },
+  "16-002": {
+    "title": "Neplatná hodnota ListNumbering",
+    "description": "Atribút ListNumbering v prvku L má nerozpoznanú alebo neplatnú hodnotu.",
+    "severity_label": "minor",
+    "suggested_fix": "Nastavte ListNumbering na platnú hodnotu: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha alebo LowerAlpha."
+  },
+  "16-003": {
+    "title": "Obsah zoznamu nie je označený ako zoznam",
+    "description": "Obsah, ktorý je vizuálne a sémanticky zoznamom (odrážkové alebo číslované položky), je označený ako jednotlivé odseky alebo iné prvky, ktoré nie sú zoznamom.",
+    "severity_label": "major",
+    "suggested_fix": "Preštruktúrujte obsah ako zoznam (L) s položkami zoznamu (LI), z ktorých každá obsahuje voliteľný Lbl a požadovaný LBody."
+  },
+  "17-001": {
+    "title": "Matematický výraz nie je označený ako Formula",
+    "description": "Matematický výraz v dokumente je označený ako bežný odsek alebo obrázok namiesto použitia typu štruktúry Formula.",
+    "severity_label": "minor",
+    "suggested_fix": "Označte matematické výrazy typom štruktúry Formula a poskytnite alternatívny text opisujúci výraz."
+  },
+  "17-002": {
+    "title": "Formula chýba alternatívny text",
+    "description": "Štruktúrny prvok Formula je prítomný, ale nemá alternatívny text opisujúci matematický výraz.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte položku /Alt k prvku Formula s textovou reprezentáciou matematického výrazu."
+  },
+  "17-003": {
+    "title": "Znak vzorca nie je namapovaný na Unicode",
+    "description": "Znak v matematickom vzorci nemožno namapovať na Unicode, čo spôsobuje, že asistenčné technológie čítajú skomolený výstup.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby písmo použité pre matematické symboly malo úplnú mapu ToUnicode CMap pokrývajúcu všetky glyfy. Pozri tiež 10-001."
+  },
+  "18-001": {
+    "title": "Hlavička/päta nie je označená ako artefakt stránkovania",
+    "description": "Priebežné hlavičky a päty (čísla strán, názvy kapitol opakujúce sa na každej strane) sú označené ako skutočný obsah namiesto toho, aby boli označené ako artefakty stránkovania.",
+    "severity_label": "major",
+    "suggested_fix": "Označte priebežné hlavičky a päty ako Artefakt s podtypom 'Pagination', aby ich čítačky obrazovky počas súvislého čítania preskočili."
+  },
+  "18-002": {
+    "title": "Hlavičke/päte chýba správny podtyp artefaktu",
+    "description": "Záhlavia a päty sú označené ako artefakt, ale nemajú podtyp 'Pagination' alebo používajú nesprávny podtyp.",
+    "severity_label": "major",
+    "suggested_fix": "Nastavte podtyp artefaktu na 'Pagination' pre priebežné záhlavia a päty a na 'Header' alebo 'Footer' iba pre obsah v hornej/dolnej časti na prvej/poslednej strane."
+  },
+  "19-001": {
+    "title": "Poznámka pod čiarou nie je označená ako Note",
+    "description": "Poznámka pod čiarou alebo vysvetlivka v dokumente je označená ako bežný odsek namiesto použitia štruktúrneho typu Note.",
+    "severity_label": "major",
+    "suggested_fix": "Označte poznámky pod čiarou a vysvetlivky ako prvky Note s jedinečným atribútom ID a prvkom Reference v tele textu, ktorý na ne odkazuje."
+  },
+  "19-002": {
+    "title": "Odkaz nie je označený ako Reference",
+    "description": "Citácia v texte alebo krížový odkaz je označený ako bežný text namiesto použitia štruktúrneho typu Reference.",
+    "severity_label": "major",
+    "suggested_fix": "Označte citačné značky a krížové odkazy ako prvky Reference a prepojte ich s príslušnou poznámkou alebo cieľom."
+  },
+  "19-003": {
+    "title": "Chýba ID poznámky",
+    "description": "Štruktúrny prvok Note nemá atribút ID, čo znemožňuje referenčné prepojenie z prvku Reference v tele textu.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte jedinečný atribút ID ku každému prvku Note, aby na ne mohli prvky Reference odkazovať."
+  },
+  "19-004": {
+    "title": "ID poznámky nie je jedinečné",
+    "description": "Dva alebo viac štruktúrnych prvkov Note zdieľa rovnakú hodnotu atribútu ID, čo spôsobuje nejednoznačné rozlíšenie odkazov.",
+    "severity_label": "major",
+    "suggested_fix": "Zabezpečte, aby mal každý prvok Note globálne jedinečné ID v rámci dokumentu."
+  },
+  "20-001": {
+    "title": "Konfigurácii voliteľného obsahu chýba Name (pole Configs)",
+    "description": "Slovník konfigurácie voliteľného obsahu v poli OCConfigs dokumentu nemá záznam Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte opisný záznam /Name ku každej konfigurácii voliteľného obsahu v poli OCProperties/Configs."
+  },
+  "20-002": {
+    "title": "Konfigurácii voliteľného obsahu chýba Name (predvolené D)",
+    "description": "Predvolený slovník konfigurácie voliteľného obsahu (záznam D v OCProperties) nemá záznam Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte záznam /Name do predvoleného slovníka konfigurácie voliteľného obsahu."
+  },
+  "20-003": {
+    "title": "Kľúč AS prítomný v konfigurácii voliteľného obsahu",
+    "description": "Slovník konfigurácie voliteľného obsahu obsahuje záznam AS (Application Specific), ktorý nie je povolený podľa PDF/UA-1, pretože môže zmeniť vizuálny vzhľad dokumentu bez vedomia používateľa.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstráňte kľúč AS zo slovníka konfigurácie voliteľného obsahu."
+  },
+  "21-001": {
+    "title": "Vloženému súboru chýbajú kľúče F a UF",
+    "description": "Slovníku špecifikácie vloženého súboru chýba povinný záznam F (reťazec špecifikácie súboru) alebo UF (reťazec špecifikácie súboru v kódovaní Unicode).",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte záznamy F aj UF do slovníka špecifikácie súboru opisujúceho vložený súbor."
+  },
+  "22-001": {
+    "title": "Vlákno článku nie je v súlade",
+    "description": "Štruktúra vlákna článku nedodržiava požadovaný formát PDF článku s náležitým prepojením V (nasledujúci prvok) a N (predchádzajúci prvok).",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby boli prvky článku správne prepojené pomocou záznamov V a N a aby bol každý prvok priradený k správnej strane."
+  },
+  "24-001": {
+    "title": "Neinteraktívnemu formuláru chýba PrintFields",
+    "description": "Neinteraktívny formulár (napr. plochý formulár vytlačený z digitálneho vstupu) nemá nastavený príznak NeedAppearances alebo v parametroch transformácie FieldMDP chýba bit PrintFields.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby formulárové polia určené len na tlač mali správne nastavenia FieldMDP s aktivovaným bitom PrintFields."
+  },
+  "25-001": {
+    "title": "Pre formulár XFA sa nevyžaduje dynamicRender",
+    "description": "Formulár XFA (XML Forms Architecture) obsahuje prvky dynamicRender, ktoré nie sú nastavené na 'required', čo môže spôsobiť nekonzistentnosť pri vykresľovaní.",
+    "severity_label": "critical",
+    "suggested_fix": "Nastavte dynamicRender='required' na prvkoch formulára XFA alebo migrujte z XFA na AcroForms pre lepšiu podporu prístupnosti."
+  },
+  "28-001": {
+    "title": "Anotácia nie je v poradí čítania",
+    "description": "Anotácia (odkaz, formulárové pole, komentár) sa nachádza na strane, ale jej priradený štruktúrny prvok nie je umiestnený v správnej pozícii logického poradia čítania v štruktúrnom strome.",
+    "severity_label": "major",
+    "suggested_fix": "Umiestnite štruktúrne prvky anotácií (Link, Form, Annot) na správnu pozíciu v štruktúrnom strome vzhľadom na okolitý obsah."
+  },
+  "28-002": {
+    "title": "Anotácia nie je vo vnútri štruktúrneho prvku Annot",
+    "description": "Objekt anotácie na strane nie je obalený v štruktúrnom prvku Annot (alebo príslušnom podtype: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Obaľte každý objekt anotácie do príslušného štruktúrneho prvku (Link pre hypertextové odkazy, Form pre widgety)."
+  },
+  "28-003": {
+    "title": "Anotácia použitá len na vizuálne formátovanie",
+    "description": "Anotácia sa používa čisto na vizuálne formátovanie (napr. obdĺžnik nakreslený ako dekorácia) a nie je príslušne označená.",
+    "severity_label": "minor",
+    "suggested_fix": "Označte anotácie určené len na formátovanie ako artefakt alebo ich odstráňte a použite namiesto nich správne operátory kreslenia PDF."
+  },
+  "28-004": {
+    "title": "Anotácii chýba Contents a Alt",
+    "description": "Anotácia nemá záznam Contents (textový popis) alebo záznam Alt (alternatívny text), čo používateľov čítačky obrazovky necháva bez kontextu.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte reťazec /Contents ku každej anotácii opisujúcej jej účel. Pre netextové anotácie poskytnite /Alt."
+  },
+  "28-005": {
+    "title": "Formulárovému poľu chýba TU alebo Alt",
+    "description": "Anotácia widgetu formulárového poľa nemá záznam Tooltip (TU) alebo Alt, čo znemožňuje používateľom čítačky obrazovky pochopiť účel poľa.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte záznam /TU (popis) ku každému formulárovému poľu opisujúcemu jeho účel a očakávaný formát vstupu."
+  },
+  "28-006": {
+    "title": "Nedefinovaný podtyp anotácie",
+    "description": "Anotácia má hodnotu Subtype, ktorá nie je definovaná v ISO 32000-1, čo môže spôsobiť nepredvídateľné správanie v procesoroch PDF.",
+    "severity_label": "minor",
+    "suggested_fix": "Nahraďte alebo odstráňte anotácie s nedefinovanými podtypmi alebo zabezpečte, aby bol vlastný podtyp zaregistrovaný a správne spracovaný."
+  },
+  "28-007": {
+    "title": "Prítomná anotácia TrapNet",
+    "description": "Anotácia TrapNet (používaná v predtlačových pracovných postupoch) je prítomná v dokumente a nie je príslušne označená alebo nastavená ako artefakt.",
+    "severity_label": "minor",
+    "suggested_fix": "Označte anotácie TrapNet ako artefakt, pretože nenesú žiadny sémantický význam pre používateľov dokumentu."
+  },
+  "28-008": {
+    "title": "Strane s anotáciami chýba kľúč Tabs",
+    "description": "Strana obsahujúca anotácie (odkazy, formulárové polia) nemá záznam Tabs, ktorý určuje poradie tabulátora pre navigáciu pomocou klávesnice.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte záznam /Tabs do slovníka strany. Použite /Tabs=S pre poradie podľa štruktúry (odporúčané pre prístupné dokumenty)."
+  },
+  "28-009": {
+    "title": "Tabs nie je nastavené na S (poradie podľa štruktúry)",
+    "description": "Kľúč Tabs na strane je nastavený na inú hodnotu ako 'S' (napr. 'R' pre poradie po riadkoch, 'C' pre poradie po stĺpcoch), čo nemusí zodpovedať logickému poradiu čítania dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Nastavte /Tabs na 'S' (poradie podľa štruktúry) na stranách s anotáciami, aby navigácia pomocou klávesnice nasledovala poradie štruktúrneho stromu."
+  },
+  "28-010": {
+    "title": "Anotácia widgetu nie je vo vnútri prvku Form",
+    "description": "Anotácia widgetu (formulárové pole) nie je v strome obalená v štruktúrnom prvku Form.",
+    "severity_label": "major",
+    "suggested_fix": "Obaľte každú anotáciu widgetu do štruktúrneho prvku Form. Zoskupte súvisiace formulárové polia v rámci rovnakého kontajnera Form."
+  },
+  "28-011": {
+    "title": "Anotácia odkazu nie je vo vnútri prvku Link",
+    "description": "Anotácia odkazu (hypertextový odkaz) nie je v strome obalená v štruktúrnom prvku Link.",
+    "severity_label": "major",
+    "suggested_fix": "Obaľte každú anotáciu odkazu do štruktúrneho prvku Link umiestneného na správnej pozícii v poradí čítania."
+  },
+  "28-012": {
+    "title": "Anotácii odkazu chýba Contents",
+    "description": "Anotácia Link nemá záznam Contents opisujúci cieľ alebo účel odkazu.",
+    "severity_label": "major",
+    "suggested_fix": "Pridajte reťazec /Contents ku každej anotácii Link opisujúcej, kam odkaz smeruje."
+  },
+  "28-013": {
+    "title": "IsMap=true bez obrázkovej mapy na strane servera",
+    "description": "Anotácia odkazu má nastavené IsMap na true, ale priradený obrázok nefunguje ako obrázková mapa na strane servera.",
+    "severity_label": "minor",
+    "suggested_fix": "Nastavte IsMap na false, ak obrázok nie je aktívnou obrázkovou mapou na strane servera so správaním citlivým na súradnice."
+  },
+  "28-016": {
+    "title": "Príloha súboru nie je v súlade s 7.11",
+    "description": "Anotácia prílohy súboru odkazuje na vložený súbor, ktorý nie je v súlade s požiadavkami článku 7.11 (Embedded File Streams).",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby vložené súbory mali záznamy F aj UF a aby bol slovník špecifikácie súboru úplný. Pozrite si tiež 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark v logickej štruktúre",
+    "description": "Anotácia PrinterMark (orezové značky, registračné značky, farebné pruhy) sa objavuje v strome logickej štruktúry dokumentu, kde nemá žiadny sémantický význam.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstráňte anotácie PrinterMark zo štruktúrneho stromu a označte ich ako artefakt."
+  },
+  "28-018": {
+    "title": "Vzhľad PrinterMark nie je artefakt",
+    "description": "Prúd vzhľadu anotácie PrinterMark nie je označený ako artefakt, čo spôsobuje, že sa čítačky obrazovky pokúšajú opísať tlačové značky.",
+    "severity_label": "minor",
+    "suggested_fix": "Označte obsah vzhľadu PrinterMark ako artefakt v prúde obsahu."
+  },
+  "30-001": {
+    "title": "Prítomný referenčný XObject",
+    "description": "V dokumente sa používa referenčný XObject. Referenčné XObjecty importujú obsah z externých súborov PDF, čo môže narušiť prístupnosť, pretože importovaný obsah nie je správne integrovaný do štruktúrneho stromu.",
+    "severity_label": "major",
+    "suggested_fix": "Vyhnite sa referenčným XObjectom. Ak sú nevyhnutné, zabezpečte, aby bol všetok importovaný obsah správne označený v štruktúrnom strome hostiteľského dokumentu."
+  },
+  "30-002": {
+    "title": "Form XObject s MCID odkazovanými viackrát",
+    "description": "Form XObject obsahujúci označený obsah s MCID (identifikátory označeného obsahu) je odkazovaný z viacerých miest, čo spôsobuje konflikty MCID v sekvencii označeného obsahu strany.",
+    "severity_label": "major",
+    "suggested_fix": "Vyhnite sa opätovnému použitiu Form XObjectov, ktoré obsahujú označený obsah. Vyrovnajte alebo duplikujte XObject pre každé miesto použitia."
+  },
+  "31-001": {
+    "title": "Nezhoda CIDSystemInfo Registry naprieč potomkami Type0",
+    "description": "CIDFonty potomkov písma Type0 majú nekonzistentné hodnoty CIDSystemInfo Registry, čo môže spôsobiť zlyhanie mapovania znakov.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby všetci potomkovia CIDFont písma Type0 mali konzistentné hodnoty CIDSystemInfo (Registry, Ordering, Supplement)."
+  },
+  "31-002": {
+    "title": "Nezhoda CIDSystemInfo Ordering naprieč potomkami Type0",
+    "description": "CIDFonty potomkov písma Type0 majú nekonzistentné hodnoty CIDSystemInfo Ordering.",
+    "severity_label": "minor",
+    "suggested_fix": "Zlaďte hodnoty Ordering naprieč všetkými potomkami CIDFont písma Type0."
+  },
+  "31-003": {
+    "title": "Nezhoda CIDSystemInfo Supplement naprieč potomkami Type0",
+    "description": "CIDFonty potomkov písma Type0 majú nekonzistentné hodnoty CIDSystemInfo Supplement.",
+    "severity_label": "minor",
+    "suggested_fix": "Zlaďte hodnoty Supplement naprieč všetkými potomkami CIDFont písma Type0."
+  },
+  "31-004": {
+    "title": "CIDFontu chýba CIDToGIDMap",
+    "description": "Slovník CIDFont neobsahuje záznam CIDToGIDMap a nepoužíva mapovanie Identity, čo robí vyhľadávanie glyfov nespoľahlivým.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte záznam CIDToGIDMap do CIDFont alebo ho nastavte na 'Identity', ak písmo používa identity CID."
+  },
+  "31-005": {
+    "title": "CIDFont vyžaduje ne-Identity CIDToGIDMap",
+    "description": "CIDFont, ktorého znaková kolekcia nie je Adobe-Identity, vyžaduje explicitný prúd CIDToGIDMap pre správne mapovanie glyfov.",
+    "severity_label": "minor",
+    "suggested_fix": "Poskytnite explicitný prúd CIDToGIDMap pre CIDFont, ak nepoužíva znakovú kolekciu Adobe-Identity."
+  },
+  "31-006": {
+    "title": "CMap nie je uvedená alebo vložená",
+    "description": "Zdroj CMap použitý písmom Type0 nie je uvedený v štandardných CMapách špecifikácie PDF ani vložený v dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Buď použite štandardnú CMap zo špecifikácie PDF, alebo vložte vlastný prúd CMap do dokumentu."
+  },
+  "31-007": {
+    "title": "Nezhoda WMode v písme Type0",
+    "description": "Hodnoty WMode (režim písania) sa líšia naprieč CMap a potomkami CIDFont písma Type0.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte konzistentné hodnoty WMode (0 pre vodorovný, 1 pre zvislý) naprieč CMap a všetkými potomkami CIDFont."
+  },
+  "31-008": {
+    "title": "CMap odkazuje na neuvedenú CMap",
+    "description": "Prúd CMap odkazuje na inú CMap, ktorá nie je štandardnou CMap ani nie je vložená v dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Vložte všetky odkazované neštandardné CMapy do dokumentu alebo používajte iba štandardné CMapy."
+  },
+  "31-009": {
+    "title": "Písmo nie je vložené",
+    "description": "Písmo použité v dokumente nie je vložené. Nevložené písma spôsobujú náhradné použitie systémových písiem, ktoré môžu mať iné metriky a pokrytie glyfov, čo narúša extrakciu textu a vizuálnu vernosť.",
+    "severity_label": "critical",
+    "suggested_fix": "Vložte všetky písma použité v dokumente. Pre štandardných 14 písiem, ktoré nemožno vložiť, zabezpečte, aby bol súbor písma k dispozícii, alebo ho nahraďte vloženým ekvivalentom."
+  },
+  "31-011": {
+    "title": "Vloženému súboru písma chýba glyf",
+    "description": "Glyf odkazovaný v texte dokumentu nie je prítomný vo vloženom súbore písma.",
+    "severity_label": "major",
+    "suggested_fix": "Buď vytvorte podmnožinu písma, aby obsahovala všetky požadované glyfy, alebo použite iné písmo, ktoré obsahuje potrebné glyfy."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glyf nie je uvedený",
+    "description": "CharSet písma Type1 neuvádza glyf, ktorý je skutočne prítomný v súbore písma a použitý v dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Aktualizujte CharSet tak, aby zahŕňal všetky glyfy prítomné v súbore písma, na ktoré sa v dokumente odkazuje."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: uvedený glyf nie je v písme",
+    "description": "CharSet písma Type1 uvádza názov glyfu, ktorý neexistuje vo vloženom súbore písma.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstráňte neexistujúce názvy glyfov z CharSet alebo vložte kompletné písmo."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glyf nie je uvedený",
+    "description": "CIDSet CIDFontu nezahŕňa CID, ktorý je skutočne prítomný vo vloženom súbore písma a použitý v dokumente.",
+    "severity_label": "minor",
+    "suggested_fix": "Aktualizujte CIDSet tak, aby zahŕňal všetky hodnoty CID použité v dokumente."
+  },
+  "31-015": {
+    "title": "CID CIDSet: uvedené CID nie je v písme",
+    "description": "CIDSet CIDFontu uvádza CID, ktorý nezodpovedá žiadnemu glyfu vo vloženom súbore písma.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstráňte neexistujúce CID z CIDSet alebo ho vygenerujte z aktuálneho súboru písma."
+  },
+  "31-016": {
+    "title": "Nezhoda šírky glyfu > 1/1000",
+    "description": "Šírka glyfu špecifikovaná v slovníku písma sa líši o viac ako 1 jednotku na 1000 od šírky vo vloženom súbore písma.",
+    "severity_label": "minor",
+    "suggested_fix": "Opravte pole Widths (alebo záznam W2) v slovníku písma tak, aby zodpovedalo skutočným šírkam glyfov vo vloženom súbore písma."
+  },
+  "31-017": {
+    "title": "Nesymbolickému TrueType chýba nesymbolická cmap",
+    "description": "Písmo TrueType s nesymbolickým kódovaním (prítomný záznam Encoding alebo vypnutý príznak symbolic) neobsahuje podtabuľku cmap (3,1) pre mapovanie Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby súbor písma TrueType obsahoval podtabuľku cmap (3,1) Microsoft Unicode BMP pre správne mapovanie znakov Unicode."
+  },
+  "31-018": {
+    "title": "Nesymbolický glyf TrueType nie je v cmap",
+    "description": "Glyf v nesymbolickom písme TrueType nemožno vyhľadať prostredníctvom podtabuliek cmap písma.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby boli všetky glyfy použité v dokumente prístupné prostredníctvom aspoň jednej podtabuľky cmap v písme."
+  },
+  "31-019": {
+    "title": "Nesymbolickému slovníku písma TrueType chýba Encoding",
+    "description": "Nesymbolický slovník písma TrueType nemá záznam Encoding, ktorý je potrebný na rozlíšenie názvov glyfov.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte vhodný záznam Encoding (napr. WinAnsiEncoding, MacRomanEncoding) do slovníka písma."
+  },
+  "31-020": {
+    "title": "Slovníku Encoding chýba BaseEncoding",
+    "description": "Slovník Encoding s poľom Differences nešpecifikuje záznam BaseEncoding.",
+    "severity_label": "minor",
+    "suggested_fix": "Špecifikujte BaseEncoding (napr. WinAnsiEncoding) v slovníku Encoding, od ktorého sa pole Differences odchyľuje."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding nie je MacRoman alebo WinAnsi",
+    "description": "Encoding alebo BaseEncoding nesymbolického písma TrueType nie je ani MacRomanEncoding, ani WinAnsiEncoding, čo sú dve štandardné základné kódovania.",
+    "severity_label": "minor",
+    "suggested_fix": "Použite WinAnsiEncoding alebo MacRomanEncoding ako základné kódovanie pre písmo."
+  },
+  "31-022": {
+    "title": "Názvy glyfov v Differences nie sú v Adobe Glyph List",
+    "description": "Pole Differences v slovníku Encoding písma používa názvy glyfov, ktoré nie sú v zozname Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "V poli Differences používajte iba štandardné názvy glyfov zo zoznamu Adobe Glyph List."
+  },
+  "31-023": {
+    "title": "Differences sú prítomné, ale chýba cmap (3,1)",
+    "description": "Písmo má pole Differences vo svojom Encoding, ale súbor písma TrueType neobsahuje podtabuľku cmap (3,1) pre mapovanie Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Pridajte k písmu ToUnicode CMap, aby ste zabezpečili spoľahlivé mapovanie Unicode."
+  },
+  "31-024": {
+    "title": "Symbolický slovník písma TrueType má Encoding",
+    "description": "Symbolické písmo TrueType (nastavený bit 3 príznakov) má v slovníku písma záznam Encoding, čo nie je pre symbolické písma povolené.",
+    "severity_label": "minor",
+    "suggested_fix": "Odstráňte záznam Encoding zo slovníkov symbolických písiem TrueType. Symbolické písma sa pri mapovaní znakov spoliehajú na cmap súboru písma."
+  },
+  "31-025": {
+    "title": "Symbolickému súboru písma TrueType chýba cmap",
+    "description": "Vložený súbor písma symbolického písma TrueType neobsahuje žiadnu tabuľku cmap.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby vložený súbor písma obsahoval aspoň podtabuľku cmap (3,0) pre symbolické mapovanie znakov."
+  },
+  "31-026": {
+    "title": "Symbolické TrueType s viacerými cmapmi nemá (3,0)",
+    "description": "Symbolické písmo TrueType má viacero podtabuliek cmap, ale chýba mu povinná podtabuľka cmap (3,0) Microsoft Symbol.",
+    "severity_label": "minor",
+    "suggested_fix": "Zabezpečte, aby vložený súbor písma obsahoval podtabuľku cmap (3,0) Microsoft Symbol pre správne mapovanie znakov."
+  },
+  "31-027": {
+    "title": "Chýba ToUnicode CMap",
+    "description": "Písmo použité pre textový obsah nemá ToUnicode CMap a neuplatňujú sa žiadne podmienky výnimky. Bez ToUnicode CMap asistenčné technológie nedokážu extrahovať čitateľný text.",
+    "severity_label": "critical",
+    "suggested_fix": "Pridajte prúd ToUnicode CMap do slovníka písma mapujúci každý kód znaku použitý v dokumente na jeho zodpovedajúcu hodnotu Unicode."
+  },
+  "31-028": {
+    "title": "ToUnicode mapuje na CID 0",
+    "description": "ToUnicode CMap mapuje kód znaku na hodnotu Unicode U+0000 (null), čo nie je platný textový znak.",
+    "severity_label": "minor",
+    "suggested_fix": "Opravte ToUnicode CMap tak, aby mapovala kód znaku na platnú hodnotu Unicode, ktorá nie je null."
+  },
+  "31-029": {
+    "title": "ToUnicode mapuje na U+FEFF alebo U+FFFE",
+    "description": "ToUnicode CMap mapuje kód znaku na U+FEFF (BOM) alebo U+FFFE (byte-order mark), čo sú riadiace znaky a nie platný zobraziteľný text.",
+    "severity_label": "minor",
+    "suggested_fix": "Nahraďte mapovania U+FEFF/U+FFFE v ToUnicode CMap skutočnou hodnotou Unicode daného znaku."
+  },
+  "31-030": {
+    "title": "Glyf .notdef odkazovaný v texte",
+    "description": "Operátor zobrazovania textu v dokumente odkazuje na glyf .notdef (index glyfu 0), čo indikuje chýbajúci alebo nedostupný znak. Text používajúci .notdef sa zobrazuje ako prázdne znaky alebo tofu.",
+    "severity_label": "major",
+    "suggested_fix": "Zabezpečte, aby všetky kódy znakov použité v dokumente zodpovedali skutočným glyfom vo vloženom súbore písma."
+  }
+}

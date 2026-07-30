@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakt on märgistatud kui tegelik sisu",
+    "description": "Lehekülje artefakt (päis, jalus, dekoratiivne element) on struktuuripuus valesti märgistatud kui tegelik sisu. Ekraanilugejad üritavad dekoratiivseid elemente lugeda dokumendi sisuna.",
+    "severity_label": "critical",
+    "suggested_fix": "Muutke struktuurielemendi tüüp artefaktiks või mähkige sisu artefakti märgistatud sisu järjestusse."
+  },
+  "01-002": {
+    "title": "Tegelik sisu on märgistatud kui artefakt",
+    "description": "Ehtne dokumendi sisu (põhitekst, pealkiri, pealdis) on valesti märgistatud kui artefakt. Ekraanilugejad jätavad selle sisu täielikult vahele.",
+    "severity_label": "critical",
+    "suggested_fix": "Eemaldage tegelikult sisult artefakti märgistus ja veenduge, et see on nõuetekohaselt märgistatud sobiva struktuurielemendiga."
+  },
+  "01-003": {
+    "title": "Artefakt märgistatud sisu sees",
+    "description": "Artefaktina märgistatud element asub tegelikku sisu esindava struktuurielemendi sees, rikkudes sisu hierarhiat.",
+    "severity_label": "critical",
+    "suggested_fix": "Liigutage artefaktina märgistatud sisu tegeliku sisu struktuurielemendist välja või restruktureerige elementide hierarhia."
+  },
+  "01-004": {
+    "title": "Märgistatud sisu artefakti sees",
+    "description": "Märgistatud tegeliku sisu element on pesastatud artefakti konteinerisse. Ekraanilugejad võivad selle sisu vahele jätta.",
+    "severity_label": "critical",
+    "suggested_fix": "Liigutage märgistatud sisu artefakti konteinerist välja ja paigutage see struktuuripuus õigele tasemele."
+  },
+  "01-005": {
+    "title": "Sisu pole märgistatud ega ole artefakt",
+    "description": "Leheküljel olev sisu pole märgistatud ei struktuurielemendina ega artefaktina. See on kõige levinum PDF/UA rikkumine ja peamine põhjus, miks ekraanilugejad sisu lugemata jätavad.",
+    "severity_label": "critical",
+    "suggested_fix": "Kas märgistage sisu sobiva struktuurielemendiga (P, H1-H6, Figure jne) või märgistage see artefaktina, kui see on dekoratiivne."
+  },
+  "01-006": {
+    "title": "Puudub StructTreeRoot",
+    "description": "Dokumendi kataloogi sõnastik peab sisaldama StructTreeRoot kirjet, mis toimib dokumendi loogilise struktuuri juurena. Ilma selleta ei saa ekraanilugejad dokumendi struktuuri üldse tõlgendada.",
+    "severity_label": "critical",
+    "suggested_fix": "Lisage dokumendi kataloogi sõnastikku StructTreeRoot objekt ja looge kõigi sisulehekülgede jaoks struktuurielementide hierarhia."
+  },
+  "01-007": {
+    "title": "Suspect-lipp on tõene",
+    "description": "Dokumendi MarkInfo sõnastiku Suspects kirje on seatud tõeseks, mis näitab, et struktuuripuu võib sisaldada ebausaldusväärset märgistust. Abitehnoloogiad võivad struktuuripuud täielikult ignoreerida.",
+    "severity_label": "critical",
+    "suggested_fix": "Pärast seda, kui olete veendunud, et kogu sisu on õigesti märgistatud, seadke MarkInfo sõnastikus Suspects-lipp vääraks."
+  },
+  "02-001": {
+    "title": "Standardile mittevastav rollide vastendamine ei lõpe standardse tüübiga",
+    "description": "RoleMapis olev kohandatud roll ei vasta ühelegi standardsele PDF-i struktuuritüübile. Vastendusahela lõpp-punkt peab olema PDF 32000-1 rollikomplekti standardtüüp.",
+    "severity_label": "critical",
+    "suggested_fix": "Veenduge, et iga RoleMapis olev mittestandardne roll vastendub otse või transitiivselt standardtüübiga (nt Document, Part, Sect, P, H1-H6, L, LI, Table, Figure jne)."
+  },
+  "02-002": {
+    "title": "Semantiliselt sobimatu rollide vastendamine",
+    "description": "Struktuurielemendi roll on vastendatud standardtüübiga, mis ei vasta elemendi semantilisele otstarbele (nt pealkiri on vastendatud kui Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Vaadake RoleMap üle ja veenduge, et iga vastendus peegeldab sisu tegelikku semantilist rolli. Võib olla vajalik inimese hinnang."
+  },
+  "02-003": {
+    "title": "Ringikujuline rollide vastendamine",
+    "description": "RoleMap sisaldab ringikujulist ahelat, kus roll A vastendub rollile B, B rollile C ja C tagasi rollile A, luues protsessorite jaoks lõputu tsükli.",
+    "severity_label": "major",
+    "suggested_fix": "Katkestage ringikujuline ahel, vastendades lõpprolli otse sobiva standardtüübiga."
+  },
+  "02-004": {
+    "title": "Standardtüüp on ümber vastendatud",
+    "description": "Standardne PDF-i struktuuritüüp (nt P, H1, Table) on RoleMapi kaudu ümber vastendatud teisele tüübile, mis pole PDF/UA-1 kohaselt lubatud.",
+    "severity_label": "critical",
+    "suggested_fix": "Eemaldage selle standardtüübi vastendus RoleMapist. Standardtüüpe ei tohi ümber vastendada."
+  },
+  "06-001": {
+    "title": "Puudub XMP-metaandmete voog",
+    "description": "Dokument ei sisalda kataloogi Metadata kirjes XMP-metaandmete voogu. PDF/UA-1 nõuab XMP-metaandmeid.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage dokumendi kataloogi XMP-metaandmete voog, mis sisaldab vähemalt dc:format (application/pdf), pdfuaid:part (1) ja dc:title."
+  },
+  "06-002": {
+    "title": "Puudub PDF/UA identifikaator",
+    "description": "XMP-metaandmed ei sisalda pdfuaid:part atribuuti, mis tuvastab dokumendi kui PDF/UA-1 (ISO 14289-1) nõuetele vastava.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage XMP-metaandmete voogu pdfuaid:part atribuut väärtusega 1, et deklareerida vastavus PDF/UA-1 standardiga."
+  },
+  "06-003": {
+    "title": "Puudub dc:title metaandmetes",
+    "description": "XMP-metaandmed või dokumendi teabesõnastik ei sisalda dc:title kirjet. PDF/UA-1 nõuab, et dokumendil oleks pealkiri.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage XMP-metaandmete voogu dc:title kirje. Kasutage dokumendi tegelikku pealkirja või sisukat asendust."
+  },
+  "07-001": {
+    "title": "Puudub DisplayDocTitle vaataja eelistus",
+    "description": "Dokumendi vaataja eelistuste sõnastik ei sisalda DisplayDocTitle võtit. Kui see puudub või on väär, kuvavad vaatajad dokumendi pealkirja asemel failinime.",
+    "severity_label": "major",
+    "suggested_fix": "Seadke dokumendi vaataja eelistuste sõnastikus (Catalog/ViewerPreferences) DisplayDocTitle tõeseks."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle on seatud vääraks",
+    "description": "Vaataja eelistustes on DisplayDocTitle võti seatud vääraks, mistõttu kuvavad vaatajad tiitliribal dokumendi pealkirja asemel failinime.",
+    "severity_label": "major",
+    "suggested_fix": "Muutke vaataja eelistuste sõnastikus DisplayDocTitle tõeseks."
+  },
+  "08-002": {
+    "title": "OCR-tekst pole struktuuripuus märgistatud",
+    "description": "Dokument sisaldab OCR-i abil loodud teksti (tavaline skannitud PDF-ide puhul), mis pole struktuuripuus märgistatud. Ekraanilugejate kasutajad ei pääse sellele sisule ligi.",
+    "severity_label": "critical",
+    "suggested_fix": "Veenduge, et kogu OCR-i abil loodud tekst on struktuuripuusse kaasatud sobivate siltidega. Skannitud PDF-ide puhul looge dokument uuesti täieliku tekstikihi kihiga."
+  },
+  "09-001": {
+    "title": "Sildid pole loogilises lugemisjärjestuses",
+    "description": "Struktuuripuus olevad struktuurielemendid ei ole paigutatud dokumendi loogilises lugemisjärjestuses. Ekraanilugejad navigeerivad dokumendis puu järjekorras, mis võib erineda visuaalsest järjekorrast.",
+    "severity_label": "critical",
+    "suggested_fix": "Muutke struktuurielementide järjekorda puus nii, et see vastaks loogilisele lugemisjärjestusele (antud keele puhul tavaliselt ülevalt alla, vasakult paremale)."
+  },
+  "09-002": {
+    "title": "Semantiliselt sobimatu pesastamine",
+    "description": "Struktuurielement on pesastatud ülem-elemendi sisse, kuhu see semantiliselt ei kuulu (nt tabelirida lõigu sees või pealkiri loendi sees).",
+    "severity_label": "critical",
+    "suggested_fix": "Restruktureerige elementide hierarhia, et tagada iga elemendi pesastamine semantiliselt sobivasse ülem-elementi."
+  },
+  "09-003": {
+    "title": "Sobimatu struktuuritüüp pärast rollide vastendamist",
+    "description": "Pärast rollide vastendamise lahendamist ei ole lõplik struktuuritüüp semantiliselt sobiv sisule, mida see sisaldab.",
+    "severity_label": "major",
+    "suggested_fix": "Kohandage RoleMapi või muutke algset struktuuritüüpi nii, et lahendatud tüüp vastaks sisu semantilisele rollile."
+  },
+  "09-004": {
+    "title": "Tabelielement ei vasta tabelile 337",
+    "description": "Tabeli (Table) tüüpi struktuurielement ei vasta lubatud alamstruktuurile (ISO 32000-1 tabel 337). Tabel peab sisaldama vähemalt TBody-d koos TR-alamüksustega või THead/TBody/TFoot sektsioone.",
+    "severity_label": "major",
+    "suggested_fix": "Veenduge, et tabelielement sisaldab nõuetekohaselt struktureeritud ridu: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Vähemalt mähkige read TBody-sse."
+  },
+  "09-005": {
+    "title": "Loendielement ei vasta tabelile 336",
+    "description": "L-tüüpi (loend) struktuurielement ei vasta lubatud alamstruktuurile (ISO 32000-1 tabel 336). Loend peab sisaldama LI-elemente ja LI peab sisaldama Lbl-i (valikuline) ja LBody-t.",
+    "severity_label": "major",
+    "suggested_fix": "Struktureerige loendid nii: L > LI > (Lbl)? + LBody. Veenduge, et igal loendiüksusel on LBody-alamüksus, mis sisaldab üksuse sisu."
+  },
+  "09-006": {
+    "title": "TOC-element ei vasta tabelile 333",
+    "description": "TOC-tüüpi (sisukord) struktuurielement ei vasta lubatud alamstruktuurile. TOC peab sisaldama TOCI-elemente.",
+    "severity_label": "minor",
+    "suggested_fix": "Struktureerige sisukorra kirjed nii: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby-element ei vasta nõuetele",
+    "description": "Ruby-struktuurielement (kasutatakse hääldusmärkuste jaoks) ei järgi nõutavat alamstruktuuri: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Restruktureerige Ruby-element nõutavate RB (ruby base) ja RT (ruby text) alamüksustega."
+  },
+  "09-008": {
+    "title": "Warichu-element ei vasta nõuetele",
+    "description": "Warichu-struktuurielement (tekstisisene kommentaar või märkus CJK-tekstis) ei järgi nõutavat struktuuri: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Restruktureerige Warichu-element nõutavate WT (warichu text) ja WP (warichu punctuation) alamüksustega."
+  },
+  "10-001": {
+    "title": "Tähemärgikoodi ei saa Unicode'iga vastendada",
+    "description": "Dokumendi tekstis olevat tähemärgikoodi ei saa Unicode'i väärtusega vastendada. See põhjustab moonutatud või puuduvaid tähemärke, kui abitehnoloogiad teksti eraldavad.",
+    "severity_label": "minor",
+    "suggested_fix": "Veenduge, et kõigil fontidel on ToUnicode CMap, mis vastendab iga kasutatud tähemärgikoodi kehtiva Unicode'i väärtusega. Kontrollige, kas CMap hõlmab kõiki dokumendis kasutatud glüüfe."
+  },
+  "11-001": {
+    "title": "Lehekülje sisu keelt ei saa määrata",
+    "description": "Lehekülje sisu loomulikku keelt ei saa määrata, kuna dokumendi kataloogist või lehekülje taseme struktuurielementidest puudub /Lang kirje.",
+    "severity_label": "critical",
+    "suggested_fix": "Seadke dokumendi kataloogis /Lang kirje dokumendi põhikeelele (nt 'et-EE', 'en-US'). Lisage /Lang üksikutele struktuurielementidele, kui sisu keeled vahelduvad."
+  },
+  "11-002": {
+    "title": "Alt/ActualText keelt ei saa määrata",
+    "description": "Alternatiivteksti kirjelduste (Alt) või ActualText asenduste keelt ei saa määrata.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage /Lang atribuudid struktuurielementidele, mis sisaldavad Alt- või ActualText-teksti, kui teksti keel erineb dokumendi vaikekeelest."
+  },
+  "11-003": {
+    "title": "Liigenduse keel pole seatud",
+    "description": "Dokumendi liigendusel (järjehoidjad) puudub /Lang kirje, mis takistab abitehnoloogiatel liigenduse üksusi õigesti hääldada.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage liigenduse sõnastikku /Lang kirje, mis vastab dokumendi põhikeelele."
+  },
+  "11-004": {
+    "title": "Märkuse sisu keel pole seatud",
+    "description": "Märkuse sisu stringidel (kohtspikrid, vormiväljade väärtused) puudub seotud keeledeklaratsioon.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage /Lang märkuse välimuse sõnastikele, kui märkuse tekst erineb dokumendi keelest."
+  },
+  "11-005": {
+    "title": "Vormivälja TU keel pole seatud",
+    "description": "Vormiväljade kohtspikri (TU) kirjel puudub seotud keel, mis võib põhjustada ekraanilugejate ebaõiget hääldust.",
+    "severity_label": "minor",
+    "suggested_fix": "Veenduge, et vormivälja kohtspikri tekst sisaldab keeletuvastust, kui see erineb dokumendi vaikekeelest."
+  },
+  "11-006": {
+    "title": "Dokumendi metaandmete keel pole seatud",
+    "description": "XMP-metaandmed ei deklareeri dc:language atribuuti või dokumendi kataloogi /Lang kirje puudub või on tühi.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage XMP-metaandmetesse dc:language ja seadke dokumendi kataloogis /Lang RFC 3066 keelesildile."
+  },
+  "12-001": {
+    "title": "Venitatavatel märkidel puudub ActualText",
+    "description": "Matemaatilistes või dekoratiivsetes kontekstides kasutatavatel venitatavatel märkidel (sulgudes, nurksulgudes, loogilistes sulgudes, juurimärgid) puuduvad ActualText asendused.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage venitatavate märkide järjestustele ActualText, mis kirjeldab nende semantilist tähendust (nt ActualText='(' venitatava vasaku sulu jaoks)."
+  },
+  "13-001": {
+    "title": "Graafika pole Figure-elemendina märgistatud",
+    "description": "Dokumendi sisus olev graafiline element (pilt, diagramm, joonis) pole Figure-struktuurielemendiga märgistatud.",
+    "severity_label": "major",
+    "suggested_fix": "Märgistage kõik mitte-dekoratiivsed graafikaelemendid struktuuripuus Figure-elementidena koos sobiva alternatiivtekstiga."
+  },
+  "13-002": {
+    "title": "Sisuka taustaga lingil puudub alternatiivtekst",
+    "description": "Lingimärkuse visuaalne välimus on sisukas (nt nupuna kasutatav pilt), kuid sellel puudub alternatiivtekst, mis kirjeldaks selle otstarvet.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage lingimärkusele Contents kirje, mis kirjeldab selle sihtkohta või otstarvet."
+  },
+  "13-003": {
+    "title": "Pealdis pole Caption-elemendina märgistatud",
+    "description": "Pealdis (pildi pealdis, tabeli pealkiri, joonise legend) on märgistatud tavalise tekstina (P), mitte Caption-struktuuritüübiga.",
+    "severity_label": "major",
+    "suggested_fix": "Märgistage pealdised Caption-struktuuritüübiga ja veenduge, et need on nõuetekohaselt seotud nende ülem-elemendi Figure või Table-ga."
+  },
+  "13-004": {
+    "title": "Figure-elemendil puudub alternatiivtekst",
+    "description": "Figure-struktuurielement on olemas, kuid sellel puudub Alt-atribuut, mis pakuks alternatiivteksti. Ekraanilugejad teatavad joonise olemasolust, kuid ei suuda selle sisu kirjeldada.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage Figure-struktuurielemendile /Alt kirje koos pildi sisu lühikirjeldusega."
+  },
+  "14-001": {
+    "title": "Pealkirjad pole märgistatud",
+    "description": "Sisu, mis visuaalselt toimib pealkirjana (suurem font, paksus, eristuv stiil), pole märgistatud pealkirja struktuuritüübiga (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Tuvastage kõik dokumendi pealkirjad ja märgistage need sobivate H1-H6 struktuurielementidega, mis peegeldavad nende hierarhia taset."
+  },
+  "14-002": {
+    "title": "Esimene pealkiri pole H1",
+    "description": "Dokumendi struktuuripuu esimene pealkiri ei ole H1-tüüpi. PDF/UA-1 parim tava on, et kõrgeima taseme pealkiri peaks olema H(n) ja järgnevad pealkirjad ei tohiks tasemeid vahele jätta.",
+    "severity_label": "major",
+    "suggested_fix": "Veenduge, et esimene pealkiri on H1 (või H2, kui dokumendi pealkiri on metaandmetes). Nummerdage järgnevad pealkirjad ümber, et vältida tasemete vahelejätmist."
+  },
+  "14-003": {
+    "title": "Pealkirja tase on vahele jäetud",
+    "description": "Struktuuripuu pealkirjade tasemed jätavad taseme vahele (nt H1-le järgneb otse H3 ilma vahepealse H2-ta). See rikub abitehnoloogia kasutajate jaoks loogilist pealkirjade hierarhiat.",
+    "severity_label": "major",
+    "suggested_fix": "Veenduge, et pealkirjade tasemed on järjestikused ilma lünkadeta. Nummerdage pealkirjad ümber nii, et H1-le järgneb H2, seejärel H3 jne."
+  },
+  "14-005": {
+    "title": "Sügav pealkiri ilma H7+ tüüpi elemendita",
+    "description": "Seitsmendal või sügavamal pesastustasemel asuval pealkirjal puudub vastav H7+ struktuuritüüp. PDF defineerib ainult H1 kuni H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Tasandage pealkirjade hierarhia maksimaalselt 6 tasemeni või kasutage ettevaatlikult mittestandardset rollide vastendamist."
+  },
+  "14-006": {
+    "title": "Mitu H-silti ühes struktuurisõlmes",
+    "description": "Üks struktuurielement sisaldab rohkem kui ühte pealkirjasilti (nt Sect, mis sisaldab nii H1 kui ka H2). Iga pealkiri peaks looma uue pesastustaseme.",
+    "severity_label": "major",
+    "suggested_fix": "Jagage struktuurisõlm nii, et iga pealkiri alustaks uut sektsiooni või alamsektsiooni sobival tasemel."
+  },
+  "14-007": {
+    "title": "H- ja Hn-siltide ebajärjekindel segamine",
+    "description": "Mõned pealkirjad kasutavad üldist H-tüüpi, samas kui teised kasutavad samas dokumendis ebajärjekindlalt nummerdatud H1-H6 tüüpe.",
+    "severity_label": "major",
+    "suggested_fix": "Teisendage kõik üldised H-sildid nummerdatud H1-H6 tüüpideks vastavalt nende asukohale pealkirjade hierarhias."
+  },
+  "15-001": {
+    "title": "Reapäis pole päise-elemendina märgistatud",
+    "description": "Tabeli lahter, mis toimib reapäisena, on märgistatud kui TD (andmelahtri), mitte TH (päiselahtri). See takistab ekraanilugejatel päiseid andmelahtritega õigesti siduda.",
+    "severity_label": "major",
+    "suggested_fix": "Muutke reapäise lahtrite struktuuritüüp TD-st TH-ks ja lisage sobiv Scope-atribuut (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Veerupäis pole päise-elemendina märgistatud",
+    "description": "Tabeli lahter, mis toimib veerupäisena, on märgistatud kui TD, mitte TH. Ekraanilugejad ei saa tabelis loogiliselt navigeerida.",
+    "severity_label": "major",
+    "suggested_fix": "Muutke veerupäise lahtrite struktuuritüüp TD-st TH-ks ja lisage sobiv Scope-atribuut (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH-l puudub Scope ilma Headers/ID-ta",
+    "description": "TH-elemendil (tabelipäis) puudub Scope-atribuut ja tabel ei kasuta Headers/ID seoseid päiste sidumiseks andmelahtritega.",
+    "severity_label": "major",
+    "suggested_fix": "Lisage TH-elementidele Scope='Row', Scope='Column' või Scope='Both' või rakendage Headers/ID seosed."
+  },
+  "15-005": {
+    "title": "Ebaselge lahtrite ja päiste seos",
+    "description": "Andmelahtri seotud päiselahtreid ei saa keerulise tabelistruktuuri (liidetud lahtrid, ebaregulaarne paigutus) tõttu üheselt määrata.",
+    "severity_label": "major",
+    "suggested_fix": "Kasutage iga TD sidumiseks vastavate TH-elementidega selgesõnalisi Headers/ID atribuute või lihtsustage tabeli struktuuri."
+  },
+  "16-001": {
+    "title": "Järjestatud loendil puudub ListNumbering",
+    "description": "Järjestatud loendil (L-tüüpi nummerdatud üksustega) puudub ListNumbering atribuut, mis määrab nummerdamisvormingu.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage L-elemendile ListNumbering atribuut väärtusega nagu 'Decimal', 'UpperRoman', 'LowerAlpha' jne."
+  },
+  "16-002": {
+    "title": "Kehtetu ListNumbering väärtus",
+    "description": "L-elemendi ListNumbering atribuudil on tuvastamatu või kehtetu väärtus.",
+    "severity_label": "minor",
+    "suggested_fix": "Seadke ListNumbering kehtivale väärtusele: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha või LowerAlpha."
+  },
+  "16-003": {
+    "title": "Loendi sisu pole loendina märgistatud",
+    "description": "Sisu, mis on visuaalselt ja semantiliselt loend (täpploend või nummerdatud üksused), on märgistatud üksikute lõikudena või muude mitte-loendi elementidena.",
+    "severity_label": "major",
+    "suggested_fix": "Restruktureerige sisu loendina (L) koos loendiüksustega (LI), millest igaüks sisaldab valikulist Lbl-i ja nõutavat LBody-t."
+  },
+  "17-001": {
+    "title": "Matemaatilist avaldist pole Formula-elemendina märgistatud",
+    "description": "Dokumendis olev matemaatiline avaldis on märgistatud tavalise lõigu või joonisena, mitte Formula-struktuuritüübiga.",
+    "severity_label": "minor",
+    "suggested_fix": "Märgistage matemaatilised avaldised Formula-struktuuritüübiga ja lisage avaldist kirjeldav alternatiivtekst."
+  },
+  "17-002": {
+    "title": "Formula-elemendil puudub alternatiivtekst",
+    "description": "Formula-struktuurielement on olemas, kuid sellel puudub matemaatilist avaldist kirjeldav alternatiivtekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisage Formula-elemendile /Alt kirje koos matemaatilise avaldise tekstilise esitusega."
+  },
+  "17-003": {
+    "title": "Formula-elemendi märki ei saa Unicode'iga vastendada",
+    "description": "Matemaatilises valemis olevat märki ei saa Unicode'iga vastendada, mis põhjustab abitehnoloogiate moonutatud väljundi lugemist.",
+    "severity_label": "minor",
+    "suggested_fix": "Veenduge, et matemaatiliste sümbolite jaoks kasutataval fondil on täielik ToUnicode CMap, mis hõlmab kõiki glüüfe. Vt ka 10-001."
+  },
+  "18-001": {
+    "title": "Päis/jalus pole pagination-artefaktina märgistatud",
+    "description": "Jooksvad päised ja jalused (leheküljenumbrid, igal lehel korduvad peatükkide pealkirjad) on märgistatud tegeliku sisuna, selle asemel et olla märgistatud leheküljenummerduse artefaktidena.",
+    "severity_label": "major",
+    "suggested_fix": "Märgistage jooksvad päised ja jalused artefaktina alamtüübiga 'Pagination', et ekraanilugejad jätaksid need pideva lugemise ajal vahele."
+  },
+  "18-002": {
+    "title": "Päisel/jalusel puudub õige artefakti alamtüüp",
+    "description": "Päised ja jalused on märgitud artefaktidena, kuid neil puudub leheküljenummerduse alamtüüp või kasutatakse valet alamtüüpi.",
+    "severity_label": "major",
+    "suggested_fix": "Määra jooksvate päiste ja jaluste artefakti alamtüübiks 'leheküljenummerdus' ning 'pealkiri' või 'jalus' ainult esimese/viimase lehekülje üla-/alamaterjali puhul."
+  },
+  "19-001": {
+    "title": "Allmärkus pole märgitud märkuse struktuurielemendiga",
+    "description": "Dokumendis olev allmärkus või lõpumärkus on märgitud tavalise lõiguna, selle asemel et kasutada märkuse struktuuritüüpi.",
+    "severity_label": "major",
+    "suggested_fix": "Märgi allmärkused ja lõpumärkused märkuse elementidena, kasutades kordumatut ID-atribuuti ja tekstis olevat viiteelementi, mis neile osutab."
+  },
+  "19-002": {
+    "title": "Viide pole märgitud viite struktuurielemendiga",
+    "description": "Tekstisisene viide või ristviide on märgitud tavalise tekstina, selle asemel et kasutada viite struktuuritüüpi.",
+    "severity_label": "major",
+    "suggested_fix": "Märgi viitemarkerid ja ristviited viiteelementidena, linkides need vastava märkuse või sihtkohaga."
+  },
+  "19-003": {
+    "title": "Märkuse ID puudub",
+    "description": "Märkuse struktuurielemendil puudub ID-atribuut, mis takistab tekstis oleva viiteelemendi sidumist.",
+    "severity_label": "major",
+    "suggested_fix": "Lisa igale märkuse elemendile kordumatu ID-atribuut, et viiteelemendid saaksid neile osutada."
+  },
+  "19-004": {
+    "title": "Märkuse ID ei ole kordumatu",
+    "description": "Kaks või enam märkuse struktuurielementi jagavad sama ID-atribuudi väärtust, mis põhjustab ebamäärase viite lahendamise.",
+    "severity_label": "major",
+    "suggested_fix": "Veendu, et igal märkuse elemendil on dokumendis üleilmselt kordumatu ID."
+  },
+  "20-001": {
+    "title": "Valikulise sisu konfiguratsioonist puudub nimi (Configs massiiv)",
+    "description": "Dokumendi OCConfigs massiivis olevas valikulise sisu konfiguratsiooni sõnastikus puudub nimekirje.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa kirjeldav /Name kirje igale valikulise sisu konfiguratsioonile OCProperties/Configs massiivis."
+  },
+  "20-002": {
+    "title": "Valikulise sisu konfiguratsioonist puudub nimi (D vaikeväärtus)",
+    "description": "Valikulise sisu vaikekonfiguratsiooni sõnastikus (D kirje OCPropertiesis) puudub nimekirje.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa /Name kirje valikulise sisu vaikekonfiguratsiooni sõnastikku."
+  },
+  "20-003": {
+    "title": "AS-võti on valikulise sisu konfiguratsioonis olemas",
+    "description": "Valikulise sisu konfiguratsiooni sõnastik sisaldab AS (rakendusespetsiifilist) kirjet, mis pole PDF/UA-1 standardiga lubatud, kuna see võib muuta dokumendi visuaalset välimust kasutaja teadmata.",
+    "severity_label": "minor",
+    "suggested_fix": "Eemalda AS-võti valikulise sisu konfiguratsiooni sõnastikust."
+  },
+  "21-001": {
+    "title": "Manustatud failist puuduvad F ja UF võtmed",
+    "description": "Manustatud faili spetsifikatsiooni sõnastikust puudub nõutud F (failispetsifikatsiooni string) või UF (Unicode'i tekstifaili spetsifikatsiooni string) kirje.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa nii F kui ka UF kirjed failispetsifikatsiooni sõnastikku, mis kirjeldab manustatud faili."
+  },
+  "22-001": {
+    "title": "Artikli lõim ei vasta nõuetele",
+    "description": "Artikli lõime struktuur ei järgi nõutud PDF-artikli lõime vormingut koos korrektse V (järgmine lõim) ja N (eelmine lõim) linkimisega.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et artikli lõimed on V ja N kirjetega korrektselt lingitud ning iga lõim on seotud õige leheküljega."
+  },
+  "24-001": {
+    "title": "Mitteinteraktiivsest vormist puudub PrintFields",
+    "description": "Mitteinteraktiivsel vormil (nt digitaalsest sisendist prinditud lamevorm) puudub NeedAppearances lipp või FieldMDP teisendusparameetritest puudub PrintFields bitt.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et ainult printimiseks mõeldud vormiväljadel on korrektsed FieldMDP sätted koos lubatud PrintFields bitiga."
+  },
+  "25-001": {
+    "title": "XFA vormi dynamicRender pole nõutav",
+    "description": "XFA (XML Forms Architecture) vorm sisaldab dynamicRender elemente, mis pole seatud väärtusele 'required', mis võib põhjustada renderdamise ebakõlasid.",
+    "severity_label": "critical",
+    "suggested_fix": "Sea XFA vormi elementidel dynamicRender='required' või migreeru XFA-lt AcroFormsile parema ligipääsetavuse toe saamiseks."
+  },
+  "28-001": {
+    "title": "Märkus pole lugemisjärjestuses",
+    "description": "Märkus (link, vormiväli, kommentaar) on leheküljel olemas, kuid sellega seotud struktuurielement pole struktuuripuus õiges lugemisjärjestuses.",
+    "severity_label": "major",
+    "suggested_fix": "Paiguta märkuse struktuurielemendid (Link, Vorm, Märkus) struktuuripuus ümbritseva sisu suhtes õigesse kohta."
+  },
+  "28-002": {
+    "title": "Märkus pole märkuse struktuurielemendi sees",
+    "description": "Leheküljel olev märkuse objekt pole mähitud märkuse struktuurielementi (või sobivasse alamtüüpi: Link, Vorm).",
+    "severity_label": "major",
+    "suggested_fix": "Mähi iga märkuse objekt sobivasse struktuurielementi (Link hüperlinkidele, Vorm vidinatele)."
+  },
+  "28-003": {
+    "title": "Märkust kasutatakse ainult visuaalseks vormindamiseks",
+    "description": "Märkust kasutatakse puhtalt visuaalseks vormindamiseks (nt kaunistusena joonistatud ristkülik) ja see pole korrektselt märgistatud.",
+    "severity_label": "minor",
+    "suggested_fix": "Märgi ainult vormindamiseks mõeldud märkused artefaktidena või eemalda need ja kasuta selle asemel korrektseid PDF-i joonistamisoperaatoreid."
+  },
+  "28-004": {
+    "title": "Märkuse Contents ja Alt puuduvad",
+    "description": "Märkuse objektil puudub Contents kirje (tekstikirjeldus) või Alt kirje (alternatiivtekst), jättes ekraanilugeja kasutajad kontekstita.",
+    "severity_label": "major",
+    "suggested_fix": "Lisa igale märkusele selle eesmärki kirjeldav /Contents string. Mittetekstiliste märkuste jaoks lisa /Alt."
+  },
+  "28-005": {
+    "title": "Vormiväljast puudub TU või Alt",
+    "description": "Vormivälja vidina märkuse objektil puudub kohtspikker (TU) või Alt kirje, mistõttu ekraanilugeja kasutajad ei saa välja eesmärgist aru.",
+    "severity_label": "major",
+    "suggested_fix": "Lisa igale vormiväljale selle eesmärki ja oodatud sisestusvormingut kirjeldav /TU (kohtspikker) kirje."
+  },
+  "28-006": {
+    "title": "Määratlemata märkuse alamtüüp",
+    "description": "Märkuse Subtype väärtus pole ISO 32000-1 standardis määratletud, mis võib PDF-i töötlejates põhjustada ettearvamatut käitumist.",
+    "severity_label": "minor",
+    "suggested_fix": "Asenda või eemalda määratlemata alamtüübiga märkused või veendu, et kohandatud alamtüüp on registreeritud ja korrektselt töödeldud."
+  },
+  "28-007": {
+    "title": "TrapNet märkus on olemas",
+    "description": "Dokumendis on olemas TrapNet märkus (kasutatakse trükieelses töövoos) ja see pole korrektselt märgistatud või artefaktina määratletud.",
+    "severity_label": "minor",
+    "suggested_fix": "Märgi TrapNet märkused artefaktidena, kuna neil pole dokumendi tarbijate jaoks semantilist tähendust."
+  },
+  "28-008": {
+    "title": "Leheküljelt, kus on märkused, puudub Tabs võti",
+    "description": "Märkusi (lingid, vormiväljad) sisaldaval leheküljel puudub Tabs kirje, mis määrab klaviatuuriga navigeerimise tabeldusjärjestuse.",
+    "severity_label": "major",
+    "suggested_fix": "Lisa lehekülje sõnastikku /Tabs kirje. Kasuta /Tabs=S struktuurijärjestuse jaoks (soovitatav ligipääsetavate dokumentide puhul)."
+  },
+  "28-009": {
+    "title": "Tabs pole seatud väärtusele S (struktuurijärjestus)",
+    "description": "Lehekülje Tabs võti on seatud muule väärtusele kui 'S' (nt 'R' reajärjestuse jaoks, 'C' veerujärjestuse jaoks), mis ei pruugi vastata dokumendi loogilisele lugemisjärjestusele.",
+    "severity_label": "major",
+    "suggested_fix": "Sea märkustega lehekülgedel /Tabs väärtusele 'S' (struktuurijärjestus), et klaviatuuriga navigeerimine järgiks struktuuripuu järjestust."
+  },
+  "28-010": {
+    "title": "Vidina märkus pole vormi elemendi sees",
+    "description": "Vidina märkus (vormiväli) pole puus mähitud vormi struktuurielementi.",
+    "severity_label": "major",
+    "suggested_fix": "Mähi iga vidina märkus vormi struktuurielementi. Rühmita seotud vormiväljad samasse vormi konteinerisse."
+  },
+  "28-011": {
+    "title": "Lingi märkus pole lingi elemendi sees",
+    "description": "Lingi märkus (hüperlink) pole puus mähitud lingi struktuurielementi.",
+    "severity_label": "major",
+    "suggested_fix": "Mähi iga lingi märkus lingi struktuurielementi, mis on paigutatud õigesse lugemisjärjestuse asukohta."
+  },
+  "28-012": {
+    "title": "Lingi märkusest puudub Contents",
+    "description": "Lingi märkusel puudub Contents kirje, mis kirjeldaks lingi sihtkohta või eesmärki.",
+    "severity_label": "major",
+    "suggested_fix": "Lisa igale lingi märkusele /Contents string, mis kirjeldab, kuhu link osutab."
+  },
+  "28-013": {
+    "title": "IsMap=true ilma serveripoolse pildikaardita",
+    "description": "Lingi märkusel on IsMap seatud väärtusele true, kuid seotud pilt ei toimi serveripoolse pildikaardina.",
+    "severity_label": "minor",
+    "suggested_fix": "Sea IsMap väärtusele false, kui pilt ei ole koordinaatidest sõltuva käitumisega aktiivne serveripoolne pildikaart."
+  },
+  "28-016": {
+    "title": "Faili manuse vastavus 7.11 nõuetele puudub",
+    "description": "Faili manuse märkus viitab manustatud failile, mis ei vasta klausli 7.11 (manustatud failivoogude) nõuetele.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et manustatud failidel on nii F kui ka UF kirjed ja failispetsifikatsiooni sõnastik on täielik. Vaata ka 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark loogilises struktuuris",
+    "description": "PrinterMark märkus (lõikejäljed, registreerimismärgid, värviribad) ilmub dokumendi loogilises struktuuripuus, kus sellel pole semantilist tähendust.",
+    "severity_label": "minor",
+    "suggested_fix": "Eemalda PrinterMark märkused struktuuripuust ja märgi need artefaktidena."
+  },
+  "28-018": {
+    "title": "PrinterMark välimus pole artefakt",
+    "description": "PrinterMark märkuse välimuse voog pole märgitud artefaktina, mistõttu ekraanilugejad üritavad printimismärke kirjeldada.",
+    "severity_label": "minor",
+    "suggested_fix": "Märgi PrinterMark välimuse sisu sisuvoos artefaktina."
+  },
+  "30-001": {
+    "title": "Reference XObject on olemas",
+    "description": "Dokumendis kasutatakse Reference XObjecti. Reference XObjectid impordivad sisu välistest PDF-failidest, mis võib rikkuda ligipääsetavuse, kuna imporditud sisu pole struktuuripuusse korrektselt integreeritud.",
+    "severity_label": "major",
+    "suggested_fix": "Väldi Reference XObjecte. Kui need on vajalikud, veendu, et kogu imporditud sisu on hostdokumendi struktuuripuus korrektselt märgistatud."
+  },
+  "30-002": {
+    "title": "Form XObject koos mitu korda viidatud MCID-dega",
+    "description": "Form XObjecti, mis sisaldab MCID-dega (märgistatud sisu identifikaatorid) märgistatud sisu, viidatakse mitmest kohast, põhjustades MCID-konflikte lehekülje märgistatud sisu järjestuses.",
+    "severity_label": "major",
+    "suggested_fix": "Väldi märgistatud sisu sisaldavate Form XObjectide taaskasutamist. Lameesta või dubleeri XObject iga kasutusasukohta."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo registri ebakõla Type0 järeltulijate vahel",
+    "description": "Type0 fondi järeltulijate CIDFontidel on ebajärjekindlad CIDSystemInfo registri väärtused, mis võib põhjustada tähemärkide vastendamise tõrkeid.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et kõigil Type0 fondi järeltulijatest CIDFontidel on järjekindlad CIDSystemInfo (register, järjestus, täiendus) väärtused."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo järjestuse ebakõla Type0 järeltulijate vahel",
+    "description": "Type0 fondi järeltulijate CIDFontidel on ebajärjekindlad CIDSystemInfo järjestuse väärtused.",
+    "severity_label": "minor",
+    "suggested_fix": "Ühtlusta järjestuse väärtused kõigi Type0 fondi järeltulijatest CIDFontide vahel."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo täienduse ebakõla Type0 järeltulijate vahel",
+    "description": "Type0 fondi järeltulijate CIDFontidel on ebajärjekindlad CIDSystemInfo täienduse väärtused.",
+    "severity_label": "minor",
+    "suggested_fix": "Ühtlusta täienduse väärtused kõigi Type0 fondi järeltulijatest CIDFontide vahel."
+  },
+  "31-004": {
+    "title": "CIDFontist puudub CIDToGIDMap",
+    "description": "CIDFonti sõnastik ei sisalda CIDToGIDMap kirjet ja ei kasuta Identity vastendamist, muutes glüüfide otsimise ebausaldusväärseks.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa CIDFonti CIDToGIDMap kirje või sea see väärtusele 'Identity', kui font kasutab identity CID-sid."
+  },
+  "31-005": {
+    "title": "CIDFont nõuab mitte-Identity CIDToGIDMap-i",
+    "description": "CIDFont, mille tähemärkide kogu pole Adobe-Identity, nõuab korrektseks glüüfide vastendamiseks selgesõnalist CIDToGIDMap voogu.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa CIDFontile selgesõnaline CIDToGIDMap voog, kui see ei kasuta Adobe-Identity tähemärkide kogu."
+  },
+  "31-006": {
+    "title": "CMap pole loetletud ega manustatud",
+    "description": "Type0 fondi poolt kasutatav CMap ressurss pole ei PDF-i spetsifikatsiooni standardsete CMapide hulgas loetletud ega dokumenti manustatud.",
+    "severity_label": "minor",
+    "suggested_fix": "Kasuta kas PDF-i spetsifikatsiooni standardset CMap-i või manusta kohandatud CMap voog dokumenti."
+  },
+  "31-007": {
+    "title": "WMode ebakõla Type0 fondis",
+    "description": "WMode (kirjutusrežiimi) väärtused erinevad Type0 fondi CMap-i ja järeltulijatest CIDFontide vahel.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et WMode väärtused (0 horisontaalse, 1 vertikaalse jaoks) on CMap-i ja kõigi järeltulijatest CIDFontide vahel järjekindlad."
+  },
+  "31-008": {
+    "title": "CMap viitab loetlemata CMap-ile",
+    "description": "CMap voog viitab teisele CMap-ile, mis pole ei standardne CMap ega dokumenti manustatud.",
+    "severity_label": "minor",
+    "suggested_fix": "Manusta kõik viidatud mittestandardsed CMapid dokumenti või kasuta ainult standardseid CMap-e."
+  },
+  "31-009": {
+    "title": "Font pole manustatud",
+    "description": "Dokumendis kasutatav font pole manustatud. Mittemanustatud fondid põhjustavad süsteemifontidele taandumise, millel võivad olla erinevad mõõdikud ja glüüfide katvus, rikkudes teksti eraldamist ja visuaalset täpsust.",
+    "severity_label": "critical",
+    "suggested_fix": "Manusta kõik dokumendis kasutatavad fondid. Standardsete 14 fondi puhul, mida ei saa manustada, veendu, et fondiprogramm on saadaval või asenda see manustatud ekvivalendiga."
+  },
+  "31-011": {
+    "title": "Manustatud fondiprogrammist puudub glüüf",
+    "description": "Dokumendi tekstis viidatud glüüfi pole manustatud fondiprogrammis.",
+    "severity_label": "major",
+    "suggested_fix": "Kas eralda fondist alamhulk, mis sisaldab kõiki nõutud glüüfe, või kasuta teist fonti, mis sisaldab vajalikke glüüfe."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glüüf pole loetletud",
+    "description": "Type1 fondi CharSet ei loetle glüüfi, mis on tegelikult fondiprogrammis olemas ja mida dokumendis kasutatakse.",
+    "severity_label": "minor",
+    "suggested_fix": "Uuenda CharSeti, et see sisaldaks kõiki fondiprogrammis olevaid glüüfe, millele dokumendis viidatakse."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: loetletud glüüfi pole fondis",
+    "description": "Type1 fondi CharSet loetleb glüüfi nime, mida manustatud fondiprogrammis ei eksisteeri.",
+    "severity_label": "minor",
+    "suggested_fix": "Eemalda CharSetist olematud glüüfide nimed või manusta täielik font."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glüüf pole loetletud",
+    "description": "CIDFonti CIDSet ei sisalda CID-d, mis on tegelikult manustatud fondiprogrammis olemas ja mida dokumendis kasutatakse.",
+    "severity_label": "minor",
+    "suggested_fix": "Uuenda CIDSeti, et see sisaldaks kõiki dokumendis kasutatavaid CID väärtusi."
+  },
+  "31-015": {
+    "title": "CID CIDSet: loetletud CID-d pole fondis",
+    "description": "CIDFonti CIDSet loetleb CID, mis ei vasta ühelegi manustatud fondiprogrammi glüüfile.",
+    "severity_label": "minor",
+    "suggested_fix": "Eemalda CIDSetist olematud CID-d või genereeri see uuesti tegelikust fondiprogrammist."
+  },
+  "31-016": {
+    "title": "Glüüfi laiuse erinevus > 1/1000",
+    "description": "Fondisõnastikus määratud glüüfi laius erineb manustatud fondiprogrammi laiusest rohkem kui 1 ühiku võrra 1000-st.",
+    "severity_label": "minor",
+    "suggested_fix": "Paranda fondisõnastiku Widths massiiv (või W2 kirje), et see vastaks manustatud fondiprogrammi tegelikele glüüfide laiustele."
+  },
+  "31-017": {
+    "title": "Mitte-sümbolilisest TrueType fondist puudub mitte-sümboliline cmap",
+    "description": "Mitte-sümbolilise kodeeringuga TrueType font (Encoding kirje on olemas või sümboliline lipp on väljas) ei sisalda (3,1) cmap alamtabeleid Unicode'i vastendamiseks.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et TrueType fondiprogramm sisaldab (3,1) Microsoft Unicode BMP cmap alamtabelit korrektseks Unicode'i tähemärkide vastendamiseks."
+  },
+  "31-018": {
+    "title": "Mitte-sümboliline TrueType glüüf pole cmap-is",
+    "description": "Mitte-sümbolilise TrueType fondi glüüfi ei saa fondi cmap alamtabelite kaudu otsida.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et kõik dokumendis kasutatavad glüüfid on ligipääsetavad vähemalt ühe fondi cmap alamtabeli kaudu."
+  },
+  "31-019": {
+    "title": "Mitte-sümbolilisest TrueType fondisõnastikust puudub Encoding",
+    "description": "Mitte-sümbolilise TrueType fondi sõnastikus puudub Encoding kirje, mis on vajalik glüüfi nime lahendamiseks.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa fondisõnastikku sobiv Encoding kirje (nt WinAnsiEncoding, MacRomanEncoding)."
+  },
+  "31-020": {
+    "title": "Encoding sõnastikust puudub BaseEncoding",
+    "description": "Differences massiiviga Encoding sõnastik ei määra BaseEncoding kirjet.",
+    "severity_label": "minor",
+    "suggested_fix": "Määra Encoding sõnastikus BaseEncoding (nt WinAnsiEncoding), millest Differences massiiv kõrvale kaldub."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding pole MacRoman või WinAnsi",
+    "description": "Mitte-sümbolilise TrueType fondi Encoding või BaseEncoding pole ei MacRomanEncoding ega WinAnsiEncoding, mis on kaks standardset baaskodeeringut.",
+    "severity_label": "minor",
+    "suggested_fix": "Kasuta fondi baaskodeeringuna WinAnsiEncodingut või MacRomanEncodingut."
+  },
+  "31-022": {
+    "title": "Differences glüüfide nimed pole Adobe glüüfide loendis",
+    "description": "Fondi Encoding sõnastiku Differences massiiv kasutab glüüfide nimesid, mida pole Adobe glüüfide loendis (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Kasuta Differences massiivis ainult standardseid glüüfide nimesid Adobe glüüfide loendist."
+  },
+  "31-023": {
+    "title": "Differences on olemas, kuid (3,1) cmap puudub",
+    "description": "Fondi Encodingus on Differences massiiv, kuid TrueType fondiprogramm ei sisalda (3,1) cmap alamtabelit Unicode'i vastendamiseks.",
+    "severity_label": "minor",
+    "suggested_fix": "Lisa fondile ToUnicode CMap, et tagada usaldusväärne Unicode'i vastendamine."
+  },
+  "31-024": {
+    "title": "Sümbolilise TrueType fondi sõnastikus on Encoding",
+    "description": "Sümbolilisel TrueType fondil (Flags biti 3 seadistus) on fondisõnastikus Encoding kirje, mis pole sümboliliste fontide puhul lubatud.",
+    "severity_label": "minor",
+    "suggested_fix": "Eemalda Encoding kirje sümboliliste TrueType fontide sõnastikest. Sümbolilised fondid toetuvad tähemärkide vastendamisel fondiprogrammi cmap-ile."
+  },
+  "31-025": {
+    "title": "Sümbolilisest TrueType fondiprogrammist puudub cmap",
+    "description": "Sümbolilise TrueType fondi manustatud fondiprogramm ei sisalda ühtegi cmap tabelit.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et manustatud fondiprogramm sisaldab vähemalt (3,0) cmap alamtabelit sümboliliseks tähemärkide vastendamiseks."
+  },
+  "31-026": {
+    "title": "Mitme cmap-iga sümbolilisest TrueType fondist puudub (3,0)",
+    "description": "Sümbolilisel TrueType fondil on mitu cmap alamtabelit, kuid sellest puudub nõutud (3,0) Microsoft Symbol cmap alamtabel.",
+    "severity_label": "minor",
+    "suggested_fix": "Veendu, et manustatud fondiprogramm sisaldab (3,0) Microsoft Symbol cmap alamtabelit korrektseks tähemärkide vastendamiseks."
+  },
+  "31-027": {
+    "title": "Puudub ToUnicode CMap",
+    "description": "Tekstisisu jaoks kasutataval fondil puudub ToUnicode CMap ja ükski erandtingimus ei kehti. Ilma ToUnicode CMap-ita ei saa abitehnoloogiad loetavat teksti eraldada.",
+    "severity_label": "critical",
+    "suggested_fix": "Lisa fondisõnastikku ToUnicode CMap voog, mis vastendab iga dokumendis kasutatud tähemärgikoodi vastava Unicode'i väärtusega."
+  },
+  "31-028": {
+    "title": "ToUnicode vastendab CID 0-le",
+    "description": "ToUnicode CMap vastendab tähemärgikoodi Unicode'i väärtusele U+0000 (null), mis pole kehtiv tekstitähemärk.",
+    "severity_label": "minor",
+    "suggested_fix": "Paranda ToUnicode CMap, et vastendada tähemärgikood kehtivale, mitte-null Unicode'i väärtusele."
+  },
+  "31-029": {
+    "title": "ToUnicode vastendab U+FEFF või U+FFFE-le",
+    "description": "ToUnicode CMap vastendab tähemärgikoodi U+FEFF (BOM) või U+FFFE (baidi järjekorra märk) väärtusele, mis on juhtmärgid ja pole kehtiv kuvatav tekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Asenda ToUnicode CMap-i U+FEFF/U+FFFE vastendused tähemärgi tegeliku Unicode'i väärtusega."
+  },
+  "31-030": {
+    "title": ".notdef glüüfile viidatakse tekstis",
+    "description": "Dokumendi teksti kuvamise operaator viitab .notdef glüüfile (glüüfi indeks 0), mis tähistab puuduvat või kättesaamatut tähemärki. .notdef-i kasutav tekst kuvatakse tühjade või tofu-tähemärkidena.",
+    "severity_label": "major",
+    "suggested_fix": "Veendu, et kõik dokumendis kasutatavad tähemärgikoodid vastavad manustatud fondiprogrammi tegelikele glüüfidele."
+  }
+}

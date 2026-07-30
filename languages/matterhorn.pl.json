@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakt oznaczony jako rzeczywista zawartość",
+    "description": "Artefakt strony (nagłówek, stopka, element dekoracyjny) jest niepoprawnie oznaczony jako rzeczywista zawartość w drzewie struktury. Czytniki ekranu będą próbowały odczytać elementy dekoracyjne jako zawartość dokumentu.",
+    "severity_label": "critical",
+    "suggested_fix": "Zmień typ elementu struktury na artefakt lub otocz zawartość sekwencją oznaczonej zawartości artefaktu."
+  },
+  "01-002": {
+    "title": "Rzeczywista zawartość oznaczona jako artefakt",
+    "description": "Rzeczywista zawartość dokumentu (tekst główny, nagłówek, podpis) jest niepoprawnie oznaczona jako artefakt. Czytniki ekranu całkowicie pominą tę zawartość.",
+    "severity_label": "critical",
+    "suggested_fix": "Usuń oznaczenie artefaktu z rzeczywistej zawartości i upewnij się, że jest ona poprawnie oznaczona odpowiednim elementem struktury."
+  },
+  "01-003": {
+    "title": "Artefakt wewnątrz oznaczonej zawartości",
+    "description": "Element oznaczony jako artefakt znajduje się wewnątrz elementu struktury reprezentującego rzeczywistą zawartość, co powoduje uszkodzenie hierarchii zawartości.",
+    "severity_label": "critical",
+    "suggested_fix": "Przenieś zawartość oznaczoną jako artefakt poza element struktury rzeczywistej zawartości lub przebuduj hierarchię elementów."
+  },
+  "01-004": {
+    "title": "Oznaczona zawartość wewnątrz artefaktu",
+    "description": "Oznaczony element rzeczywistej zawartości jest zagnieżdżony wewnątrz kontenera artefaktu. Czytniki ekranu mogą pominąć tę zawartość.",
+    "severity_label": "critical",
+    "suggested_fix": "Przenieś oznaczoną zawartość poza kontener artefaktu i umieść ją na właściwym poziomie w drzewie struktury."
+  },
+  "01-005": {
+    "title": "Zawartość ani nieoznaczona, ani niebędąca artefaktem",
+    "description": "Zawartość na stronie nie jest ani oznaczona jako element struktury, ani jako artefakt. Jest to najczęstsze naruszenie PDF/UA i główna przyczyna milczenia czytników ekranu przy odczycie zawartości.",
+    "severity_label": "critical",
+    "suggested_fix": "Oznacz zawartość odpowiednim elementem struktury (P, H1-H6, Figure itp.) lub oznacz ją jako artefakt, jeśli jest dekoracyjna."
+  },
+  "01-006": {
+    "title": "Brak StructTreeRoot",
+    "description": "Słownik katalogu dokumentu musi zawierać wpis StructTreeRoot, który służy jako korzeń logicznej struktury dokumentu. Bez niego czytniki ekranu nie mogą w ogóle zinterpretować struktury dokumentu.",
+    "severity_label": "critical",
+    "suggested_fix": "Dodaj obiekt StructTreeRoot do słownika katalogu dokumentu i zbuduj hierarchię elementów struktury dla wszystkich stron zawartości."
+  },
+  "01-007": {
+    "title": "Flaga Suspect jest ustawiona na true",
+    "description": "Wpis Suspects w słowniku MarkInfo dokumentu jest ustawiony na true, co wskazuje, że drzewo struktury może zawierać niewiarygodne znaczniki. Technologie wspomagające mogą całkowicie ignorować drzewo struktury.",
+    "severity_label": "critical",
+    "suggested_fix": "Ustaw flagę Suspects na false w słowniku MarkInfo po zweryfikowaniu, czy cała zawartość jest poprawnie oznaczona."
+  },
+  "02-001": {
+    "title": "Niestandardowe mapowanie ról nie kończy się standardowym typem",
+    "description": "Niestandardowa rola w RoleMap nie mapuje się na standardowy typ struktury PDF. Końcowy cel łańcucha mapowania musi być standardowym typem z zestawu ról PDF 32000-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Upewnij się, że każda niestandardowa rola w RoleMap mapuje się bezpośrednio lub pośrednio na standardowy typ (np. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure itp.)."
+  },
+  "02-002": {
+    "title": "Semantycznie nieodpowiednie mapowanie ról",
+    "description": "Rola elementu struktury została zmapowana na standardowy typ, który nie pasuje do semantycznego przeznaczenia elementu (np. nagłówek zmapowany na Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Przejrzyj RoleMap i upewnij się, że każde mapowanie odzwierciedla rzeczywistą rolę semantyczną zawartości. Może być wymagana ocena człowieka."
+  },
+  "02-003": {
+    "title": "Cykliczne mapowanie ról",
+    "description": "RoleMap zawiera cykliczny łańcuch, w którym rola A mapuje się na B, B na C, a C z powrotem na A, tworząc nieskończoną pętlę dla procesorów.",
+    "severity_label": "major",
+    "suggested_fix": "Przerwij cykliczny łańcuch, mapując końcową rolę bezpośrednio na odpowiedni standardowy typ."
+  },
+  "02-004": {
+    "title": "Standardowy typ zmapowany ponownie",
+    "description": "Standardowy typ struktury PDF (np. P, H1, Table) jest mapowany ponownie na inny typ za pomocą RoleMap, co nie jest dozwolone przez PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Usuń mapowanie dla tego standardowego typu z RoleMap. Standardowe typy nie mogą być mapowane ponownie."
+  },
+  "06-001": {
+    "title": "Brak strumienia metadanych XMP",
+    "description": "Dokument nie zawiera strumienia metadanych XMP we wpisie Metadata katalogu. PDF/UA-1 wymaga metadanych XMP.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj strumień metadanych XMP do katalogu dokumentu z co najmniej dc:format (application/pdf), pdfuaid:part (1) oraz dc:title."
+  },
+  "06-002": {
+    "title": "Brak identyfikatora PDF/UA",
+    "description": "Metadane XMP nie zawierają właściwości pdfuaid:part, która identyfikuje dokument jako zgodny z PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj właściwość pdfuaid:part z wartością 1 do strumienia metadanych XMP, aby zadeklarować zgodność z PDF/UA-1."
+  },
+  "06-003": {
+    "title": "Brak dc:title w metadanych",
+    "description": "Metadane XMP lub słownik informacji o dokumencie nie zawierają wpisu dc:title. PDF/UA-1 wymaga, aby dokument posiadał tytuł.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj wpis dc:title do strumienia metadanych XMP. Użyj rzeczywistego tytułu dokumentu lub znaczącego zamiennika."
+  },
+  "07-001": {
+    "title": "Brak preferencji przeglądarki DisplayDocTitle",
+    "description": "Słownik preferencji przeglądarki dokumentu nie zawiera klucza DisplayDocTitle. Gdy jest nieobecny lub ustawiony na false, przeglądarki wyświetlają nazwę pliku zamiast tytułu dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Ustaw DisplayDocTitle na true w słowniku preferencji przeglądarki dokumentu (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle ustawione na false",
+    "description": "Klucz DisplayDocTitle w preferencjach przeglądarki jest ustawiony na false, co powoduje, że przeglądarki wyświetlają nazwę pliku na pasku tytułu zamiast tytułu dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Zmień DisplayDocTitle na true w słowniku preferencji przeglądarki."
+  },
+  "08-002": {
+    "title": "Tekst OCR nieoznaczony w drzewie struktury",
+    "description": "Dokument zawiera tekst wygenerowany przez OCR (częste w skanowanych plikach PDF), który nie jest oznaczony w drzewie struktury. Użytkownicy czytników ekranu nie mają dostępu do tej zawartości.",
+    "severity_label": "critical",
+    "suggested_fix": "Upewnij się, że cały tekst wygenerowany przez OCR jest uwzględniony w drzewie struktury z odpowiednimi znacznikami. W przypadku skanowanych plików PDF przebuduj dokument z nałożoną warstwą tekstową."
+  },
+  "09-001": {
+    "title": "Znaczniki nie w logicznej kolejności czytania",
+    "description": "Elementy struktury w drzewie nie są ułożone w logicznej kolejności czytania dokumentu. Czytniki ekranu nawigują po dokumencie w kolejności drzewa, która może różnić się od kolejności wizualnej.",
+    "severity_label": "critical",
+    "suggested_fix": "Zmień kolejność elementów struktury w drzewie, aby pasowała do logicznej kolejności czytania (zazwyczaj od góry do dołu, od lewej do prawej dla danego języka)."
+  },
+  "09-002": {
+    "title": "Semantycznie nieodpowiednie zagnieżdżenie",
+    "description": "Element struktury jest zagnieżdżony wewnątrz elementu nadrzędnego, do którego semantycznie nie należy (np. wiersz tabeli wewnątrz akapitu lub nagłówek wewnątrz listy).",
+    "severity_label": "critical",
+    "suggested_fix": "Przebuduj hierarchię elementów, aby upewnić się, że każdy element jest zagnieżdżony w semantycznie odpowiednim elemencie nadrzędnym."
+  },
+  "09-003": {
+    "title": "Nieodpowiedni typ struktury po mapowaniu ról",
+    "description": "Po rozwiązaniu mapowania ról końcowy typ struktury nie jest semantycznie odpowiedni dla zawartości, którą zawiera.",
+    "severity_label": "major",
+    "suggested_fix": "Dostosuj RoleMap lub zmień oryginalny typ struktury, aby rozwiązany typ pasował do roli semantycznej zawartości."
+  },
+  "09-004": {
+    "title": "Element tabeli nie jest zgodny z tabelą 337",
+    "description": "Element struktury typu Table nie jest zgodny z dozwoloną strukturą potomną (Tabela 337 w ISO 32000-1). Tabela musi zawierać co najmniej TBody z elementami potomnymi TR lub sekcje THead/TBody/TFoot.",
+    "severity_label": "major",
+    "suggested_fix": "Upewnij się, że element Table zawiera poprawnie ustrukturyzowane wiersze: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Przynajmniej otocz wiersze w TBody."
+  },
+  "09-005": {
+    "title": "Element listy nie jest zgodny z tabelą 336",
+    "description": "Element struktury typu L (lista) nie jest zgodny z dozwoloną strukturą potomną (Tabela 336 w ISO 32000-1). Lista musi zawierać elementy LI, a LI musi zawierać Lbl (opcjonalnie) i LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturyzuj listy jako: L > LI > (Lbl)? + LBody. Upewnij się, że każdy element listy ma element potomny LBody zawierający zawartość elementu."
+  },
+  "09-006": {
+    "title": "Element TOC nie jest zgodny z tabelą 333",
+    "description": "Element struktury typu TOC (spis treści) nie jest zgodny z dozwoloną strukturą potomną. TOC musi zawierać elementy TOCI.",
+    "severity_label": "minor",
+    "suggested_fix": "Strukturyzuj wpisy spisu treści jako: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Element rubin niezgodny z wymaganiami",
+    "description": "Element struktury Ruby (używany do adnotacji wymowy) nie przestrzega wymaganej struktury potomnej: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Przebuduj element Ruby z wymaganymi elementami potomnymi RB (podstawa rubin) i RT (tekst rubin)."
+  },
+  "09-008": {
+    "title": "Element warichu niezgodny z wymaganiami",
+    "description": "Element struktury Warichu (komentarz wewnątrztekstowy lub adnotacja w tekście CJK) nie przestrzega wymaganej struktury: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Przebuduj element Warichu z wymaganymi elementami potomnymi WT (tekst warichu) i WP (interpunkcja warichu)."
+  },
+  "10-001": {
+    "title": "Kodu znaku nie można zmapować na Unicode",
+    "description": "Kodu znaku w tekście dokumentu nie można zmapować na wartość Unicode. Powoduje to wyświetlanie zniekształconych lub brakujących znaków, gdy technologie wspomagające wyodrębniają tekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że wszystkie czcionki mają CMap ToUnicode, która mapuje każdy użyty kod znaku na poprawną wartość Unicode. Zweryfikuj, czy CMap obejmuje wszystkie glify użyte w dokumencie."
+  },
+  "11-001": {
+    "title": "Nie można określić języka zawartości strony",
+    "description": "Języka naturalnego zawartości strony nie można określić, ponieważ wpis /Lang brakuje w katalogu dokumentu lub elementach struktury na poziomie strony.",
+    "severity_label": "critical",
+    "suggested_fix": "Ustaw wpis /Lang w katalogu dokumentu na główny język dokumentu (np. 'pl-PL', 'en-US'). Dodaj /Lang do poszczególnych elementów struktury, jeśli zawartość zmienia język."
+  },
+  "11-002": {
+    "title": "Nie można określić języka Alt/ActualText",
+    "description": "Języka alternatywnych opisów tekstowych (Alt) lub zamienników ActualText nie można określić.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj atrybuty /Lang do elementów struktury zawierających Alt lub ActualText, gdy język tekstu różni się od domyślnego języka dokumentu."
+  },
+  "11-003": {
+    "title": "Nie ustawiono języka konspektu",
+    "description": "Konspekt dokumentu (zakładki) nie posiada wpisu /Lang, co uniemożliwia technologiom wspomagającym poprawne wymawianie elementów konspektu.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj wpis /Lang do słownika konspektu pasujący do głównego języka dokumentu."
+  },
+  "11-004": {
+    "title": "Nie ustawiono języka zawartości adnotacji",
+    "description": "Ciągi zawartości adnotacji (etykiety narzędziowe, wartości pól formularza) nie mają powiązanej deklaracji języka.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj /Lang do słowników wyglądu adnotacji, gdy tekst adnotacji różni się od języka dokumentu."
+  },
+  "11-005": {
+    "title": "Nie ustawiono języka TU pola formularza",
+    "description": "Wpis etykiety narzędziowej (TU) pól formularza nie ma powiązanego języka, co może powodować niepoprawną wymowę przez czytniki ekranu.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że tekst etykiety narzędziowej pola formularza zawiera identyfikację języka, jeśli różni się od domyślnego języka dokumentu."
+  },
+  "11-006": {
+    "title": "Nie ustawiono języka metadanych dokumentu",
+    "description": "Metadane XMP nie deklarują właściwości dc:language, lub wpis /Lang w katalogu dokumentu brakuje lub jest pusty.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj dc:language do metadanych XMP i ustaw /Lang w katalogu dokumentu na tag języka RFC 3066."
+  },
+  "12-001": {
+    "title": "Brak ActualText dla znaków rozciągliwych",
+    "description": "Znaki rozciągliwe (nawiasy, klamry, znaki pierwiastka) używane w kontekstach matematycznych lub dekoracyjnych nie mają zamienników ActualText.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj ActualText do sekwencji znaków rozciągliwych opisujących ich znaczenie semantyczne (np. ActualText='(' dla rozciągliwego lewego nawiasu)."
+  },
+  "13-001": {
+    "title": "Grafika nieoznaczona jako Figure",
+    "description": "Element graficzny (obraz, wykres, diagram) w zawartości dokumentu nie jest oznaczony elementem struktury Figure.",
+    "severity_label": "major",
+    "suggested_fix": "Oznacz wszystkie niedekoracyjne grafiki jako elementy Figure w drzewie struktury, z odpowiednim tekstem alternatywnym."
+  },
+  "13-002": {
+    "title": "Łącze ze znaczącym tłem nie posiada tekstu alternatywnego",
+    "description": "Adnotacja łącza ma znaczący wygląd wizualny (np. obraz użyty jako przycisk), ale brakuje jej tekstu alternatywnego opisującego jej przeznaczenie.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj wpis Contents do adnotacji łącza opisujący jej miejsce docelowe lub przeznaczenie."
+  },
+  "13-003": {
+    "title": "Podpis nieoznaczony jako Caption",
+    "description": "Podpis (podpis obrazu, tytuł tabeli, legenda rysunku) jest oznaczony jako zwykły tekst (P) zamiast użycia typu struktury Caption.",
+    "severity_label": "major",
+    "suggested_fix": "Oznacz podpisy typem struktury Caption i upewnij się, że są poprawnie powiązane z nadrzędnym elementem Figure lub Table."
+  },
+  "13-004": {
+    "title": "Brak tekstu alternatywnego dla Figure",
+    "description": "Element struktury Figure jest obecny, ale nie posiada atrybutu Alt zapewniającego tekst alternatywny. Czytniki ekranu ogłoszą obecność rysunku, ale nie będą mogły opisać jego zawartości.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj wpis /Alt do elementu struktury Figure ze zwięzłym opisem zawartości obrazu."
+  },
+  "14-001": {
+    "title": "Nagłówki nieoznaczone",
+    "description": "Zawartość, która wizualnie pełni funkcję nagłówka (większa czcionka, pogrubienie, odrębny styl), nie jest oznaczona typem struktury nagłówka (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Zidentyfikuj wszystkie nagłówki w dokumencie i oznacz je odpowiednimi elementami struktury H1-H6 odzwierciedlającymi ich poziom hierarchii."
+  },
+  "14-002": {
+    "title": "Pierwszy nagłówek nie jest H1",
+    "description": "Pierwszy nagłówek w drzewie struktury dokumentu nie jest typu H1. Dobrą praktyką PDF/UA-1 jest to, aby nagłówek najwyższego poziomu był H(n), a kolejne nagłówki nie pomijały poziomów.",
+    "severity_label": "major",
+    "suggested_fix": "Upewnij się, że pierwszy nagłówek to H1 (lub H2, jeśli tytuł dokumentu znajduje się w metadanych). Ponumeruj kolejne nagłówki, aby uniknąć pomijania poziomów."
+  },
+  "14-003": {
+    "title": "Pominięty poziom nagłówka",
+    "description": "Poziomy nagłówków w drzewie struktury pomijają poziom (np. H1 bezpośrednio po nim H3 bez pośredniego H2). Narusza to logiczną hierarchię nagłówków dla użytkowników technologii wspomagających.",
+    "severity_label": "major",
+    "suggested_fix": "Upewnij się, że poziomy nagłówków są sekwencyjne bez przerw. Ponumeruj nagłówki tak, aby po H1 następowało H2, potem H3 itd."
+  },
+  "14-005": {
+    "title": "Głęboki nagłówek bez typu H7+",
+    "description": "Nagłówek na poziomie zagnieżdżenia 7 lub głębszym nie posiada odpowiadającego typu struktury H7+. PDF definiuje tylko H1 do H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Spłaszcz hierarchię nagłówków do maksymalnie 6 poziomów lub używaj niestandardowego mapowania ról z ostrożnością."
+  },
+  "14-006": {
+    "title": "Wiele znaczników H w jednym węźle struktury",
+    "description": "Pojedynczy element struktury zawiera więcej niż jeden znacznik nagłówka (np. Sect zawierający zarówno H1, jak i H2). Każdy nagłówek powinien tworzyć nowy poziom zagnieżdżenia.",
+    "severity_label": "major",
+    "suggested_fix": "Podziel węzeł struktury tak, aby każdy nagłówek rozpoczynał nową sekcję lub podsekcję na odpowiednim poziomie."
+  },
+  "14-007": {
+    "title": "Niespójne mieszanie znaczników H i Hn",
+    "description": "Niektóre nagłówki używają ogólnego typu 'H', podczas gdy inne używają numerowanych typów 'H1'-'H6' niespójnie w tym samym dokumencie.",
+    "severity_label": "major",
+    "suggested_fix": "Konwertuj wszystkie ogólne znaczniki H na numerowane typy H1-H6 w oparciu o ich pozycję w hierarchii nagłówków."
+  },
+  "15-001": {
+    "title": "Nagłówek wiersza nieoznaczony jako komórka nagłówka",
+    "description": "Komórka tabeli pełniąca rolę nagłówka wiersza jest oznaczona jako TD (komórka danych) zamiast TH (komórka nagłówka). Uniemożliwia to czytnikom ekranu poprawne powiązanie nagłówków z komórkami danych.",
+    "severity_label": "major",
+    "suggested_fix": "Zmień typ struktury komórek nagłówka wiersza z TD na TH i dodaj odpowiedni atrybut Scope (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Nagłówek kolumny nieoznaczony jako komórka nagłówka",
+    "description": "Komórka tabeli pełniąca rolę nagłówka kolumny jest oznaczona jako TD zamiast TH. Czytniki ekranu nie mogą logicznie nawigować po tabeli.",
+    "severity_label": "major",
+    "suggested_fix": "Zmień typ struktury komórek nagłówka kolumny z TD na TH i dodaj odpowiedni atrybut Scope (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH bez Scope i bez powiązań Headers/ID",
+    "description": "Element TH (nagłówek tabeli) nie posiada atrybutu Scope, a tabela nie używa powiązań Headers/ID do łączenia nagłówków z komórkami danych.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj Scope='Row', Scope='Column' lub Scope='Both' do elementów TH albo zaimplementuj powiązania Headers/ID."
+  },
+  "15-005": {
+    "title": "Niejednoznaczne powiązanie nagłówka komórki",
+    "description": "Powiązanych komórek nagłówka komórki danych nie można jednoznacznie określić z powodu złożonej struktury tabeli (scalone komórki, nieregularny układ).",
+    "severity_label": "major",
+    "suggested_fix": "Użyj jawnych atrybutów Headers/ID, aby połączyć każdą komórkę TD z odpowiadającymi jej elementami TH, lub uprość strukturę tabeli."
+  },
+  "16-001": {
+    "title": "Lista uporządkowana bez ListNumbering",
+    "description": "Lista uporządkowana (typ L z numerowanymi elementami) nie posiada atrybutu ListNumbering, który określa format numerowania.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj atrybut ListNumbering do elementu L z wartością taką jak 'Decimal', 'UpperRoman', 'LowerAlpha' itp."
+  },
+  "16-002": {
+    "title": "Nieprawidłowa wartość ListNumbering",
+    "description": "Atrybut ListNumbering w elemencie L ma nierozpoznaną lub nieprawidłową wartość.",
+    "severity_label": "minor",
+    "suggested_fix": "Ustaw ListNumbering na poprawną wartość: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha lub LowerAlpha."
+  },
+  "16-003": {
+    "title": "Zawartość listy nieoznaczona jako lista",
+    "description": "Zawartość, która wizualnie i semantycznie jest listą (elementy punktowane lub numerowane), jest oznaczona jako pojedyncze akapity lub inne elementy niebędące listą.",
+    "severity_label": "major",
+    "suggested_fix": "Przebuduj zawartość jako listę (L) z elementami listy (LI), z których każdy zawiera opcjonalny Lbl i wymagany LBody."
+  },
+  "17-001": {
+    "title": "Wyrażenie matematyczne nieoznaczone jako Formula",
+    "description": "Wyrażenie matematyczne w dokumencie jest oznaczone jako zwykły akapit lub rysunek zamiast użycia typu struktury Formula.",
+    "severity_label": "minor",
+    "suggested_fix": "Oznacz wyrażenia matematyczne typem struktury Formula i zapewnij tekst alternatywny opisujący wyrażenie."
+  },
+  "17-002": {
+    "title": "Brak tekstu alternatywnego dla Formula",
+    "description": "Element struktury Formula jest obecny, ale nie posiada tekstu alternatywnego opisującego wyrażenie matematyczne.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj wpis /Alt do elementu Formula z tekstową reprezentacją wyrażenia matematycznego."
+  },
+  "17-003": {
+    "title": "Znak formuły nie jest zmapowany na Unicode",
+    "description": "Znaku w formule matematycznej nie można zmapować na Unicode, co powoduje, że technologie wspomagające odczytują zniekształcony wynik.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że czcionka użyta dla symboli matematycznych ma kompletną CMap ToUnicode obejmującą wszystkie glify. Zobacz także 10-001."
+  },
+  "18-001": {
+    "title": "Nagłówek/stopka nieoznaczone jako artefakt paginacji",
+    "description": "Bieżące nagłówki i stopki (numery stron, tytuły rozdziałów powtarzające się na każdej stronie) są oznaczone jako rzeczywista zawartość zamiast być oznaczone jako artefakty paginacji.",
+    "severity_label": "major",
+    "suggested_fix": "Oznacz bieżące nagłówki i stopki jako artefakt z podtypem 'Pagination', aby czytniki ekranu pomijały je podczas ciągłego czytania."
+  },
+  "18-002": {
+    "title": "Nagłówek/stopka bez poprawnego podtypu artefaktu",
+    "description": "Nagłówki i stopki są oznaczone jako artefakt, ale nie mają podtypu 'Pagination' lub używają nieprawidłowego podtypu.",
+    "severity_label": "major",
+    "suggested_fix": "Ustaw podtyp artefaktu na 'Pagination' dla bieżących nagłówków i stopek, a 'Header' lub 'Footer' tylko dla treści na górze/dole pierwszej/ostatniej strony."
+  },
+  "19-001": {
+    "title": "Przypis nieoznaczony jako Note",
+    "description": "Przypis dolny lub końcowy w dokumencie jest oznaczony jako zwykły akapit zamiast używać typu struktury Note.",
+    "severity_label": "major",
+    "suggested_fix": "Oznacz przypisy dolne i końcowe jako elementy Note, z unikalnym atrybutem ID oraz elementem Reference w tekście głównym wskazującym na nie."
+  },
+  "19-002": {
+    "title": "Odwołanie nieoznaczone jako Reference",
+    "description": "Cytat w tekście lub znacznik odsyłacza jest oznaczony jako zwykły tekst zamiast używać typu struktury Reference.",
+    "severity_label": "major",
+    "suggested_fix": "Oznacz znaczniki cytatów i odsyłacze jako elementy Reference, łącząc je z odpowiednią notatką lub miejscem docelowym."
+  },
+  "19-003": {
+    "title": "Brak ID notatki",
+    "description": "Element struktury Note nie posiada atrybutu ID, co uniemożliwia powiązanie referencyjne z elementu Reference w tekście głównym.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj unikalny atrybut ID do każdego elementu Note, aby elementy Reference mogły na nie wskazywać."
+  },
+  "19-004": {
+    "title": "ID notatki nie jest unikalne",
+    "description": "Dwa lub więcej elementów struktury Note współdzieli tę samą wartość atrybutu ID, co powoduje niejednoznaczne rozpoznawanie odwołań.",
+    "severity_label": "major",
+    "suggested_fix": "Upewnij się, że każdy element Note ma globalnie unikalne ID w obrębie dokumentu."
+  },
+  "20-001": {
+    "title": "Konfiguracja zawartości opcjonalnej nie posiada nazwy (tablica Configs)",
+    "description": "Słownik konfiguracji zawartości opcjonalnej w tablicy OCConfigs dokumentu nie posiada wpisu Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj opisowy wpis /Name do każdej konfiguracji zawartości opcjonalnej w tablicy OCProperties/Configs."
+  },
+  "20-002": {
+    "title": "Konfiguracja zawartości opcjonalnej nie posiada nazwy (D default)",
+    "description": "Domyślny słownik konfiguracji zawartości opcjonalnej (wpis D w OCProperties) nie posiada wpisu Name.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj wpis /Name do domyślnego słownika konfiguracji zawartości opcjonalnej."
+  },
+  "20-003": {
+    "title": "Klucz AS obecny w konfiguracji zawartości opcjonalnej",
+    "description": "Słownik konfiguracji zawartości opcjonalnej zawiera wpis AS (Application Specific), który jest niedozwolony przez PDF/UA-1, ponieważ może zmienić wygląd wizualny dokumentu bez wiedzy użytkownika.",
+    "severity_label": "minor",
+    "suggested_fix": "Usuń klucz AS ze słownika konfiguracji zawartości opcjonalnej."
+  },
+  "21-001": {
+    "title": "Plik osadzony nie posiada kluczy F i UF",
+    "description": "Słownik specyfikacji pliku osadzonego nie posiada wymaganego wpisu F (ciąg specyfikacji pliku) lub UF (ciąg specyfikacji pliku tekstowego Unicode).",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj oba wpisy F i UF do słownika specyfikacji pliku opisującego plik osadzony."
+  },
+  "22-001": {
+    "title": "Wątek artykułu niezgodny ze standardem",
+    "description": "Struktura wątku artykułu nie jest zgodna z wymaganym formatem ścieżki artykułu PDF z poprawnym łączeniem V (następny element) i N (poprzedni element).",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że elementy ścieżki artykułu są poprawnie połączone wpisami V i N, a każdy element jest powiązany z odpowiednią stroną."
+  },
+  "24-001": {
+    "title": "Formularz nieinteraktywny nie posiada PrintFields",
+    "description": "Formularz nieinteraktywny (np. płaski formularz wydrukowany z danych cyfrowych) nie ma ustawionej flagi NeedAppearances lub brakuje bitu PrintFields w parametrach transformacji FieldMDP.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że pola formularza przeznaczone tylko do druku mają poprawne ustawienia FieldMDP z włączonym bitem PrintFields."
+  },
+  "25-001": {
+    "title": "Formularz XFA dynamicRender nie jest wymagany",
+    "description": "Formularz XFA (XML Forms Architecture) zawiera elementy dynamicRender, które nie są ustawione na 'required', co może powodować niespójności w renderowaniu.",
+    "severity_label": "critical",
+    "suggested_fix": "Ustaw dynamicRender='required' dla elementów formularza XFA lub zmigruj z XFA do AcroForms w celu lepszej obsługi dostępności."
+  },
+  "28-001": {
+    "title": "Adnotacja poza kolejnością czytania",
+    "description": "Adnotacja (łącze, pole formularza, komentarz) znajduje się na stronie, ale powiązany z nią element struktury nie jest umieszczony w poprawnej pozycji kolejności czytania w drzewie struktury.",
+    "severity_label": "major",
+    "suggested_fix": "Umieść elementy struktury adnotacji (Link, Form, Annot) w poprawnej pozycji w drzewie struktury względem otaczającej treści."
+  },
+  "28-002": {
+    "title": "Adnotacja nie znajduje się wewnątrz elementu struktury Annot",
+    "description": "Obiekt adnotacji na stronie nie jest zawinięty w element struktury Annot (lub odpowiedni podtyp: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Zawiń każdy obiekt adnotacji w odpowiedni element struktury (Link dla hiperłączy, Form dla widgetów)."
+  },
+  "28-003": {
+    "title": "Adnotacja użyta tylko do formatowania wizualnego",
+    "description": "Adnotacja jest używana wyłącznie do formatowania wizualnego (np. prostokąt narysowany jako dekoracja) i nie jest odpowiednio oznaczona.",
+    "severity_label": "minor",
+    "suggested_fix": "Oznacz adnotacje służące tylko do formatowania jako artefakt lub usuń je i użyj zamiast nich odpowiednich operatorów rysowania PDF."
+  },
+  "28-004": {
+    "title": "Adnotacja nie posiada Contents i Alt",
+    "description": "Adnotacja nie posiada wpisu Contents (opis tekstowy) lub Alt (tekst alternatywny), co pozostawia użytkowników czytników ekranu bez kontekstu.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj ciąg /Contents do każdej adnotacji opisujący jej cel. Zapewnij /Alt dla adnotacji nietekstowych."
+  },
+  "28-005": {
+    "title": "Pole formularza nie posiada TU lub Alt",
+    "description": "Adnotacja widgetu pola formularza nie posiada etykiety narzędziowej (TU) lub wpisu Alt, co uniemożliwia użytkownikom czytników ekranu zrozumienie celu pola.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj wpis /TU (etykieta narzędziowa) do każdego pola formularza opisujący jego cel i oczekiwany format danych wejściowych."
+  },
+  "28-006": {
+    "title": "Niezdefiniowany podtyp adnotacji",
+    "description": "Adnotacja posiada wartość Subtype, która nie jest zdefiniowana w ISO 32000-1, co może powodować nieprzewidywalne zachowanie w procesorach PDF.",
+    "severity_label": "minor",
+    "suggested_fix": "Zastąp lub usuń adnotacje z niezdefiniowanymi podtypami lub upewnij się, że niestandardowy podtyp jest zarejestrowany i poprawnie obsługiwany."
+  },
+  "28-007": {
+    "title": "Obecna adnotacja TrapNet",
+    "description": "Adnotacja TrapNet (używana w procesach przygotowania do druku) jest obecna w dokumencie i nie jest odpowiednio oznaczona lub nie jest artefaktem.",
+    "severity_label": "minor",
+    "suggested_fix": "Oznacz adnotacje TrapNet jako artefakt, ponieważ nie niosą one znaczenia semantycznego dla odbiorców dokumentu."
+  },
+  "28-008": {
+    "title": "Strona z adnotacjami nie posiada klucza Tabs",
+    "description": "Strona zawierająca adnotacje (łącza, pola formularza) nie posiada wpisu Tabs, który określa kolejność tabulacji dla nawigacji klawiaturowej.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj wpis /Tabs do słownika strony. Użyj /Tabs=S dla kolejności struktury (zalecane dla dokumentów dostępnych)."
+  },
+  "28-009": {
+    "title": "Tabs nie ustawione na S (kolejność struktury)",
+    "description": "Klucz Tabs na stronie jest ustawiony na wartość inną niż 'S' (np. 'R' dla kolejności wierszy, 'C' dla kolejności kolumn), co może nie odpowiadać logicznej kolejności czytania dokumentu.",
+    "severity_label": "major",
+    "suggested_fix": "Ustaw /Tabs na 'S' (kolejność struktury) na stronach z adnotacjami, aby nawigacja klawiaturowa podążała za kolejnością drzewa struktury."
+  },
+  "28-010": {
+    "title": "Adnotacja widgetu nie znajduje się wewnątrz elementu Form",
+    "description": "Adnotacja widgetu (pole formularza) nie jest zawinięta w element struktury Form w drzewie.",
+    "severity_label": "major",
+    "suggested_fix": "Zawiń każdą adnotację widgetu w element struktury Form. Grupuj powiązane pola formularza wewnątrz tego samego kontenera Form."
+  },
+  "28-011": {
+    "title": "Adnotacja łącza nie znajduje się wewnątrz elementu Link",
+    "description": "Adnotacja łącza (hiperłącze) nie jest zawinięta w element struktury Link w drzewie.",
+    "severity_label": "major",
+    "suggested_fix": "Zawiń każdą adnotację łącza w element struktury Link umieszczony w poprawnej lokalizacji kolejności czytania."
+  },
+  "28-012": {
+    "title": "Adnotacja łącza nie posiada Contents",
+    "description": "Adnotacja łącza nie posiada wpisu Contents opisującego miejsce docelowe lub cel łącza.",
+    "severity_label": "major",
+    "suggested_fix": "Dodaj ciąg /Contents do każdej adnotacji łącza opisujący, na co wskazuje łącze."
+  },
+  "28-013": {
+    "title": "IsMap=true bez mapy obrazu po stronie serwera",
+    "description": "Adnotacja łącza ma ustawione IsMap na true, ale powiązany obraz nie funkcjonuje jako mapa obrazu po stronie serwera.",
+    "severity_label": "minor",
+    "suggested_fix": "Ustaw IsMap na false, jeśli obraz nie jest aktywną mapą obrazu po stronie serwera z zachowaniem zależnym od współrzędnych."
+  },
+  "28-016": {
+    "title": "Załącznik pliku niezgodny z 7.11",
+    "description": "Adnotacja załącznika pliku odwołuje się do pliku osadzonego, który nie jest zgodny z wymaganiami punktu 7.11 (Strumienie plików osadzonych).",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że pliki osadzone mają oba wpisy F i UF, a słownik specyfikacji pliku jest kompletny. Zobacz także 21-001."
+  },
+  "28-017": {
+    "title": "Znacznik drukarski w strukturze logicznej",
+    "description": "Adnotacja znacznika drukarskiego (znaczniki cięcia, pasowania, paski kolorów) pojawia się w drzewie struktury logicznej dokumentu, gdzie nie ma znaczenia semantycznego.",
+    "severity_label": "minor",
+    "suggested_fix": "Usuń adnotacje PrinterMark z drzewa struktury i oznacz je jako artefakt."
+  },
+  "28-018": {
+    "title": "Wygląd znacznika drukarskiego nie jest artefaktem",
+    "description": "Strumień wyglądu adnotacji PrinterMark nie jest oznaczony jako artefakt, co powoduje, że czytniki ekranu próbują opisywać znaczniki drukarskie.",
+    "severity_label": "minor",
+    "suggested_fix": "Oznacz zawartość wyglądu PrinterMark jako artefakt w strumieniu zawartości."
+  },
+  "30-001": {
+    "title": "Obecny obiekt referencyjny XObject",
+    "description": "Obiekt referencyjny XObject jest używany w dokumencie. Obiekty referencyjne XObject importują treść z zewnętrznych plików PDF, co może zepsuć dostępność, ponieważ zaimportowana treść nie jest poprawnie zintegrowana z drzewem struktury.",
+    "severity_label": "major",
+    "suggested_fix": "Unikaj obiektów referencyjnych XObject. Jeśli są konieczne, upewnij się, że cała zaimportowana treść jest poprawnie oznaczona w drzewie struktury dokumentu nadrzędnego."
+  },
+  "30-002": {
+    "title": "Form XObject z MCID wielokrotnie przywołany",
+    "description": "Obiekt Form XObject zawierający oznaczoną treść z MCID (identyfikatorami oznaczonej treści) jest przywoływany z wielu lokalizacji, co powoduje konflikty MCID w sekwencji oznaczonej treści strony.",
+    "severity_label": "major",
+    "suggested_fix": "Unikaj ponownego używania obiektów Form XObject, które zawierają oznaczoną treść. Spłaszcz lub zduplikuj XObject dla każdej lokalizacji użycia."
+  },
+  "31-001": {
+    "title": "Niezgodność rejestru CIDSystemInfo między potomkami Type0",
+    "description": "Potomne czcionki CIDFont czcionki Type0 mają niespójne wartości rejestru CIDSystemInfo, co może powodować błędy mapowania znaków.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że wszystkie potomne czcionki CIDFont czcionki Type0 mają spójne wartości CIDSystemInfo (Registry, Ordering, Supplement)."
+  },
+  "31-002": {
+    "title": "Niezgodność Ordering CIDSystemInfo między potomkami Type0",
+    "description": "Potomne czcionki CIDFont czcionki Type0 mają niespójne wartości Ordering CIDSystemInfo.",
+    "severity_label": "minor",
+    "suggested_fix": "Wyrównaj wartości Ordering we wszystkich potomnych czcionkach CIDFont czcionki Type0."
+  },
+  "31-003": {
+    "title": "Niezgodność Supplement CIDSystemInfo między potomkami Type0",
+    "description": "Potomne czcionki CIDFont czcionki Type0 mają niespójne wartości Supplement CIDSystemInfo.",
+    "severity_label": "minor",
+    "suggested_fix": "Wyrównaj wartości Supplement we wszystkich potomnych czcionkach CIDFont czcionki Type0."
+  },
+  "31-004": {
+    "title": "Brak CIDToGIDMap w czcionce CIDFont",
+    "description": "Słownik czcionki CIDFont nie zawiera wpisu CIDToGIDMap i nie używa mapowania Identity, co czyni wyszukiwanie glifów niewiarygodnym.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj wpis CIDToGIDMap do czcionki CIDFont lub ustaw go na 'Identity', jeśli czcionka używa tożsamościowych CID."
+  },
+  "31-005": {
+    "title": "Czcionka CIDFont wymaga mapy CIDToGIDMap innej niż Identity",
+    "description": "Czcionka CIDFont, której kolekcja znaków nie jest Adobe-Identity, wymaga jawnego strumienia CIDToGIDMap dla poprawnego mapowania glifów.",
+    "severity_label": "minor",
+    "suggested_fix": "Dostarcz jawny strumień CIDToGIDMap dla czcionki CIDFont, jeśli nie używa ona kolekcji znaków Adobe-Identity."
+  },
+  "31-006": {
+    "title": "CMap niewymieniona lub nieosadzona",
+    "description": "Zasób CMap używany przez czcionkę Type0 nie jest ani wymieniony w standardowych CMapach specyfikacji PDF, ani osadzony w dokumencie.",
+    "severity_label": "minor",
+    "suggested_fix": "Użyj standardowej mapy CMap ze specyfikacji PDF lub osadź niestandardowy strumień CMap w dokumencie."
+  },
+  "31-007": {
+    "title": "Niezgodność WMode w czcionce Type0",
+    "description": "Wartości WMode (tryb pisania) różnią się między mapą CMap a potomnymi czcionkami CIDFont czcionki Type0.",
+    "severity_label": "minor",
+    "suggested_fix": "Zapewnij spójne wartości WMode (0 dla poziomego, 1 dla pionowego) w mapie CMap i wszystkich potomnych czcionkach CIDFont."
+  },
+  "31-008": {
+    "title": "CMap odwołuje się do niewymienionej mapy CMap",
+    "description": "Strumień CMap odwołuje się do innej mapy CMap, która nie jest ani standardową mapą CMap, ani nie jest osadzona w dokumencie.",
+    "severity_label": "minor",
+    "suggested_fix": "Osadź wszystkie przywoływane niestandardowe mapy CMap w dokumencie lub używaj tylko standardowych map CMap."
+  },
+  "31-009": {
+    "title": "Czcionka nieosadzona",
+    "description": "Czcionka użyta w dokumencie nie jest osadzona. Nieosadzone czcionki powodują powrót do czcionek systemowych, które mogą mieć inne metryki i pokrycie glifów, co psuje ekstrakcję tekstu i wierność wizualną.",
+    "severity_label": "critical",
+    "suggested_fix": "Osadź wszystkie czcionki użyte w dokumencie. W przypadku standardowych 14 czcionek, których nie można osadzić, upewnij się, że program czcionki jest dostępny lub zastąp go osadzonym odpowiednikiem."
+  },
+  "31-011": {
+    "title": "Osadzony program czcionki nie posiada glifu",
+    "description": "Glif przywołany w tekście dokumentu nie jest obecny w osadzonym programie czcionki.",
+    "severity_label": "major",
+    "suggested_fix": "Podziel czcionkę, aby uwzględnić wszystkie wymagane glify, lub użyj innej czcionki, która zawiera potrzebne glify."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glif niewymieniony",
+    "description": "CharSet czcionki Type1 nie wymienia glifu, który faktycznie jest obecny w programie czcionki i użyty w dokumencie.",
+    "severity_label": "minor",
+    "suggested_fix": "Zaktualizuj CharSet, aby uwzględnić wszystkie glify obecne w programie czcionki, które są przywołane w dokumencie."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: wymieniony glif nie jest w czcionce",
+    "description": "CharSet czcionki Type1 wymienia nazwę glifu, która nie istnieje w osadzonym programie czcionki.",
+    "severity_label": "minor",
+    "suggested_fix": "Usuń nieistniejące nazwy glifów z CharSet lub osadź pełną czcionkę."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glif niewymieniony",
+    "description": "CIDSet czcionki CIDFont nie zawiera CID, który faktycznie jest obecny w osadzonym programie czcionki i użyty w dokumencie.",
+    "severity_label": "minor",
+    "suggested_fix": "Zaktualizuj CIDSet, aby uwzględnić wszystkie wartości CID użyte w dokumencie."
+  },
+  "31-015": {
+    "title": "CID CIDSet: wymieniony CID nie jest w czcionce",
+    "description": "CIDSet czcionki CIDFont wymienia CID, który nie odpowiada żadnemu glifowi w osadzonym programie czcionki.",
+    "severity_label": "minor",
+    "suggested_fix": "Usuń nieistniejące CID z CIDSet lub wygeneruj go ponownie z właściwego programu czcionki."
+  },
+  "31-016": {
+    "title": "Rozbieżność szerokości glifu > 1/1000",
+    "description": "Szerokość glifu określona w słowniku czcionki różni się o więcej niż 1 jednostkę na 1000 od szerokości w osadzonym programie czcionki.",
+    "severity_label": "minor",
+    "suggested_fix": "Popraw tablicę Widths (lub wpis W2) w słowniku czcionki, aby dopasować ją do rzeczywistych szerokości glifów w osadzonym programie czcionki."
+  },
+  "31-017": {
+    "title": "Niesymboliczna czcionka TrueType nie posiada niesymbolicznej mapy cmap",
+    "description": "Czcionka TrueType z kodowaniem niesymbolicznym (obecny wpis Encoding lub wyłączona flaga symboliczna) nie zawiera podtablicy cmap (3,1) dla mapowania Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że program czcionki TrueType zawiera podtablicę cmap (3,1) Microsoft Unicode BMP dla poprawnego mapowania znaków Unicode."
+  },
+  "31-018": {
+    "title": "Niesymboliczny glif TrueType nie znajduje się w cmap",
+    "description": "Glifu w niesymbolicznej czcionce TrueType nie można wyszukać za pomocą podtablic cmap czcionki.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że wszystkie glify użyte w dokumencie są dostępne przez co najmniej jedną podtablicę cmap w czcionce."
+  },
+  "31-019": {
+    "title": "Słownik niesymbolicznej czcionki TrueType nie posiada Encoding",
+    "description": "Słownik niesymbolicznej czcionki TrueType nie posiada wpisu Encoding, który jest wymagany do rozpoznawania nazw glifów.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj odpowiedni wpis Encoding (np. WinAnsiEncoding, MacRomanEncoding) do słownika czcionki."
+  },
+  "31-020": {
+    "title": "Słownik Encoding nie posiada BaseEncoding",
+    "description": "Słownik Encoding z tablicą Differences nie określa wpisu BaseEncoding.",
+    "severity_label": "minor",
+    "suggested_fix": "Określ BaseEncoding (np. WinAnsiEncoding) w słowniku Encoding, od którego odbiega tablica Differences."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding nie jest MacRoman lub WinAnsi",
+    "description": "Kodowanie lub BaseEncoding niesymbolicznej czcionki TrueType nie jest ani MacRomanEncoding, ani WinAnsiEncoding, które są dwoma standardowymi kodowaniami bazowymi.",
+    "severity_label": "minor",
+    "suggested_fix": "Użyj WinAnsiEncoding lub MacRomanEncoding jako kodowania bazowego dla czcionki."
+  },
+  "31-022": {
+    "title": "Nazwy glifów w Differences nie znajdują się w Adobe Glyph List",
+    "description": "Tablica Differences w słowniku Encoding czcionki używa nazw glifów, których nie ma w Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Używaj tylko standardowych nazw glifów z Adobe Glyph List w tablicy Differences."
+  },
+  "31-023": {
+    "title": "Differences obecne, ale brak cmap (3,1)",
+    "description": "Czcionka posiada tablicę Differences w swoim kodowaniu, ale program czcionki TrueType nie zawiera podtablicy cmap (3,1) dla mapowania Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Dodaj mapę ToUnicode CMap dla czcionki, aby zapewnić niezawodne mapowanie Unicode."
+  },
+  "31-024": {
+    "title": "Słownik symbolicznej czcionki TrueType posiada Encoding",
+    "description": "Symboliczna czcionka TrueType (ustawiony bit 3 flag) posiada wpis Encoding w swoim słowniku czcionki, co jest niedozwolone dla czcionek symbolicznych.",
+    "severity_label": "minor",
+    "suggested_fix": "Usuń wpis Encoding ze słowników symbolicznych czcionek TrueType. Czcionki symboliczne polegają na mapie cmap programu czcionki w celu mapowania znaków."
+  },
+  "31-025": {
+    "title": "Program symbolicznej czcionki TrueType nie posiada cmap",
+    "description": "Osadzony program symbolicznej czcionki TrueType nie zawiera żadnej tablicy cmap.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że osadzony program czcionki zawiera co najmniej podtablicę cmap (3,0) dla symbolicznego mapowania znaków."
+  },
+  "31-026": {
+    "title": "Symboliczna czcionka TrueType z wieloma mapami cmap nie posiada (3,0)",
+    "description": "Symboliczna czcionka TrueType posiada wiele podtablic cmap, ale brakuje jej wymaganej podtablicy cmap (3,0) Microsoft Symbol.",
+    "severity_label": "minor",
+    "suggested_fix": "Upewnij się, że osadzony program czcionki zawiera podtablicę cmap (3,0) Microsoft Symbol dla poprawnego mapowania znaków."
+  },
+  "31-027": {
+    "title": "Brak mapy ToUnicode CMap",
+    "description": "Czcionka użyta dla treści tekstowej nie posiada mapy ToUnicode CMap i nie mają zastosowania żadne warunki zwolnienia. Bez mapy ToUnicode CMap technologie wspomagające nie mogą wyodrębnić czytelnego tekstu.",
+    "severity_label": "critical",
+    "suggested_fix": "Dodaj strumień ToUnicode CMap do słownika czcionki mapujący każdy kod znaku użyty w dokumencie na odpowiadającą mu wartość Unicode."
+  },
+  "31-028": {
+    "title": "ToUnicode mapuje na CID 0",
+    "description": "Mapa ToUnicode CMap mapuje kod znaku na wartość Unicode U+0000 (null), która nie jest poprawnym znakiem tekstowym.",
+    "severity_label": "minor",
+    "suggested_fix": "Popraw mapę ToUnicode CMap, aby mapowała kod znaku na poprawną, niepustą wartość Unicode."
+  },
+  "31-029": {
+    "title": "ToUnicode mapuje na U+FEFF lub U+FFFE",
+    "description": "Mapa ToUnicode CMap mapuje kod znaku na U+FEFF (BOM) lub U+FFFE (znacznik kolejności bajtów), które są znakami sterującymi, a nie poprawnym wyświetlanym tekstem.",
+    "severity_label": "minor",
+    "suggested_fix": "Zastąp mapowania U+FEFF/U+FFFE w mapie ToUnicode CMap rzeczywistą wartością Unicode znaku."
+  },
+  "31-030": {
+    "title": "Glif .notdef przywołany w tekście",
+    "description": "Operator wyświetlania tekstu w dokumencie odwołuje się do glifu .notdef (indeks glifu 0), co wskazuje na brakujący lub niedostępny znak. Tekst używający .notdef pojawia się jako puste lub zastępcze znaki.",
+    "severity_label": "major",
+    "suggested_fix": "Upewnij się, że wszystkie kody znaków użyte w dokumencie odpowiadają rzeczywistym glifom w osadzonym programie czcionki."
+  }
+}

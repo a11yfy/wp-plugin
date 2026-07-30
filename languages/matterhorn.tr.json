@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Gerçek içerik olarak etiketlenmiş yapı öğesi",
+    "description": "Bir sayfa yapı öğesi (üst bilgi, alt bilgi, dekoratif öğe), yapı ağacında yanlışlıkla gerçek içerik olarak etiketlenmiş. Ekran okuyucular, dekoratif öğeleri belge içeriği olarak okumaya çalışacaktır.",
+    "severity_label": "critical",
+    "suggested_fix": "Yapı öğesi türünü yapı öğesi olarak değiştirin veya içeriği bir yapı öğesi işaretli içerik dizisi ile çevreleyin."
+  },
+  "01-002": {
+    "title": "Yapı öğesi olarak işaretlenmiş gerçek içerik",
+    "description": "Gerçek belge içeriği (gövde metni, başlık, açıklama), yanlışlıkla bir yapı öğesi olarak işaretlenmiş. Ekran okuyucular bu içeriği tamamen atlayacaktır.",
+    "severity_label": "critical",
+    "suggested_fix": "Gerçek içerikteki yapı öğesi işaretini kaldırın ve uygun bir yapı öğesi ile doğru şekilde etiketlendiğinden emin olun."
+  },
+  "01-003": {
+    "title": "Etiketli içerik içinde yapı öğesi",
+    "description": "Yapı öğesi olarak işaretlenmiş bir öğe, gerçek içeriği temsil eden bir yapı öğesinin içinde görünüyor ve içerik hiyerarşisini bozuyor.",
+    "severity_label": "critical",
+    "suggested_fix": "Yapı öğesi olarak işaretlenmiş içeriği gerçek içerik yapı öğesinin dışına taşıyın veya öğe hiyerarşisini yeniden yapılandırın."
+  },
+  "01-004": {
+    "title": "Yapı öğesi içinde etiketli içerik",
+    "description": "Etiketli bir gerçek içerik öğesi, bir yapı öğesi kapsayıcısının içine yerleştirilmiş. Ekran okuyucular bu içeriği atlayabilir.",
+    "severity_label": "critical",
+    "suggested_fix": "Etiketli içeriği yapı öğesi kapsayıcısından çıkarın ve yapı ağacında doğru seviyeye yerleştirin."
+  },
+  "01-005": {
+    "title": "Ne etiketlenmiş ne de yapı öğesi olan içerik",
+    "description": "Sayfadaki içerik ne bir yapı öğesi olarak etiketlenmiş ne de bir yapı öğesi olarak işaretlenmiş. Bu, en yaygın PDF/UA ihlalidir ve ekran okuyucuların içeriği okumamalarının birincil nedenidir.",
+    "severity_label": "critical",
+    "suggested_fix": "İçeriği uygun bir yapı öğesiyle (P, H1-H6, Figure vb.) etiketleyin veya dekoratifse yapı öğesi olarak işaretleyin."
+  },
+  "01-006": {
+    "title": "StructTreeRoot eksik",
+    "description": "Belge kataloğu sözlüğü, belgenin mantıksal yapısının kökü olarak hizmet eden StructTreeRoot girişini içermelidir. Bu olmadan, ekran okuyucular belge yapısını hiçbir şekilde yorumlayamaz.",
+    "severity_label": "critical",
+    "suggested_fix": "Belge kataloğu sözlüğüne bir StructTreeRoot nesnesi ekleyin ve tüm içerik sayfaları için yapı öğesi hiyerarşisini oluşturun."
+  },
+  "01-007": {
+    "title": "Suspect bayrağı doğru (true)",
+    "description": "Belgenin MarkInfo sözlüğündeki Suspects girişi true olarak ayarlanmış, bu da yapı ağacının güvenilmez etiketleme içerebileceğini gösterir. Yardımcı teknolojiler yapı ağacını tamamen yok sayabilir.",
+    "severity_label": "critical",
+    "suggested_fix": "Tüm içeriğin doğru şekilde etiketlendiğini doğruladıktan sonra MarkInfo sözlüğündeki Suspects bayrağını false olarak ayarlayın."
+  },
+  "02-001": {
+    "title": "Standart olmayan rol eşleme, standart türle bitmiyor",
+    "description": "RoleMap içindeki özel bir rol, standart bir PDF yapı türüyle eşleşmiyor. Eşleme zincirinin nihai hedefi, PDF 32000-1 rol kümesinden standart bir tür olmalıdır.",
+    "severity_label": "critical",
+    "suggested_fix": "RoleMap içindeki her standart olmayan rolün doğrudan veya dolaylı olarak standart bir türe (örneğin; Document, Part, Sect, P, H1-H6, L, LI, Table, Figure vb.) eşlendiğinden emin olun."
+  },
+  "02-002": {
+    "title": "Anlamsal olarak uygun olmayan rol eşleme",
+    "description": "Bir yapı öğesinin rolü, öğenin anlamsal amacına uymayan standart bir türle eşlenmiş (örneğin; Span ile eşlenmiş bir başlık).",
+    "severity_label": "critical",
+    "suggested_fix": "RoleMap'i gözden geçirin ve her eşlemenin içeriğin gerçek anlamsal rolünü yansıttığından emin olun. İnsan yargısı gerekebilir."
+  },
+  "02-003": {
+    "title": "Döngüsel rol eşleme",
+    "description": "RoleMap, A rolünün B'ye, B'nin C'ye ve C'nin tekrar A'ya eşlendiği, işlemciler için sonsuz bir döngü yaratan döngüsel bir zincir içeriyor.",
+    "severity_label": "major",
+    "suggested_fix": "Nihai rolü doğrudan uygun bir standart türe eşleyerek döngüsel zinciri kırın."
+  },
+  "02-004": {
+    "title": "Standart tür yeniden eşlendi",
+    "description": "Standart bir PDF yapı türü (örneğin; P, H1, Table), PDF/UA-1 tarafından izin verilmeyen RoleMap aracılığıyla farklı bir türe yeniden eşleniyor.",
+    "severity_label": "critical",
+    "suggested_fix": "Bu standart tür için RoleMap'teki eşlemeyi kaldırın. Standart türler yeniden eşlenmemelidir."
+  },
+  "06-001": {
+    "title": "XMP meta veri akışı eksik",
+    "description": "Belge, kataloğun Metadata girişinde bir XMP meta veri akışı içermiyor. PDF/UA-1, XMP meta verilerini gerektirir.",
+    "severity_label": "major",
+    "suggested_fix": "Belge kataloğuna en azından dc:format (application/pdf), pdfuaid:part (1) ve dc:title içeren bir XMP meta veri akışı ekleyin."
+  },
+  "06-002": {
+    "title": "PDF/UA tanımlayıcısı eksik",
+    "description": "XMP meta verileri, belgeyi PDF/UA-1 (ISO 14289-1) ile uyumlu olarak tanımlayan pdfuaid:part özelliğini içermiyor.",
+    "severity_label": "major",
+    "suggested_fix": "PDF/UA-1 uyumluluğunu beyan etmek için XMP meta veri akışına 1 değerine sahip pdfuaid:part özelliğini ekleyin."
+  },
+  "06-003": {
+    "title": "Meta verilerde dc:title eksik",
+    "description": "XMP meta verileri veya belge bilgisi sözlüğü bir dc:title girişi içermiyor. PDF/UA-1, belgenin bir başlığa sahip olmasını gerektirir.",
+    "severity_label": "major",
+    "suggested_fix": "XMP meta veri akışına bir dc:title girişi ekleyin. Belgenin gerçek başlığını veya anlamlı bir yedeğini kullanın."
+  },
+  "07-001": {
+    "title": "DisplayDocTitle görüntüleyici tercihi eksik",
+    "description": "Belgenin görüntüleyici tercihleri sözlüğü DisplayDocTitle anahtarını içermiyor. Yok olduğunda veya false olduğunda, görüntüleyiciler belge başlığı yerine dosya adını görüntüler.",
+    "severity_label": "major",
+    "suggested_fix": "Belgenin görüntüleyici tercihleri sözlüğünde (Catalog/ViewerPreferences) DisplayDocTitle değerini true olarak ayarlayın."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle false olarak ayarlanmış",
+    "description": "Görüntüleyici tercihlerindeki DisplayDocTitle anahtarı false olarak ayarlanmış, bu da görüntüleyicilerin başlık çubuğunda belge başlığı yerine dosya adını görüntülemesine neden oluyor.",
+    "severity_label": "major",
+    "suggested_fix": "Görüntüleyici tercihleri sözlüğünde DisplayDocTitle değerini true olarak değiştirin."
+  },
+  "08-002": {
+    "title": "OCR metni yapı ağacında etiketlenmemiş",
+    "description": "Belge, yapı ağacında etiketlenmemiş OCR ile oluşturulmuş metin içeriyor (taranmış PDF'lerde yaygındır). Ekran okuyucu kullanıcıları bu içeriğe erişemez.",
+    "severity_label": "critical",
+    "suggested_fix": "Tüm OCR ile oluşturulmuş metinlerin uygun etiketlerle yapı ağacına dahil edildiğinden emin olun. Taranmış PDF'ler için belgeyi tam bir metin katmanı katmanıyla yeniden oluşturun."
+  },
+  "09-001": {
+    "title": "Etiketler mantıksal okuma sırasında değil",
+    "description": "Ağaçtaki yapı öğeleri, belgenin mantıksal okuma sırasına göre düzenlenmemiş. Ekran okuyucular belgeyi, görsel sıradan farklı olabilen ağaç sırasına göre gezer.",
+    "severity_label": "critical",
+    "suggested_fix": "Yapı öğelerini, mantıksal okuma sırasına (ilgili dil için genellikle yukarıdan aşağıya, soldan sağa) uyacak şekilde ağaçta yeniden sıralayın."
+  },
+  "09-002": {
+    "title": "Anlamsal olarak uygun olmayan iç içe yerleştirme",
+    "description": "Bir yapı öğesi, anlamsal olarak ait olmadığı bir üst öğenin içine yerleştirilmiş (örneğin; bir paragraf içinde tablo satırı veya liste içinde başlık).",
+    "severity_label": "critical",
+    "suggested_fix": "Her öğenin anlamsal olarak uygun bir üst öğenin içine yerleştirildiğinden emin olmak için öğe hiyerarşisini yeniden yapılandırın."
+  },
+  "09-003": {
+    "title": "Rol eşlemeden sonra uygun olmayan yapı türü",
+    "description": "Rol eşleme çözümlemesinden sonra, nihai yapı türü içerdiği içerik için anlamsal olarak uygun değil.",
+    "severity_label": "major",
+    "suggested_fix": "RoleMap'i ayarlayın veya orijinal yapı türünü değiştirin, böylece çözümlenen tür içeriğin anlamsal rolüyle eşleşsin."
+  },
+  "09-004": {
+    "title": "Table öğesi Tablo 337 ile uyumlu değil",
+    "description": "Table türündeki bir yapı öğesi, izin verilen alt yapı ile (ISO 32000-1'deki Tablo 337) uyumlu değil. Bir tablo en azından TR alt öğelerine sahip bir TBody veya THead/TBody/TFoot bölümleri içermelidir.",
+    "severity_label": "major",
+    "suggested_fix": "Table öğesinin düzgün yapılandırılmış satırlar içerdiğinden emin olun: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. En azından satırları bir TBody içine alın."
+  },
+  "09-005": {
+    "title": "List öğesi Tablo 336 ile uyumlu değil",
+    "description": "L (List) türündeki bir yapı öğesi, izin verilen alt yapı ile (ISO 32000-1'deki Tablo 336) uyumlu değil. Bir liste LI öğeleri içermeli ve bir LI, Lbl (isteğe bağlı) ve LBody içermelidir.",
+    "severity_label": "major",
+    "suggested_fix": "Listeleri şu şekilde yapılandırın: L > LI > (Lbl)? + LBody. Her liste öğesinin, öğe içeriğini içeren bir LBody alt öğesine sahip olduğundan emin olun."
+  },
+  "09-006": {
+    "title": "TOC öğesi Tablo 333 ile uyumlu değil",
+    "description": "TOC (İçindekiler) türündeki bir yapı öğesi, izin verilen alt yapı ile uyumlu değil. TOC, TOCI öğelerini içermelidir.",
+    "severity_label": "minor",
+    "suggested_fix": "İçindekiler girişlerini şu şekilde yapılandırın: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby öğesi uyumlu değil",
+    "description": "Bir Ruby yapı öğesi (telaffuz açıklamaları için kullanılır), gerekli alt yapıyı takip etmiyor: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Ruby öğesini gerekli RB (ruby tabanı) ve RT (ruby metni) alt öğeleriyle yeniden yapılandırın."
+  },
+  "09-008": {
+    "title": "Warichu öğesi uyumlu değil",
+    "description": "Bir Warichu yapı öğesi (CJK metnindeki satır içi yorum veya açıklama), gerekli yapıyı takip etmiyor: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Warichu öğesini gerekli WT (warichu metni) ve WP (warichu noktalama işareti) alt öğeleriyle yeniden yapılandırın."
+  },
+  "10-001": {
+    "title": "Karakter kodu Unicode ile eşlenemiyor",
+    "description": "Belgenin metnindeki bir karakter kodu, bir Unicode değerine eşlenemiyor. Bu, yardımcı teknolojiler metni çıkardığında bozuk veya eksik karakterlere neden olur.",
+    "severity_label": "minor",
+    "suggested_fix": "Tüm yazı tiplerinin, kullanılan her karakter kodunu geçerli bir Unicode değerine eşleyen bir ToUnicode CMap'e sahip olduğundan emin olun. CMap'in belgede kullanılan tüm glifleri kapsadığını doğrulayın."
+  },
+  "11-001": {
+    "title": "Sayfa içeriği dili belirlenemiyor",
+    "description": "Sayfa içeriğinin doğal dili, belge kataloğunda veya sayfa düzeyi yapı öğelerinde /Lang girişi eksik olduğundan belirlenemiyor.",
+    "severity_label": "critical",
+    "suggested_fix": "Belge kataloğundaki /Lang girişini belgenin birincil diline (örneğin; 'tr-TR', 'en-US') ayarlayın. İçerik dil değiştiriyorsa bireysel yapı öğelerine /Lang ekleyin."
+  },
+  "11-002": {
+    "title": "Alt/ActualText dili belirlenemiyor",
+    "description": "Alternatif metin açıklamalarının (Alt) veya ActualText değiştirmelerinin dili belirlenemiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Metin dili belge varsayılanından farklı olduğunda, Alt veya ActualText içeren yapı öğelerine /Lang öznitelikleri ekleyin."
+  },
+  "11-003": {
+    "title": "Anahat dili ayarlanmamış",
+    "description": "Belge anahattı (yer imleri), yardımcı teknolojilerin anahat öğelerini doğru şekilde telaffuz etmesini engelleyen bir /Lang girişine sahip değil.",
+    "severity_label": "minor",
+    "suggested_fix": "Anahat sözlüğüne, belgenin birincil diliyle eşleşen bir /Lang girişi ekleyin."
+  },
+  "11-004": {
+    "title": "Açıklama İçeriği dili ayarlanmamış",
+    "description": "Açıklama İçeriği dizeleri (araç ipuçları, form alanı değerleri) ilişkili bir dil beyanına sahip değil.",
+    "severity_label": "minor",
+    "suggested_fix": "Açıklama metni belge dilinden farklı olduğunda açıklama görünüm sözlüklerine /Lang ekleyin."
+  },
+  "11-005": {
+    "title": "Form alanı TU dili ayarlanmamış",
+    "description": "Form alanlarının Araç İpucu (TU) girişi ilişkili bir dile sahip değil, bu da ekran okuyucular tarafından yanlış telaffuza neden olabilir.",
+    "severity_label": "minor",
+    "suggested_fix": "Form alanı araç ipucu metninin, belge varsayılan dilinden farklıysa dil tanımlaması içerdiğinden emin olun."
+  },
+  "11-006": {
+    "title": "Belge meta veri dili ayarlanmamış",
+    "description": "XMP meta verileri bir dc:language özelliği beyan etmiyor veya belge kataloğu /Lang girişi eksik ya da boş.",
+    "severity_label": "major",
+    "suggested_fix": "XMP meta verilerine dc:language ekleyin ve belge kataloğundaki /Lang girişini bir RFC 3066 dil etiketine ayarlayın."
+  },
+  "12-001": {
+    "title": "Esnetilebilir karakterlerde ActualText eksik",
+    "description": "Matematiksel veya dekoratif bağlamlarda kullanılan esnetilebilir karakterlerin (parantezler, köşeli parantezler, küme parantezleri, kök işaretleri) ActualText değiştirmeleri yok.",
+    "severity_label": "minor",
+    "suggested_fix": "Esnetilebilir karakter dizilerine, anlamsal anlamlarını açıklayan ActualText ekleyin (örneğin; esnetilebilir bir sol parantez için ActualText='(')."
+  },
+  "13-001": {
+    "title": "Grafik, Figure olarak etiketlenmemiş",
+    "description": "Belge içeriğindeki bir grafik öğesi (görsel, grafik, diyagram), bir Figure yapı öğesi ile etiketlenmemiş.",
+    "severity_label": "major",
+    "suggested_fix": "Dekoratif olmayan tüm grafikleri, uygun Alt metinle birlikte yapı ağacında Figure öğeleri olarak etiketleyin."
+  },
+  "13-002": {
+    "title": "Anlamlı arka plana sahip bağlantıda Alt metin eksik",
+    "description": "Bir bağlantı açıklaması anlamlı bir görsel görünüme sahip (örneğin; düğme olarak kullanılan bir görsel) ancak amacını açıklayan alternatif metne sahip değil.",
+    "severity_label": "major",
+    "suggested_fix": "Bağlantı açıklamasına, hedefini veya amacını açıklayan bir Contents girişi ekleyin."
+  },
+  "13-003": {
+    "title": "Başlık, Caption olarak etiketlenmemiş",
+    "description": "Bir başlık (görsel başlığı, tablo başlığı, şekil açıklaması), Caption yapı türü yerine normal metin (P) olarak etiketlenmiş.",
+    "severity_label": "major",
+    "suggested_fix": "Başlıkları Caption yapı türüyle etiketleyin ve üst Figure veya Table öğeleriyle doğru şekilde ilişkilendirildiklerinden emin olun."
+  },
+  "13-004": {
+    "title": "Figure'de Alt metin eksik",
+    "description": "Bir Figure yapı öğesi mevcut ancak alternatif metin sağlayan bir Alt özniteliğine sahip değil. Ekran okuyucular şeklin varlığını duyuracak ancak içeriğini açıklayamayacaktır.",
+    "severity_label": "major",
+    "suggested_fix": "Figure yapı öğesine, görsel içeriğinin kısa bir açıklamasını içeren bir /Alt girişi ekleyin."
+  },
+  "14-001": {
+    "title": "Başlıklar etiketlenmemiş",
+    "description": "Görsel olarak başlık işlevi gören içerik (daha büyük yazı tipi, kalın, belirgin stil), bir başlık yapı türüyle (H1-H6) etiketlenmemiş.",
+    "severity_label": "major",
+    "suggested_fix": "Belgedeki tüm başlıkları tanımlayın ve hiyerarşi seviyelerini yansıtan uygun H1-H6 yapı öğeleriyle etiketleyin."
+  },
+  "14-002": {
+    "title": "İlk başlık H1 değil",
+    "description": "Belge yapı ağacındaki ilk başlık H1 türünde değil. PDF/UA-1 en iyi uygulaması, üst düzey başlığın H(n) olması ve sonraki başlıkların seviye atlamamasıdır.",
+    "severity_label": "major",
+    "suggested_fix": "İlk başlığın H1 olduğundan emin olun (belge başlığı meta verilerdeyse H2 olabilir). Seviye atlamalarını önlemek için sonraki başlıkları yeniden numaralandırın."
+  },
+  "14-003": {
+    "title": "Başlık seviyesi atlandı",
+    "description": "Yapı ağacındaki başlık seviyeleri bir seviyeyi atlıyor (örneğin; H2 olmadan doğrudan H1'i takip eden H3). Bu, yardımcı teknoloji kullanıcıları için mantıksal başlık hiyerarşisini bozar.",
+    "severity_label": "major",
+    "suggested_fix": "Başlık seviyelerinin boşluksuz ardışık olduğundan emin olun. Başlıkları, H1'i H2'nin, ardından H3'ün takip edeceği şekilde yeniden numaralandırın."
+  },
+  "14-005": {
+    "title": "H7+ türü olmayan derin başlık",
+    "description": "7 veya daha derin iç içe yerleştirme seviyesindeki bir başlık, karşılık gelen bir H7+ yapı türüne sahip değil. PDF yalnızca H1'den H6'ya kadar tanımlar.",
+    "severity_label": "minor",
+    "suggested_fix": "Başlık hiyerarşisini maksimum 6 seviyeye indirin veya standart olmayan rol eşlemeyi dikkatli kullanın."
+  },
+  "14-006": {
+    "title": "Bir yapı düğümünde birden fazla H etiketi",
+    "description": "Tek bir yapı öğesi birden fazla başlık etiketi içeriyor (örneğin; hem H1 hem de H2 içeren bir Sect). Her başlık yeni bir iç içe yerleştirme seviyesi oluşturmalıdır.",
+    "severity_label": "major",
+    "suggested_fix": "Yapı düğümünü, her başlık uygun seviyede yeni bir bölüm veya alt bölüm başlatacak şekilde bölün."
+  },
+  "14-007": {
+    "title": "H ve Hn etiketleri tutarsız şekilde karışık",
+    "description": "Bazı başlıklar genel 'H' türünü kullanırken diğerleri aynı belge içinde tutarsız bir şekilde numaralandırılmış 'H1'-'H6' türlerini kullanıyor.",
+    "severity_label": "major",
+    "suggested_fix": "Tüm genel H etiketlerini, başlık hiyerarşisindeki konumlarına göre numaralandırılmış H1-H6 türlerine dönüştürün."
+  },
+  "15-001": {
+    "title": "Satır başlığı, başlık hücresi olarak etiketlenmemiş",
+    "description": "Satır başlığı işlevi gören bir tablo hücresi, TH (başlık hücresi) yerine TD (veri hücresi) olarak etiketlenmiş. Bu, ekran okuyucuların başlıkları veri hücreleriyle doğru şekilde ilişkilendirmesini engeller.",
+    "severity_label": "major",
+    "suggested_fix": "Satır başlığı hücrelerinin yapı türünü TD'den TH'ye değiştirin ve uygun bir Scope özniteliği (Scope='Row') ekleyin."
+  },
+  "15-002": {
+    "title": "Sütun başlığı, başlık hücresi olarak etiketlenmemiş",
+    "description": "Sütun başlığı işlevi gören bir tablo hücresi, TH yerine TD olarak etiketlenmiş. Ekran okuyucular tabloyu mantıksal olarak gezemez.",
+    "severity_label": "major",
+    "suggested_fix": "Sütun başlığı hücrelerinin yapı türünü TD'den TH'ye değiştirin ve uygun bir Scope özniteliği (Scope='Column') ekleyin."
+  },
+  "15-003": {
+    "title": "TH'de Headers/ID olmadan Scope eksik",
+    "description": "Bir TH (tablo başlığı) öğesi bir Scope özniteliğine sahip değil ve tablo, başlıkları veri hücrelerine bağlamak için Headers/ID ilişkilendirmelerini kullanmıyor.",
+    "severity_label": "major",
+    "suggested_fix": "TH öğelerine Scope='Row', Scope='Column' veya Scope='Both' ekleyin ya da Headers/ID ilişkilendirmelerini uygulayın."
+  },
+  "15-005": {
+    "title": "Belirsiz hücre başlığı ilişkilendirmesi",
+    "description": "Karmaşık tablo yapısı (birleştirilmiş hücreler, düzensiz düzen) nedeniyle bir veri hücresinin ilişkili başlık hücreleri belirsiz bir şekilde belirlenemiyor.",
+    "severity_label": "major",
+    "suggested_fix": "Her TD'yi karşılık gelen TH öğelerine bağlamak için açık Headers/ID özniteliklerini kullanın veya tablo yapısını basitleştirin."
+  },
+  "16-001": {
+    "title": "Sıralı listede ListNumbering eksik",
+    "description": "Sıralı bir liste (numaralandırılmış öğelere sahip L türü), numaralandırma biçimini belirten ListNumbering özniteliğine sahip değil.",
+    "severity_label": "minor",
+    "suggested_fix": "L öğesine 'Decimal', 'UpperRoman', 'LowerAlpha' vb. gibi bir değerle ListNumbering özniteliğini ekleyin."
+  },
+  "16-002": {
+    "title": "Geçersiz ListNumbering değeri",
+    "description": "L öğesindeki ListNumbering özniteliği tanınmayan veya geçersiz bir değere sahip.",
+    "severity_label": "minor",
+    "suggested_fix": "ListNumbering değerini geçerli bir değere ayarlayın: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha veya LowerAlpha."
+  },
+  "16-003": {
+    "title": "Liste içeriği liste olarak etiketlenmemiş",
+    "description": "Görsel ve anlamsal olarak bir liste olan içerik (maddeli veya numaralandırılmış öğeler), bireysel paragraflar veya liste dışı diğer öğeler olarak etiketlenmiş.",
+    "severity_label": "major",
+    "suggested_fix": "İçeriği, her biri isteğe bağlı bir Lbl ve gerekli bir LBody içeren Liste Öğeleri (LI) ile bir Liste (L) olarak yeniden yapılandırın."
+  },
+  "17-001": {
+    "title": "Matematiksel ifade Formula olarak etiketlenmemiş",
+    "description": "Belgedeki bir matematiksel ifade, Formula yapı türü yerine normal bir paragraf veya şekil olarak etiketlenmiş.",
+    "severity_label": "minor",
+    "suggested_fix": "Matematiksel ifadeleri Formula yapı türüyle etiketleyin ve ifadeyi açıklayan Alt metin sağlayın."
+  },
+  "17-002": {
+    "title": "Formula'da Alt metin eksik",
+    "description": "Bir Formula yapı öğesi mevcut ancak matematiksel ifadeyi açıklayan alternatif metne sahip değil.",
+    "severity_label": "minor",
+    "suggested_fix": "Formula öğesine, matematiksel ifadenin metinsel bir temsilini içeren bir /Alt girişi ekleyin."
+  },
+  "17-003": {
+    "title": "Formula karakteri Unicode ile eşlenmemiş",
+    "description": "Matematiksel bir formüldeki karakter Unicode ile eşlenemiyor, bu da yardımcı teknolojilerin bozuk çıktı okumasına neden oluyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Matematiksel semboller için kullanılan yazı tipinin tüm glifleri kapsayan eksiksiz bir ToUnicode CMap'e sahip olduğundan emin olun. Ayrıca 10-001'e bakın."
+  },
+  "18-001": {
+    "title": "Üst bilgi/alt bilgi sayfalama eklentisi olarak etiketlenmemiş",
+    "description": "Çalışan üst bilgiler ve alt bilgiler (sayfa numaraları, her sayfada tekrarlanan bölüm başlıkları), sayfalama eklentisi olarak işaretlenmek yerine gerçek içerik olarak etiketlenmiş.",
+    "severity_label": "major",
+    "suggested_fix": "Ekran okuyucuların sürekli okuma sırasında atlaması için çalışan üst bilgileri ve alt bilgileri 'Pagination' alt türüyle yapı öğesi olarak işaretleyin."
+  },
+  "18-002": {
+    "title": "Üst bilgi/alt bilgide doğru yapı öğesi alt türü eksik",
+    "description": "Üst ve alt bilgiler yapı öğesi olarak işaretlenmiş ancak 'Sayfalama' alt türüne sahip değil veya yanlış bir alt tür kullanıyor.",
+    "severity_label": "major",
+    "suggested_fix": "Çalışan üst ve alt bilgiler için yapı öğesi alt türünü 'Sayfalama' olarak, yalnızca ilk/son sayfadaki üst/alt içerikler için 'Üst Bilgi' veya 'Alt Bilgi' olarak ayarlayın."
+  },
+  "19-001": {
+    "title": "Dipnot, Not olarak etiketlenmemiş",
+    "description": "Belgedeki bir dipnot veya sonnot, Not yapı türü kullanmak yerine normal bir paragraf olarak etiketlenmiş.",
+    "severity_label": "major",
+    "suggested_fix": "Dipnotları ve sonnotları, benzersiz bir kimlik özniteliğine ve gövde metninde onu işaret eden bir Başvuru öğesine sahip Not öğeleri olarak etiketleyin."
+  },
+  "19-002": {
+    "title": "Başvuru, Başvuru olarak etiketlenmemiş",
+    "description": "Metin içi alıntı veya çapraz başvuru işaretçisi, Başvuru yapı türü kullanmak yerine normal metin olarak etiketlenmiş.",
+    "severity_label": "major",
+    "suggested_fix": "Alıntı işaretçilerini ve çapraz başvuruları, ilgili Not veya hedeflerine bağlayarak Başvuru öğeleri olarak etiketleyin."
+  },
+  "19-003": {
+    "title": "Not kimliği eksik",
+    "description": "Bir Not yapı öğesinin kimlik özniteliği yok, bu da gövde metnindeki Başvuru öğesinden referans bağlantısını engelliyor.",
+    "severity_label": "major",
+    "suggested_fix": "Başvuru öğelerinin onları işaret edebilmesi için her Not öğesine benzersiz bir kimlik özniteliği ekleyin."
+  },
+  "19-004": {
+    "title": "Not kimliği benzersiz değil",
+    "description": "İki veya daha fazla Not yapı öğesi aynı kimlik özniteliği değerini paylaşıyor, bu da belirsiz başvuru çözümlemesine neden oluyor.",
+    "severity_label": "major",
+    "suggested_fix": "Her Not öğesinin belge içinde küresel olarak benzersiz bir kimliğe sahip olduğundan emin olun."
+  },
+  "20-001": {
+    "title": "İsteğe bağlı içerik yapılandırmasında Ad eksik (Configs dizisi)",
+    "description": "Belgenin OCConfigs dizisindeki bir isteğe bağlı içerik yapılandırması sözlüğünde Ad girişi yok.",
+    "severity_label": "minor",
+    "suggested_fix": "OCProperties/Configs dizisindeki her isteğe bağlı içerik yapılandırmasına açıklayıcı bir /Ad girişi ekleyin."
+  },
+  "20-002": {
+    "title": "İsteğe bağlı içerik yapılandırmasında Ad eksik (D varsayılanı)",
+    "description": "Varsayılan isteğe bağlı içerik yapılandırması sözlüğünün (OCProperties içindeki D girişi) bir Ad girişi yok.",
+    "severity_label": "minor",
+    "suggested_fix": "Varsayılan isteğe bağlı içerik yapılandırması sözlüğüne bir /Ad girişi ekleyin."
+  },
+  "20-003": {
+    "title": "İsteğe bağlı içerik yapılandırmasında AS anahtarı mevcut",
+    "description": "Bir isteğe bağlı içerik yapılandırması sözlüğü, kullanıcının bilgisi olmadan belgenin görsel görünümünü değiştirebileceğinden PDF/UA-1 tarafından izin verilmeyen bir AS (Uygulamaya Özel) girişi içeriyor.",
+    "severity_label": "minor",
+    "suggested_fix": "AS anahtarını isteğe bağlı içerik yapılandırması sözlüğünden kaldırın."
+  },
+  "21-001": {
+    "title": "Gömülü dosyada F ve UF anahtarları eksik",
+    "description": "Bir gömülü dosya belirtimi sözlüğünde gerekli F (dosya belirtimi dizesi) veya UF (Unicode metin dosyası belirtimi dizesi) girişi eksik.",
+    "severity_label": "minor",
+    "suggested_fix": "Gömülü dosyayı tanımlayan dosya belirtimi sözlüğüne hem F hem de UF girişlerini ekleyin."
+  },
+  "22-001": {
+    "title": "Makale dizisi uyumsuz",
+    "description": "Bir makale dizisi yapısı, uygun V (sonraki boncuk) ve N (önceki boncuk) bağlantısı ile gerekli PDF makale boncuk biçimini izlemiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Makale boncuklarının V ve N girişleriyle düzgün bir şekilde bağlandığından ve her boncuğun doğru sayfayla ilişkilendirildiğinden emin olun."
+  },
+  "24-001": {
+    "title": "Etkileşimli olmayan formda PrintFields eksik",
+    "description": "Etkileşimli olmayan bir formda (örneğin, dijital girdiden yazdırılan düz bir form) NeedAppearances bayrağı ayarlanmamış veya FieldMDP dönüştürme parametrelerinde PrintFields biti eksik.",
+    "severity_label": "minor",
+    "suggested_fix": "Yalnızca yazdırma için görüntülenmesi amaçlanan form alanlarının, PrintFields biti etkinleştirilmiş doğru FieldMDP ayarlarına sahip olduğundan emin olun."
+  },
+  "25-001": {
+    "title": "XFA formunda dynamicRender gerekli değil",
+    "description": "Bir XFA (XML Form Mimarisi) formu, 'gerekli' olarak ayarlanmamış dynamicRender öğeleri içeriyor, bu da potansiyel olarak oluşturma tutarsızlıklarına neden oluyor.",
+    "severity_label": "critical",
+    "suggested_fix": "XFA form öğelerinde dynamicRender='required' ayarını yapın veya daha iyi erişilebilirlik desteği için XFA'dan AcroForms'a geçiş yapın."
+  },
+  "28-001": {
+    "title": "Açıklama okuma sırasında değil",
+    "description": "Bir sayfada bir açıklama (bağlantı, form alanı, yorum) mevcut ancak ilişkili yapı öğesi, yapı ağacındaki doğru okuma sırası konumuna yerleştirilmemiş.",
+    "severity_label": "major",
+    "suggested_fix": "Açıklama yapı öğelerini (Bağlantı, Form, Açıklama) yapı ağacında çevreleyen içeriğe göre doğru konuma yerleştirin."
+  },
+  "28-002": {
+    "title": "Açıklama, Açıklama yapı öğesinin içinde değil",
+    "description": "Sayfadaki bir açıklama nesnesi, bir Açıklama yapı öğesi (veya uygun alt tür: Bağlantı, Form) içine sarılmamış.",
+    "severity_label": "major",
+    "suggested_fix": "Her açıklama nesnesini uygun yapı öğesi içine sarın (köprüler için Bağlantı, araçlar için Form)."
+  },
+  "28-003": {
+    "title": "Açıklama yalnızca görsel biçimlendirme için kullanılmış",
+    "description": "Bir açıklama tamamen görsel biçimlendirme için kullanılmış (örneğin, dekorasyon olarak çizilmiş bir dikdörtgen) ve uygun şekilde etiketlenmemiş.",
+    "severity_label": "minor",
+    "suggested_fix": "Yalnızca biçimlendirme amaçlı açıklamaları yapı öğesi olarak işaretleyin veya bunları kaldırın ve bunun yerine uygun PDF çizim operatörlerini kullanın."
+  },
+  "28-004": {
+    "title": "Açıklamada İçerik ve Alt eksik",
+    "description": "Bir açıklamanın İçerik girişi (metin açıklaması) veya Alt girişi (alternatif metin) yok, bu da ekran okuyucu kullanıcılarını bağlamsız bırakıyor.",
+    "severity_label": "major",
+    "suggested_fix": "Her açıklamaya amacını tanımlayan bir /Contents dizesi ekleyin. Metin olmayan açıklamalar için /Alt sağlayın."
+  },
+  "28-005": {
+    "title": "Form alanında TU veya Alt eksik",
+    "description": "Bir form alanı araç açıklaması, bir Araç ipucu (TU) veya Alt girişine sahip değil, bu da ekran okuyucu kullanıcılarının alanın amacını anlamasını imkansız hale getiriyor.",
+    "severity_label": "major",
+    "suggested_fix": "Her form alanına, amacını ve beklenen giriş biçimini tanımlayan bir /TU (araç ipucu) girişi ekleyin."
+  },
+  "28-006": {
+    "title": "Tanımlanmamış açıklama alt türü",
+    "description": "Bir açıklama, ISO 32000-1'de tanımlanmayan bir Alt tür değerine sahip, bu da PDF işlemcilerinde öngörülemeyen davranışlara neden olabilir.",
+    "severity_label": "minor",
+    "suggested_fix": "Tanımlanmamış alt türlere sahip açıklamaları değiştirin veya kaldırın ya da özel alt türün kayıtlı olduğundan ve düzgün bir şekilde işlendiğinden emin olun."
+  },
+  "28-007": {
+    "title": "TrapNet açıklaması mevcut",
+    "description": "Belgede bir TrapNet açıklaması (baskı öncesi tuzaklama iş akışlarında kullanılır) mevcut ve uygun şekilde etiketlenmemiş veya yapı öğesi olarak işaretlenmemiş.",
+    "severity_label": "minor",
+    "suggested_fix": "TrapNet açıklamaları belge tüketicileri için hiçbir anlamsal anlam taşımadığından onları yapı öğesi olarak işaretleyin."
+  },
+  "28-008": {
+    "title": "Açıklamalı sayfada Sekmeler anahtarı eksik",
+    "description": "Açıklamalar (bağlantılar, form alanları) içeren bir sayfada, klavye gezintisi için sekme sırasını belirleyen bir Sekmeler girişi yok.",
+    "severity_label": "major",
+    "suggested_fix": "Sayfa sözlüğüne bir /Tabs girişi ekleyin. Yapı sırası için /Tabs=S kullanın (erişilebilir belgeler için önerilir)."
+  },
+  "28-009": {
+    "title": "Sekmeler S (yapı sırası) olarak ayarlanmamış",
+    "description": "Bir sayfadaki Sekmeler anahtarı 'S' dışında bir değere ayarlanmış (örneğin, satır sırası için 'R', sütun sırası için 'C'), bu da belgenin mantıksal okuma sırasıyla eşleşmeyebilir.",
+    "severity_label": "major",
+    "suggested_fix": "Açıklamalı sayfalarda /Tabs'i 'S' (yapı sırası) olarak ayarlayın, böylece klavye gezintisi yapı ağacı sırasını izler."
+  },
+  "28-010": {
+    "title": "Araç açıklaması, Form öğesinin içinde değil",
+    "description": "Bir araç açıklaması (form alanı), ağaçtaki bir Form yapı öğesi içine sarılmamış.",
+    "severity_label": "major",
+    "suggested_fix": "Her araç açıklamasını bir Form yapı öğesi içine sarın. İlgili form alanlarını aynı Form kapsayıcısı içinde gruplandırın."
+  },
+  "28-011": {
+    "title": "Bağlantı açıklaması, Bağlantı öğesinin içinde değil",
+    "description": "Bir bağlantı açıklaması (köprü), ağaçtaki bir Bağlantı yapı öğesi içine sarılmamış.",
+    "severity_label": "major",
+    "suggested_fix": "Her bağlantı açıklamasını doğru okuma sırası konumuna yerleştirilmiş bir Bağlantı yapı öğesi içine sarın."
+  },
+  "28-012": {
+    "title": "Bağlantı açıklamasında İçerik eksik",
+    "description": "Bir Bağlantı açıklamasının bağlantının hedefini veya amacını tanımlayan bir İçerik girişi yok.",
+    "severity_label": "major",
+    "suggested_fix": "Her Bağlantı açıklamasına, bağlantının neyi işaret ettiğini tanımlayan bir /Contents dizesi ekleyin."
+  },
+  "28-013": {
+    "title": "Sunucu tarafı resim haritası olmadan IsMap=true",
+    "description": "Bir bağlantı açıklamasında IsMap true olarak ayarlanmış ancak ilişkili resim bir sunucu tarafı resim haritası olarak işlev görmüyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Resim, koordinata duyarlı davranışa sahip aktif bir sunucu tarafı resim haritası değilse IsMap'i false olarak ayarlayın."
+  },
+  "28-016": {
+    "title": "Dosya eki 7.11 ile uyumlu değil",
+    "description": "Bir dosya eki açıklaması, 7.11 maddesinin (Gömülü Dosya Akışları) gerekliliklerine uymayan gömülü bir dosyaya başvuruyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Gömülü dosyaların hem F hem de UF girişlerine sahip olduğundan ve dosya belirtimi sözlüğünün eksiksiz olduğundan emin olun. Ayrıca bkz. 21-001."
+  },
+  "28-017": {
+    "title": "Mantıksal yapıda Yazıcı İşareti",
+    "description": "Bir Yazıcı İşareti açıklaması (kırpma işaretleri, kayıt işaretleri, renk çubukları) belgenin mantıksal yapı ağacında görünüyor, burada hiçbir anlamsal anlamı yok.",
+    "severity_label": "minor",
+    "suggested_fix": "Yazıcı İşareti açıklamalarını yapı ağacından kaldırın ve onları yapı öğesi olarak işaretleyin."
+  },
+  "28-018": {
+    "title": "Yazıcı İşareti görünümü yapı öğesi değil",
+    "description": "Bir Yazıcı İşareti açıklamasının görünüm akışı yapı öğesi olarak işaretlenmemiş, bu da ekran okuyucuların baskı işaretlerini tanımlamaya çalışmasına neden oluyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Yazıcı İşareti görünüm içeriğini içerik akışında yapı öğesi olarak işaretleyin."
+  },
+  "30-001": {
+    "title": "Referans XObject mevcut",
+    "description": "Belgede bir Referans XObject kullanılıyor. Referans XObject'ler harici PDF dosyalarından içerik içe aktarır, bu da içe aktarılan içerik yapı ağacına düzgün bir şekilde entegre edilmediği için erişilebilirliği bozabilir.",
+    "severity_label": "major",
+    "suggested_fix": "Referans XObject'lerden kaçının. Gerekliyse, tüm içe aktarılan içeriğin ana belgenin yapı ağacında düzgün bir şekilde etiketlendiğinden emin olun."
+  },
+  "30-002": {
+    "title": "MCID'lere sahip Form XObject birden çok kez referans verilmiş",
+    "description": "MCID'ler (İşaretli İçerik Tanımlayıcıları) içeren işaretli içerik barındıran bir Form XObject birden çok konumdan referans verilmiş, bu da sayfanın işaretli içerik dizisinde MCID çakışmalarına neden oluyor.",
+    "severity_label": "major",
+    "suggested_fix": "İşaretli içerik içeren Form XObject'leri yeniden kullanmaktan kaçının. XObject'i her kullanım konumu için düzleştirin veya çoğaltın."
+  },
+  "31-001": {
+    "title": "Type0 alt öğelerinde CIDSystemInfo Kayıt defteri uyuşmazlığı",
+    "description": "Type0 yazı tipi alt öğesi CIDFont'lar tutarsız CIDSystemInfo Kayıt defteri değerlerine sahip, bu da karakter eşleme hatalarına neden olabilir.",
+    "severity_label": "minor",
+    "suggested_fix": "Bir Type0 yazı tipinin tüm alt öğesi CIDFont'larının tutarlı CIDSystemInfo (Kayıt defteri, Sıralama, Ek) değerlerine sahip olduğundan emin olun."
+  },
+  "31-002": {
+    "title": "Type0 alt öğelerinde CIDSystemInfo Sıralama uyuşmazlığı",
+    "description": "Type0 yazı tipi alt öğesi CIDFont'lar tutarsız CIDSystemInfo Sıralama değerlerine sahip.",
+    "severity_label": "minor",
+    "suggested_fix": "Sıralama değerlerini Type0 yazı tipinin tüm alt öğesi CIDFont'larında hizalayın."
+  },
+  "31-003": {
+    "title": "Type0 alt öğelerinde CIDSystemInfo Ek uyuşmazlığı",
+    "description": "Type0 yazı tipi alt öğesi CIDFont'lar tutarsız CIDSystemInfo Ek değerlerine sahip.",
+    "severity_label": "minor",
+    "suggested_fix": "Ek değerlerini Type0 yazı tipinin tüm alt öğesi CIDFont'larında hizalayın."
+  },
+  "31-004": {
+    "title": "CIDFont'ta CIDToGIDMap eksik",
+    "description": "Bir CIDFont sözlüğü bir CIDToGIDMap girişi içermiyor ve bir Kimlik eşlemesi kullanmıyor, bu da glif aramasını güvenilmez kılıyor.",
+    "severity_label": "minor",
+    "suggested_fix": "CIDFont'a bir CIDToGIDMap girişi ekleyin veya yazı tipi kimlik CID'leri kullanıyorsa bunu 'Identity' olarak ayarlayın."
+  },
+  "31-005": {
+    "title": "CIDFont, Kimlik olmayan CIDToGIDMap gerektiriyor",
+    "description": "Karakter koleksiyonu Adobe-Identity olmayan bir CIDFont, doğru glif eşlemesi için açık bir CIDToGIDMap akışı gerektirir.",
+    "severity_label": "minor",
+    "suggested_fix": "Adobe-Identity karakter koleksiyonu kullanmıyorsa CIDFont için açık bir CIDToGIDMap akışı sağlayın."
+  },
+  "31-006": {
+    "title": "CMap listelenmemiş veya gömülmemiş",
+    "description": "Bir Type0 yazı tipi tarafından kullanılan bir CMap kaynağı, ne PDF belirtiminin standart CMap'lerinde listelenmiş ne de belgeye gömülmüş.",
+    "severity_label": "minor",
+    "suggested_fix": "Ya PDF belirtiminden standart bir CMap kullanın ya da özel CMap akışını belgeye gömün."
+  },
+  "31-007": {
+    "title": "Type0 yazı tipinde WMode uyuşmazlığı",
+    "description": "WMode (yazma modu) değerleri, bir Type0 yazı tipinin CMap'i ve alt öğesi CIDFont'ları arasında farklılık gösteriyor.",
+    "severity_label": "minor",
+    "suggested_fix": "CMap ve tüm alt öğesi CIDFont'larında tutarlı WMode değerleri (yatay için 0, dikey için 1) olduğundan emin olun."
+  },
+  "31-008": {
+    "title": "CMap listelenmemiş CMap'e referans veriyor",
+    "description": "Bir CMap akışı, ne standart bir CMap olan ne de belgeye gömülü olan başka bir CMap'e referans veriyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Referans verilen tüm standart olmayan CMap'leri belgeye gömün veya yalnızca standart CMap'leri kullanın."
+  },
+  "31-009": {
+    "title": "Yazı tipi gömülmemiş",
+    "description": "Belgede kullanılan bir yazı tipi gömülmemiş. Gömülü olmayan yazı tipleri, farklı ölçümlere ve glif kapsamına sahip olabilen sistem yazı tiplerine geri dönülmesine neden olur, bu da metin ayıklamayı ve görsel doğruluğu bozar.",
+    "severity_label": "critical",
+    "suggested_fix": "Belgede kullanılan tüm yazı tiplerini gömün. Gömülemeyen standart 14 yazı tipi için, yazı tipi programının mevcut olduğundan emin olun veya gömülü bir eşdeğeriyle değiştirin."
+  },
+  "31-011": {
+    "title": "Gömülü yazı tipi programında glif eksik",
+    "description": "Belgenin metninde referans verilen bir glif, gömülü yazı tipi programında mevcut değil.",
+    "severity_label": "major",
+    "suggested_fix": "Ya yazı tipini tüm gerekli glifleri içerecek şekilde alt kümeye ayırın ya da gerekli glifleri içeren farklı bir yazı tipi kullanın."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glif listelenmemiş",
+    "description": "Bir Type1 yazı tipinin CharSet'i, yazı tipi programında aslında mevcut olan ve belgede kullanılan bir glifi listelemiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "CharSet'i, yazı tipi programında mevcut olan ve belgede referans verilen tüm glifleri içerecek şekilde güncelleyin."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: listelenen glif yazı tipinde değil",
+    "description": "Bir Type1 yazı tipinin CharSet'i, gömülü yazı tipi programında bulunmayan bir glif adını listeliyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Var olmayan glif adlarını CharSet'ten kaldırın veya yazı tipinin tamamını gömün."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glif listelenmemiş",
+    "description": "Bir CIDFont'un CIDSet'i, gömülü yazı tipi programında aslında mevcut olan ve belgede kullanılan bir CID'yi içermiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "CIDSet'i, belgede kullanılan tüm CID değerlerini içerecek şekilde güncelleyin."
+  },
+  "31-015": {
+    "title": "CID CIDSet: listelenen CID yazı tipinde değil",
+    "description": "Bir CIDFont'un CIDSet'i, gömülü yazı tipi programındaki hiçbir glife karşılık gelmeyen bir CID'yi listeliyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Var olmayan CID'leri CIDSet'ten kaldırın veya gerçek yazı tipi programından yeniden oluşturun."
+  },
+  "31-016": {
+    "title": "Glif genişliği tutarsızlığı > 1/1000",
+    "description": "Yazı tipi sözlüğünde belirtilen glif genişliği, gömülü yazı tipi programındaki genişlikten 1000'de 1 birimden fazla farklılık gösteriyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Yazı tipi sözlüğündeki Genişlikler dizisini (veya W2 girişini) gömülü yazı tipi programındaki gerçek glif genişlikleriyle eşleşecek şekilde düzeltin."
+  },
+  "31-017": {
+    "title": "Sembolik olmayan TrueType'ta sembolik olmayan cmap eksik",
+    "description": "Sembolik olmayan kodlamaya sahip bir TrueType yazı tipi (Kodlama girişi mevcut veya sembolik bayrak kapalı), Unicode eşlemesi için bir (3,1) cmap alt tablosu içermiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "TrueType yazı tipi programının düzgün Unicode karakter eşlemesi için bir (3,1) Microsoft Unicode BMP cmap alt tablosu içerdiğinden emin olun."
+  },
+  "31-018": {
+    "title": "Sembolik olmayan TrueType glifi cmap'te değil",
+    "description": "Sembolik olmayan bir TrueType yazı tipindeki bir glif, yazı tipinin cmap alt tabloları aracılığıyla aranamaz.",
+    "severity_label": "minor",
+    "suggested_fix": "Belgede kullanılan tüm gliflerin yazı tipindeki en az bir cmap alt tablosu aracılığıyla erişilebilir olduğundan emin olun."
+  },
+  "31-019": {
+    "title": "Sembolik olmayan TrueType yazı tipi sözlüğünde Kodlama eksik",
+    "description": "Sembolik olmayan bir TrueType yazı tipi sözlüğünün, glif adı çözümlemesi için gerekli olan bir Kodlama girişi yok.",
+    "severity_label": "minor",
+    "suggested_fix": "Yazı tipi sözlüğüne uygun bir Kodlama girişi (örneğin, WinAnsiEncoding, MacRomanEncoding) ekleyin."
+  },
+  "31-020": {
+    "title": "Kodlama sözlüğünde BaseEncoding eksik",
+    "description": "Farklar dizisine sahip bir Kodlama sözlüğü bir BaseEncoding girişi belirtmiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Kodlama sözlüğünde, Farklar dizisinin saptığı BaseEncoding'i (örneğin, WinAnsiEncoding) belirtin."
+  },
+  "31-021": {
+    "title": "Kodlama/BaseEncoding MacRoman veya WinAnsi değil",
+    "description": "Sembolik olmayan bir TrueType yazı tipinin Kodlaması veya BaseEncoding'i, iki standart temel kodlama olan ne MacRomanEncoding ne de WinAnsiEncoding'dir.",
+    "severity_label": "minor",
+    "suggested_fix": "Yazı tipi için temel kodlama olarak WinAnsiEncoding veya MacRomanEncoding kullanın."
+  },
+  "31-022": {
+    "title": "Farklar glif adları Adobe Glif Listesinde değil",
+    "description": "Bir yazı tipinin Kodlama sözlüğündeki Farklar dizisi, Adobe Glif Listesinde (AGL) bulunmayan glif adlarını kullanıyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Farklar dizisinde yalnızca Adobe Glif Listesinden standart glif adlarını kullanın."
+  },
+  "31-023": {
+    "title": "Farklar mevcut ancak (3,1) cmap yok",
+    "description": "Bir yazı tipinin Kodlamasında bir Farklar dizisi var ancak TrueType yazı tipi programı Unicode eşlemesi için bir (3,1) cmap alt tablosu içermiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Güvenilir Unicode eşlemesi sağlamak için yazı tipi için bir ToUnicode CMap ekleyin."
+  },
+  "31-024": {
+    "title": "Sembolik TrueType yazı tipi sözlüğünde Kodlama var",
+    "description": "Sembolik bir TrueType yazı tipinin (Bayraklar biti 3 ayarlı) yazı tipi sözlüğünde, sembolik yazı tipleri için izin verilmeyen bir Kodlama girişi var.",
+    "severity_label": "minor",
+    "suggested_fix": "Kodlama girişini sembolik TrueType yazı tipi sözlüklerinden kaldırın. Sembolik yazı tipleri karakter eşlemesi için yazı tipi programının cmap'ine güvenir."
+  },
+  "31-025": {
+    "title": "Sembolik TrueType yazı tipi programında cmap eksik",
+    "description": "Sembolik bir TrueType yazı tipinin gömülü yazı tipi programı hiçbir cmap tablosu içermiyor.",
+    "severity_label": "minor",
+    "suggested_fix": "Gömülü yazı tipi programının sembolik karakter eşlemesi için en az bir (3,0) cmap alt tablosu içerdiğinden emin olun."
+  },
+  "31-026": {
+    "title": "Birden çok cmap'e sahip sembolik TrueType'ta (3,0) eksik",
+    "description": "Sembolik bir TrueType yazı tipinin birden çok cmap alt tablosu var ancak gerekli (3,0) Microsoft Sembol cmap alt tablosu eksik.",
+    "severity_label": "minor",
+    "suggested_fix": "Gömülü yazı tipi programının doğru karakter eşlemesi için bir (3,0) Microsoft Sembol cmap alt tablosu içerdiğinden emin olun."
+  },
+  "31-027": {
+    "title": "ToUnicode CMap eksik",
+    "description": "Metin içeriği için kullanılan bir yazı tipinin ToUnicode CMap'i yok ve muafiyet koşullarının hiçbiri geçerli değil. ToUnicode CMap olmadan, yardımcı teknolojiler okunabilir metin çıkaramaz.",
+    "severity_label": "critical",
+    "suggested_fix": "Belgede kullanılan her karakter kodunu karşılık gelen Unicode değerine eşleyen bir ToUnicode CMap akışını yazı tipi sözlüğüne ekleyin."
+  },
+  "31-028": {
+    "title": "ToUnicode, CID 0'a eşleniyor",
+    "description": "Bir ToUnicode CMap, bir karakter kodunu geçerli bir metin karakteri olmayan Unicode değeri U+0000'a (boş) eşler.",
+    "severity_label": "minor",
+    "suggested_fix": "Karakter kodunu geçerli, boş olmayan bir Unicode değerine eşlemek için ToUnicode CMap'i düzeltin."
+  },
+  "31-029": {
+    "title": "ToUnicode, U+FEFF veya U+FFFE'ye eşleniyor",
+    "description": "Bir ToUnicode CMap, bir karakter kodunu, kontrol karakterleri olan ve geçerli görüntülenebilir metin olmayan U+FEFF (BOM) veya U+FFFE'ye (bayt sırası işareti) eşler.",
+    "severity_label": "minor",
+    "suggested_fix": "ToUnicode CMap'teki U+FEFF/U+FFFE eşlemelerini karakterin gerçek Unicode değeriyle değiştirin."
+  },
+  "31-030": {
+    "title": ".notdef glifi metinde referans verilmiş",
+    "description": "Belgedeki bir metin gösterme operatörü, eksik veya kullanılamayan bir karakteri gösteren .notdef glifine (glif dizini 0) referans veriyor. .notdef kullanan metin boş veya tofu karakterleri olarak görünür.",
+    "severity_label": "major",
+    "suggested_fix": "Belgede kullanılan tüm karakter kodlarının gömülü yazı tipi programındaki gerçek gliflere karşılık geldiğinden emin olun."
+  }
+}

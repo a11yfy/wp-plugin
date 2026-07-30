@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "被标记为实际内容的人工制品",
+    "description": "页面人工制品（页眉、页脚、装饰元素）在结构树中被错误地标记为实际内容。屏幕阅读器会尝试将装饰元素作为文档内容进行读取。",
+    "severity_label": "critical",
+    "suggested_fix": "将结构元素类型更改为人工制品，或将内容包装在人工制品标记内容序列中。"
+  },
+  "01-002": {
+    "title": "被标记为人工制品的实际内容",
+    "description": "真实的文档内容（正文、标题、说明文字）被错误地标记为人工制品。屏幕阅读器会完全跳过此内容。",
+    "severity_label": "critical",
+    "suggested_fix": "移除实际内容上的人工制品标记，并确保其使用适当的结构元素进行正确标记。"
+  },
+  "01-003": {
+    "title": "已标记内容内部的人工制品",
+    "description": "一个被标记为人工制品的元素出现在代表实际内容的结构元素内部，破坏了内容层级。",
+    "severity_label": "critical",
+    "suggested_fix": "将标记为人工制品的内容移出实际内容结构元素，或重构元素层级。"
+  },
+  "01-004": {
+    "title": "人工制品内部的已标记内容",
+    "description": "一个已标记的实际内容元素被嵌套在人工制品容器内。屏幕阅读器可能会跳过此内容。",
+    "severity_label": "critical",
+    "suggested_fix": "将已标记内容移出人工制品容器，并将其放置在结构树中的正确层级。"
+  },
+  "01-005": {
+    "title": "既未标记也非人工制品的内容",
+    "description": "页面上的内容既未标记为结构元素，也未标记为人工制品。这是最常见的PDF/UA违规行为，也是屏幕阅读器对内容保持沉默的主要原因。",
+    "severity_label": "critical",
+    "suggested_fix": "使用适当的结构元素（P、H1-H6、图形等）标记内容，或者如果它是装饰性的，则将其标记为人工制品。"
+  },
+  "01-006": {
+    "title": "缺失结构树根",
+    "description": "文档目录必须包含结构树根条目，它是文档逻辑结构的根。没有它，屏幕阅读器将完全无法解析文档结构。",
+    "severity_label": "critical",
+    "suggested_fix": "在文档目录中添加一个结构树根对象，并为所有内容页面构建结构元素层级。"
+  },
+  "01-007": {
+    "title": "可疑标志为真",
+    "description": "文档标记信息字典中的可疑条目被设置为真，表明结构树可能包含不可靠的标记。辅助技术可能会完全忽略结构树。",
+    "severity_label": "critical",
+    "suggested_fix": "在确认所有内容均已正确标记后，将标记信息字典中的可疑标志设置为假。"
+  },
+  "02-001": {
+    "title": "非标准角色映射未以标准类型结尾",
+    "description": "角色映射表中的自定义角色未映射到标准PDF结构类型。映射链的最终目标必须是PDF 32000-1角色集中的标准类型。",
+    "severity_label": "critical",
+    "suggested_fix": "确保角色映射表中的每个非标准角色直接或间接地映射到标准类型（例如：文档、部分、章节、P、H1-H6、列表、列表项、表格、图形等）。"
+  },
+  "02-002": {
+    "title": "语义上不适当的角色映射",
+    "description": "结构元素的角色被映射到一个与元素的语义目的不匹配的标准类型（例如：标题被映射为Span）。",
+    "severity_label": "critical",
+    "suggested_fix": "审查角色映射表，并确保每个映射都反映了内容的实际语义角色。可能需要人工判断。"
+  },
+  "02-003": {
+    "title": "循环角色映射",
+    "description": "角色映射表包含一个循环链，其中角色A映射到B，B映射到C，而C又映射回A，从而为处理器创建了一个无限循环。",
+    "severity_label": "major",
+    "suggested_fix": "通过将最终角色直接映射到适当的标准类型来打破循环链。"
+  },
+  "02-004": {
+    "title": "标准类型被重映射",
+    "description": "标准PDF结构类型（例如：P、H1、表格）正通过角色映射表被重映射为不同类型，这在PDF/UA-1中是不允许的。",
+    "severity_label": "critical",
+    "suggested_fix": "从角色映射表中移除此标准类型的映射。标准类型不得被重映射。"
+  },
+  "06-001": {
+    "title": "缺失XMP元数据流",
+    "description": "文档在目录的元数据条目中不包含XMP元数据流。PDF/UA-1要求提供XMP元数据。",
+    "severity_label": "major",
+    "suggested_fix": "向文档目录添加XMP元数据流，至少包含dc:format (application/pdf)、pdfuaid:part (1) 和 dc:title。"
+  },
+  "06-002": {
+    "title": "缺失PDF/UA标识符",
+    "description": "XMP元数据不包含pdfuaid:part属性，该属性标识文档符合PDF/UA-1 (ISO 14289-1) 标准。",
+    "severity_label": "major",
+    "suggested_fix": "在XMP元数据流中添加值为1的pdfuaid:part属性，以声明符合PDF/UA-1标准。"
+  },
+  "06-003": {
+    "title": "元数据中缺失dc:title",
+    "description": "XMP元数据或文档信息字典不包含dc:title条目。PDF/UA-1要求文档必须有标题。",
+    "severity_label": "major",
+    "suggested_fix": "向XMP元数据流添加dc:title条目。使用文档的实际标题或有意义的备用标题。"
+  },
+  "07-001": {
+    "title": "缺失查看器首选项DisplayDocTitle",
+    "description": "文档的查看器首选项字典不包含DisplayDocTitle键。当缺失或为假时，查看器会显示文件名而不是文档标题。",
+    "severity_label": "major",
+    "suggested_fix": "在文档的查看器首选项字典（目录/查看器首选项）中将DisplayDocTitle设置为真。"
+  },
+  "07-002": {
+    "title": "DisplayDocTitle设置为假",
+    "description": "查看器首选项中的DisplayDocTitle键被设置为假，导致查看器在标题栏中显示文件名而不是文档标题。",
+    "severity_label": "major",
+    "suggested_fix": "在查看器首选项字典中将DisplayDocTitle更改为真。"
+  },
+  "08-002": {
+    "title": "光学字符识别文本未在结构树中标记",
+    "description": "文档包含光学字符识别生成的文本（在扫描的PDF中很常见），这些文本未在结构树中标记。屏幕阅读器用户无法访问此内容。",
+    "severity_label": "critical",
+    "suggested_fix": "确保所有光学字符识别生成的文本都包含在具有适当标记的结构树中。对于扫描的PDF，请使用完整的文本层覆盖重建文档。"
+  },
+  "09-001": {
+    "title": "标记未按逻辑阅读顺序排列",
+    "description": "树中的结构元素未按文档的逻辑阅读顺序排列。屏幕阅读器按树顺序导航文档，这可能与视觉顺序不同。",
+    "severity_label": "critical",
+    "suggested_fix": "重新排列树中的结构元素，以匹配逻辑阅读顺序（对于给定语言，通常是从上到下、从左到右）。"
+  },
+  "09-002": {
+    "title": "语义上不适当的嵌套",
+    "description": "结构元素被嵌套在语义上不属于它的父元素中（例如：段落中的表格行，或列表中的标题）。",
+    "severity_label": "critical",
+    "suggested_fix": "重构元素层级，确保每个元素都嵌套在语义上适当的父元素中。"
+  },
+  "09-003": {
+    "title": "角色映射后结构类型不适当",
+    "description": "在角色映射解析后，最终的结构类型对于其包含的内容在语义上不适当。",
+    "severity_label": "major",
+    "suggested_fix": "调整角色映射表或更改原始结构类型，使解析后的类型与内容的语义角色匹配。"
+  },
+  "09-004": {
+    "title": "表格元素不符合表337",
+    "description": "表格类型的结构元素不符合允许的子结构（ISO 32000-1中的表337）。表格必须至少包含一个带有TR子元素的TBody，或者THead/TBody/TFoot部分。",
+    "severity_label": "major",
+    "suggested_fix": "确保表格元素包含结构正确的行：Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD。至少将行包装在TBody中。"
+  },
+  "09-005": {
+    "title": "列表元素不符合表336",
+    "description": "L（列表）类型的结构元素不符合允许的子结构（ISO 32000-1中的表336）。列表必须包含LI元素，且LI必须包含Lbl（可选）和LBody。",
+    "severity_label": "major",
+    "suggested_fix": "将列表结构化为：L > LI > (Lbl)? + LBody。确保每个列表项都有一个包含项目内容的LBody子元素。"
+  },
+  "09-006": {
+    "title": "目录元素不符合表333",
+    "description": "TOC（目录）类型的结构元素不符合允许的子结构。目录必须包含TOCI元素。",
+    "severity_label": "minor",
+    "suggested_fix": "将目录条目结构化为：TOC > TOCI > (Reference) + (Lbl)? + (P)。"
+  },
+  "09-007": {
+    "title": "注音元素不符合要求",
+    "description": "注音结构元素（用于发音标注）不遵循所需的子结构：Ruby > RB + (RT | RP)。",
+    "severity_label": "minor",
+    "suggested_fix": "使用所需的RB（注音基准）和RT（注音文本）子元素重构注音元素。"
+  },
+  "09-008": {
+    "title": "割注元素不符合要求",
+    "description": "割注结构元素（CJK文本中的行内注释或标注）不遵循所需的结构：Warichu > WT + WP。",
+    "severity_label": "minor",
+    "suggested_fix": "使用所需的WT（割注文本）和WP（割注标点）子元素重构割注元素。"
+  },
+  "10-001": {
+    "title": "字符代码无法映射到Unicode",
+    "description": "文档文本中的字符代码无法映射到Unicode值。这会导致辅助技术提取文本时出现乱码或字符缺失。",
+    "severity_label": "minor",
+    "suggested_fix": "确保所有字体都有一个字符映射表，将每个使用的字符代码映射到有效的Unicode值。验证字符映射表涵盖了文档中使用的所有字形。"
+  },
+  "11-001": {
+    "title": "页面内容语言无法确定",
+    "description": "由于文档目录或页面级结构元素中缺少/Lang条目，无法确定页面内容的自然语言。",
+    "severity_label": "critical",
+    "suggested_fix": "将文档目录中的/Lang条目设置为文档的主要语言（例如：'en-US', 'hu-HU'）。如果内容切换语言，请向各个结构元素添加/Lang。"
+  },
+  "11-002": {
+    "title": "替代文本/实际文本语言无法确定",
+    "description": "无法确定替代文本描述（Alt）或实际文本替换的语言。",
+    "severity_label": "minor",
+    "suggested_fix": "当文本语言与文档默认语言不同时，向包含Alt或实际文本的结构元素添加/Lang属性。"
+  },
+  "11-003": {
+    "title": "大纲语言未设置",
+    "description": "文档大纲（书签）没有/Lang条目，导致辅助技术无法正确朗读大纲项目。",
+    "severity_label": "minor",
+    "suggested_fix": "向大纲字典添加一个与文档主要语言匹配的/Lang条目。"
+  },
+  "11-004": {
+    "title": "注释内容语言未设置",
+    "description": "注释内容字符串（工具提示、表单域值）没有关联的语言声明。",
+    "severity_label": "minor",
+    "suggested_fix": "当注释文本与文档语言不同时，向注释外观字典添加/Lang。"
+  },
+  "11-005": {
+    "title": "表单域工具提示语言未设置",
+    "description": "表单域的工具提示条目没有关联的语言，这可能导致屏幕阅读器发音错误。",
+    "severity_label": "minor",
+    "suggested_fix": "如果表单域工具提示文本与文档默认语言不同，请确保包含语言标识。"
+  },
+  "11-006": {
+    "title": "文档元数据语言未设置",
+    "description": "XMP元数据未声明dc:language属性，或者文档目录的/Lang条目缺失或为空。",
+    "severity_label": "major",
+    "suggested_fix": "向XMP元数据添加dc:language，并将文档目录中的/Lang设置为RFC 3066语言标签。"
+  },
+  "12-001": {
+    "title": "可伸缩字符缺失实际文本",
+    "description": "在数学或装饰语境中使用的可伸缩字符（圆括号、方括号、花括号、根号）没有实际文本替换。",
+    "severity_label": "minor",
+    "suggested_fix": "向描述其语义含义的可伸缩字符序列添加实际文本（例如：对于可伸缩左括号，实际文本='('）。"
+  },
+  "13-001": {
+    "title": "图形未标记为图形",
+    "description": "文档内容中的图形元素（图像、图表、示意图）未标记为图形结构元素。",
+    "severity_label": "major",
+    "suggested_fix": "在结构树中将所有非装饰性图形标记为图形元素，并附带适当的替代文本。"
+  },
+  "13-002": {
+    "title": "具有有意义背景的链接缺少替代文本",
+    "description": "链接注释具有有意义的视觉外观（例如：用作按钮的图像），但缺少描述其目的的替代文本。",
+    "severity_label": "major",
+    "suggested_fix": "向链接注释添加一个描述其目标或目的的内容条目。"
+  },
+  "13-003": {
+    "title": "标题未标记为标题",
+    "description": "标题（图像标题、表格标题、图形说明）被标记为普通文本（P），而不是使用标题结构类型。",
+    "severity_label": "major",
+    "suggested_fix": "使用标题结构类型标记标题，并确保它们与其父图形或表格元素正确关联。"
+  },
+  "13-004": {
+    "title": "图形缺失替代文本",
+    "description": "存在图形结构元素，但没有提供替代文本的Alt属性。屏幕阅读器会宣布图形的存在，但无法描述其内容。",
+    "severity_label": "major",
+    "suggested_fix": "向图形结构元素添加一个包含图像内容简明描述的/Alt条目。"
+  },
+  "14-001": {
+    "title": "标题未标记",
+    "description": "视觉上作为标题功能的内容（更大的字体、粗体、独特的样式）未标记为标题结构类型（H1-H6）。",
+    "severity_label": "major",
+    "suggested_fix": "识别文档中的所有标题，并用反映其层级水平的适当H1-H6结构元素标记它们。"
+  },
+  "14-002": {
+    "title": "第一个标题不是H1",
+    "description": "文档结构树中的第一个标题不是H1类型。PDF/UA-1的最佳实践是顶级标题应为H(n)，后续标题不应跳级。",
+    "severity_label": "major",
+    "suggested_fix": "确保第一个标题为H1（如果文档标题在元数据中，则为H2）。重新编号后续标题以避免跳级。"
+  },
+  "14-003": {
+    "title": "标题层级跳级",
+    "description": "结构树中的标题层级跳级（例如：H1后面直接跟着H3，没有中间的H2）。这破坏了辅助技术用户的逻辑标题层级。",
+    "severity_label": "major",
+    "suggested_fix": "确保标题层级连续且无间隙。重新编号标题，使H1后面跟着H2，然后是H3，依此类推。"
+  },
+  "14-005": {
+    "title": "深度标题没有H7+类型",
+    "description": "嵌套在第7层或更深层的标题没有相应的H7+结构类型。PDF仅定义了H1到H6。",
+    "severity_label": "minor",
+    "suggested_fix": "将标题层级扁平化至最多6层，或谨慎使用非标准角色映射。"
+  },
+  "14-006": {
+    "title": "一个结构节点中有多个H标签",
+    "description": "单个结构元素包含多个标题标签（例如：一个同时包含H1和H2的章节）。每个标题都应创建一个新的嵌套层级。",
+    "severity_label": "major",
+    "suggested_fix": "拆分结构节点，使每个标题都在适当的层级开始一个新的章节或子章节。"
+  },
+  "14-007": {
+    "title": "H和Hn标签混合不一致",
+    "description": "同一文档中，一些标题使用通用H类型，而另一些使用编号的H1-H6类型，这不一致。",
+    "severity_label": "major",
+    "suggested_fix": "根据标题在标题层级中的位置，将所有通用H标签转换为编号的H1-H6类型。"
+  },
+  "15-001": {
+    "title": "行标题未标记为标题单元格",
+    "description": "作为行标题的表格单元格被标记为TD（数据单元格）而不是TH（标题单元格）。这阻止了屏幕阅读器将标题与数据单元格正确关联。",
+    "severity_label": "major",
+    "suggested_fix": "将行标题单元格的结构类型从TD更改为TH，并添加适当的范围属性（范围='Row'）。"
+  },
+  "15-002": {
+    "title": "列标题未标记为标题单元格",
+    "description": "作为列标题的表格单元格被标记为TD而不是TH。屏幕阅读器无法逻辑地导航表格。",
+    "severity_label": "major",
+    "suggested_fix": "将列标题单元格的结构类型从TD更改为TH，并添加适当的范围属性（范围='Column'）。"
+  },
+  "15-003": {
+    "title": "TH缺少范围且没有标题/ID",
+    "description": "TH（表格标题）元素没有范围属性，且表格未使用标题/ID关联将标题链接到数据单元格。",
+    "severity_label": "major",
+    "suggested_fix": "向TH元素添加范围='Row'、范围='Column'或范围='Both'，或实现标题/ID关联。"
+  },
+  "15-005": {
+    "title": "模糊的单元格标题关联",
+    "description": "由于复杂的表格结构（合并单元格、不规则布局），无法明确确定数据单元格关联的标题单元格。",
+    "severity_label": "major",
+    "suggested_fix": "使用明确的标题/ID属性将每个TD链接到其对应的TH元素，或简化表格结构。"
+  },
+  "16-001": {
+    "title": "有序列表缺失列表编号",
+    "description": "有序列表（带有编号项目的L类型）没有指定编号格式的列表编号属性。",
+    "severity_label": "minor",
+    "suggested_fix": "向L元素添加列表编号属性，其值为'Decimal'、'UpperRoman'、'LowerAlpha'等。"
+  },
+  "16-002": {
+    "title": "无效的列表编号值",
+    "description": "L元素上的列表编号属性具有无法识别或无效的值。",
+    "severity_label": "minor",
+    "suggested_fix": "将列表编号设置为有效值：None、Disc、Circle、Square、Decimal、UpperRoman、LowerRoman、UpperAlpha或LowerAlpha。"
+  },
+  "16-003": {
+    "title": "列表内容未标记为列表",
+    "description": "视觉和语义上属于列表的内容（项目符号或编号项目）被标记为单独的段落或其他非列表元素。",
+    "severity_label": "major",
+    "suggested_fix": "将内容重构为带有列表项（LI）的列表（L），每个列表项包含一个可选的Lbl和一个必需的LBody。"
+  },
+  "17-001": {
+    "title": "数学表达式未标记为公式",
+    "description": "文档中的数学表达式被标记为普通段落或图形，而不是使用公式结构类型。",
+    "severity_label": "minor",
+    "suggested_fix": "使用公式结构类型标记数学表达式，并提供描述该表达式的替代文本。"
+  },
+  "17-002": {
+    "title": "公式缺失替代文本",
+    "description": "存在公式结构元素，但没有描述数学表达式的替代文本。",
+    "severity_label": "minor",
+    "suggested_fix": "向公式元素添加一个包含数学表达式文本表示的/Alt条目。"
+  },
+  "17-003": {
+    "title": "公式字符未进行Unicode映射",
+    "description": "数学公式中的字符无法映射到Unicode，导致辅助技术读取乱码。",
+    "severity_label": "minor",
+    "suggested_fix": "确保用于数学符号的字体具有涵盖所有字形的完整字符映射表。另请参阅10-001。"
+  },
+  "18-001": {
+    "title": "页眉/页脚未标记为分页人工制品",
+    "description": "页眉和页脚（页码、每页重复的章节标题）被标记为实际内容，而不是被标记为分页人工制品。",
+    "severity_label": "major",
+    "suggested_fix": "将页眉和页脚标记为子类型为'Pagination'的人工制品，以便屏幕阅读器在连续阅读时跳过它们。"
+  },
+  "18-002": {
+    "title": "页眉/页脚缺失正确的人工制品子类型",
+    "description": "页眉和页脚被标记为人工制品，但没有“Pagination”子类型，或使用了错误的子类型。",
+    "severity_label": "major",
+    "suggested_fix": "将页眉和页脚的人工制品子类型设置为“Pagination”，仅将首页/末页的顶部/底部内容设置为“Header”或“Footer”。"
+  },
+  "19-001": {
+    "title": "脚注未标记为“Note”",
+    "description": "文档中的脚注或尾注被标记为普通段落，而非使用“Note”结构类型。",
+    "severity_label": "major",
+    "suggested_fix": "将脚注和尾注标记为“Note”元素，并带有唯一的ID属性，且正文中的“Reference”元素指向该ID。"
+  },
+  "19-002": {
+    "title": "引用未标记为“Reference”",
+    "description": "文内引文或交叉引用标记被标记为普通文本，而非使用“Reference”结构类型。",
+    "severity_label": "major",
+    "suggested_fix": "将引文标记和交叉引用标记为“Reference”元素，并将它们链接到相应的“Note”或目标位置。"
+  },
+  "19-003": {
+    "title": "缺少“Note”ID",
+    "description": "“Note”结构元素缺少ID属性，导致正文中的“Reference”元素无法进行引用链接。",
+    "severity_label": "major",
+    "suggested_fix": "为每个“Note”元素添加唯一的ID属性，以便“Reference”元素可以指向它们。"
+  },
+  "19-004": {
+    "title": "“Note”ID不唯一",
+    "description": "两个或多个“Note”结构元素共享相同的ID属性值，导致引用解析产生歧义。",
+    "severity_label": "major",
+    "suggested_fix": "确保文档中每个“Note”元素都拥有全局唯一的ID。"
+  },
+  "20-001": {
+    "title": "可选内容配置缺少名称（Configs数组）",
+    "description": "文档“OCConfigs”数组中的可选内容配置字典缺少“Name”条目。",
+    "severity_label": "minor",
+    "suggested_fix": "为“OCProperties/Configs”数组中的每个可选内容配置添加描述性的“/Name”条目。"
+  },
+  "20-002": {
+    "title": "可选内容配置缺少名称（D默认值）",
+    "description": "默认可选内容配置字典（“OCProperties”中的“D”条目）缺少“Name”条目。",
+    "severity_label": "minor",
+    "suggested_fix": "为默认可选内容配置字典添加“/Name”条目。"
+  },
+  "20-003": {
+    "title": "可选内容配置中存在AS键",
+    "description": "可选内容配置字典包含“AS”（特定于应用程序）条目，PDF/UA-1不允许此条目，因为它可能在用户不知情的情况下更改文档的视觉外观。",
+    "severity_label": "minor",
+    "suggested_fix": "从可选内容配置字典中删除“AS”键。"
+  },
+  "21-001": {
+    "title": "嵌入文件缺少F和UF键",
+    "description": "嵌入文件规范字典缺少必需的“F”（文件规范字符串）或“UF”（Unicode文本文件规范字符串）条目。",
+    "severity_label": "minor",
+    "suggested_fix": "在描述嵌入文件的文件规范字典中同时添加“F”和“UF”条目。"
+  },
+  "22-001": {
+    "title": "文章串联不符合规范",
+    "description": "文章串联结构未遵循必需的PDF文章串联格式，且缺少正确的“V”（下一串联）和“N”（上一串联）链接。",
+    "severity_label": "minor",
+    "suggested_fix": "确保文章串联通过“V”和“N”条目正确链接，且每个串联都与正确的页面关联。"
+  },
+  "24-001": {
+    "title": "非交互式表单缺少PrintFields",
+    "description": "非交互式表单（例如，从数字输入打印的平面表单）未设置“NeedAppearances”标志，或“FieldMDP”转换参数中缺少“PrintFields”位。",
+    "severity_label": "minor",
+    "suggested_fix": "确保仅用于打印显示的表单域具有正确的“FieldMDP”设置，并启用了“PrintFields”位。"
+  },
+  "25-001": {
+    "title": "XFA表单dynamicRender不是必需的",
+    "description": "XFA（XML表单架构）表单包含未设置为“required”的“dynamicRender”元素，可能导致渲染不一致。",
+    "severity_label": "critical",
+    "suggested_fix": "在XFA表单元素上设置“dynamicRender='required'”，或为了更好的辅助功能支持而从XFA迁移到AcroForms。"
+  },
+  "28-001": {
+    "title": "注释不在阅读顺序中",
+    "description": "页面上存在注释（链接、表单域、批注），但其关联的结构元素在结构树中未放置在正确的逻辑阅读顺序位置。",
+    "severity_label": "major",
+    "suggested_fix": "将注释结构元素（Link、Form、Annot）放置在结构树中相对于周围内容的正确位置。"
+  },
+  "28-002": {
+    "title": "注释不在Annot结构元素内",
+    "description": "页面上的注释对象未包裹在“Annot”结构元素（或适当的子类型：Link、Form）中。",
+    "severity_label": "major",
+    "suggested_fix": "将每个注释对象包裹在适当的结构元素中（超链接用“Link”，小部件用“Form”）。"
+  },
+  "28-003": {
+    "title": "注释仅用于视觉格式化",
+    "description": "注释纯粹用于视觉格式化（例如，作为装饰绘制的矩形），且未进行适当标记。",
+    "severity_label": "minor",
+    "suggested_fix": "将仅用于格式化的注释标记为人工制品，或删除它们并改用正确的PDF绘图运算符。"
+  },
+  "28-004": {
+    "title": "注释缺少Contents和Alt",
+    "description": "注释缺少“Contents”条目（文本描述）或“Alt”条目（替代文本），导致屏幕阅读器用户无法获取上下文。",
+    "severity_label": "major",
+    "suggested_fix": "为每个描述其用途的注释添加“/Contents”字符串。为非文本注释提供“/Alt”。"
+  },
+  "28-005": {
+    "title": "表单域缺少TU或Alt",
+    "description": "表单域小部件注释缺少工具提示（TU）或“Alt”条目，导致屏幕阅读器用户无法理解该域的用途。",
+    "severity_label": "major",
+    "suggested_fix": "为每个表单域添加“/TU”（工具提示）条目，描述其用途和预期的输入格式。"
+  },
+  "28-006": {
+    "title": "未定义的注释子类型",
+    "description": "注释的“Subtype”值未在ISO 32000-1中定义，可能导致PDF处理器出现不可预知的行为。",
+    "severity_label": "minor",
+    "suggested_fix": "替换或删除具有未定义子类型的注释，或确保自定义子类型已注册并得到正确处理。"
+  },
+  "28-007": {
+    "title": "存在TrapNet注释",
+    "description": "文档中存在TrapNet注释（用于印前陷印工作流程），且未进行适当的标记或人工制品处理。",
+    "severity_label": "minor",
+    "suggested_fix": "将TrapNet注释标记为人工制品，因为它们对文档使用者没有任何语义意义。"
+  },
+  "28-008": {
+    "title": "带有注释的页面缺少Tabs键",
+    "description": "包含注释（链接、表单域）的页面缺少“Tabs”条目，该条目指定了键盘导航的制表顺序。",
+    "severity_label": "major",
+    "suggested_fix": "为页面字典添加“/Tabs”条目。使用“/Tabs=S”进行结构排序（推荐用于可访问文档）。"
+  },
+  "28-009": {
+    "title": "Tabs未设置为S（结构顺序）",
+    "description": "页面上的“Tabs”键设置为“S”以外的值（例如，行顺序为“R”，列顺序为“C”），这可能与文档的逻辑阅读顺序不符。",
+    "severity_label": "major",
+    "suggested_fix": "在带有注释的页面上将“/Tabs”设置为“S”（结构顺序），以便键盘导航遵循结构树顺序。"
+  },
+  "28-010": {
+    "title": "小部件注释不在Form元素内",
+    "description": "小部件注释（表单域）未包裹在树中的“Form”结构元素内。",
+    "severity_label": "major",
+    "suggested_fix": "将每个小部件注释包裹在“Form”结构元素中。将相关的表单域组合在同一个“Form”容器内。"
+  },
+  "28-011": {
+    "title": "链接注释不在Link元素内",
+    "description": "链接注释（超链接）未包裹在树中的“Link”结构元素内。",
+    "severity_label": "major",
+    "suggested_fix": "将每个链接注释包裹在位于正确阅读顺序位置的“Link”结构元素中。"
+  },
+  "28-012": {
+    "title": "链接注释缺少Contents",
+    "description": "链接注释缺少描述链接目标或用途的“Contents”条目。",
+    "severity_label": "major",
+    "suggested_fix": "为每个链接注释添加“/Contents”字符串，描述链接指向的内容。"
+  },
+  "28-013": {
+    "title": "IsMap=true但没有服务器端图像映射",
+    "description": "链接注释的“IsMap”设置为true，但关联的图像并未作为服务器端图像映射运行。",
+    "severity_label": "minor",
+    "suggested_fix": "如果图像不是具有坐标敏感行为的活动服务器端图像映射，请将“IsMap”设置为false。"
+  },
+  "28-016": {
+    "title": "文件附件不符合7.11节",
+    "description": "文件附件注释引用的嵌入文件不符合7.11节（嵌入文件流）的要求。",
+    "severity_label": "minor",
+    "suggested_fix": "确保嵌入文件同时具有“F”和“UF”条目，且文件规范字典完整。另请参阅21-001。"
+  },
+  "28-017": {
+    "title": "逻辑结构中存在PrinterMark",
+    "description": "PrinterMark注释（裁切标记、套准标记、色条）出现在文档的逻辑结构树中，但它在那里没有语义意义。",
+    "severity_label": "minor",
+    "suggested_fix": "从结构树中删除PrinterMark注释并将其标记为人工制品。"
+  },
+  "28-018": {
+    "title": "PrinterMark外观未标记为人工制品",
+    "description": "PrinterMark注释的外观流未标记为人工制品，导致屏幕阅读器尝试描述打印标记。",
+    "severity_label": "minor",
+    "suggested_fix": "在内容流中将PrinterMark外观内容标记为人工制品。"
+  },
+  "30-001": {
+    "title": "存在Reference XObject",
+    "description": "文档中使用了Reference XObject。Reference XObject从外部PDF文件导入内容，这会破坏辅助功能，因为导入的内容未正确集成到结构树中。",
+    "severity_label": "major",
+    "suggested_fix": "避免使用Reference XObject。如果必须使用，请确保所有导入的内容在宿主文档的结构树中都已正确标记。"
+  },
+  "30-002": {
+    "title": "带有MCID的Form XObject被多次引用",
+    "description": "包含带有MCID（标记内容标识符）的标记内容的Form XObject被多次引用，导致页面标记内容序列中出现MCID冲突。",
+    "severity_label": "major",
+    "suggested_fix": "避免重复使用包含标记内容的Form XObject。为每个使用位置扁平化或复制XObject。"
+  },
+  "31-001": {
+    "title": "Type0后代中的CIDSystemInfo注册表不匹配",
+    "description": "Type0字体后代CIDFont具有不一致的CIDSystemInfo注册表值，可能导致字符映射失败。",
+    "severity_label": "minor",
+    "suggested_fix": "确保Type0字体的所有后代CIDFont具有一致的CIDSystemInfo（注册表、排序、补充）值。"
+  },
+  "31-002": {
+    "title": "Type0后代中的CIDSystemInfo排序不匹配",
+    "description": "Type0字体后代CIDFont具有不一致的CIDSystemInfo排序值。",
+    "severity_label": "minor",
+    "suggested_fix": "对齐Type0字体所有后代CIDFont的排序值。"
+  },
+  "31-003": {
+    "title": "Type0后代中的CIDSystemInfo补充不匹配",
+    "description": "Type0字体后代CIDFont具有不一致的CIDSystemInfo补充值。",
+    "severity_label": "minor",
+    "suggested_fix": "对齐Type0字体所有后代CIDFont的补充值。"
+  },
+  "31-004": {
+    "title": "CIDFont缺少CIDToGIDMap",
+    "description": "CIDFont字典不包含“CIDToGIDMap”条目且未使用标识映射，导致字形查找不可靠。",
+    "severity_label": "minor",
+    "suggested_fix": "为CIDFont添加“CIDToGIDMap”条目，如果字体使用标识CID，则将其设置为“Identity”。"
+  },
+  "31-005": {
+    "title": "CIDFont需要非标识CIDToGIDMap",
+    "description": "字符集不是Adobe-Identity的CIDFont需要显式的“CIDToGIDMap”流才能进行正确的字形映射。",
+    "severity_label": "minor",
+    "suggested_fix": "如果CIDFont不使用Adobe-Identity字符集，请为其提供显式的“CIDToGIDMap”流。"
+  },
+  "31-006": {
+    "title": "CMap未列出或未嵌入",
+    "description": "Type0字体使用的CMap资源既未列在PDF规范的标准CMap中，也未嵌入到文档中。",
+    "severity_label": "minor",
+    "suggested_fix": "使用PDF规范中的标准CMap，或将自定义CMap流嵌入到文档中。"
+  },
+  "31-007": {
+    "title": "Type0字体中的WMode不匹配",
+    "description": "Type0字体的CMap和后代CIDFont之间的WMode（书写模式）值不同。",
+    "severity_label": "minor",
+    "suggested_fix": "确保CMap和所有后代CIDFont之间的WMode值（0为水平，1为垂直）一致。"
+  },
+  "31-008": {
+    "title": "CMap引用了未列出的CMap",
+    "description": "CMap流引用了另一个既不是标准CMap也未嵌入到文档中的CMap。",
+    "severity_label": "minor",
+    "suggested_fix": "将所有引用的非标准CMap嵌入到文档中，或仅使用标准CMap。"
+  },
+  "31-009": {
+    "title": "字体未嵌入",
+    "description": "文档中使用的字体未嵌入。非嵌入字体会导致回退到系统字体，这可能具有不同的度量和字形覆盖范围，从而破坏文本提取和视觉保真度。",
+    "severity_label": "critical",
+    "suggested_fix": "嵌入文档中使用的所有字体。对于无法嵌入的标准14种字体，确保字体程序可用或用嵌入的等效字体替换。"
+  },
+  "31-011": {
+    "title": "嵌入字体程序缺少字形",
+    "description": "文档文本中引用的字形在嵌入的字体程序中不存在。",
+    "severity_label": "major",
+    "suggested_fix": "对字体进行子集化以包含所有必需的字形，或使用包含所需字形的不同字体。"
+  },
+  "31-012": {
+    "title": "Type1 CharSet：字形未列出",
+    "description": "Type1字体的CharSet未列出字体程序中实际存在且在文档中使用的字形。",
+    "severity_label": "minor",
+    "suggested_fix": "更新CharSet以包含字体程序中存在且在文档中引用的所有字形。"
+  },
+  "31-013": {
+    "title": "Type1 CharSet：列出的字形不在字体中",
+    "description": "Type1字体的CharSet列出了嵌入字体程序中不存在的字形名称。",
+    "severity_label": "minor",
+    "suggested_fix": "从CharSet中删除不存在的字形名称，或嵌入完整字体。"
+  },
+  "31-014": {
+    "title": "CID CIDSet：字形未列出",
+    "description": "CIDFont的CIDSet未包含嵌入字体程序中实际存在且在文档中使用的CID。",
+    "severity_label": "minor",
+    "suggested_fix": "更新CIDSet以包含文档中使用的所有CID值。"
+  },
+  "31-015": {
+    "title": "CID CIDSet：列出的CID不在字体中",
+    "description": "CIDFont的CIDSet列出的CID与嵌入字体程序中的任何字形都不对应。",
+    "severity_label": "minor",
+    "suggested_fix": "从CIDSet中删除不存在的CID，或根据实际字体程序重新生成它。"
+  },
+  "31-016": {
+    "title": "字形宽度差异 > 1/1000",
+    "description": "字体字典中指定的字形宽度与嵌入字体程序中的宽度差异超过每1000单位1单位。",
+    "severity_label": "minor",
+    "suggested_fix": "更正字体字典中的“Widths”数组（或“W2”条目），以匹配嵌入字体程序中的实际字形宽度。"
+  },
+  "31-017": {
+    "title": "非符号TrueType缺少非符号cmap",
+    "description": "具有非符号编码（存在Encoding条目或符号标志关闭）的TrueType字体不包含用于Unicode映射的(3,1) cmap子表。",
+    "severity_label": "minor",
+    "suggested_fix": "确保TrueType字体程序包含用于正确Unicode字符映射的(3,1) Microsoft Unicode BMP cmap子表。"
+  },
+  "31-018": {
+    "title": "非符号TrueType字形不在cmap中",
+    "description": "非符号TrueType字体中的字形无法通过字体的cmap子表查找到。",
+    "severity_label": "minor",
+    "suggested_fix": "确保文档中使用的所有字形都可以通过字体中的至少一个cmap子表访问。"
+  },
+  "31-019": {
+    "title": "非符号TrueType字体字典缺少Encoding",
+    "description": "非符号TrueType字体字典没有“Encoding”条目，这对于字形名称解析是必需的。",
+    "severity_label": "minor",
+    "suggested_fix": "为字体字典添加适当的“Encoding”条目（例如，WinAnsiEncoding、MacRomanEncoding）。"
+  },
+  "31-020": {
+    "title": "Encoding字典缺少BaseEncoding",
+    "description": "带有“Differences”数组的Encoding字典未指定“BaseEncoding”条目。",
+    "severity_label": "minor",
+    "suggested_fix": "在Encoding字典中指定“BaseEncoding”（例如，WinAnsiEncoding），“Differences”数组即偏离该编码。"
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding不是MacRoman或WinAnsi",
+    "description": "非符号TrueType字体的Encoding或BaseEncoding既不是MacRomanEncoding也不是WinAnsiEncoding，这是两种标准的基本编码。",
+    "severity_label": "minor",
+    "suggested_fix": "使用WinAnsiEncoding或MacRomanEncoding作为字体的基本编码。"
+  },
+  "31-022": {
+    "title": "Differences字形名称不在Adobe字形列表中",
+    "description": "字体Encoding字典中的“Differences”数组使用了不在Adobe字形列表（AGL）中的字形名称。",
+    "severity_label": "minor",
+    "suggested_fix": "在“Differences”数组中仅使用Adobe字形列表中的标准字形名称。"
+  },
+  "31-023": {
+    "title": "存在Differences但没有(3,1) cmap",
+    "description": "字体的Encoding中具有“Differences”数组，但TrueType字体程序不包含用于Unicode映射的(3,1) cmap子表。",
+    "severity_label": "minor",
+    "suggested_fix": "为字体添加ToUnicode CMap，以确保可靠的Unicode映射。"
+  },
+  "31-024": {
+    "title": "符号TrueType字体字典具有Encoding",
+    "description": "符号TrueType字体（设置了标志位3）在其字体字典中具有“Encoding”条目，这对于符号字体是不允许的。",
+    "severity_label": "minor",
+    "suggested_fix": "从符号TrueType字体字典中删除“Encoding”条目。符号字体依赖字体程序的cmap进行字符映射。"
+  },
+  "31-025": {
+    "title": "符号TrueType字体程序缺少cmap",
+    "description": "符号TrueType字体的嵌入字体程序不包含任何cmap表。",
+    "severity_label": "minor",
+    "suggested_fix": "确保嵌入的字体程序至少包含一个用于符号字符映射的(3,0) cmap子表。"
+  },
+  "31-026": {
+    "title": "具有多个cmap的符号TrueType缺少(3,0)",
+    "description": "符号TrueType字体具有多个cmap子表，但缺少必需的(3,0) Microsoft符号cmap子表。",
+    "severity_label": "minor",
+    "suggested_fix": "确保嵌入的字体程序包含一个(3,0) Microsoft符号cmap子表，以进行正确的字符映射。"
+  },
+  "31-027": {
+    "title": "缺少ToUnicode CMap",
+    "description": "用于文本内容的字体没有ToUnicode CMap，且不适用任何豁免条件。如果没有ToUnicode CMap，辅助技术将无法提取可读文本。",
+    "severity_label": "critical",
+    "suggested_fix": "在字体字典中添加ToUnicode CMap流，将文档中使用的每个字符代码映射到其相应的Unicode值。"
+  },
+  "31-028": {
+    "title": "ToUnicode映射到CID 0",
+    "description": "ToUnicode CMap将字符代码映射到Unicode值U+0000（空），这不是有效的文本字符。",
+    "severity_label": "minor",
+    "suggested_fix": "更正ToUnicode CMap，将字符代码映射到有效的、非空的Unicode值。"
+  },
+  "31-029": {
+    "title": "ToUnicode映射到U+FEFF或U+FFFE",
+    "description": "ToUnicode CMap将字符代码映射到U+FEFF（BOM）或U+FFFE（字节顺序标记），它们是控制字符，不是有效的可显示文本。",
+    "severity_label": "minor",
+    "suggested_fix": "将ToUnicode CMap中的U+FEFF/U+FFFE映射替换为字符的实际Unicode值。"
+  },
+  "31-030": {
+    "title": ".notdef字形在文本中被引用",
+    "description": "文档中的文本显示运算符引用了.notdef字形（字形索引0），这表示缺少或不可用的字符。使用.notdef的文本显示为空白或豆腐块字符。",
+    "severity_label": "major",
+    "suggested_fix": "确保文档中使用的所有字符代码都对应于嵌入字体程序中的实际字形。"
+  }
+}

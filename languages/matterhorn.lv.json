@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakts, kas iezīmēts kā reāls saturs",
+    "description": "Lapas artefakts (virsraksts, kājene, dekoratīvs elements) struktūras koks ir nepareizi iezīmēts kā reāls saturs. Ekrānlasītājs mēģinās nolasīt dekoratīvos elementus kā dokumenta saturu.",
+    "severity_label": "critical",
+    "suggested_fix": "Mainiet struktūras elements tipu uz Artefakts vai iekļaujiet saturu artefakta iezīmēta satura secībā."
+  },
+  "01-002": {
+    "title": "Reāls saturs, kas iezīmēts kā artefakts",
+    "description": "Patiesais dokumenta saturs (pamatteksts, virsraksts, paraksts) ir nepareizi iezīmēts kā artefakts. Ekrānlasītājs pilnībā izlaidīs šo saturu.",
+    "severity_label": "critical",
+    "suggested_fix": "Noņemiet artefakta iezīmējumu no reālā satura un nodrošiniet, ka tas ir pareizi iezīmēts ar atbilstošu struktūras elements."
+  },
+  "01-003": {
+    "title": "Artefakts iezīmēta satura iekšpusē",
+    "description": "Ar artefaktu iezīmēts elements atrodas struktūras elements iekšpusē, kas reprezentē reālu saturu, tādējādi bojājot satura hierarhija.",
+    "severity_label": "critical",
+    "suggested_fix": "Pārvietojiet ar artefaktu iezīmēto saturu ārpus reālā satura struktūras elements vai pārstrukturējiet elementu hierarhija."
+  },
+  "01-004": {
+    "title": "Iezīmēts saturs artefakta iekšpusē",
+    "description": "Iezīmēts reālā satura elements ir ievietots artefakta konteinerā. Ekrānlasītājs var izlaist šo saturu.",
+    "severity_label": "critical",
+    "suggested_fix": "Pārvietojiet iezīmēto saturu ārpus artefakta konteinera un novietojiet to pareizajā līmenī struktūras koks."
+  },
+  "01-005": {
+    "title": "Saturs nav ne iezīmēts, ne artefakts",
+    "description": "Saturs lapā nav ne iezīmēts kā struktūras elements, ne atzīmēts kā artefakts. Tas ir visizplatītākais PDF/UA pārkāpums un galvenais iemesls, kāpēc ekrānlasītājs neizlasa saturu.",
+    "severity_label": "critical",
+    "suggested_fix": "Vai nu iezīmējiet saturu ar atbilstošu struktūras elements (P, H1-H6, attēls utt.), vai atzīmējiet to kā artefaktu, ja tas ir dekoratīvs."
+  },
+  "01-006": {
+    "title": "Trūkst StructTreeRoot",
+    "description": "Dokumenta katalogs vārdnīca jāiekļauj StructTreeRoot ieraksts, kas kalpo kā dokumenta loģiskās struktūras sakne. Bez tā ekrānlasītājs nevar interpretēt dokumenta struktūru.",
+    "severity_label": "critical",
+    "suggested_fix": "Pievienojiet StructTreeRoot objektu dokumenta katalogs vārdnīca un izveidojiet struktūras elements hierarhija visām satura lapām."
+  },
+  "01-007": {
+    "title": "Suspect karodziņš ir patiess",
+    "description": "Suspects ieraksts dokumenta MarkInfo vārdnīca ir iestatīts uz true, norādot, ka struktūras koks var saturēt neuzticamu iezīmēšanu. Palīgtehnoloģijas var pilnībā ignorēt struktūras koks.",
+    "severity_label": "critical",
+    "suggested_fix": "Iestatiet Suspects karodziņu uz false MarkInfo vārdnīca pēc tam, kad esat pārliecinājies, ka viss saturs ir pareizi iezīmēts."
+  },
+  "02-001": {
+    "title": "Nestandarta lomu kartēšana nebeidzas ar standarta tipu",
+    "description": "Pielāgota loma RoleMap neatbilst standarta PDF struktūras tipam. Kartēšanas ķēdes galīgajam mērķim ir jābūt standarta tipam no PDF 32000-1 lomu kopas.",
+    "severity_label": "critical",
+    "suggested_fix": "Nodrošiniet, ka katra nestandarta loma RoleMap tieši vai netieši kartējas uz standarta tipu (piem., Document, Part, Sect, P, H1-H6, L, LI, tabula, attēls utt.)."
+  },
+  "02-002": {
+    "title": "Semantiski neatbilstoša lomu kartēšana",
+    "description": "Struktūras elements loma ir kartēta uz standarta tipu, kas neatbilst elementa semantiskajam mērķim (piem., virsraksts kartēts uz Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Pārskatiet RoleMap un pārliecinieties, ka katra kartēšana atspoguļo satura faktisko semantisko lomu. Var būt nepieciešams cilvēka vērtējums."
+  },
+  "02-003": {
+    "title": "Cikliska lomu kartēšana",
+    "description": "RoleMap satur ciklisku ķēdi, kurā loma A kartējas uz B, B uz C, un C atpakaļ uz A, radot bezgalīgu cilpu procesoriem.",
+    "severity_label": "major",
+    "suggested_fix": "Pārtrauciet ciklisko ķēdi, kartējot galīgo lomu tieši uz atbilstošu standarta tipu."
+  },
+  "02-004": {
+    "title": "Standarta tips pārkartēts",
+    "description": "Standarta PDF struktūras tips (piem., P, H1, tabula) tiek pārkartēts uz citu tipu, izmantojot RoleMap, kas nav atļauts saskaņā ar PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Noņemiet šī standarta tipa kartēšanu no RoleMap. Standarta tipus nedrīkst pārkartēt."
+  },
+  "06-001": {
+    "title": "Trūkst XMP metadati straume",
+    "description": "Dokuments nesatur XMP metadati straumi kataloga Metadata ierakstā. PDF/UA-1 pieprasa XMP metadati.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet XMP metadati straumi dokumenta katalogs ar vismaz dc:format (application/pdf), pdfuaid:part (1) un dc:title."
+  },
+  "06-002": {
+    "title": "Trūkst PDF/UA identifikators",
+    "description": "XMP metadati nesatur pdfuaid:part rekvizītu, kas identificē dokumentu kā atbilstošu PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet pdfuaid:part rekvizītu ar vērtību 1 XMP metadati straumei, lai deklarētu PDF/UA-1 atbilstība."
+  },
+  "06-003": {
+    "title": "Trūkst dc:title metadati",
+    "description": "XMP metadati vai dokumenta informācijas vārdnīca nesatur dc:title ierakstu. PDF/UA-1 pieprasa, lai dokumentam būtu nosaukums.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet dc:title ierakstu XMP metadati straumei. Izmantojiet dokumenta faktisko nosaukumu vai jēgpilnu aizstājēju."
+  },
+  "07-001": {
+    "title": "Trūkst DisplayDocTitle skatītāja iestatījumi",
+    "description": "Dokumenta skatītāja iestatījumi vārdnīca nesatur DisplayDocTitle atslēgu. Ja tās nav vai tā ir false, skatītāji dokumenta nosaukuma vietā parāda faila nosaukumu.",
+    "severity_label": "major",
+    "suggested_fix": "Iestatiet DisplayDocTitle uz true dokumenta skatītāja iestatījumi vārdnīca (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle iestatīts uz false",
+    "description": "DisplayDocTitle atslēga skatītāja iestatījumi ir iestatīta uz false, liekot skatītājiem nosaukumjoslā dokumenta nosaukuma vietā parādīt faila nosaukumu.",
+    "severity_label": "major",
+    "suggested_fix": "Mainiet DisplayDocTitle uz true skatītāja iestatījumi vārdnīca."
+  },
+  "08-002": {
+    "title": "OCR teksts nav iezīmēts struktūras koks",
+    "description": "Dokuments satur OCR ģenerētu tekstu (bieži sastopams skenētos PDF failos), kas nav iezīmēts struktūras koks. Ekrānlasītājs lietotāji nevar piekļūt šim saturam.",
+    "severity_label": "critical",
+    "suggested_fix": "Nodrošiniet, ka viss OCR ģenerētais teksts ir iekļauts struktūras koks ar atbilstošiem tagiem. Skenētiem PDF failiem pārbūvējiet dokumentu ar pilnu teksta slāņa pārklājumu."
+  },
+  "09-001": {
+    "title": "Tagi nav loģiskā lasīšanas secība",
+    "description": "Struktūras elementi kokā nav sakārtoti dokumenta loģiskā lasīšanas secība. Ekrānlasītājs pārvietojas pa dokumentu koka secībā, kas var atšķirties no vizuālās secības.",
+    "severity_label": "critical",
+    "suggested_fix": "Pārkārtojiet struktūras elementus kokā, lai tie atbilstu loģiskā lasīšanas secība (parasti no augšas uz leju, no kreisās uz labo pusi attiecīgajai valodai)."
+  },
+  "09-002": {
+    "title": "Semantiski neatbilstoša ligzdošana",
+    "description": "Struktūras elements ir ievietots vecākelementā, kurā tas semantiski nepieder (piem., tabula rinda rindkopā vai virsraksts sarakstā).",
+    "severity_label": "critical",
+    "suggested_fix": "Pārstrukturējiet elementu hierarhija, lai nodrošinātu, ka katrs elements ir ievietots semantiski atbilstošā vecākelementā."
+  },
+  "09-003": {
+    "title": "Neatbilstošs struktūras tips pēc lomu kartēšana",
+    "description": "Pēc lomu kartēšana atrisināšanas galīgais struktūras tips nav semantiski atbilstošs saturam, ko tas satur.",
+    "severity_label": "major",
+    "suggested_fix": "Pielāgojiet RoleMap vai mainiet sākotnējo struktūras tipu, lai atrisinātais tips atbilstu satura semantiskajai lomai."
+  },
+  "09-004": {
+    "title": "Tabula elements neatbilst 337. tabulai",
+    "description": "Struktūras elements tipa tabula neatbilst atļautajai bērnu struktūrai (337. tabula ISO 32000-1). Tabula jāsatur vismaz TBody ar TR bērniem vai THead/TBody/TFoot sadaļas.",
+    "severity_label": "major",
+    "suggested_fix": "Nodrošiniet, ka tabula elements satur pareizi strukturētas rindas: Tabula > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Vismaz ietveriet rindas TBody."
+  },
+  "09-005": {
+    "title": "Saraksts elements neatbilst 336. tabulai",
+    "description": "Struktūras elements tipa L (saraksts) neatbilst atļautajai bērnu struktūrai (336. tabula ISO 32000-1). Saraksts jāsatur LI elementus, un LI jāsatur Lbl (neobligāts) un LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturējiet sarakstus kā: L > LI > (Lbl)? + LBody. Nodrošiniet, ka katram saraksta vienumam ir LBody bērns, kas satur vienuma saturu."
+  },
+  "09-006": {
+    "title": "TOC elements neatbilst 333. tabulai",
+    "description": "Struktūras elements tipa TOC (satura rādītājs) neatbilst atļautajai bērnu struktūrai. TOC jāsatur TOCI elementus.",
+    "severity_label": "minor",
+    "suggested_fix": "Strukturējiet satura rādītāja ierakstus kā: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby elements neatbilst prasībām",
+    "description": "Ruby struktūras elements (izmanto izrunas anotācijām) neseko nepieciešamajai bērnu struktūrai: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Pārstrukturējiet Ruby elementu ar nepieciešamajiem RB (ruby bāze) un RT (ruby teksts) bērniem."
+  },
+  "09-008": {
+    "title": "Warichu elements neatbilst prasībām",
+    "description": "Warichu struktūras elements (iekļauts komentārs vai anotācija CJK tekstā) neseko nepieciešamajai struktūrai: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Pārstrukturējiet Warichu elementu ar nepieciešamajiem WT (warichu teksts) un WP (warichu pieturzīmes) bērniem."
+  },
+  "10-001": {
+    "title": "Rakstzīmju kodu nevar kartēt uz Unicode",
+    "description": "Dokumenta teksta rakstzīmju kodu nevar kartēt uz Unicode vērtību. Tas izraisa izkropļotas vai trūkstošas rakstzīmes, kad palīgtehnoloģijas izgūst tekstu.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, ka visiem fonts ir rakstzīmju karte (ToUnicode CMap), kas kartē katru izmantoto rakstzīmju kodu uz derīgu Unicode vērtību. Pārbaudiet, vai rakstzīmju karte aptver visus dokumentā izmantotos glifs."
+  },
+  "11-001": {
+    "title": "Lapas satura valodu nevar noteikt",
+    "description": "Lapas satura dabisko valodu nevar noteikt, jo dokumenta katalogs vai lapas līmeņa struktūras elementos trūkst /Lang ieraksta.",
+    "severity_label": "critical",
+    "suggested_fix": "Iestatiet /Lang ierakstu dokumenta katalogs uz dokumenta primāro valodu (piem., 'lv-LV', 'en-US'). Pievienojiet /Lang atsevišķiem struktūras elementiem, ja saturs maina valodas."
+  },
+  "11-002": {
+    "title": "Alt/ActualText valodu nevar noteikt",
+    "description": "Alternatīvā teksts aprakstu (Alt) vai ActualText aizstājēju valodu nevar noteikt.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet /Lang atribūtus struktūras elementiem, kas satur Alt vai ActualText, kad teksta valoda atšķiras no dokumenta noklusējuma."
+  },
+  "11-003": {
+    "title": "Nav iestatīta kontūras valoda",
+    "description": "Dokumenta kontūrai (grāmatzīme) nav /Lang ieraksta, kas neļauj palīgtehnoloģijām pareizi izrunāt kontūras vienumus.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet /Lang ierakstu kontūras vārdnīca, kas atbilst dokumenta primārajai valodai."
+  },
+  "11-004": {
+    "title": "Nav iestatīta anotācija satura valoda",
+    "description": "Anotācija satura virknēm (rīka padoms, veidlapas lauks vērtības) nav saistītas valodas deklarācijas.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet /Lang anotācija izskata vārdnīcām, kad anotācija teksts atšķiras no dokumenta valodas."
+  },
+  "11-005": {
+    "title": "Nav iestatīta veidlapas lauks TU valoda",
+    "description": "Veidlapas lauks rīka padoms (TU) ierakstam nav saistītas valodas, kas var izraisīt nepareizu izrunu ekrānlasītājs.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, ka veidlapas lauks rīka padoms teksts ietver valodas identifikāciju, ja tā atšķiras no dokumenta noklusējuma valodas."
+  },
+  "11-006": {
+    "title": "Nav iestatīta dokumenta metadati valoda",
+    "description": "XMP metadati nedeklarē dc:language rekvizītu, vai dokumenta katalogs /Lang ieraksts trūkst vai ir tukšs.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet dc:language XMP metadati un iestatiet /Lang dokumenta katalogs uz RFC 3066 valodas tagu."
+  },
+  "12-001": {
+    "title": "Stiepjamām rakstzīmēm trūkst ActualText",
+    "description": "Stiepjamām rakstzīmēm (iekavas, kvadrātiekavas, figūriekavas, saknes zīmes), ko izmanto matemātiskos vai dekoratīvos kontekstos, nav ActualText aizstājēju.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet ActualText stiepjamām rakstzīmju secībām, aprakstot to semantisko nozīmi (piem., ActualText='(' stiepjamai kreisajai iekavai)."
+  },
+  "13-001": {
+    "title": "Grafika nav iezīmēta kā attēls",
+    "description": "Grafisks elements (attēls, diagramma, shēma) dokumenta saturā nav iezīmēts ar attēls struktūras elements.",
+    "severity_label": "major",
+    "suggested_fix": "Iezīmējiet visus nedekoratīvos grafiskos elementus kā attēls elementus struktūras koks, ar atbilstošu alternatīvais teksts."
+  },
+  "13-002": {
+    "title": "Saitei ar jēgpilnu fonu trūkst alternatīvais teksts",
+    "description": "Anotācija saitei ir jēgpilns vizuālais izskats (piem., attēls, ko izmanto kā pogu), bet tai trūkst alternatīvais teksts, kas apraksta tās mērķi.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet Contents ierakstu anotācija saitei, aprakstot tās galamērķi vai mērķi."
+  },
+  "13-003": {
+    "title": "Paraksts nav iezīmēts kā paraksts",
+    "description": "Paraksts (attēla paraksts, tabula nosaukums, attēls leģenda) ir iezīmēts kā parasts teksts (P), nevis izmantojot paraksts struktūras tipu.",
+    "severity_label": "major",
+    "suggested_fix": "Iezīmējiet parakstus ar paraksts struktūras tipu un nodrošiniet, ka tie ir pareizi saistīti ar to vecākelementu attēls vai tabula."
+  },
+  "13-004": {
+    "title": "Attēls trūkst alternatīvais teksts",
+    "description": "Attēls struktūras elements ir klāt, bet tam nav Alt atribūta, kas sniedz alternatīvais teksts. Ekrānlasītājs paziņos par attēls klātbūtni, bet nevarēs aprakstīt tā saturu.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet /Alt ierakstu attēls struktūras elements ar īsu attēls satura aprakstu."
+  },
+  "14-001": {
+    "title": "Virsraksti nav iezīmēti",
+    "description": "Saturs, kas vizuāli darbojas kā virsraksts (lielāks fonts, treknraksts, atšķirīgs stils), nav iezīmēts ar virsraksts struktūras tipu (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identificējiet visus virsrakstus dokumentā un iezīmējiet tos ar atbilstošiem H1-H6 struktūras elementiem, kas atspoguļo to hierarhija līmeni."
+  },
+  "14-002": {
+    "title": "Pirmais virsraksts nav H1",
+    "description": "Pirmais virsraksts dokumenta struktūras koks nav H1 tipa. PDF/UA-1 labākā prakse ir, ka augstākā līmeņa virsrakstam jābūt H(n) un turpmākie virsraksti nedrīkst izlaist līmeņus.",
+    "severity_label": "major",
+    "suggested_fix": "Nodrošiniet, ka pirmais virsraksts ir H1 (vai H2, ja dokumenta nosaukums ir metadati). Pārdēvējiet turpmākos virsrakstus, lai izvairītos no līmeņu izlaišanas."
+  },
+  "14-003": {
+    "title": "Virsraksta līmenis izlaists",
+    "description": "Virsraksta līmeņi struktūras koks izlaiž līmeni (piem., H1, kam tieši seko H3 bez H2). Tas izjauc loģisko virsrakstu hierarhija palīgtehnoloģiju lietotājiem.",
+    "severity_label": "major",
+    "suggested_fix": "Nodrošiniet, ka virsraksta līmeņi ir secīgi bez atstarpēm. Pārdēvējiet virsrakstus tā, lai H1 sekotu H2, tad H3 utt."
+  },
+  "14-005": {
+    "title": "Dziļš virsraksts bez H7+ tipa",
+    "description": "Virsrakstam 7. vai dziļākā ligzdošanas līmenī nav atbilstoša H7+ struktūras tipa. PDF definē tikai H1 līdz H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Sapludiniet virsrakstu hierarhija līdz maksimāli 6 līmeņiem vai izmantojiet nestandarta lomu kartēšana ar piesardzību."
+  },
+  "14-006": {
+    "title": "Vairāki H tagi vienā struktūras mezglā",
+    "description": "Viens struktūras elements satur vairāk nekā vienu virsraksts tagu (piem., Sect, kas satur gan H1, gan H2). Katram virsrakstam vajadzētu izveidot jaunu ligzdošanas līmeni.",
+    "severity_label": "major",
+    "suggested_fix": "Sadaliet struktūras mezglu tā, lai katrs virsraksts sāktu jaunu sadaļu vai apakšsadaļu atbilstošā līmenī."
+  },
+  "14-007": {
+    "title": "Jaukti H un Hn tagi nekonsekventi",
+    "description": "Daži virsraksti izmanto vispārīgo 'H' tipu, kamēr citi izmanto numurētus 'H1'-'H6' tipus nekonsekventi vienā dokumentā.",
+    "severity_label": "major",
+    "suggested_fix": "Konvertējiet visus vispārīgos H tagus uz numurētiem H1-H6 tipiem, pamatojoties uz to pozīciju virsrakstu hierarhija."
+  },
+  "15-001": {
+    "title": "Rindas virsraksts nav iezīmēts kā virsraksta šūna",
+    "description": "Tabula šūna, kas kalpo kā rindas virsraksts, ir iezīmēta kā TD (datu šūna), nevis TH (virsraksta šūna). Tas neļauj ekrānlasītājs pareizi saistīt virsrakstus ar datu šūnām.",
+    "severity_label": "major",
+    "suggested_fix": "Mainiet rindas virsraksta šūnu struktūras tipu no TD uz TH un pievienojiet atbilstošu Scope atribūtu (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Kolonnas virsraksts nav iezīmēts kā virsraksta šūna",
+    "description": "Tabula šūna, kas kalpo kā kolonnas virsraksts, ir iezīmēta kā TD, nevis TH. Ekrānlasītājs nevar loģiski pārvietoties pa tabula.",
+    "severity_label": "major",
+    "suggested_fix": "Mainiet kolonnas virsraksta šūnu struktūras tipu no TD uz TH un pievienojiet atbilstošu Scope atribūtu (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH trūkst Scope bez Headers/ID",
+    "description": "TH (tabula virsraksts) elementam nav Scope atribūta, un tabula neizmanto Headers/ID asociācijas, lai saistītu virsrakstus ar datu šūnām.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet Scope='Row', Scope='Column' vai Scope='Both' TH elementiem, vai ieviesiet Headers/ID asociācijas."
+  },
+  "15-005": {
+    "title": "Neskaidra šūnu virsraksta asociācija",
+    "description": "Datu šūnas saistītos virsraksta šūnas nevar nepārprotami noteikt sarežģītās tabula struktūras dēļ (apvienotas šūnas, neregulārs izkārtojums).",
+    "severity_label": "major",
+    "suggested_fix": "Izmantojiet skaidrus Headers/ID atribūtus, lai saistītu katru TD ar atbilstošajiem TH elementiem, vai vienkāršojiet tabula struktūru."
+  },
+  "16-001": {
+    "title": "Sakārtotam sarakstam trūkst ListNumbering",
+    "description": "Sakārtotam sarakstam (L tips ar numurētiem vienumiem) nav ListNumbering atribūta, kas nosaka numerācijas formātu.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet ListNumbering atribūtu L elementam ar vērtību, piemēram, 'Decimal', 'UpperRoman', 'LowerAlpha' utt."
+  },
+  "16-002": {
+    "title": "Nederīga ListNumbering vērtība",
+    "description": "ListNumbering atribūtam L elementā ir neatpazīta vai nederīga vērtība.",
+    "severity_label": "minor",
+    "suggested_fix": "Iestatiet ListNumbering uz derīgu vērtību: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha vai LowerAlpha."
+  },
+  "16-003": {
+    "title": "Saraksts saturs nav iezīmēts kā saraksts",
+    "description": "Saturs, kas vizuāli un semantiski ir saraksts (ar aizzīmēm vai numurēti vienumi), ir iezīmēts kā atsevišķas rindkopas vai citi nesaraksta elementi.",
+    "severity_label": "major",
+    "suggested_fix": "Pārstrukturējiet saturu kā saraksts (L) ar saraksts vienumi (LI), katrs satur neobligātu Lbl un nepieciešamo LBody."
+  },
+  "17-001": {
+    "title": "Matemātiska izteiksme nav iezīmēta kā Formula",
+    "description": "Matemātiska izteiksme dokumentā ir iezīmēta kā parasta rindkopa vai attēls, nevis izmantojot Formula struktūras tipu.",
+    "severity_label": "minor",
+    "suggested_fix": "Iezīmējiet matemātiskās izteiksmes ar Formula struktūras tipu un sniedziet Alt teksts, kas apraksta izteiksmi."
+  },
+  "17-002": {
+    "title": "Formula trūkst Alt teksts",
+    "description": "Formula struktūras elements ir klāt, bet tam nav alternatīvais teksts, kas apraksta matemātisko izteiksmi.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet /Alt ierakstu Formula elementam ar matemātiskās izteiksmes tekstuālu attēlojumu."
+  },
+  "17-003": {
+    "title": "Formula rakstzīme nav Unicode-kartēta",
+    "description": "Matemātiskās formulas rakstzīmi nevar kartēt uz Unicode, izraisot palīgtehnoloģijas izkropļotu izvadi.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, ka matemātisko simbolu fonts ir pilnīga rakstzīmju karte (ToUnicode CMap), kas aptver visus glifs. Skatīt arī 10-001."
+  },
+  "18-001": {
+    "title": "Virsraksts/kājene nav iezīmēti kā lappušu artefakts",
+    "description": "Virsraksti un kājenes (lapu numuri, nodaļu nosaukumi, kas atkārtojas katrā lapā) ir iezīmēti kā reāls saturs, nevis atzīmēti kā lappušu artefakts.",
+    "severity_label": "major",
+    "suggested_fix": "Atzīmējiet virsrakstus un kājenes kā artefakts ar apakštipu 'Pagination', lai ekrānlasītājs tos izlaiž nepārtrauktas lasīšanas laikā."
+  },
+  "18-002": {
+    "title": "Virsrakstam/kājenei trūkst pareizs artefakts apakštips",
+    "description": "Virsraksti un kājenes ir atzīmēti kā artefakts, taču tiem nav 'Pagination' apakštipa, vai arī tiek izmantots nepareizs apakštips.",
+    "severity_label": "major",
+    "suggested_fix": "Iestatiet artefakta apakštipu uz 'Pagination' tekošajiem virsrakstiem un kājenēm, un uz 'Header' vai 'Footer' tikai pirmās/pēdējās lappuses augšējai/apakšējai daļai."
+  },
+  "19-001": {
+    "title": "Zemsvītras piezīme nav iezīmēta kā piezīme",
+    "description": "Zemsvītras piezīme vai beigu piezīme dokumentā ir iezīmēta kā parasta rindkopa, nevis izmantojot piezīmes struktūras tipu.",
+    "severity_label": "major",
+    "suggested_fix": "Iezīmējiet zemsvītras piezīmes un beigu piezīmes kā piezīmju elementus ar unikālu ID atribūtu un atsauces elementu pamattekstā, kas uz to norāda."
+  },
+  "19-002": {
+    "title": "Atsauce nav iezīmēta kā atsauce",
+    "description": "Citāts tekstā vai savstarpējās atsauces marķieris ir iezīmēts kā parasts teksts, nevis izmantojot atsauces struktūras tipu.",
+    "severity_label": "major",
+    "suggested_fix": "Iezīmējiet citātu marķierus un savstarpējās atsauces kā atsauces elementus, sasaistot tos ar atbilstošo piezīmi vai galamērķi."
+  },
+  "19-003": {
+    "title": "Trūkst piezīmes ID",
+    "description": "Piezīmes struktūras elementam nav ID atribūta, kas liedz izveidot atsauces saiti no pamatteksta atsauces elementa.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet unikālu ID atribūtu katram piezīmes elementam, lai atsauces elementi varētu uz tiem norādīt."
+  },
+  "19-004": {
+    "title": "Piezīmes ID nav unikāls",
+    "description": "Divi vai vairāki piezīmes struktūras elementi koplieto vienu un to pašu ID atribūta vērtību, izraisot neskaidru atsauces atrisināšanu.",
+    "severity_label": "major",
+    "suggested_fix": "Nodrošiniet, lai katram piezīmes elementam dokumentā būtu globāli unikāls ID."
+  },
+  "20-001": {
+    "title": "Neobligātā satura konfigurācijai trūkst nosaukuma (Configs masīvs)",
+    "description": "Neobligātā satura konfigurācijas vārdnīcai dokumenta OCConfigs masīvā nav Name ieraksta.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet aprakstošu /Name ierakstu katrai neobligātā satura konfigurācijai OCProperties/Configs masīvā."
+  },
+  "20-002": {
+    "title": "Neobligātā satura konfigurācijai trūkst nosaukuma (D noklusējums)",
+    "description": "Noklusējuma neobligātā satura konfigurācijas vārdnīcai (D ieraksts OCProperties) nav Name ieraksta.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet /Name ierakstu noklusējuma neobligātā satura konfigurācijas vārdnīcai."
+  },
+  "20-003": {
+    "title": "Neobligātā satura konfigurācijā ir klāt AS atslēga",
+    "description": "Neobligātā satura konfigurācijas vārdnīca satur AS (Application Specific) ierakstu, ko PDF/UA-1 neatļauj, jo tas var mainīt dokumenta vizuālo izskatu bez lietotāja ziņas.",
+    "severity_label": "minor",
+    "suggested_fix": "Noņemiet AS atslēgu no neobligātā satura konfigurācijas vārdnīcas."
+  },
+  "21-001": {
+    "title": "Iegultajam failam trūkst F un UF atslēgu",
+    "description": "Iegultā faila specifikācijas vārdnīcai trūkst obligātā F (faila specifikācijas virkne) vai UF (Unicode teksta faila specifikācijas virkne) ieraksta.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet gan F, gan UF ierakstus faila specifikācijas vārdnīcai, kas apraksta iegulto failu."
+  },
+  "22-001": {
+    "title": "Raksta pavediens neatbilst prasībām",
+    "description": "Raksta pavediena struktūra neatbilst obligātajam PDF raksta lodīšu formātam ar pareizu V (nākamā lodīte) un N (iepriekšējā lodīte) sasaisti.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai raksta lodītes būtu pareizi sasaistītas ar V un N ierakstiem un katra lodīte būtu saistīta ar pareizo lappusi."
+  },
+  "24-001": {
+    "title": "Neinteraktīvai veidlapai trūkst PrintFields",
+    "description": "Neinteraktīvai veidlapai (piem., plakana veidlapa, kas izdrukāta no digitālas ievades) nav iestatīts NeedAppearances karodziņš vai FieldMDP transformācijas parametros trūkst PrintFields bita.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai veidlapas laukiem, kas paredzēti tikai drukāšanai, būtu pareizi FieldMDP iestatījumi ar iespējotu PrintFields bitu."
+  },
+  "25-001": {
+    "title": "XFA veidlapas dynamicRender nav obligāts",
+    "description": "XFA (XML Forms Architecture) veidlapa satur dynamicRender elementus, kas nav iestatīti uz 'required', kas var izraisīt renderēšanas neatbilstības.",
+    "severity_label": "critical",
+    "suggested_fix": "Iestatiet dynamicRender='required' XFA veidlapas elementiem vai migrējiet no XFA uz AcroForms, lai nodrošinātu labāku pieejamības atbalstu."
+  },
+  "28-001": {
+    "title": "Anotācija nav lasīšanas secībā",
+    "description": "Anotācija (saite, veidlapas lauks, komentārs) atrodas lappusē, bet tās saistītais struktūras elements nav novietots pareizajā lasīšanas secības pozīcijā struktūras kokā.",
+    "severity_label": "major",
+    "suggested_fix": "Novietojiet anotācijas struktūras elementus (Link, Form, Annot) pareizajā pozīcijā struktūras kokā attiecībā pret apkārtējo saturu."
+  },
+  "28-002": {
+    "title": "Anotācija nav Annot struktūras elementā",
+    "description": "Anotācijas objekts lappusē nav ietverts Annot struktūras elementā (vai atbilstošā apakštipā: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Ietveriet katru anotācijas objektu atbilstošajā struktūras elementā (Link hipersaitēm, Form logrīkiem)."
+  },
+  "28-003": {
+    "title": "Anotācija izmantota tikai vizuālai formatēšanai",
+    "description": "Anotācija tiek izmantota tikai vizuālai formatēšanai (piem., kā dekorācija uzzīmēts taisnstūris) un nav atbilstoši iezīmēta.",
+    "severity_label": "minor",
+    "suggested_fix": "Atzīmējiet tikai formatēšanai paredzētās anotācijas kā artefaktu vai noņemiet tās un izmantojiet atbilstošus PDF zīmēšanas operatorus."
+  },
+  "28-004": {
+    "title": "Anotācijai trūkst Contents un Alt",
+    "description": "Anotācijai nav Contents ieraksta (teksta apraksta) vai Alt ieraksta (alternatīvais teksts), atstājot ekrānlasītāja lietotājus bez konteksta.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet /Contents virkni katrai anotācijai, aprakstot tās mērķi. Nodrošiniet /Alt anotācijām, kas nav teksts."
+  },
+  "28-005": {
+    "title": "Veidlapas laukam trūkst TU vai Alt",
+    "description": "Veidlapas lauka logrīka anotācijai nav rīka padoma (TU) vai Alt ieraksta, padarot ekrānlasītāja lietotājiem neiespējamu saprast lauka mērķi.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet /TU (rīka padoms) ierakstu katram veidlapas laukam, aprakstot tā mērķi un paredzēto ievades formātu."
+  },
+  "28-006": {
+    "title": "Nenoteikts anotācijas apakštips",
+    "description": "Anotācijai ir Subtype vērtība, kas nav definēta ISO 32000-1, kas var izraisīt neparedzamu darbību PDF procesoros.",
+    "severity_label": "minor",
+    "suggested_fix": "Aizstājiet vai noņemiet anotācijas ar nenoteiktiem apakštipiem vai nodrošiniet, ka pielāgotais apakštips ir reģistrēts un pareizi apstrādāts."
+  },
+  "28-007": {
+    "title": "Ir klāt TrapNet anotācija",
+    "description": "TrapNet anotācija (izmanto pirmspiedes krāsu savienošanas darbplūsmās) ir klāt dokumentā un nav atbilstoši iezīmēta vai atzīmēta kā artefakts.",
+    "severity_label": "minor",
+    "suggested_fix": "Atzīmējiet TrapNet anotācijas kā artefaktu, jo tām nav semantiskas nozīmes dokumenta patērētājiem."
+  },
+  "28-008": {
+    "title": "Lappusei ar anotācijām trūkst Tabs atslēgas",
+    "description": "Lappusei, kas satur anotācijas (saites, veidlapas laukus), nav Tabs ieraksta, kas norāda cilnes secību tastatūras navigācijai.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet /Tabs ierakstu lappuses vārdnīcai. Izmantojiet /Tabs=S struktūras secībai (ieteicams pieejamiem dokumentiem)."
+  },
+  "28-009": {
+    "title": "Tabs nav iestatīts uz S (struktūras secība)",
+    "description": "Tabs atslēga lappusē ir iestatīta uz vērtību, kas nav 'S' (piem., 'R' rindas secībai, 'C' kolonnas secībai), kas var neatbilst dokumenta loģiskajai lasīšanas secībai.",
+    "severity_label": "major",
+    "suggested_fix": "Iestatiet /Tabs uz 'S' (struktūras secība) lappusēs ar anotācijām, lai tastatūras navigācija sekotu struktūras koka secībai."
+  },
+  "28-010": {
+    "title": "Logrīka anotācija nav Form elementā",
+    "description": "Logrīka anotācija (veidlapas lauks) nav ietverta Form struktūras elementā kokā.",
+    "severity_label": "major",
+    "suggested_fix": "Ietveriet katru logrīka anotāciju Form struktūras elementā. Grupējiet saistītos veidlapas laukus vienā Form konteinerā."
+  },
+  "28-011": {
+    "title": "Saites anotācija nav Link elementā",
+    "description": "Saites anotācija (hipersaite) nav ietverta Link struktūras elementā kokā.",
+    "severity_label": "major",
+    "suggested_fix": "Ietveriet katru saites anotāciju Link struktūras elementā, kas novietots pareizajā lasīšanas secības vietā."
+  },
+  "28-012": {
+    "title": "Saites anotācijai trūkst Contents",
+    "description": "Saites anotācijai nav Contents ieraksta, kas apraksta saites galamērķi vai mērķi.",
+    "severity_label": "major",
+    "suggested_fix": "Pievienojiet /Contents virkni katrai saites anotācijai, aprakstot, uz ko saite norāda."
+  },
+  "28-013": {
+    "title": "IsMap=true bez servera puses attēla kartes",
+    "description": "Saites anotācijai IsMap ir iestatīts uz true, bet saistītais attēls nedarbojas kā servera puses attēla karte.",
+    "severity_label": "minor",
+    "suggested_fix": "Iestatiet IsMap uz false, ja attēls nav aktīva servera puses attēla karte ar koordinātām jutīgu darbību."
+  },
+  "28-016": {
+    "title": "Faila pielikums neatbilst 7.11",
+    "description": "Faila pielikuma anotācija atsaucas uz iegultu failu, kas neatbilst 7.11. punkta (Embedded File Streams) prasībām.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai iegultajiem failiem būtu gan F, gan UF ieraksti un faila specifikācijas vārdnīca būtu pilnīga. Skatīt arī 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark loģiskajā struktūrā",
+    "description": "PrinterMark anotācija (apgriešanas zīmes, reģistrācijas zīmes, krāsu joslas) parādās dokumenta loģiskās struktūras kokā, kur tai nav semantiskas nozīmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Noņemiet PrinterMark anotācijas no struktūras koka un atzīmējiet tās kā artefaktu."
+  },
+  "28-018": {
+    "title": "PrinterMark izskats nav artefakts",
+    "description": "PrinterMark anotācijas izskata straume nav atzīmēta kā artefakts, liekot ekrānlasītājiem mēģināt aprakstīt drukas zīmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Atzīmējiet PrinterMark izskata saturu kā artefaktu satura straumē."
+  },
+  "30-001": {
+    "title": "Ir klāt Reference XObject",
+    "description": "Dokumentā tiek izmantots Reference XObject. Reference XObject importē saturu no ārējiem PDF failiem, kas var izjaukt pieejamību, jo importētais saturs nav pareizi integrēts struktūras kokā.",
+    "severity_label": "major",
+    "suggested_fix": "Izvairieties no Reference XObject. Ja tie ir nepieciešami, nodrošiniet, lai viss importētais saturs būtu pareizi iezīmēts resursdatora dokumenta struktūras kokā."
+  },
+  "30-002": {
+    "title": "Form XObject ar MCID atsauci vairākas reizes",
+    "description": "Form XObject, kas satur iezīmētu saturu ar MCID (Marked Content Identifiers), tiek atsauces veidā izmantots vairākās vietās, izraisot MCID konfliktus lappuses iezīmētā satura secībā.",
+    "severity_label": "major",
+    "suggested_fix": "Izvairieties no Form XObject atkārtotas izmantošanas, kas satur iezīmētu saturu. Saplaciniet vai dublējiet XObject katrai izmantošanas vietai."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo reģistra neatbilstība Type0 pēctečos",
+    "description": "Type0 fonta pēcteču CIDFontiem ir nekonsekventas CIDSystemInfo reģistra vērtības, kas var izraisīt rakstzīmju kartēšanas kļūmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai visiem Type0 fonta pēcteču CIDFontiem būtu konsekventas CIDSystemInfo (Registry, Ordering, Supplement) vērtības."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo kārtošanas neatbilstība Type0 pēctečos",
+    "description": "Type0 fonta pēcteču CIDFontiem ir nekonsekventas CIDSystemInfo kārtošanas (Ordering) vērtības.",
+    "severity_label": "minor",
+    "suggested_fix": "Saskaņojiet kārtošanas vērtības visiem Type0 fonta pēcteču CIDFontiem."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo papildinājuma neatbilstība Type0 pēctečos",
+    "description": "Type0 fonta pēcteču CIDFontiem ir nekonsekventas CIDSystemInfo papildinājuma (Supplement) vērtības.",
+    "severity_label": "minor",
+    "suggested_fix": "Saskaņojiet papildinājuma vērtības visiem Type0 fonta pēcteču CIDFontiem."
+  },
+  "31-004": {
+    "title": "CIDFont trūkst CIDToGIDMap",
+    "description": "CIDFont vārdnīca nesatur CIDToGIDMap ierakstu un neizmanto Identity kartēšanu, padarot glifu uzmeklēšanu neuzticamu.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet CIDToGIDMap ierakstu CIDFont vai iestatiet to uz 'Identity', ja fonts izmanto Identity CID."
+  },
+  "31-005": {
+    "title": "CIDFont nepieciešams ne-Identity CIDToGIDMap",
+    "description": "CIDFont, kura rakstzīmju kolekcija nav Adobe-Identity, nepieciešama skaidra CIDToGIDMap straume pareizai glifu kartēšanai.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet skaidru CIDToGIDMap straumi CIDFont, ja tas neizmanto Adobe-Identity rakstzīmju kolekciju."
+  },
+  "31-006": {
+    "title": "CMap nav uzskaitīta vai iegulta",
+    "description": "Type0 fonta izmantotais CMap resurss nav ne uzskaitīts PDF specifikācijas standarta CMap sarakstā, ne iegults dokumentā.",
+    "severity_label": "minor",
+    "suggested_fix": "Vai nu izmantojiet standarta CMap no PDF specifikācijas, vai ieguliet pielāgoto CMap straumi dokumentā."
+  },
+  "31-007": {
+    "title": "WMode neatbilstība Type0 fontā",
+    "description": "WMode (rakstīšanas režīma) vērtības atšķiras starp CMap un Type0 fonta pēcteču CIDFontiem.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet konsekventas WMode vērtības (0 horizontālajam, 1 vertikālajam) starp CMap un visiem pēcteču CIDFontiem."
+  },
+  "31-008": {
+    "title": "CMap atsaucas uz neuzskaitītu CMap",
+    "description": "CMap straume atsaucas uz citu CMap, kas nav ne standarta CMap, ne iegulta dokumentā.",
+    "severity_label": "minor",
+    "suggested_fix": "Ieguliet visas atsauktās nestandarta CMap dokumentā vai izmantojiet tikai standarta CMap."
+  },
+  "31-009": {
+    "title": "Fonts nav iegults",
+    "description": "Dokumentā izmantotais fonts nav iegults. Neiegulti fonti izraisa atkāpšanos uz sistēmas fontiem, kuriem var būt atšķirīgi mērījumi un glifu pārklājums, izjaucot teksta izgūšanu un vizuālo precizitāti.",
+    "severity_label": "critical",
+    "suggested_fix": "Ieguliet visus dokumentā izmantotos fontus. Standarta 14 fontiem, kurus nevar iegult, nodrošiniet, lai fonta programma būtu pieejama, vai aizstājiet ar iegultu ekvivalentu."
+  },
+  "31-011": {
+    "title": "Iegultajā fonta programmā trūkst glifa",
+    "description": "Dokumenta tekstā atsauktā glifa nav iegultajā fonta programmā.",
+    "severity_label": "major",
+    "suggested_fix": "Vai nu izveidojiet fonta apakškopu, iekļaujot visus nepieciešamos glifus, vai izmantojiet citu fontu, kas ietver nepieciešamos glifus."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glifs nav uzskaitīts",
+    "description": "Type1 fonta CharSet neuzskaita glifu, kas faktiski ir klāt fonta programmā un tiek izmantots dokumentā.",
+    "severity_label": "minor",
+    "suggested_fix": "Atjauniniet CharSet, iekļaujot visus glifus, kas ir klāt fonta programmā un uz kuriem ir atsauces dokumentā."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: uzskaitītais glifs nav fontā",
+    "description": "Type1 fonta CharSet uzskaita glifa nosaukumu, kas neeksistē iegultajā fonta programmā.",
+    "severity_label": "minor",
+    "suggested_fix": "Noņemiet neeksistējošus glifu nosaukumus no CharSet vai ieguliet pilnu fontu."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glifs nav uzskaitīts",
+    "description": "CIDFont CIDSet neiekļauj CID, kas faktiski ir klāt iegultajā fonta programmā un tiek izmantots dokumentā.",
+    "severity_label": "minor",
+    "suggested_fix": "Atjauniniet CIDSet, iekļaujot visas dokumentā izmantotās CID vērtības."
+  },
+  "31-015": {
+    "title": "CID CIDSet: uzskaitītais CID nav fontā",
+    "description": "CIDFont CIDSet uzskaita CID, kas neatbilst nevienam glifam iegultajā fonta programmā.",
+    "severity_label": "minor",
+    "suggested_fix": "Noņemiet neeksistējošus CID no CIDSet vai atkārtoti ģenerējiet to no faktiskās fonta programmas."
+  },
+  "31-016": {
+    "title": "Glifa platuma neatbilstība > 1/1000",
+    "description": "Fonta vārdnīcā norādītais glifa platums atšķiras par vairāk nekā 1 vienību uz 1000 no platuma iegultajā fonta programmā.",
+    "severity_label": "minor",
+    "suggested_fix": "Labojiet Widths masīvu (vai W2 ierakstu) fonta vārdnīcā, lai tas atbilstu faktiskajiem glifu platumiem iegultajā fonta programmā."
+  },
+  "31-017": {
+    "title": "Ne-simboliskam TrueType trūkst ne-simboliskas cmap",
+    "description": "TrueType fontam ar ne-simbolisku kodējumu (Encoding ieraksts ir klāt vai simboliskais karodziņš ir izslēgts) nav (3,1) cmap apakštabulas Unicode kartēšanai.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai TrueType fonta programma saturētu (3,1) Microsoft Unicode BMP cmap apakštabulu pareizai Unicode rakstzīmju kartēšanai."
+  },
+  "31-018": {
+    "title": "Ne-simbolisks TrueType glifs nav cmap",
+    "description": "Ne-simboliska TrueType fonta glifu nevar uzmeklēt, izmantojot fonta cmap apakštabulas.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai visi dokumentā izmantotie glifi būtu pieejami, izmantojot vismaz vienu cmap apakštabulu fontā."
+  },
+  "31-019": {
+    "title": "Ne-simboliska TrueType fonta vārdnīcai trūkst Encoding",
+    "description": "Ne-simboliska TrueType fonta vārdnīcai nav Encoding ieraksta, kas ir nepieciešams glifu nosaukumu atrisināšanai.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet atbilstošu Encoding ierakstu (piem., WinAnsiEncoding, MacRomanEncoding) fonta vārdnīcai."
+  },
+  "31-020": {
+    "title": "Encoding vārdnīcai trūkst BaseEncoding",
+    "description": "Encoding vārdnīcai ar Differences masīvu nav norādīts BaseEncoding ieraksts.",
+    "severity_label": "minor",
+    "suggested_fix": "Norādiet BaseEncoding (piem., WinAnsiEncoding) Encoding vārdnīcā, no kura Differences masīvs atšķiras."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding nav MacRoman vai WinAnsi",
+    "description": "Ne-simboliska TrueType fonta Encoding vai BaseEncoding nav ne MacRomanEncoding, ne WinAnsiEncoding, kas ir divi standarta bāzes kodējumi.",
+    "severity_label": "minor",
+    "suggested_fix": "Izmantojiet WinAnsiEncoding vai MacRomanEncoding kā fonta bāzes kodējumu."
+  },
+  "31-022": {
+    "title": "Differences glifu nosaukumi nav Adobe glifu sarakstā",
+    "description": "Differences masīvs fonta Encoding vārdnīcā izmanto glifu nosaukumus, kas nav Adobe glifu sarakstā (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Izmantojiet tikai standarta glifu nosaukumus no Adobe glifu saraksta Differences masīvā."
+  },
+  "31-023": {
+    "title": "Differences ir klāt, bet nav (3,1) cmap",
+    "description": "Fontam ir Differences masīvs tā Encoding vārdnīcā, bet TrueType fonta programma nesatur (3,1) cmap apakštabulu Unicode kartēšanai.",
+    "severity_label": "minor",
+    "suggested_fix": "Pievienojiet ToUnicode CMap fontam, lai nodrošinātu uzticamu Unicode kartēšanu."
+  },
+  "31-024": {
+    "title": "Simboliska TrueType fonta vārdnīcai ir Encoding",
+    "description": "Simboliskam TrueType fontam (Flags 3. bits ir iestatīts) ir Encoding ieraksts tā fonta vārdnīcā, kas nav atļauts simboliskiem fontiem.",
+    "severity_label": "minor",
+    "suggested_fix": "Noņemiet Encoding ierakstu no simbolisku TrueType fontu vārdnīcām. Simboliskie fonti rakstzīmju kartēšanai paļaujas uz fonta programmas cmap."
+  },
+  "31-025": {
+    "title": "Simboliskai TrueType fonta programmai trūkst cmap",
+    "description": "Simboliska TrueType fonta iegultā fonta programma nesatur nevienu cmap tabulu.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai iegultā fonta programma ietvertu vismaz (3,0) cmap apakštabulu simboliskai rakstzīmju kartēšanai."
+  },
+  "31-026": {
+    "title": "Simbolisks TrueType ar vairākām cmap, trūkst (3,0)",
+    "description": "Simboliskam TrueType fontam ir vairākas cmap apakštabulas, bet trūkst obligātās (3,0) Microsoft Symbol cmap apakštabulas.",
+    "severity_label": "minor",
+    "suggested_fix": "Nodrošiniet, lai iegultā fonta programma ietvertu (3,0) Microsoft Symbol cmap apakštabulu pareizai rakstzīmju kartēšanai."
+  },
+  "31-027": {
+    "title": "Trūkst ToUnicode CMap",
+    "description": "Teksta saturam izmantotajam fontam nav ToUnicode CMap, un neviens no izņēmuma nosacījumiem nav spēkā. Bez ToUnicode CMap palīgtehnoloģijas nevar izgūt lasāmu tekstu.",
+    "severity_label": "critical",
+    "suggested_fix": "Pievienojiet ToUnicode CMap straumi fonta vārdnīcai, kartējot katru dokumentā izmantoto rakstzīmju kodu uz tā atbilstošo Unicode vērtību."
+  },
+  "31-028": {
+    "title": "ToUnicode kartē uz CID 0",
+    "description": "ToUnicode CMap kartē rakstzīmju kodu uz Unicode vērtību U+0000 (null), kas nav derīga teksta rakstzīme.",
+    "severity_label": "minor",
+    "suggested_fix": "Labojiet ToUnicode CMap, lai kartētu rakstzīmju kodu uz derīgu, ne-null Unicode vērtību."
+  },
+  "31-029": {
+    "title": "ToUnicode kartē uz U+FEFF vai U+FFFE",
+    "description": "ToUnicode CMap kartē rakstzīmju kodu uz U+FEFF (BOM) vai U+FFFE (baitu secības atzīme), kas ir vadības rakstzīmes un nav derīgs attēlojams teksts.",
+    "severity_label": "minor",
+    "suggested_fix": "Aizstājiet U+FEFF/U+FFFE kartējumus ToUnicode CMap ar faktisko rakstzīmes Unicode vērtību."
+  },
+  "31-030": {
+    "title": ".notdef glifs atsauces veidā tekstā",
+    "description": "Teksta rādīšanas operators dokumentā atsaucas uz .notdef glifu (glifa indekss 0), kas norāda uz trūkstošu vai nepieejamu rakstzīmi. Teksts, kas izmanto .notdef, parādās kā tukšas vai tofu rakstzīmes.",
+    "severity_label": "major",
+    "suggested_fix": "Nodrošiniet, lai visi dokumentā izmantotie rakstzīmju kodi atbilstu faktiskajiem glifiem iegultajā fonta programmā."
+  }
+}

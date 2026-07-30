@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefak ditag sebagai konten nyata",
+    "description": "Artefak halaman (header, footer, elemen dekoratif) secara tidak tepat ditag sebagai konten nyata di dalam pohon struktur. Pembaca layar akan mencoba membaca elemen dekoratif sebagai konten dokumen.",
+    "severity_label": "critical",
+    "suggested_fix": "Ubah tipe elemen struktur menjadi Artefak atau bungkus konten dalam urutan konten bertag Artefak."
+  },
+  "01-002": {
+    "title": "Konten nyata ditandai sebagai artefak",
+    "description": "Konten dokumen asli (teks isi, judul, keterangan) secara tidak tepat ditandai sebagai Artefak. Pembaca layar akan melewatkan konten ini sepenuhnya.",
+    "severity_label": "critical",
+    "suggested_fix": "Hapus penandaan Artefak dari konten nyata dan pastikan konten tersebut ditag dengan benar menggunakan elemen struktur yang sesuai."
+  },
+  "01-003": {
+    "title": "Artefak di dalam konten bertag",
+    "description": "Elemen yang ditandai sebagai artefak muncul di dalam elemen struktur yang mewakili konten nyata, sehingga merusak hierarki konten.",
+    "severity_label": "critical",
+    "suggested_fix": "Pindahkan konten yang ditandai artefak ke luar elemen struktur konten nyata, atau susun ulang hierarki elemen."
+  },
+  "01-004": {
+    "title": "Konten bertag di dalam artefak",
+    "description": "Elemen konten nyata yang ditag bersarang di dalam kontainer Artefak. Pembaca layar mungkin melewatkan konten ini.",
+    "severity_label": "critical",
+    "suggested_fix": "Pindahkan konten bertag ke luar kontainer Artefak dan letakkan di tingkat yang benar dalam pohon struktur."
+  },
+  "01-005": {
+    "title": "Konten tidak ditag maupun artefak",
+    "description": "Konten pada halaman tidak ditag sebagai elemen struktur maupun ditandai sebagai artefak. Ini adalah pelanggaran PDF/UA yang paling umum dan penyebab utama pembaca layar tidak membacakan konten.",
+    "severity_label": "critical",
+    "suggested_fix": "Tag konten dengan elemen struktur yang sesuai (P, H1-H6, Figure, dll.) atau tandai sebagai Artefak jika bersifat dekoratif."
+  },
+  "01-006": {
+    "title": "StructTreeRoot hilang",
+    "description": "Kamus katalog dokumen harus menyertakan entri StructTreeRoot, yang berfungsi sebagai akar dari struktur logis dokumen. Tanpa ini, pembaca layar tidak dapat menginterpretasikan struktur dokumen sama sekali.",
+    "severity_label": "critical",
+    "suggested_fix": "Tambahkan objek StructTreeRoot ke kamus katalog dokumen dan bangun hierarki elemen struktur untuk semua halaman konten."
+  },
+  "01-007": {
+    "title": "Flag Suspect bernilai true",
+    "description": "Entri Suspects dalam kamus MarkInfo dokumen diatur ke true, yang menunjukkan bahwa pohon struktur mungkin berisi penag-an yang tidak dapat diandalkan. Teknologi bantu mungkin mengabaikan pohon struktur sepenuhnya.",
+    "severity_label": "critical",
+    "suggested_fix": "Atur flag Suspects ke false dalam kamus MarkInfo setelah memverifikasi bahwa semua konten telah ditag dengan benar."
+  },
+  "02-001": {
+    "title": "Pemetaan peran non-standar tidak berakhir pada tipe standar",
+    "description": "Peran kustom dalam RoleMap tidak memetakan ke tipe struktur PDF standar. Target akhir dari rantai pemetaan harus berupa tipe standar dari set peran PDF 32000-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Pastikan setiap peran non-standar dalam RoleMap memetakan secara langsung atau transitif ke tipe standar (misalnya, Document, Part, Sect, P, H1-H6, L, LI, Table, Figure, dll.)."
+  },
+  "02-002": {
+    "title": "Pemetaan peran yang tidak sesuai secara semantik",
+    "description": "Peran elemen struktur telah dipetakan ke tipe standar yang tidak cocok dengan tujuan semantik elemen tersebut (misalnya, judul dipetakan ke Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Tinjau RoleMap dan pastikan setiap pemetaan mencerminkan peran semantik konten yang sebenarnya. Penilaian manusia mungkin diperlukan."
+  },
+  "02-003": {
+    "title": "Pemetaan peran melingkar",
+    "description": "RoleMap berisi rantai melingkar di mana peran A memetakan ke B, B memetakan ke C, dan C memetakan kembali ke A, sehingga menciptakan loop tak terbatas bagi prosesor.",
+    "severity_label": "major",
+    "suggested_fix": "Putus rantai melingkar dengan memetakan peran akhir secara langsung ke tipe standar yang sesuai."
+  },
+  "02-004": {
+    "title": "Tipe standar dipetakan ulang",
+    "description": "Tipe struktur PDF standar (misalnya, P, H1, Table) dipetakan ulang ke tipe yang berbeda melalui RoleMap, yang tidak diizinkan oleh PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Hapus pemetaan untuk tipe standar ini dari RoleMap. Tipe standar tidak boleh dipetakan ulang."
+  },
+  "06-001": {
+    "title": "Aliran metadata XMP hilang",
+    "description": "Dokumen tidak berisi aliran metadata XMP dalam entri Metadata katalog. PDF/UA-1 memerlukan metadata XMP.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan aliran metadata XMP ke katalog dokumen dengan minimal dc:format (application/pdf), pdfuaid:part (1), dan dc:title."
+  },
+  "06-002": {
+    "title": "Pengidentifikasi PDF/UA hilang",
+    "description": "Metadata XMP tidak berisi properti pdfuaid:part, yang mengidentifikasi dokumen sebagai sesuai dengan PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan properti pdfuaid:part dengan nilai 1 ke aliran metadata XMP untuk menyatakan kesesuaian PDF/UA-1."
+  },
+  "06-003": {
+    "title": "dc:title dalam metadata hilang",
+    "description": "Metadata XMP atau kamus informasi dokumen tidak berisi entri dc:title. PDF/UA-1 mengharuskan dokumen memiliki judul.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan entri dc:title ke aliran metadata XMP. Gunakan judul dokumen yang sebenarnya atau cadangan yang bermakna."
+  },
+  "07-001": {
+    "title": "Preferensi penampil DisplayDocTitle hilang",
+    "description": "Kamus preferensi penampil dokumen tidak berisi kunci DisplayDocTitle. Jika tidak ada atau false, penampil akan menampilkan nama file alih-alih judul dokumen.",
+    "severity_label": "major",
+    "suggested_fix": "Atur DisplayDocTitle ke true dalam kamus preferensi penampil dokumen (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle diatur ke false",
+    "description": "Kunci DisplayDocTitle dalam preferensi penampil diatur ke false, menyebabkan penampil menampilkan nama file di bilah judul alih-alih judul dokumen.",
+    "severity_label": "major",
+    "suggested_fix": "Ubah DisplayDocTitle ke true dalam kamus preferensi penampil."
+  },
+  "08-002": {
+    "title": "Teks OCR tidak ditag dalam pohon struktur",
+    "description": "Dokumen berisi teks yang dihasilkan OCR (umum dalam PDF hasil pindaian) yang tidak ditag dalam pohon struktur. Pengguna pembaca layar tidak dapat mengakses konten ini.",
+    "severity_label": "critical",
+    "suggested_fix": "Pastikan semua teks yang dihasilkan OCR disertakan dalam pohon struktur dengan tag yang sesuai. Untuk PDF hasil pindaian, bangun ulang dokumen dengan lapisan teks lengkap."
+  },
+  "09-001": {
+    "title": "Tag tidak dalam urutan baca logis",
+    "description": "Elemen struktur dalam pohon tidak disusun dalam urutan baca logis dokumen. Pembaca layar menavigasi dokumen dalam urutan pohon, yang mungkin berbeda dari urutan visual.",
+    "severity_label": "critical",
+    "suggested_fix": "Susun ulang elemen struktur dalam pohon agar sesuai dengan urutan baca logis (biasanya dari atas ke bawah, kiri ke kanan untuk bahasa yang diberikan)."
+  },
+  "09-002": {
+    "title": "Penyarangan yang tidak sesuai secara semantik",
+    "description": "Elemen struktur bersarang di dalam elemen induk yang secara semantik tidak sesuai (misalnya, baris Tabel di dalam Paragraf, atau judul di dalam Daftar).",
+    "severity_label": "critical",
+    "suggested_fix": "Susun ulang hierarki elemen untuk memastikan setiap elemen bersarang di dalam induk yang sesuai secara semantik."
+  },
+  "09-003": {
+    "title": "Tipe struktur tidak sesuai setelah pemetaan peran",
+    "description": "Setelah resolusi pemetaan peran, tipe struktur akhir tidak sesuai secara semantik untuk konten yang dikandungnya.",
+    "severity_label": "major",
+    "suggested_fix": "Sesuaikan RoleMap atau ubah tipe struktur asli agar tipe yang diselesaikan cocok dengan peran semantik konten."
+  },
+  "09-004": {
+    "title": "Elemen Tabel tidak sesuai dengan Tabel 337",
+    "description": "Elemen struktur bertipe Tabel tidak sesuai dengan struktur anak yang diizinkan (Tabel 337 dalam ISO 32000-1). Tabel harus berisi setidaknya TBody dengan anak TR, atau bagian THead/TBody/TFoot.",
+    "severity_label": "major",
+    "suggested_fix": "Pastikan elemen Tabel berisi baris yang terstruktur dengan benar: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Minimal, bungkus baris dalam TBody."
+  },
+  "09-005": {
+    "title": "Elemen Daftar tidak sesuai dengan Tabel 336",
+    "description": "Elemen struktur bertipe L (Daftar) tidak sesuai dengan struktur anak yang diizinkan (Tabel 336 dalam ISO 32000-1). Daftar harus berisi elemen LI, dan LI harus berisi Lbl (opsional) dan LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Susun daftar sebagai: L > LI > (Lbl)? + LBody. Pastikan setiap item daftar memiliki anak LBody yang berisi konten item."
+  },
+  "09-006": {
+    "title": "Elemen TOC tidak sesuai dengan Tabel 333",
+    "description": "Elemen struktur bertipe TOC (daftar isi) tidak sesuai dengan struktur anak yang diizinkan. TOC harus berisi elemen TOCI.",
+    "severity_label": "minor",
+    "suggested_fix": "Susun entri daftar isi sebagai: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Elemen ruby tidak sesuai",
+    "description": "Elemen struktur Ruby (digunakan untuk anotasi pengucapan) tidak mengikuti struktur anak yang diperlukan: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Susun ulang elemen Ruby dengan anak RB (ruby base) dan RT (ruby text) yang diperlukan."
+  },
+  "09-008": {
+    "title": "Elemen warichu tidak sesuai",
+    "description": "Elemen struktur Warichu (komentar atau anotasi inline dalam teks CJK) tidak mengikuti struktur yang diperlukan: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Susun ulang elemen Warichu dengan anak WT (warichu text) dan WP (warichu punctuation) yang diperlukan."
+  },
+  "10-001": {
+    "title": "Kode karakter tidak dapat dipetakan ke Unicode",
+    "description": "Kode karakter dalam teks dokumen tidak dapat dipetakan ke nilai Unicode. Hal ini menyebabkan karakter rusak atau hilang saat teknologi bantu mengekstrak teks.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan semua font memiliki CMap ToUnicode yang memetakan setiap kode karakter yang digunakan ke nilai Unicode yang valid. Verifikasi bahwa CMap mencakup semua glif yang digunakan dalam dokumen."
+  },
+  "11-001": {
+    "title": "Bahasa konten halaman tidak dapat ditentukan",
+    "description": "Bahasa alami konten halaman tidak dapat ditentukan karena entri /Lang hilang dari katalog dokumen atau elemen struktur tingkat halaman.",
+    "severity_label": "critical",
+    "suggested_fix": "Atur entri /Lang di katalog dokumen ke bahasa utama dokumen (misalnya, 'en-US', 'hu-HU'). Tambahkan /Lang ke elemen struktur individu jika konten berpindah bahasa."
+  },
+  "11-002": {
+    "title": "Bahasa Alt/ActualText tidak dapat ditentukan",
+    "description": "Bahasa deskripsi teks alternatif (Alt) atau pengganti ActualText tidak dapat ditentukan.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan atribut /Lang ke elemen struktur yang berisi Alt atau ActualText jika bahasa teks berbeda dari default dokumen."
+  },
+  "11-003": {
+    "title": "Bahasa kerangka tidak diatur",
+    "description": "Kerangka dokumen (bookmark) tidak memiliki entri /Lang, sehingga mencegah teknologi bantu mengucapkan item kerangka dengan benar.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri /Lang ke kamus kerangka yang sesuai dengan bahasa utama dokumen."
+  },
+  "11-004": {
+    "title": "Bahasa Konten Anotasi tidak diatur",
+    "description": "String Konten Anotasi (tips alat, nilai bidang formulir) tidak memiliki deklarasi bahasa yang terkait.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan /Lang ke kamus tampilan anotasi jika teks anotasi berbeda dari bahasa dokumen."
+  },
+  "11-005": {
+    "title": "Bahasa TU bidang formulir tidak diatur",
+    "description": "Entri Tips alat (TU) bidang formulir tidak memiliki bahasa terkait, yang dapat menyebabkan pengucapan yang salah oleh pembaca layar.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan teks tips alat bidang formulir menyertakan identifikasi bahasa jika berbeda dari bahasa default dokumen."
+  },
+  "11-006": {
+    "title": "Bahasa metadata dokumen tidak diatur",
+    "description": "Metadata XMP tidak mendeklarasikan properti dc:language, atau entri /Lang katalog dokumen hilang atau kosong.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan dc:language ke metadata XMP dan atur /Lang di katalog dokumen ke tag bahasa RFC 3066."
+  },
+  "12-001": {
+    "title": "Karakter yang dapat direnggangkan kehilangan ActualText",
+    "description": "Karakter yang dapat direnggangkan (tanda kurung, kurung siku, kurung kurawal, tanda akar) yang digunakan dalam konteks matematika atau dekoratif tidak memiliki pengganti ActualText.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan ActualText ke urutan karakter yang dapat direnggangkan yang menjelaskan makna semantiknya (misalnya, ActualText='(' untuk tanda kurung kiri yang dapat direnggangkan)."
+  },
+  "13-001": {
+    "title": "Grafik tidak ditag sebagai Figure",
+    "description": "Elemen grafik (gambar, bagan, diagram) dalam konten dokumen tidak ditag dengan elemen struktur Figure.",
+    "severity_label": "major",
+    "suggested_fix": "Tag semua grafik non-dekoratif sebagai elemen Figure dalam pohon struktur, dengan teks alternatif yang sesuai."
+  },
+  "13-002": {
+    "title": "Tautan dengan latar belakang bermakna tidak memiliki Alt",
+    "description": "Anotasi tautan memiliki tampilan visual yang bermakna (misalnya, gambar yang digunakan sebagai tombol) tetapi tidak memiliki teks alternatif yang menjelaskan tujuannya.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan entri Contents ke anotasi tautan yang menjelaskan tujuan atau kegunaannya."
+  },
+  "13-003": {
+    "title": "Keterangan tidak ditag sebagai Caption",
+    "description": "Keterangan (keterangan gambar, judul tabel, legenda gambar) ditag sebagai teks biasa (P) alih-alih menggunakan tipe struktur Caption.",
+    "severity_label": "major",
+    "suggested_fix": "Tag keterangan dengan tipe struktur Caption dan pastikan keterangan tersebut dikaitkan dengan benar dengan elemen Figure atau Table induknya."
+  },
+  "13-004": {
+    "title": "Figure kehilangan teks Alt",
+    "description": "Elemen struktur Figure ada tetapi tidak memiliki atribut Alt yang menyediakan teks alternatif. Pembaca layar akan mengumumkan keberadaan gambar tetapi tidak dapat menjelaskan kontennya.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan entri /Alt ke elemen struktur Figure dengan deskripsi singkat tentang konten gambar."
+  },
+  "14-001": {
+    "title": "Judul tidak ditag",
+    "description": "Konten yang secara visual berfungsi sebagai judul (font lebih besar, tebal, gaya berbeda) tidak ditag dengan tipe struktur judul (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identifikasi semua judul dalam dokumen dan tag dengan elemen struktur H1-H6 yang sesuai yang mencerminkan tingkat hierarkinya."
+  },
+  "14-002": {
+    "title": "Judul pertama bukan H1",
+    "description": "Judul pertama dalam pohon struktur dokumen bukan bertipe H1. Praktik terbaik PDF/UA-1 adalah judul tingkat atas harus H(n) dan judul berikutnya tidak boleh melewatkan tingkat.",
+    "severity_label": "major",
+    "suggested_fix": "Pastikan judul pertama adalah H1 (atau H2 jika judul dokumen ada dalam metadata). Beri nomor ulang judul berikutnya untuk menghindari lompatan tingkat."
+  },
+  "14-003": {
+    "title": "Tingkat judul dilewati",
+    "description": "Tingkat judul dalam pohon struktur melewatkan satu tingkat (misalnya, H1 diikuti langsung oleh H3 tanpa H2 di antaranya). Ini merusak hierarki judul logis bagi pengguna teknologi bantu.",
+    "severity_label": "major",
+    "suggested_fix": "Pastikan tingkat judul berurutan tanpa celah. Beri nomor ulang judul sehingga H1 diikuti oleh H2, lalu H3, dst."
+  },
+  "14-005": {
+    "title": "Judul dalam tanpa tipe H7+",
+    "description": "Judul pada tingkat penyarangan 7 atau lebih dalam tidak memiliki tipe struktur H7+ yang sesuai. PDF hanya mendefinisikan H1 hingga H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Ratakan hierarki judul hingga maksimal 6 tingkat, atau gunakan pemetaan peran non-standar dengan hati-hati."
+  },
+  "14-006": {
+    "title": "Beberapa tag H dalam satu node struktur",
+    "description": "Satu elemen struktur berisi lebih dari satu tag judul (misalnya, Sect yang berisi H1 dan H2). Setiap judul harus membuat tingkat penyarangan baru.",
+    "severity_label": "major",
+    "suggested_fix": "Pecah node struktur sehingga setiap judul memulai bagian atau subbagian baru pada tingkat yang sesuai."
+  },
+  "14-007": {
+    "title": "Tag H dan Hn dicampur secara tidak konsisten",
+    "description": "Beberapa judul menggunakan tipe 'H' generik sementara yang lain menggunakan tipe bernomor 'H1'-'H6' secara tidak konsisten dalam dokumen yang sama.",
+    "severity_label": "major",
+    "suggested_fix": "Konversi semua tag H generik ke tipe H1-H6 bernomor berdasarkan posisinya dalam hierarki judul."
+  },
+  "15-001": {
+    "title": "Header baris tidak ditag sebagai sel header",
+    "description": "Sel tabel yang berfungsi sebagai header baris ditag sebagai TD (sel data) alih-alih TH (sel header). Ini mencegah pembaca layar mengaitkan header dengan sel data dengan benar.",
+    "severity_label": "major",
+    "suggested_fix": "Ubah tipe struktur sel header baris dari TD menjadi TH dan tambahkan atribut Scope yang sesuai (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Header kolom tidak ditag sebagai sel header",
+    "description": "Sel tabel yang berfungsi sebagai header kolom ditag sebagai TD alih-alih TH. Pembaca layar tidak dapat menavigasi tabel secara logis.",
+    "severity_label": "major",
+    "suggested_fix": "Ubah tipe struktur sel header kolom dari TD menjadi TH dan tambahkan atribut Scope yang sesuai (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH kehilangan Scope tanpa Headers/ID",
+    "description": "Elemen TH (header tabel) tidak memiliki atribut Scope, dan tabel tidak menggunakan asosiasi Headers/ID untuk menghubungkan header ke sel data.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan Scope='Row', Scope='Column', atau Scope='Both' ke elemen TH, atau terapkan asosiasi Headers/ID."
+  },
+  "15-005": {
+    "title": "Asosiasi header sel ambigu",
+    "description": "Sel header yang terkait dengan sel data tidak dapat ditentukan secara tidak ambigu karena struktur tabel yang kompleks (sel gabungan, tata letak tidak teratur).",
+    "severity_label": "major",
+    "suggested_fix": "Gunakan atribut Headers/ID eksplisit untuk menghubungkan setiap TD ke elemen TH yang sesuai, atau sederhanakan struktur tabel."
+  },
+  "16-001": {
+    "title": "Daftar terurut kehilangan ListNumbering",
+    "description": "Daftar terurut (tipe L dengan item bernomor) tidak memiliki atribut ListNumbering, yang menentukan format penomoran.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan atribut ListNumbering ke elemen L dengan nilai seperti 'Decimal', 'UpperRoman', 'LowerAlpha', dll."
+  },
+  "16-002": {
+    "title": "Nilai ListNumbering tidak valid",
+    "description": "Atribut ListNumbering pada elemen L memiliki nilai yang tidak dikenal atau tidak valid.",
+    "severity_label": "minor",
+    "suggested_fix": "Atur ListNumbering ke nilai yang valid: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha, atau LowerAlpha."
+  },
+  "16-003": {
+    "title": "Konten daftar tidak ditag sebagai daftar",
+    "description": "Konten yang secara visual dan semantik adalah daftar (item dengan poin atau angka) ditag sebagai paragraf individu atau elemen non-daftar lainnya.",
+    "severity_label": "major",
+    "suggested_fix": "Susun ulang konten sebagai Daftar (L) dengan Item Daftar (LI), masing-masing berisi Lbl opsional dan LBody yang diperlukan."
+  },
+  "17-001": {
+    "title": "Ekspresi matematika tidak ditag sebagai Formula",
+    "description": "Ekspresi matematika dalam dokumen ditag sebagai paragraf atau gambar biasa alih-alih menggunakan tipe struktur Formula.",
+    "severity_label": "minor",
+    "suggested_fix": "Tag ekspresi matematika dengan tipe struktur Formula dan berikan teks Alt yang menjelaskan ekspresi tersebut."
+  },
+  "17-002": {
+    "title": "Formula kehilangan teks Alt",
+    "description": "Elemen struktur Formula ada tetapi tidak memiliki teks alternatif yang menjelaskan ekspresi matematika.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri /Alt ke elemen Formula dengan representasi tekstual dari ekspresi matematika."
+  },
+  "17-003": {
+    "title": "Karakter formula tidak dipetakan ke Unicode",
+    "description": "Karakter dalam rumus matematika tidak dapat dipetakan ke Unicode, menyebabkan teknologi bantu membaca output yang rusak.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan font yang digunakan untuk simbol matematika memiliki CMap ToUnicode lengkap yang mencakup semua glif. Lihat juga 10-001."
+  },
+  "18-001": {
+    "title": "Header/footer tidak ditag sebagai artefak paginasi",
+    "description": "Header dan footer yang berjalan (nomor halaman, judul bab yang berulang di setiap halaman) ditag sebagai konten nyata alih-alih ditandai sebagai artefak paginasi.",
+    "severity_label": "major",
+    "suggested_fix": "Tandai header dan footer yang berjalan sebagai Artefak dengan subtipe 'Pagination' agar pembaca layar melewatkannya selama pembacaan terus-menerus."
+  },
+  "18-002": {
+    "title": "Header/footer kehilangan subtipe artefak yang benar",
+    "description": "Header dan footer ditandai sebagai artefak tetapi tidak memiliki subtipe 'Pagination', atau menggunakan subtipe yang salah.",
+    "severity_label": "major",
+    "suggested_fix": "Atur subtipe artefak ke 'Pagination' untuk header dan footer yang berjalan, dan 'Header' atau 'Footer' hanya untuk materi atas/bawah pada halaman pertama/terakhir."
+  },
+  "19-001": {
+    "title": "Catatan kaki tidak ditag sebagai catatan",
+    "description": "Catatan kaki atau catatan akhir dalam dokumen ditag sebagai paragraf biasa alih-alih menggunakan tipe struktur catatan.",
+    "severity_label": "major",
+    "suggested_fix": "Tag catatan kaki dan catatan akhir sebagai elemen catatan, dengan atribut ID unik dan elemen referensi dalam teks isi yang mengarah ke sana."
+  },
+  "19-002": {
+    "title": "Referensi tidak ditag sebagai referensi",
+    "description": "Kutipan dalam teks atau penanda referensi silang ditag sebagai teks biasa alih-alih menggunakan tipe struktur referensi.",
+    "severity_label": "major",
+    "suggested_fix": "Tag penanda kutipan dan referensi silang sebagai elemen referensi, yang menghubungkannya ke catatan atau tujuan yang sesuai."
+  },
+  "19-003": {
+    "title": "ID catatan hilang",
+    "description": "Elemen struktur catatan tidak memiliki atribut ID, yang mencegah hubungan referensial dari elemen referensi teks isi.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan atribut ID unik ke setiap elemen catatan agar elemen referensi dapat mengarah ke elemen tersebut."
+  },
+  "19-004": {
+    "title": "ID catatan tidak unik",
+    "description": "Dua atau lebih elemen struktur catatan berbagi nilai atribut ID yang sama, yang menyebabkan resolusi referensi yang ambigu.",
+    "severity_label": "major",
+    "suggested_fix": "Pastikan setiap elemen catatan memiliki ID yang unik secara global dalam dokumen."
+  },
+  "20-001": {
+    "title": "Konfigurasi konten opsional kehilangan nama (array Configs)",
+    "description": "Kamus konfigurasi konten opsional dalam array OCConfigs dokumen tidak memiliki entri nama.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri /Name deskriptif ke setiap konfigurasi konten opsional dalam array OCProperties/Configs."
+  },
+  "20-002": {
+    "title": "Konfigurasi konten opsional kehilangan nama (default D)",
+    "description": "Kamus konfigurasi konten opsional default (entri D di OCProperties) tidak memiliki entri nama.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri /Name ke kamus konfigurasi konten opsional default."
+  },
+  "20-003": {
+    "title": "Kunci AS ada dalam konfigurasi konten opsional",
+    "description": "Kamus konfigurasi konten opsional berisi entri AS (Application Specific), yang tidak diizinkan oleh PDF/UA-1 karena dapat mengubah tampilan visual dokumen tanpa sepengetahuan pengguna.",
+    "severity_label": "minor",
+    "suggested_fix": "Hapus kunci AS dari kamus konfigurasi konten opsional."
+  },
+  "21-001": {
+    "title": "File tersemat kehilangan kunci F dan UF",
+    "description": "Kamus spesifikasi file tersemat kehilangan entri F (string spesifikasi file) atau UF (string spesifikasi file teks Unicode) yang diperlukan.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri F dan UF ke kamus spesifikasi file yang menjelaskan file tersemat."
+  },
+  "22-001": {
+    "title": "Utas artikel tidak sesuai",
+    "description": "Struktur utas artikel tidak mengikuti format bead artikel PDF yang diperlukan dengan penautan V (bead berikutnya) dan N (bead sebelumnya) yang tepat.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan bead artikel ditautkan dengan benar dengan entri V dan N, dan setiap bead dikaitkan dengan halaman yang benar."
+  },
+  "24-001": {
+    "title": "Formulir non-interaktif kehilangan PrintFields",
+    "description": "Formulir non-interaktif (misalnya, formulir datar yang dicetak dari input digital) tidak memiliki bendera NeedAppearances yang diatur, atau bit PrintFields hilang dari parameter transformasi FieldMDP.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan bidang formulir yang ditujukan untuk tampilan khusus cetak memiliki pengaturan FieldMDP yang benar dengan bit PrintFields diaktifkan."
+  },
+  "25-001": {
+    "title": "dynamicRender formulir XFA tidak diperlukan",
+    "description": "Formulir XFA (XML Forms Architecture) berisi elemen dynamicRender yang tidak diatur ke 'required', yang berpotensi menyebabkan ketidakkonsistenan rendering.",
+    "severity_label": "critical",
+    "suggested_fix": "Atur dynamicRender='required' pada elemen formulir XFA, atau bermigrasi dari XFA ke AcroForms untuk dukungan aksesibilitas yang lebih baik."
+  },
+  "28-001": {
+    "title": "Anotasi tidak dalam urutan baca",
+    "description": "Anotasi (tautan, bidang formulir, komentar) ada di halaman tetapi elemen struktur terkaitnya tidak ditempatkan di posisi urutan baca yang benar dalam pohon struktur.",
+    "severity_label": "major",
+    "suggested_fix": "Tempatkan elemen struktur anotasi (Link, Form, Annot) pada posisi yang benar dalam pohon struktur relatif terhadap konten di sekitarnya."
+  },
+  "28-002": {
+    "title": "Anotasi tidak di dalam elemen struktur Annot",
+    "description": "Objek anotasi pada halaman tidak dibungkus dalam elemen struktur Annot (atau subtipe yang sesuai: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Bungkus setiap objek anotasi dalam elemen struktur yang sesuai (Link untuk hyperlink, Form untuk widget)."
+  },
+  "28-003": {
+    "title": "Anotasi digunakan hanya untuk pemformatan visual",
+    "description": "Anotasi digunakan murni untuk pemformatan visual (misalnya, persegi panjang yang digambar sebagai dekorasi) dan tidak ditag dengan tepat.",
+    "severity_label": "minor",
+    "suggested_fix": "Tandai anotasi khusus pemformatan sebagai artefak atau hapus dan gunakan operator gambar PDF yang tepat sebagai gantinya."
+  },
+  "28-004": {
+    "title": "Anotasi kehilangan Contents dan Alt",
+    "description": "Anotasi tidak memiliki entri Contents (deskripsi teks) atau entri Alt (teks alternatif), yang membuat pengguna pembaca layar tidak memiliki konteks.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan string /Contents ke setiap anotasi yang menjelaskan tujuannya. Berikan /Alt untuk anotasi non-teks."
+  },
+  "28-005": {
+    "title": "Bidang formulir kehilangan TU atau Alt",
+    "description": "Anotasi widget bidang formulir tidak memiliki entri tips alat (TU) atau Alt, sehingga pengguna pembaca layar tidak mungkin memahami tujuan bidang tersebut.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan entri /TU (tips alat) ke setiap bidang formulir yang menjelaskan tujuan dan format input yang diharapkan."
+  },
+  "28-006": {
+    "title": "Subtipe anotasi tidak terdefinisi",
+    "description": "Anotasi memiliki nilai Subtype yang tidak didefinisikan dalam ISO 32000-1, yang dapat menyebabkan perilaku yang tidak terduga dalam pemroses PDF.",
+    "severity_label": "minor",
+    "suggested_fix": "Ganti atau hapus anotasi dengan subtipe yang tidak terdefinisi, atau pastikan subtipe kustom terdaftar dan ditangani dengan benar."
+  },
+  "28-007": {
+    "title": "Anotasi TrapNet ada",
+    "description": "Anotasi TrapNet (digunakan dalam alur kerja trapping pracetak) ada dalam dokumen dan tidak ditag atau dijadikan artefak dengan tepat.",
+    "severity_label": "minor",
+    "suggested_fix": "Tandai anotasi TrapNet sebagai artefak karena tidak memiliki makna semantik bagi konsumen dokumen."
+  },
+  "28-008": {
+    "title": "Halaman dengan anotasi kehilangan kunci Tabs",
+    "description": "Halaman yang berisi anotasi (tautan, bidang formulir) tidak memiliki entri Tabs, yang menentukan urutan tab untuk navigasi keyboard.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan entri /Tabs ke kamus halaman. Gunakan /Tabs=S untuk urutan struktur (direkomendasikan untuk dokumen yang dapat diakses)."
+  },
+  "28-009": {
+    "title": "Tabs tidak diatur ke S (urutan struktur)",
+    "description": "Kunci Tabs pada halaman diatur ke nilai selain 'S' (misalnya, 'R' untuk urutan baris, 'C' untuk urutan kolom), yang mungkin tidak cocok dengan urutan baca logis dokumen.",
+    "severity_label": "major",
+    "suggested_fix": "Atur /Tabs ke 'S' (urutan struktur) pada halaman dengan anotasi agar navigasi keyboard mengikuti urutan pohon struktur."
+  },
+  "28-010": {
+    "title": "Anotasi widget tidak di dalam elemen Form",
+    "description": "Anotasi widget (bidang formulir) tidak dibungkus dalam elemen struktur Form di dalam pohon.",
+    "severity_label": "major",
+    "suggested_fix": "Bungkus setiap anotasi widget dalam elemen struktur Form. Kelompokkan bidang formulir terkait dalam wadah Form yang sama."
+  },
+  "28-011": {
+    "title": "Anotasi tautan tidak di dalam elemen Link",
+    "description": "Anotasi tautan (hyperlink) tidak dibungkus dalam elemen struktur Link di dalam pohon.",
+    "severity_label": "major",
+    "suggested_fix": "Bungkus setiap anotasi tautan dalam elemen struktur Link yang diposisikan di lokasi urutan baca yang benar."
+  },
+  "28-012": {
+    "title": "Anotasi tautan kehilangan Contents",
+    "description": "Anotasi Link tidak memiliki entri Contents yang menjelaskan tujuan atau maksud tautan tersebut.",
+    "severity_label": "major",
+    "suggested_fix": "Tambahkan string /Contents ke setiap anotasi Link yang menjelaskan ke mana tautan tersebut mengarah."
+  },
+  "28-013": {
+    "title": "IsMap=true tanpa peta gambar sisi server",
+    "description": "Anotasi tautan memiliki IsMap diatur ke true tetapi gambar terkait tidak berfungsi sebagai peta gambar sisi server.",
+    "severity_label": "minor",
+    "suggested_fix": "Atur IsMap ke false jika gambar bukan peta gambar sisi server aktif dengan perilaku sensitif koordinat."
+  },
+  "28-016": {
+    "title": "Lampiran file tidak sesuai dengan 7.11",
+    "description": "Anotasi lampiran file mereferensikan file tersemat yang tidak sesuai dengan persyaratan klausul 7.11 (Aliran File Tersemat).",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan file tersemat memiliki entri F dan UF serta kamus spesifikasi file lengkap. Lihat juga 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark dalam struktur logis",
+    "description": "Anotasi PrinterMark (tanda potong, tanda registrasi, batang warna) muncul di pohon struktur logis dokumen, di mana anotasi tersebut tidak memiliki makna semantik.",
+    "severity_label": "minor",
+    "suggested_fix": "Hapus anotasi PrinterMark dari pohon struktur dan tandai sebagai artefak."
+  },
+  "28-018": {
+    "title": "Tampilan PrinterMark bukan artefak",
+    "description": "Aliran tampilan anotasi PrinterMark tidak ditandai sebagai artefak, yang menyebabkan pembaca layar mencoba mendeskripsikan tanda cetak.",
+    "severity_label": "minor",
+    "suggested_fix": "Tandai konten tampilan PrinterMark sebagai artefak dalam aliran konten."
+  },
+  "30-001": {
+    "title": "XObject referensi ada",
+    "description": "XObject referensi digunakan dalam dokumen. XObject referensi mengimpor konten dari file PDF eksternal, yang dapat merusak aksesibilitas karena konten yang diimpor tidak terintegrasi dengan benar ke dalam pohon struktur.",
+    "severity_label": "major",
+    "suggested_fix": "Hindari XObject referensi. Jika diperlukan, pastikan semua konten yang diimpor ditag dengan benar di pohon struktur dokumen host."
+  },
+  "30-002": {
+    "title": "Form XObject dengan MCID direferensikan beberapa kali",
+    "description": "Form XObject yang berisi konten bertag dengan MCID (Marked Content Identifiers) direferensikan dari beberapa lokasi, yang menyebabkan konflik MCID dalam urutan konten bertag halaman.",
+    "severity_label": "major",
+    "suggested_fix": "Hindari menggunakan kembali Form XObject yang berisi konten bertag. Ratakan atau duplikat XObject untuk setiap lokasi penggunaan."
+  },
+  "31-001": {
+    "title": "Ketidakcocokan registri CIDSystemInfo di seluruh turunan Type0",
+    "description": "CIDFont turunan font Type0 memiliki nilai registri CIDSystemInfo yang tidak konsisten, yang dapat menyebabkan kegagalan pemetaan karakter.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan semua CIDFont turunan dari font Type0 memiliki nilai CIDSystemInfo (Registry, Ordering, Supplement) yang konsisten."
+  },
+  "31-002": {
+    "title": "Ketidakcocokan Ordering CIDSystemInfo di seluruh turunan Type0",
+    "description": "CIDFont turunan font Type0 memiliki nilai Ordering CIDSystemInfo yang tidak konsisten.",
+    "severity_label": "minor",
+    "suggested_fix": "Sejajarkan nilai Ordering di semua CIDFont turunan dari font Type0."
+  },
+  "31-003": {
+    "title": "Ketidakcocokan Supplement CIDSystemInfo di seluruh turunan Type0",
+    "description": "CIDFont turunan font Type0 memiliki nilai Supplement CIDSystemInfo yang tidak konsisten.",
+    "severity_label": "minor",
+    "suggested_fix": "Sejajarkan nilai Supplement di semua CIDFont turunan dari font Type0."
+  },
+  "31-004": {
+    "title": "CIDFont kehilangan CIDToGIDMap",
+    "description": "Kamus CIDFont tidak berisi entri CIDToGIDMap dan tidak menggunakan pemetaan Identity, yang membuat pencarian glif tidak dapat diandalkan.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri CIDToGIDMap ke CIDFont, atau atur ke 'Identity' jika font menggunakan CID identitas."
+  },
+  "31-005": {
+    "title": "CIDFont memerlukan CIDToGIDMap non-Identity",
+    "description": "CIDFont yang koleksi karakternya bukan Adobe-Identity memerlukan aliran CIDToGIDMap eksplisit untuk pemetaan glif yang benar.",
+    "severity_label": "minor",
+    "suggested_fix": "Berikan aliran CIDToGIDMap eksplisit untuk CIDFont jika tidak menggunakan koleksi karakter Adobe-Identity."
+  },
+  "31-006": {
+    "title": "CMap tidak terdaftar atau tersemat",
+    "description": "Sumber daya CMap yang digunakan oleh font Type0 tidak tercantum dalam CMap standar spesifikasi PDF maupun tersemat dalam dokumen.",
+    "severity_label": "minor",
+    "suggested_fix": "Gunakan CMap standar dari spesifikasi PDF atau sematkan aliran CMap kustom dalam dokumen."
+  },
+  "31-007": {
+    "title": "Ketidakcocokan WMode dalam font Type0",
+    "description": "Nilai WMode (mode penulisan) berbeda di seluruh CMap dan CIDFont turunan dari font Type0.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan nilai WMode konsisten (0 untuk horizontal, 1 untuk vertikal) di seluruh CMap dan semua CIDFont turunan."
+  },
+  "31-008": {
+    "title": "CMap mereferensikan CMap yang tidak terdaftar",
+    "description": "Aliran CMap mereferensikan CMap lain yang bukan CMap standar maupun tersemat dalam dokumen.",
+    "severity_label": "minor",
+    "suggested_fix": "Sematkan semua CMap non-standar yang direferensikan dalam dokumen atau gunakan CMap standar saja."
+  },
+  "31-009": {
+    "title": "Font tidak tersemat",
+    "description": "Font yang digunakan dalam dokumen tidak tersemat. Font yang tidak tersemat menyebabkan fallback ke font sistem, yang mungkin memiliki metrik dan cakupan glif yang berbeda, sehingga merusak ekstraksi teks dan fidelitas visual.",
+    "severity_label": "critical",
+    "suggested_fix": "Sematkan semua font yang digunakan dalam dokumen. Untuk 14 font standar yang tidak dapat disematkan, pastikan program font tersedia atau ganti dengan ekuivalen yang tersemat."
+  },
+  "31-011": {
+    "title": "Program font tersemat kehilangan glif",
+    "description": "Glif yang direferensikan dalam teks dokumen tidak ada dalam program font tersemat.",
+    "severity_label": "major",
+    "suggested_fix": "Subset font untuk menyertakan semua glif yang diperlukan, atau gunakan font berbeda yang menyertakan glif yang dibutuhkan."
+  },
+  "31-012": {
+    "title": "CharSet Type1: glif tidak terdaftar",
+    "description": "CharSet font Type1 tidak mencantumkan glif yang sebenarnya ada dalam program font dan digunakan dalam dokumen.",
+    "severity_label": "minor",
+    "suggested_fix": "Perbarui CharSet untuk menyertakan semua glif yang ada dalam program font yang direferensikan dalam dokumen."
+  },
+  "31-013": {
+    "title": "CharSet Type1: glif terdaftar tidak ada dalam font",
+    "description": "CharSet font Type1 mencantumkan nama glif yang tidak ada dalam program font tersemat.",
+    "severity_label": "minor",
+    "suggested_fix": "Hapus nama glif yang tidak ada dari CharSet atau sematkan font lengkap."
+  },
+  "31-014": {
+    "title": "CIDSet CID: glif tidak terdaftar",
+    "description": "CIDSet CIDFont tidak menyertakan CID yang sebenarnya ada dalam program font tersemat dan digunakan dalam dokumen.",
+    "severity_label": "minor",
+    "suggested_fix": "Perbarui CIDSet untuk menyertakan semua nilai CID yang digunakan dalam dokumen."
+  },
+  "31-015": {
+    "title": "CIDSet CID: CID terdaftar tidak ada dalam font",
+    "description": "CIDSet CIDFont mencantumkan CID yang tidak sesuai dengan glif apa pun dalam program font tersemat.",
+    "severity_label": "minor",
+    "suggested_fix": "Hapus CID yang tidak ada dari CIDSet atau buat ulang dari program font yang sebenarnya."
+  },
+  "31-016": {
+    "title": "Diskrepansi lebar glif > 1/1000",
+    "description": "Lebar glif yang ditentukan dalam kamus font berbeda lebih dari 1 unit per 1000 dari lebar dalam program font tersemat.",
+    "severity_label": "minor",
+    "suggested_fix": "Koreksi array Widths (atau entri W2) dalam kamus font agar sesuai dengan lebar glif yang sebenarnya dalam program font tersemat."
+  },
+  "31-017": {
+    "title": "TrueType non-simbolik kehilangan cmap non-simbolik",
+    "description": "Font TrueType dengan pengodean non-simbolik (entri Encoding ada atau bendera simbolik mati) tidak berisi sub-tabel cmap (3,1) untuk pemetaan Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan program font TrueType berisi sub-tabel cmap BMP Unicode Microsoft (3,1) untuk pemetaan karakter Unicode yang tepat."
+  },
+  "31-018": {
+    "title": "Glif TrueType non-simbolik tidak ada dalam cmap",
+    "description": "Glif dalam font TrueType non-simbolik tidak dapat dicari melalui sub-tabel cmap font.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan semua glif yang digunakan dalam dokumen dapat diakses melalui setidaknya satu sub-tabel cmap dalam font."
+  },
+  "31-019": {
+    "title": "Kamus font TrueType non-simbolik kehilangan Encoding",
+    "description": "Kamus font TrueType non-simbolik tidak memiliki entri Encoding, yang diperlukan untuk resolusi nama glif.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan entri Encoding yang sesuai (misalnya, WinAnsiEncoding, MacRomanEncoding) ke kamus font."
+  },
+  "31-020": {
+    "title": "Kamus Encoding kehilangan BaseEncoding",
+    "description": "Kamus Encoding dengan array Differences tidak menentukan entri BaseEncoding.",
+    "severity_label": "minor",
+    "suggested_fix": "Tentukan BaseEncoding (misalnya, WinAnsiEncoding) dalam kamus Encoding, yang darinya array Differences menyimpang."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding bukan MacRoman atau WinAnsi",
+    "description": "Encoding atau BaseEncoding dari font TrueType non-simbolik bukan MacRomanEncoding maupun WinAnsiEncoding, yang merupakan dua pengodean dasar standar.",
+    "severity_label": "minor",
+    "suggested_fix": "Gunakan WinAnsiEncoding atau MacRomanEncoding sebagai pengodean dasar untuk font."
+  },
+  "31-022": {
+    "title": "Nama glif Differences tidak ada dalam Adobe Glyph List",
+    "description": "Array Differences dalam kamus Encoding font menggunakan nama glif yang tidak ada dalam Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Gunakan hanya nama glif standar dari Adobe Glyph List dalam array Differences."
+  },
+  "31-023": {
+    "title": "Differences ada tetapi tidak ada cmap (3,1)",
+    "description": "Font memiliki array Differences dalam Encoding-nya tetapi program font TrueType tidak berisi sub-tabel cmap (3,1) untuk pemetaan Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Tambahkan CMap ToUnicode untuk font guna memastikan pemetaan Unicode yang andal."
+  },
+  "31-024": {
+    "title": "Kamus font TrueType simbolik memiliki Encoding",
+    "description": "Font TrueType simbolik (bit 3 Flags diatur) memiliki entri Encoding dalam kamus font-nya, yang tidak diizinkan untuk font simbolik.",
+    "severity_label": "minor",
+    "suggested_fix": "Hapus entri Encoding dari kamus font TrueType simbolik. Font simbolik mengandalkan cmap program font untuk pemetaan karakter."
+  },
+  "31-025": {
+    "title": "Program font TrueType simbolik kehilangan cmap",
+    "description": "Program font tersemat font TrueType simbolik tidak berisi tabel cmap apa pun.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan program font tersemat menyertakan setidaknya sub-tabel cmap (3,0) untuk pemetaan karakter simbolik."
+  },
+  "31-026": {
+    "title": "TrueType simbolik dengan beberapa cmap kehilangan (3,0)",
+    "description": "Font TrueType simbolik memiliki beberapa sub-tabel cmap tetapi kehilangan sub-tabel cmap Simbol Microsoft (3,0) yang diperlukan.",
+    "severity_label": "minor",
+    "suggested_fix": "Pastikan program font tersemat menyertakan sub-tabel cmap Simbol Microsoft (3,0) untuk pemetaan karakter yang benar."
+  },
+  "31-027": {
+    "title": "CMap ToUnicode hilang",
+    "description": "Font yang digunakan untuk konten teks tidak memiliki CMap ToUnicode, dan tidak ada kondisi pengecualian yang berlaku. Tanpa CMap ToUnicode, teknologi bantu tidak dapat mengekstrak teks yang dapat dibaca.",
+    "severity_label": "critical",
+    "suggested_fix": "Tambahkan aliran CMap ToUnicode ke kamus font yang memetakan setiap kode karakter yang digunakan dalam dokumen ke nilai Unicode yang sesuai."
+  },
+  "31-028": {
+    "title": "ToUnicode memetakan ke CID 0",
+    "description": "CMap ToUnicode memetakan kode karakter ke nilai Unicode U+0000 (null), yang bukan karakter teks yang valid.",
+    "severity_label": "minor",
+    "suggested_fix": "Koreksi CMap ToUnicode untuk memetakan kode karakter ke nilai Unicode yang valid dan bukan null."
+  },
+  "31-029": {
+    "title": "ToUnicode memetakan ke U+FEFF atau U+FFFE",
+    "description": "CMap ToUnicode memetakan kode karakter ke U+FEFF (BOM) atau U+FFFE (byte-order mark), yang merupakan karakter kontrol dan bukan teks yang dapat ditampilkan yang valid.",
+    "severity_label": "minor",
+    "suggested_fix": "Ganti pemetaan U+FEFF/U+FFFE dalam CMap ToUnicode dengan nilai Unicode karakter yang sebenarnya."
+  },
+  "31-030": {
+    "title": "Glif .notdef direferensikan dalam teks",
+    "description": "Operator penampil teks dalam dokumen mereferensikan glif .notdef (indeks glif 0), yang menunjukkan karakter yang hilang atau tidak tersedia. Teks yang menggunakan .notdef muncul sebagai karakter kosong atau tofu.",
+    "severity_label": "major",
+    "suggested_fix": "Pastikan semua kode karakter yang digunakan dalam dokumen sesuai dengan glif yang sebenarnya dalam program font tersemat."
+  }
+}

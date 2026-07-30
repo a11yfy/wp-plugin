@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artifact gemarkeerd als echte inhoud",
+    "description": "Een pagina-Artifact (koptekst, voettekst, decoratief element) is onjuist gemarkeerd als echte inhoud in de Structuurboom. Schermlezers zullen proberen decoratieve elementen voor te lezen als documentinhoud.",
+    "severity_label": "critical",
+    "suggested_fix": "Wijzig het type structuurelement naar Artifact of omsluit de inhoud in een gemarkeerde inhoudsreeks van een Artifact."
+  },
+  "01-002": {
+    "title": "Echte inhoud gemarkeerd als Artifact",
+    "description": "Echte documentinhoud (platgeslagen tekst, Kop, bijschrift) is onjuist gemarkeerd als een Artifact. Schermlezers zullen deze inhoud volledig overslaan.",
+    "severity_label": "critical",
+    "suggested_fix": "Verwijder de Artifact-markering van de echte inhoud en zorg ervoor dat deze correct is getagd met een geschikt structuurelement."
+  },
+  "01-003": {
+    "title": "Artifact binnen getagde inhoud",
+    "description": "Een als Artifact gemarkeerd element verschijnt binnen een structuurelement dat echte inhoud vertegenwoordigt, wat de inhoudshiërarchie corrumpeert.",
+    "severity_label": "critical",
+    "suggested_fix": "Verplaats de als Artifact gemarkeerde inhoud buiten het structuurelement voor echte inhoud, of herstructureer de elementhiërarchie."
+  },
+  "01-004": {
+    "title": "Getagde inhoud binnen Artifact",
+    "description": "Een getagd element met echte inhoud is genest binnen een Artifact-container. Schermlezers kunnen deze inhoud overslaan.",
+    "severity_label": "critical",
+    "suggested_fix": "Verplaats de getagde inhoud uit de Artifact-container en plaats deze op het juiste niveau in de Structuurboom."
+  },
+  "01-005": {
+    "title": "Inhoud is noch getagd, noch Artifact",
+    "description": "Inhoud op de pagina is noch getagd als een structuurelement, noch gemarkeerd als een Artifact. Dit is de meest voorkomende PDF/UA-schending en de voornaamste oorzaak van stilte bij schermlezers.",
+    "severity_label": "critical",
+    "suggested_fix": "Tag de inhoud ofwel met een geschikt structuurelement (P, H1-H6, Figure, enz.) of markeer het als Artifact als het decoratief is."
+  },
+  "01-006": {
+    "title": "Ontbrekende StructTreeRoot",
+    "description": "Het documentcatalogus-woordenboek moet de StructTreeRoot-vermelding bevatten, die dient als de wortel van de logische structuur van het document. Zonder dit kunnen schermlezers de documentstructuur helemaal niet interpreteren.",
+    "severity_label": "critical",
+    "suggested_fix": "Voeg een StructTreeRoot-object toe aan het documentcatalogus-woordenboek en bouw de hiërarchie van structuurelementen voor alle inhoudspagina's."
+  },
+  "01-007": {
+    "title": "Suspect-vlag is waar",
+    "description": "De Suspects-vermelding in het MarkInfo-woordenboek van het document is ingesteld op waar, wat aangeeft dat de Structuurboom onbetrouwbare tagging kan bevatten. Assisterende technologieën kunnen de Structuurboom volledig negeren.",
+    "severity_label": "critical",
+    "suggested_fix": "Stel de Suspects-vlag in op onwaar in het MarkInfo-woordenboek nadat is geverifieerd dat alle inhoud correct is getagd."
+  },
+  "02-001": {
+    "title": "Niet-standaard Roltoewijzing eindigt niet op een standaardtype",
+    "description": "Een aangepaste rol in de RoleMap wijst niet naar een standaard PDF-structuurtype. Het uiteindelijke doel van de toewijzingsketen moet een standaardtype zijn uit de PDF 32000-1 rolset.",
+    "severity_label": "critical",
+    "suggested_fix": "Zorg ervoor dat elke niet-standaard rol in de RoleMap direct of transitief wijst naar een standaardtype (bijv. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure, enz.)."
+  },
+  "02-002": {
+    "title": "Semantisch ongepaste Roltoewijzing",
+    "description": "De rol van een structuurelement is toegewezen aan een standaardtype dat niet overeenkomt met het semantische doel van het element (bijv. een Kop toegewezen aan Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Controleer de RoleMap en zorg ervoor dat elke toewijzing de werkelijke semantische rol van de inhoud weerspiegelt. Menselijk oordeel kan vereist zijn."
+  },
+  "02-003": {
+    "title": "Circulaire Roltoewijzing",
+    "description": "De RoleMap bevat een circulaire keten waarbij rol A wijst naar B, B wijst naar C, en C wijst terug naar A, wat een oneindige lus voor processoren creëert.",
+    "severity_label": "major",
+    "suggested_fix": "Doorbreek de circulaire keten door de uiteindelijke rol direct toe te wijzen aan een geschikt standaardtype."
+  },
+  "02-004": {
+    "title": "Standaardtype opnieuw toegewezen",
+    "description": "Een standaard PDF-structuurtype (bijv. P, H1, Table) wordt opnieuw toegewezen aan een ander type via de RoleMap, wat niet is toegestaan door PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Verwijder de toewijzing voor dit standaardtype uit de RoleMap. Standaardtypes mogen niet opnieuw worden toegewezen."
+  },
+  "06-001": {
+    "title": "Ontbrekende XMP Metadatastroom",
+    "description": "Het document bevat geen XMP Metadatastroom in de Metadata-vermelding van de catalogus. PDF/UA-1 vereist XMP-metadata.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een XMP Metadatastroom toe aan de documentcatalogus met minimaal dc:format (application/pdf), pdfuaid:part (1) en dc:title."
+  },
+  "06-002": {
+    "title": "Ontbrekende PDF/UA-identificatie",
+    "description": "De XMP-metadata bevat niet de eigenschap pdfuaid:part, die het document identificeert als conform aan PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Voeg de eigenschap pdfuaid:part met waarde 1 toe aan de XMP Metadatastroom om PDF/UA-1 conformiteit te verklaren."
+  },
+  "06-003": {
+    "title": "Ontbrekende dc:title in metadata",
+    "description": "De XMP-metadata of het documentinformatie-woordenboek bevat geen dc:title-vermelding. PDF/UA-1 vereist dat het document een titel heeft.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een dc:title-vermelding toe aan de XMP Metadatastroom. Gebruik de werkelijke titel van het document of een betekenisvol alternatief."
+  },
+  "07-001": {
+    "title": "Ontbrekende DisplayDocTitle kijkersvoorkeur",
+    "description": "Het woordenboek met kijkersvoorkeuren van het document bevat niet de DisplayDocTitle-sleutel. Wanneer deze afwezig of onwaar is, tonen kijkers de bestandsnaam in plaats van de documenttitel.",
+    "severity_label": "major",
+    "suggested_fix": "Stel DisplayDocTitle in op waar in het woordenboek met kijkersvoorkeuren van het document (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle ingesteld op onwaar",
+    "description": "De DisplayDocTitle-sleutel in de kijkersvoorkeuren is ingesteld op onwaar, waardoor kijkers de bestandsnaam in de titelbalk tonen in plaats van de documenttitel.",
+    "severity_label": "major",
+    "suggested_fix": "Wijzig DisplayDocTitle naar waar in het woordenboek met kijkersvoorkeuren."
+  },
+  "08-002": {
+    "title": "OCR-tekst niet getagd in Structuurboom",
+    "description": "Het document bevat door OCR gegenereerde tekst (gebruikelijk in gescande PDF's) die niet is getagd in de Structuurboom. Gebruikers van schermlezers hebben geen toegang tot deze inhoud.",
+    "severity_label": "critical",
+    "suggested_fix": "Zorg ervoor dat alle door OCR gegenereerde tekst is opgenomen in de Structuurboom met geschikte tags. Voor gescande PDF's, herbouw het document met een volledige tekstlaag-overlay."
+  },
+  "09-001": {
+    "title": "Tags niet in Logische leesvolgorde",
+    "description": "Structuurelementen in de boom zijn niet gerangschikt in de Logische leesvolgorde van het document. Schermlezers navigeren door het document in de volgorde van de boom, die kan afwijken van de visuele volgorde.",
+    "severity_label": "critical",
+    "suggested_fix": "Rangschik de structuurelementen in de boom opnieuw zodat ze overeenkomen met de Logische leesvolgorde (doorgaans van boven naar beneden, van links naar rechts voor de betreffende taal)."
+  },
+  "09-002": {
+    "title": "Semantisch ongepaste nesting",
+    "description": "Een structuurelement is genest binnen een ouderelement waar het semantisch niet thuishoort (bijv. een Tabel-rij binnen een Alinea, of een Kop binnen een Lijst).",
+    "severity_label": "critical",
+    "suggested_fix": "Herstructureer de elementhiërarchie om ervoor te zorgen dat elk element is genest binnen een semantisch geschikte ouder."
+  },
+  "09-003": {
+    "title": "Ongepast structuurtype na Roltoewijzing",
+    "description": "Na resolutie van de Roltoewijzing is het uiteindelijke structuurtype semantisch niet geschikt voor de inhoud die het bevat.",
+    "severity_label": "major",
+    "suggested_fix": "Pas de RoleMap aan of wijzig het oorspronkelijke structuurtype zodat het opgeloste type overeenkomt met de semantische rol van de inhoud."
+  },
+  "09-004": {
+    "title": "Tabel-element voldoet niet aan Tabel 337",
+    "description": "Een structuurelement van het type Tabel voldoet niet aan de toegestane kindstructuur (Tabel 337 in ISO 32000-1). Een Tabel moet ten minste een TBody met TR-kinderen bevatten, of THead/TBody/TFoot-secties.",
+    "severity_label": "major",
+    "suggested_fix": "Zorg ervoor dat het Tabel-element correct gestructureerde rijen bevat: Tabel > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Omsluit rijen minimaal in een TBody."
+  },
+  "09-005": {
+    "title": "Lijst-element voldoet niet aan Tabel 336",
+    "description": "Een structuurelement van het type L (Lijst) voldoet niet aan de toegestane kindstructuur (Tabel 336 in ISO 32000-1). Een Lijst moet LI-elementen bevatten, en een LI moet Lbl (optioneel) en LBody bevatten.",
+    "severity_label": "major",
+    "suggested_fix": "Structureer lijsten als: L > LI > (Lbl)? + LBody. Zorg ervoor dat elk lijstitem een LBody-kind heeft dat de iteminhoud bevat."
+  },
+  "09-006": {
+    "title": "TOC-element voldoet niet aan Tabel 333",
+    "description": "Een structuurelement van het type TOC (Inhoudsopgave) voldoet niet aan de toegestane kindstructuur. TOC moet TOCI-elementen bevatten.",
+    "severity_label": "minor",
+    "suggested_fix": "Structureer Inhoudsopgave-vermeldingen als: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby-element voldoet niet aan de eisen",
+    "description": "Een Ruby-structuurelement (gebruikt voor uitspraak-Annotaties) volgt niet de vereiste kindstructuur: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Herstructureer het Ruby-element met de vereiste RB (ruby base) en RT (ruby text) kinderen."
+  },
+  "09-008": {
+    "title": "Warichu-element voldoet niet aan de eisen",
+    "description": "Een Warichu-structuurelement (inline commentaar of Annotatie in CJK-tekst) volgt niet de vereiste structuur: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Herstructureer het Warichu-element met de vereiste WT (warichu text) en WP (warichu punctuation) kinderen."
+  },
+  "10-001": {
+    "title": "Teken-code kan niet worden toegewezen aan Unicode",
+    "description": "Een teken-code in de tekst van het document kan niet worden toegewezen aan een Unicode-waarde. Dit veroorzaakt verminkte of ontbrekende tekens wanneer assisterende technologieën tekst extraheren.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat alle lettertypen een ToUnicode CMap hebben die elke gebruikte teken-code toewijst aan een geldige Unicode-waarde. Controleer of de CMap alle Glyphs dekt die in het document worden gebruikt."
+  },
+  "11-001": {
+    "title": "Taal van pagina-inhoud niet bepaalbaar",
+    "description": "De natuurlijke taal van de pagina-inhoud kan niet worden bepaald omdat de /Lang-vermelding ontbreekt in de documentcatalogus of structuurelementen op paginaniveau.",
+    "severity_label": "critical",
+    "suggested_fix": "Stel de /Lang-vermelding in de documentcatalogus in op de primaire taal van het document (bijv. 'nl-NL', 'en-US'). Voeg /Lang toe aan individuele structuurelementen als de inhoud van taal wisselt."
+  },
+  "11-002": {
+    "title": "Taal van Alternatieve tekst/ActualText niet bepaalbaar",
+    "description": "De taal van Alternatieve tekst-beschrijvingen (Alt) of ActualText-vervangingen kan niet worden bepaald.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg /Lang-attributen toe aan structuurelementen die Alt of ActualText bevatten wanneer de taal van de tekst afwijkt van de standaardtaal van het document."
+  },
+  "11-003": {
+    "title": "Taal van overzicht niet ingesteld",
+    "description": "Het documentoverzicht (bladwijzers) heeft geen /Lang-vermelding, waardoor assisterende technologieën overzichtitems niet correct kunnen uitspreken.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een /Lang-vermelding toe aan het overzicht-woordenboek die overeenkomt met de primaire taal van het document."
+  },
+  "11-004": {
+    "title": "Taal van Annotatie-inhoud niet ingesteld",
+    "description": "Annotatie-inhoudreeksen (Tooltip, Formulierveld-waarden) hebben geen bijbehorende taalverklaring.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg /Lang toe aan woordenboeken voor Annotatie-weergave wanneer de Annotatie-tekst afwijkt van de documenttaal."
+  },
+  "11-005": {
+    "title": "Taal van Formulierveld-TU niet ingesteld",
+    "description": "De Tooltip (TU)-vermelding van Formuliervelden heeft geen bijbehorende taal, wat kan leiden tot onjuiste uitspraak door schermlezers.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat de Tooltip-tekst van het Formulierveld taalidentificatie bevat als deze afwijkt van de standaardtaal van het document."
+  },
+  "11-006": {
+    "title": "Taal van documentmetadata niet ingesteld",
+    "description": "De XMP-metadata verklaart geen dc:language-eigenschap, of de /Lang-vermelding van de documentcatalogus ontbreekt of is leeg.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg dc:language toe aan de XMP-metadata en stel /Lang in de documentcatalogus in op een RFC 3066-taaltag."
+  },
+  "12-001": {
+    "title": "Uitrekbare tekens missen ActualText",
+    "description": "Uitrekbare tekens (haakjes, accolades, worteltekens) die in wiskundige of decoratieve contexten worden gebruikt, hebben geen ActualText-vervangingen.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg ActualText toe aan reeksen uitrekbare tekens die hun semantische betekenis beschrijven (bijv. ActualText='(' voor een uitrekbaar linkerhaakje)."
+  },
+  "13-001": {
+    "title": "Afbeelding niet getagd als Figure",
+    "description": "Een grafisch element (afbeelding, grafiek, diagram) in de documentinhoud is niet getagd met een Figure-structuurelement.",
+    "severity_label": "major",
+    "suggested_fix": "Tag alle niet-decoratieve afbeeldingen als Figure-elementen in de Structuurboom, met bijbehorende Alternatieve tekst."
+  },
+  "13-002": {
+    "title": "Link met betekenisvolle achtergrond mist Alternatieve tekst",
+    "description": "Een link-Annotatie heeft een betekenisvol visueel uiterlijk (bijv. een afbeelding gebruikt als knop) maar mist Alternatieve tekst die het doel beschrijft.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een Contents-vermelding toe aan de link-Annotatie die de bestemming of het doel beschrijft."
+  },
+  "13-003": {
+    "title": "Bijschrift niet getagd als Caption",
+    "description": "Een bijschrift (afbeeldingsbijschrift, tabeltitel, figuurlegenda) is getagd als gewone tekst (P) in plaats van het Caption-structuurtype te gebruiken.",
+    "severity_label": "major",
+    "suggested_fix": "Tag bijschriften met het Caption-structuurtype en zorg ervoor dat ze correct zijn gekoppeld aan hun bovenliggende Figure- of Tabel-element."
+  },
+  "13-004": {
+    "title": "Figure mist Alternatieve tekst",
+    "description": "Een Figure-structuurelement is aanwezig maar heeft geen Alt-attribuut dat Alternatieve tekst biedt. Schermlezers zullen de aanwezigheid van de figuur aankondigen, maar kunnen de inhoud niet beschrijven.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een /Alt-vermelding toe aan het Figure-structuurelement met een beknopte beschrijving van de inhoud van de afbeelding."
+  },
+  "14-001": {
+    "title": "Koppen niet getagd",
+    "description": "Inhoud die visueel fungeert als een Kop (groter lettertype, vet, onderscheidende stijl) is niet getagd met een Kop-structuurtype (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identificeer alle Koppen in het document en tag ze met geschikte H1-H6 structuurelementen die hun hiërarchieniveau weerspiegelen."
+  },
+  "14-002": {
+    "title": "Eerste Kop is geen H1",
+    "description": "De eerste Kop in de document-Structuurboom is niet van het type H1. De best practice voor PDF/UA-1 is dat de Kop op het hoogste niveau H(n) moet zijn en dat volgende Koppen geen niveaus mogen overslaan.",
+    "severity_label": "major",
+    "suggested_fix": "Zorg ervoor dat de eerste Kop H1 is (of H2 als de documenttitel in de metadata staat). Hernummer volgende Koppen om het overslaan van niveaus te voorkomen."
+  },
+  "14-003": {
+    "title": "Kopniveau overgeslagen",
+    "description": "Kopniveaus in de Structuurboom slaan een niveau over (bijv. H1 direct gevolgd door H3 zonder een tussenliggende H2). Dit doorbreekt de logische Kophiërarchie voor gebruikers van assisterende technologie.",
+    "severity_label": "major",
+    "suggested_fix": "Zorg ervoor dat Kopniveaus opeenvolgend zijn zonder hiaten. Hernummer Koppen zodat H1 wordt gevolgd door H2, dan H3, enz."
+  },
+  "14-005": {
+    "title": "Diepe Kop zonder H7+ type",
+    "description": "Een Kop op nestniveau 7 of dieper heeft geen bijbehorend H7+ structuurtype. PDF definieert alleen H1 tot en met H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Vlak de Kophiërarchie af tot maximaal 6 niveaus, of gebruik voorzichtig niet-standaard Roltoewijzing."
+  },
+  "14-006": {
+    "title": "Meerdere H-tags in één structuurknooppunt",
+    "description": "Een enkel structuurelement bevat meer dan één Kop-tag (bijv. een Sect die zowel H1 als H2 bevat). Elke Kop moet een nieuw nestniveau creëren.",
+    "severity_label": "major",
+    "suggested_fix": "Splits het structuurknooppunt zodat elke Kop een nieuwe sectie of subsectie op het juiste niveau start."
+  },
+  "14-007": {
+    "title": "Inconsistente mix van H- en Hn-tags",
+    "description": "Sommige Koppen gebruiken het generieke 'H'-type terwijl andere inconsistent genummerde 'H1'-'H6'-types gebruiken binnen hetzelfde document.",
+    "severity_label": "major",
+    "suggested_fix": "Converteer alle generieke H-tags naar genummerde H1-H6 types op basis van hun positie in de Kophiërarchie."
+  },
+  "15-001": {
+    "title": "Rijkop niet getagd als kopcel",
+    "description": "Een tabelcel die dient als rijkop is getagd als TD (datacel) in plaats van TH (kopcel). Dit voorkomt dat schermlezers koppen correct associëren met datacellen.",
+    "severity_label": "major",
+    "suggested_fix": "Wijzig het structuurtype van rijkopcellen van TD naar TH en voeg een geschikt Scope-attribuut toe (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Kolomkop niet getagd als kopcel",
+    "description": "Een tabelcel die dient als kolomkop is getagd als TD in plaats van TH. Schermlezers kunnen niet logisch door de tabel navigeren.",
+    "severity_label": "major",
+    "suggested_fix": "Wijzig het structuurtype van kolomkopcellen van TD naar TH en voeg een geschikt Scope-attribuut toe (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH mist Scope zonder Headers/ID",
+    "description": "Een TH (tabelkop)-element heeft geen Scope-attribuut, en de tabel gebruikt geen Headers/ID-associaties om koppen aan datacellen te koppelen.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg Scope='Row', Scope='Column', of Scope='Both' toe aan TH-elementen, of implementeer Headers/ID-associaties."
+  },
+  "15-005": {
+    "title": "Dubbelzinnige celkop-associatie",
+    "description": "De bijbehorende kopcellen van een datacel kunnen niet ondubbelzinnig worden bepaald vanwege een complexe tabelstructuur (samengevoegde cellen, onregelmatige lay-out).",
+    "severity_label": "major",
+    "suggested_fix": "Gebruik expliciete Headers/ID-attributen om elke TD te koppelen aan de bijbehorende TH-elementen, of vereenvoudig de tabelstructuur."
+  },
+  "16-001": {
+    "title": "Geordende lijst mist ListNumbering",
+    "description": "Een geordende lijst (type L met genummerde items) heeft niet het ListNumbering-attribuut, dat het nummeringsformaat specificeert.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg het ListNumbering-attribuut toe aan het L-element met een waarde zoals 'Decimal', 'UpperRoman', 'LowerAlpha', enz."
+  },
+  "16-002": {
+    "title": "Ongeldige ListNumbering-waarde",
+    "description": "Het ListNumbering-attribuut op een L-element heeft een niet-herkende of ongeldige waarde.",
+    "severity_label": "minor",
+    "suggested_fix": "Stel ListNumbering in op een geldige waarde: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha, of LowerAlpha."
+  },
+  "16-003": {
+    "title": "Lijstinhoud niet getagd als lijst",
+    "description": "Inhoud die visueel en semantisch een lijst is (opsommingstekens of genummerde items) is getagd als individuele alinea's of andere niet-lijstelementen.",
+    "severity_label": "major",
+    "suggested_fix": "Herstructureer de inhoud als een Lijst (L) met Lijstitems (LI), elk bevattend een optionele Lbl en vereiste LBody."
+  },
+  "17-001": {
+    "title": "Wiskundige uitdrukking niet getagd als Formula",
+    "description": "Een wiskundige uitdrukking in het document is getagd als een gewone alinea of afbeelding in plaats van het Formula-structuurtype te gebruiken.",
+    "severity_label": "minor",
+    "suggested_fix": "Tag wiskundige uitdrukkingen met het Formula-structuurtype en geef Alternatieve tekst die de uitdrukking beschrijft."
+  },
+  "17-002": {
+    "title": "Formula mist Alternatieve tekst",
+    "description": "Een Formula-structuurelement is aanwezig maar heeft geen Alternatieve tekst die de wiskundige uitdrukking beschrijft.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een /Alt-vermelding toe aan het Formula-element met een tekstuele weergave van de wiskundige uitdrukking."
+  },
+  "17-003": {
+    "title": "Formula-teken niet Unicode-toegewezen",
+    "description": "Een teken in een wiskundige formule kan niet worden toegewezen aan Unicode, waardoor assisterende technologieën verminkte uitvoer voorlezen.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat het lettertype dat voor wiskundige symbolen wordt gebruikt een volledige ToUnicode CMap heeft die alle Glyphs dekt. Zie ook 10-001."
+  },
+  "18-001": {
+    "title": "Koptekst/voettekst niet getagd als paginering-Artifact",
+    "description": "Lopende kopteksten en voetteksten (paginanummers, hoofdstuktitels die op elke pagina herhalen) zijn getagd als echte inhoud in plaats van gemarkeerd als paginering-Artifacten.",
+    "severity_label": "major",
+    "suggested_fix": "Markeer lopende kopteksten en voetteksten als Artifact met subtype 'Pagination' zodat schermlezers deze overslaan tijdens continu lezen."
+  },
+  "18-002": {
+    "title": "Koptekst/voettekst mist correct Artifact-subtype",
+    "description": "Kopteksten en voetteksten zijn gemarkeerd als Artifact, maar hebben niet het 'Pagination'-subtype of gebruiken een onjuist subtype.",
+    "severity_label": "major",
+    "suggested_fix": "Stel het Artifact-subtype in op 'Pagination' voor doorlopende kopteksten en voetteksten, en op 'Header' of 'Footer' alleen voor kop- of voettekst op de eerste/laatste pagina."
+  },
+  "19-001": {
+    "title": "Voetnoot niet getagd als Note",
+    "description": "Een voetnoot of eindnoot in het document is getagd als een gewone alinea in plaats van de Note-structuur te gebruiken.",
+    "severity_label": "major",
+    "suggested_fix": "Tag voetnoten en eindnoten als Note-elementen, met een uniek ID-kenmerk en een Reference-element in de hoofdtekst dat ernaar verwijst."
+  },
+  "19-002": {
+    "title": "Verwijzing niet getagd als Reference",
+    "description": "Een in-tekst citaat of Kruisverwijzing-markering is getagd als gewone tekst in plaats van de Reference-structuur te gebruiken.",
+    "severity_label": "major",
+    "suggested_fix": "Tag citaatmarkeringen en Kruisverwijzingen als Reference-elementen en koppel ze aan hun bijbehorende Note of bestemming."
+  },
+  "19-003": {
+    "title": "Note ID ontbreekt",
+    "description": "Een Note-structuurelement heeft geen ID-kenmerk, waardoor referentiële koppeling vanuit het Reference-element in de hoofdtekst wordt voorkomen.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een uniek ID-kenmerk toe aan elk Note-element zodat Reference-elementen ernaar kunnen verwijzen."
+  },
+  "19-004": {
+    "title": "Note ID niet uniek",
+    "description": "Twee of meer Note-structuurelementen delen dezelfde ID-kenmerkwaarde, wat leidt tot ambigue referentie-resolutie.",
+    "severity_label": "major",
+    "suggested_fix": "Zorg ervoor dat elk Note-element een wereldwijd uniek ID heeft binnen het document."
+  },
+  "20-001": {
+    "title": "Optionele inhoudsconfiguratie mist Naam (Configs-array)",
+    "description": "Een configuratiewoordenboek voor optionele inhoud in de OCConfigs-array van het document heeft geen Name-vermelding.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een beschrijvende /Name-vermelding toe aan elke configuratie voor optionele inhoud in de OCProperties/Configs-array."
+  },
+  "20-002": {
+    "title": "Optionele inhoudsconfiguratie mist Naam (D-standaard)",
+    "description": "Het standaard configuratiewoordenboek voor optionele inhoud (D-vermelding in OCProperties) heeft geen Name-vermelding.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een /Name-vermelding toe aan het standaard configuratiewoordenboek voor optionele inhoud."
+  },
+  "20-003": {
+    "title": "AS-sleutel aanwezig in optionele inhoudsconfiguratie",
+    "description": "Een configuratiewoordenboek voor optionele inhoud bevat een AS-vermelding (Application Specific), wat niet is toegestaan door PDF/UA-1 omdat het het visuele uiterlijk van het document kan veranderen zonder medeweten van de gebruiker.",
+    "severity_label": "minor",
+    "suggested_fix": "Verwijder de AS-sleutel uit het configuratiewoordenboek voor optionele inhoud."
+  },
+  "21-001": {
+    "title": "Ingesloten bestand mist F- en UF-sleutels",
+    "description": "Een woordenboek voor de specificatie van een Ingesloten bestand mist de vereiste F- (bestandspecificatietekenreeks) of UF-vermelding (Unicode-tekstbestandspecificatietekenreeks).",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg zowel F- als UF-vermeldingen toe aan het woordenboek voor bestandspecificatie dat het Ingesloten bestand beschrijft."
+  },
+  "22-001": {
+    "title": "Artikelreeks voldoet niet aan de norm",
+    "description": "Een artikelreeksstructuur volgt niet het vereiste PDF-artikelkraalformaat met de juiste V- (volgende kraal) en N-koppeling (vorige kraal).",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat artikelkralen correct zijn gekoppeld met V- en N-vermeldingen, en dat elke kraal is gekoppeld aan de juiste pagina."
+  },
+  "24-001": {
+    "title": "Niet-interactief formulier mist PrintFields",
+    "description": "Een niet-interactief formulier (bijv. een plat formulier afgedrukt vanaf digitale invoer) heeft de NeedAppearances-vlag niet ingesteld, of de PrintFields-bit ontbreekt in de FieldMDP-transformatieparameters.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat Formuliervelden die bedoeld zijn voor alleen-afdrukken de juiste FieldMDP-instellingen hebben met de PrintFields-bit ingeschakeld."
+  },
+  "25-001": {
+    "title": "XFA-formulier dynamicRender niet vereist",
+    "description": "Een XFA-formulier (XML Forms Architecture) bevat dynamicRender-elementen die niet zijn ingesteld op 'required', wat mogelijk leidt tot inconsistenties in de weergave.",
+    "severity_label": "critical",
+    "suggested_fix": "Stel dynamicRender='required' in op XFA-formulierelementen, of migreer van XFA naar AcroForms voor betere ondersteuning van toegankelijkheid."
+  },
+  "28-001": {
+    "title": "Annotatie niet in leesvolgorde",
+    "description": "Een Annotatie (link, Formulierveld, opmerking) is aanwezig op een pagina, maar het bijbehorende structuurelement is niet in de juiste Logische leesvolgorde geplaatst in de Structuurboom.",
+    "severity_label": "major",
+    "suggested_fix": "Plaats Annotatie-structuurelementen (Link, Form, Annot) op de juiste positie in de Structuurboom ten opzichte van de omringende inhoud."
+  },
+  "28-002": {
+    "title": "Annotatie niet binnen Annot-structuurelement",
+    "description": "Een Annotatie-object op de pagina is niet verpakt in een Annot-structuurelement (of passend subtype: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Verpak elk Annotatie-object in het juiste structuurelement (Link voor Hyperlinks, Form voor widgets)."
+  },
+  "28-003": {
+    "title": "Annotatie alleen gebruikt voor visuele opmaak",
+    "description": "Een Annotatie wordt puur gebruikt voor visuele opmaak (bijv. een rechthoek getekend als decoratie) en is niet op de juiste manier getagd.",
+    "severity_label": "minor",
+    "suggested_fix": "Markeer opmaak-alleen Annotaties als Artifact of verwijder ze en gebruik in plaats daarvan de juiste PDF-tekenoperatoren."
+  },
+  "28-004": {
+    "title": "Annotatie mist Contents en Alt",
+    "description": "Een Annotatie heeft geen Contents-vermelding (tekstbeschrijving) of Alt-vermelding (Alternatieve tekst), waardoor gebruikers van een Schermlezer geen context hebben.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een /Contents-tekenreeks toe aan elke Annotatie die het doel ervan beschrijft. Geef /Alt op voor niet-tekst Annotaties."
+  },
+  "28-005": {
+    "title": "Formulierveld mist TU of Alt",
+    "description": "Een widget-Annotatie voor een Formulierveld heeft geen Tooltip (TU) of Alt-vermelding, waardoor het voor gebruikers van een Schermlezer onmogelijk is om het doel van het veld te begrijpen.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een /TU-vermelding (Tooltip) toe aan elk Formulierveld waarin het doel en het verwachte invoerformaat worden beschreven."
+  },
+  "28-006": {
+    "title": "Niet-gedefinieerd Annotatie-subtype",
+    "description": "Een Annotatie heeft een Subtype-waarde die niet is gedefinieerd in ISO 32000-1, wat onvoorspelbaar gedrag in PDF-processors kan veroorzaken.",
+    "severity_label": "minor",
+    "suggested_fix": "Vervang of verwijder Annotaties met niet-gedefinieerde subtypes, of zorg ervoor dat het aangepaste subtype is geregistreerd en correct wordt afgehandeld."
+  },
+  "28-007": {
+    "title": "TrapNet-Annotatie aanwezig",
+    "description": "Een TrapNet-Annotatie (gebruikt in prepress trapping-workflows) is aanwezig in het document en is niet op de juiste manier getagd of als Artifact gemarkeerd.",
+    "severity_label": "minor",
+    "suggested_fix": "Markeer TrapNet-Annotaties als Artifact aangezien ze geen semantische betekenis hebben voor documentgebruikers."
+  },
+  "28-008": {
+    "title": "Pagina met Annotaties mist Tabs-sleutel",
+    "description": "Een pagina met Annotaties (links, Formuliervelden) heeft geen Tabs-vermelding, die de Tabvolgorde voor toetsenbordnavigatie specificeert.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een /Tabs-vermelding toe aan het paginawoordenboek. Gebruik /Tabs=S voor structuurvolgorde (aanbevolen voor toegankelijke documenten)."
+  },
+  "28-009": {
+    "title": "Tabs niet ingesteld op S (structuurvolgorde)",
+    "description": "De Tabs-sleutel op een pagina is ingesteld op een andere waarde dan 'S' (bijv. 'R' voor rijvolgorde, 'C' voor kolomvolgorde), wat mogelijk niet overeenkomt met de Logische leesvolgorde van het document.",
+    "severity_label": "major",
+    "suggested_fix": "Stel /Tabs in op 'S' (structuurvolgorde) op pagina's met Annotaties zodat toetsenbordnavigatie de volgorde van de Structuurboom volgt."
+  },
+  "28-010": {
+    "title": "Widget-Annotatie niet binnen Form-element",
+    "description": "Een widget-Annotatie (Formulierveld) is niet verpakt in een Form-structuurelement in de boom.",
+    "severity_label": "major",
+    "suggested_fix": "Verpak elke widget-Annotatie in een Form-structuurelement. Groepeer gerelateerde Formuliervelden binnen dezelfde Form-container."
+  },
+  "28-011": {
+    "title": "Link-Annotatie niet binnen Link-element",
+    "description": "Een Link-Annotatie (Hyperlink) is niet verpakt in een Link-structuurelement in de boom.",
+    "severity_label": "major",
+    "suggested_fix": "Verpak elke Link-Annotatie in een Link-structuurelement dat op de juiste locatie in de leesvolgorde is geplaatst."
+  },
+  "28-012": {
+    "title": "Link-Annotatie mist Contents",
+    "description": "Een Link-Annotatie heeft geen Contents-vermelding die de bestemming of het doel van de link beschrijft.",
+    "severity_label": "major",
+    "suggested_fix": "Voeg een /Contents-tekenreeks toe aan elke Link-Annotatie die beschrijft waar de link naar verwijst."
+  },
+  "28-013": {
+    "title": "IsMap=true zonder server-side afbeelding-map",
+    "description": "Een Link-Annotatie heeft IsMap ingesteld op true, maar de bijbehorende afbeelding fungeert niet als een server-side afbeelding-map.",
+    "severity_label": "minor",
+    "suggested_fix": "Stel IsMap in op false als de afbeelding geen actieve server-side afbeelding-map is met coördinaatgevoelig gedrag."
+  },
+  "28-016": {
+    "title": "Bestandsbijlage voldoet niet aan 7.11",
+    "description": "Een Annotatie voor een bestandsbijlage verwijst naar een Ingesloten bestand dat niet voldoet aan de vereisten van clausule 7.11 (Embedded File Streams).",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat Ingesloten bestanden zowel F- als UF-vermeldingen hebben en dat het woordenboek voor bestandspecificatie volledig is. Zie ook 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark in logische structuur",
+    "description": "Een PrinterMark-Annotatie (snijtekens, registratietekens, kleurenbalken) verschijnt in de logische Structuurboom van het document, waar het geen semantische betekenis heeft.",
+    "severity_label": "minor",
+    "suggested_fix": "Verwijder PrinterMark-Annotaties uit de Structuurboom en markeer ze als Artifact."
+  },
+  "28-018": {
+    "title": "PrinterMark-weergave niet als Artifact gemarkeerd",
+    "description": "De weergavestroom van een PrinterMark-Annotatie is niet gemarkeerd als Artifact, waardoor Schermlezers proberen de afdrukmarkeringen te beschrijven.",
+    "severity_label": "minor",
+    "suggested_fix": "Markeer PrinterMark-weergave-inhoud als Artifact in de inhoudsstroom."
+  },
+  "30-001": {
+    "title": "Reference XObject aanwezig",
+    "description": "Een Reference XObject wordt gebruikt in het document. Reference XObjects importeren inhoud uit externe PDF-bestanden, wat de toegankelijkheid kan verbreken omdat de geïmporteerde inhoud niet correct is geïntegreerd in de Structuurboom.",
+    "severity_label": "major",
+    "suggested_fix": "Vermijd Reference XObjects. Als ze noodzakelijk zijn, zorg er dan voor dat alle geïmporteerde inhoud correct is getagd in de Structuurboom van het hostdocument."
+  },
+  "30-002": {
+    "title": "Form XObject met MCIDs meerdere keren verwezen",
+    "description": "Een Form XObject dat gemarkeerde inhoud met MCIDs (Marked Content Identifiers) bevat, wordt vanaf meerdere locaties verwezen, wat MCID-conflicten veroorzaakt in de reeks gemarkeerde inhoud van de pagina.",
+    "severity_label": "major",
+    "suggested_fix": "Vermijd het hergebruiken van Form XObjects die gemarkeerde inhoud bevatten. Vlak het XObject af of dupliceer het voor elke gebruikslocatie."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo Registry-mismatch bij Type0-afstammelingen",
+    "description": "CIDFonts van een Type0-lettertype hebben inconsistente CIDSystemInfo Registry-waarden, wat kan leiden tot fouten in de karaktertoewijzing.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat alle CIDFont-afstammelingen van een Type0-lettertype consistente CIDSystemInfo-waarden (Registry, Ordering, Supplement) hebben."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo Ordering-mismatch bij Type0-afstammelingen",
+    "description": "CIDFonts van een Type0-lettertype hebben inconsistente CIDSystemInfo Ordering-waarden.",
+    "severity_label": "minor",
+    "suggested_fix": "Lijn de Ordering-waarden uit bij alle CIDFont-afstammelingen van het Type0-lettertype."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo Supplement-mismatch bij Type0-afstammelingen",
+    "description": "CIDFonts van een Type0-lettertype hebben inconsistente CIDSystemInfo Supplement-waarden.",
+    "severity_label": "minor",
+    "suggested_fix": "Lijn de Supplement-waarden uit bij alle CIDFont-afstammelingen van het Type0-lettertype."
+  },
+  "31-004": {
+    "title": "CIDFont mist CIDToGIDMap",
+    "description": "Een CIDFont-woordenboek bevat geen CIDToGIDMap-vermelding en gebruikt geen Identity-toewijzing, waardoor Glyph-opzoeking onbetrouwbaar is.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een CIDToGIDMap-vermelding toe aan het CIDFont, of stel deze in op 'Identity' als het lettertype Identity-CIDs gebruikt."
+  },
+  "31-005": {
+    "title": "CIDFont vereist niet-Identity CIDToGIDMap",
+    "description": "Een CIDFont waarvan de karakterverzameling niet Adobe-Identity is, vereist een expliciete CIDToGIDMap-stroom voor de juiste Glyph-toewijzing.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg voor een expliciete CIDToGIDMap-stroom voor het CIDFont als het niet de Adobe-Identity karakterverzameling gebruikt."
+  },
+  "31-006": {
+    "title": "CMap niet vermeld of ingesloten",
+    "description": "Een CMap-bron die wordt gebruikt door een Type0-lettertype staat noch in de standaard CMaps van de PDF-specificatie, noch is deze ingesloten in het document.",
+    "severity_label": "minor",
+    "suggested_fix": "Gebruik ofwel een standaard CMap uit de PDF-specificatie of sluit de aangepaste CMap-stroom in het document in."
+  },
+  "31-007": {
+    "title": "WMode-mismatch in Type0-lettertype",
+    "description": "De WMode-waarden (schrijfmodus) verschillen tussen de CMap en de CIDFont-afstammelingen van een Type0-lettertype.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg voor consistente WMode-waarden (0 voor horizontaal, 1 voor verticaal) in de CMap en alle CIDFont-afstammelingen."
+  },
+  "31-008": {
+    "title": "CMap verwijst naar niet-vermelde CMap",
+    "description": "Een CMap-stroom verwijst naar een andere CMap die noch een standaard CMap is, noch is ingesloten in het document.",
+    "severity_label": "minor",
+    "suggested_fix": "Sluit alle verwezen niet-standaard CMaps in het document in of gebruik alleen standaard CMaps."
+  },
+  "31-009": {
+    "title": "Lettertype niet ingesloten",
+    "description": "Een lettertype dat in het document wordt gebruikt, is niet ingesloten. Niet-ingesloten lettertypes zorgen voor terugval naar systeemlettertypes, die andere metrieken en Glyph-dekking kunnen hebben, wat de tekstextractie en visuele getrouwheid verbreekt.",
+    "severity_label": "critical",
+    "suggested_fix": "Sluit alle lettertypes in die in het document worden gebruikt. Zorg er voor de standaard 14 lettertypes die niet kunnen worden ingesloten voor dat het Lettertypeprogramma beschikbaar is of vervang het door een ingesloten equivalent."
+  },
+  "31-011": {
+    "title": "Ingesloten Lettertypeprogramma mist Glyph",
+    "description": "Een Glyph waarnaar wordt verwezen in de tekst van het document is niet aanwezig in het ingesloten Lettertypeprogramma.",
+    "severity_label": "major",
+    "suggested_fix": "Subset het lettertype om alle vereiste Glyphs op te nemen, of gebruik een ander lettertype dat de benodigde Glyphs bevat."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: Glyph niet vermeld",
+    "description": "De CharSet van een Type1-lettertype vermeldt geen Glyph die daadwerkelijk aanwezig is in het Lettertypeprogramma en wordt gebruikt in het document.",
+    "severity_label": "minor",
+    "suggested_fix": "Update de CharSet om alle Glyphs op te nemen die aanwezig zijn in het Lettertypeprogramma waarnaar in het document wordt verwezen."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: vermelde Glyph niet in lettertype",
+    "description": "De CharSet van een Type1-lettertype vermeldt een Glyph-naam die niet bestaat in het ingesloten Lettertypeprogramma.",
+    "severity_label": "minor",
+    "suggested_fix": "Verwijder niet-bestaande Glyph-namen uit de CharSet of sluit het volledige lettertype in."
+  },
+  "31-014": {
+    "title": "CID CIDSet: Glyph niet vermeld",
+    "description": "De CIDSet van een CIDFont bevat geen CID die daadwerkelijk aanwezig is in het ingesloten Lettertypeprogramma en wordt gebruikt in het document.",
+    "severity_label": "minor",
+    "suggested_fix": "Update de CIDSet om alle CID-waarden op te nemen die in het document worden gebruikt."
+  },
+  "31-015": {
+    "title": "CID CIDSet: vermelde CID niet in lettertype",
+    "description": "De CIDSet van een CIDFont vermeldt een CID die niet overeenkomt met een Glyph in het ingesloten Lettertypeprogramma.",
+    "severity_label": "minor",
+    "suggested_fix": "Verwijder niet-bestaande CIDs uit de CIDSet of genereer deze opnieuw vanuit het werkelijke Lettertypeprogramma."
+  },
+  "31-016": {
+    "title": "Glyph-breedteverschil > 1/1000",
+    "description": "De Glyph-breedte gespecificeerd in het lettertypewoordenboek verschilt meer dan 1 eenheid per 1000 van de breedte in het ingesloten Lettertypeprogramma.",
+    "severity_label": "minor",
+    "suggested_fix": "Corrigeer de Widths-array (of W2-vermelding) in het lettertypewoordenboek zodat deze overeenkomt met de werkelijke Glyph-breedtes in het ingesloten Lettertypeprogramma."
+  },
+  "31-017": {
+    "title": "Niet-symbolisch TrueType mist niet-symbolische cmap",
+    "description": "Een TrueType-lettertype met niet-symbolische codering (Encoding-vermelding aanwezig of symbolische vlag uit) bevat geen (3,1) cmap-subtabel voor Unicode-toewijzing.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat het TrueType-Lettertypeprogramma een (3,1) Microsoft Unicode BMP cmap-subtabel bevat voor de juiste Unicode-karaktertoewijzing."
+  },
+  "31-018": {
+    "title": "Niet-symbolische TrueType Glyph niet in cmap",
+    "description": "Een Glyph in een niet-symbolisch TrueType-lettertype kan niet worden opgezocht via de cmap-subtabellen van het lettertype.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat alle Glyphs die in het document worden gebruikt, toegankelijk zijn via ten minste één cmap-subtabel in het lettertype."
+  },
+  "31-019": {
+    "title": "Niet-symbolisch TrueType-lettertypewoordenboek mist Encoding",
+    "description": "Een niet-symbolisch TrueType-lettertypewoordenboek heeft geen Encoding-vermelding, wat vereist is voor de resolutie van Glyph-namen.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een geschikte Encoding-vermelding (bijv. WinAnsiEncoding, MacRomanEncoding) toe aan het lettertypewoordenboek."
+  },
+  "31-020": {
+    "title": "Encoding-woordenboek mist BaseEncoding",
+    "description": "Een Encoding-woordenboek met een Differences-array specificeert geen BaseEncoding-vermelding.",
+    "severity_label": "minor",
+    "suggested_fix": "Specificeer de BaseEncoding (bijv. WinAnsiEncoding) in het Encoding-woordenboek, waarvan de Differences-array afwijkt."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding niet MacRoman of WinAnsi",
+    "description": "De Encoding of BaseEncoding van een niet-symbolisch TrueType-lettertype is noch MacRomanEncoding, noch WinAnsiEncoding, de twee standaard basiscoderingen.",
+    "severity_label": "minor",
+    "suggested_fix": "Gebruik WinAnsiEncoding of MacRomanEncoding als basiscodering voor het lettertype."
+  },
+  "31-022": {
+    "title": "Differences Glyph-namen niet in Adobe Glyph List",
+    "description": "Een Differences-array in het Encoding-woordenboek van een lettertype gebruikt Glyph-namen die niet in de Adobe Glyph List (AGL) staan.",
+    "severity_label": "minor",
+    "suggested_fix": "Gebruik alleen standaard Glyph-namen uit de Adobe Glyph List in de Differences-array."
+  },
+  "31-023": {
+    "title": "Differences aanwezig maar geen (3,1) cmap",
+    "description": "Een lettertype heeft een Differences-array in zijn Encoding, maar het TrueType-Lettertypeprogramma bevat geen (3,1) cmap-subtabel voor Unicode-toewijzing.",
+    "severity_label": "minor",
+    "suggested_fix": "Voeg een ToUnicode CMap toe voor het lettertype om een betrouwbare Unicode-toewijzing te garanderen."
+  },
+  "31-024": {
+    "title": "Symbolisch TrueType-lettertypewoordenboek heeft Encoding",
+    "description": "Een symbolisch TrueType-lettertype (Flags-bit 3 ingesteld) heeft een Encoding-vermelding in zijn lettertypewoordenboek, wat niet is toegestaan voor symbolische lettertypes.",
+    "severity_label": "minor",
+    "suggested_fix": "Verwijder de Encoding-vermelding uit symbolische TrueType-lettertypewoordenboeken. Symbolische lettertypes vertrouwen op de cmap van het Lettertypeprogramma voor karaktertoewijzing."
+  },
+  "31-025": {
+    "title": "Symbolisch TrueType-Lettertypeprogramma mist cmap",
+    "description": "Het ingesloten Lettertypeprogramma van een symbolisch TrueType-lettertype bevat geen cmap-tabel.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat het ingesloten Lettertypeprogramma ten minste een (3,0) cmap-subtabel bevat voor symbolische karaktertoewijzing."
+  },
+  "31-026": {
+    "title": "Symbolisch TrueType met meerdere cmaps mist (3,0)",
+    "description": "Een symbolisch TrueType-lettertype heeft meerdere cmap-subtabellen, maar mist de vereiste (3,0) Microsoft Symbol cmap-subtabel.",
+    "severity_label": "minor",
+    "suggested_fix": "Zorg ervoor dat het ingesloten Lettertypeprogramma een (3,0) Microsoft Symbol cmap-subtabel bevat voor de juiste karaktertoewijzing."
+  },
+  "31-027": {
+    "title": "Ontbrekende ToUnicode CMap",
+    "description": "Een lettertype dat wordt gebruikt voor tekstinhoud heeft geen ToUnicode CMap en geen van de vrijstellingsvoorwaarden is van toepassing. Zonder een ToUnicode CMap kunnen ondersteunende technologieën geen leesbare tekst extraheren.",
+    "severity_label": "critical",
+    "suggested_fix": "Voeg een ToUnicode CMap-stroom toe aan het lettertypewoordenboek die elke karaktercode die in het document wordt gebruikt, toewijst aan de bijbehorende Unicode-waarde."
+  },
+  "31-028": {
+    "title": "ToUnicode wijst toe aan CID 0",
+    "description": "Een ToUnicode CMap wijst een karaktercode toe aan Unicode-waarde U+0000 (null), wat geen geldig tekstkarakter is.",
+    "severity_label": "minor",
+    "suggested_fix": "Corrigeer de ToUnicode CMap om de karaktercode toe te wijzen aan een geldige, niet-null Unicode-waarde."
+  },
+  "31-029": {
+    "title": "ToUnicode wijst toe aan U+FEFF of U+FFFE",
+    "description": "Een ToUnicode CMap wijst een karaktercode toe aan U+FEFF (BOM) of U+FFFE (byte-order mark), dit zijn controlekarakters en geen geldige weergavebare tekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Vervang U+FEFF/U+FFFE-toewijzingen in de ToUnicode CMap door de werkelijke Unicode-waarde van het karakter."
+  },
+  "31-030": {
+    "title": ".notdef Glyph verwezen in tekst",
+    "description": "Een tekst-weergaveoperator in het document verwijst naar de .notdef Glyph (Glyph-index 0), wat duidt op een ontbrekend of onbeschikbaar karakter. Tekst die .notdef gebruikt, verschijnt als lege of tofu-karakters.",
+    "severity_label": "major",
+    "suggested_fix": "Zorg ervoor dat alle karaktercodes die in het document worden gebruikt, overeenkomen met werkelijke Glyphs in het ingesloten Lettertypeprogramma."
+  }
+}

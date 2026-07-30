@@ -1,0 +1,19 @@
+{
+  "name": "a11yfy-scan-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Client-side PDF/UA accessibility scan engine for the a11yfy WordPress plugin (Matterhorn Protocol reliable-core checks).",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.10.38"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "vitest": "^3.0.0"
+  }
+}

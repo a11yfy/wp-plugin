@@ -1,0 +1,1240 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr "a11yfy サービスを利用した、ブラウザ上で無料で利用できる PDF アクセシビリティスキャン（Matterhorn Protocol による自動チェック）およびワンクリックでの PDF/UA-1 準拠への修正。"
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — PDFのアクセシビリティ"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "設定"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "スキャン中… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "スキャンが完了しました：%d 個の PDF ファイルを確認しました。"
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "%s のスキャンに失敗しました"
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "PDFをスキャンする必要はありません。すべて最新の状態です。"
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "%d 個の PDF ファイルの修復がキューに登録されました。"
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "a11yfyの設定を変更することはできません。"
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "設定が保存されました。"
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "a11yfy に接続済み — API キーは正常に動作しています。"
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "a11yfy に接続済み — リアルタイム（Webhook）ステータス更新が有効になっています。"
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "接続が切断されました。保存されていたAPIキーが削除されました。"
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "これは a11yfy の API キーには見えません（ak_live_… または ak_test_… であるはずですが）。その他の設定は保存されました。"
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr "a11yfy が API キーを拒否しました。a11yfy.com の「アカウント」→「API キー」で確認してください。その他の設定は保存されました。"
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "a11yfy.com での接続がキャンセルされました。"
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "a11yfy への接続に失敗しました。もう一度お試しください。"
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "接続応答を確認できませんでした（リクエストの有効期限が切れているか、改ざんされています）。もう一度お試しください。"
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "準備完了 — a11yfyが動作する状態になりました。"
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: 修正待ちのPDFが %d 件あります。a11yfyダッシュボードで進捗状況を確認してください。"
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "クレジット残高が少なくなっています（残り %d クレジット）。残高がゼロになると修復処理は停止します。"
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "前回の是正措置はブロックされました：クレジットが不足しています。"
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "a11yfy.comでチャージする"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy PDFのアクセシビリティ"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "a11yfy の設定が完了し、正常に動作しています"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "アクセシビリティ"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "バックグラウンドキューが利用可能であり、a11yfy 接続も正常に動作しています。"
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "a11yfyのバックグラウンド処理は利用できません"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr "Action Scheduler を読み込めませんでした — 修復状況の更新が遅くなります（訪問をトリガーとする WP-cron による代替処理）。"
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "a11yfy は接続されていません"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "無料スキャンは利用できますが、PDFの修正にはa11yfyのAPIキーが必要です（a11yfy → 設定）。"
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "このサイト上の%d個のPDFファイルは、アクセシビリティに対応していません"
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "a11yfyダッシュボードを開いて、それらを確認・修正してください。"
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "準拠している"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "修復済み"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d件の不具合が修正されました)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "修復作業中…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "修復に失敗しました"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "事前審査に合格しました"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "リスクが低い"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "中程度のリスク"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "高リスク"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "アクセス不可"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "まだスキャンされていません"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "a11yfy を使ってアクセシビリティを確保する"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "元に戻す (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "アクセシビリティを確保する (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "セッションが期限切れになりました。ページを再読み込みしてください。"
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "そんなことはしてはいけません。"
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "まず、a11yfyアカウントを連携してください（設定）。"
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "a11yfyと連携"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "クレジット：%d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "チャージ"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "今月のクレジット：%1$d / %2$d"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "接続されていません — 無料スキャンはアカウントなしで利用できます。"
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "a11yfy を接続する"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "つながり。私たちはどのように働くべきか？"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] "無料スキャンにより、このサイト上でアクセシビリティ要件を満たしていない PDF が %d 件見つかりました（EAA リスク）。"
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "どのように仕事を進めればよいでしょうか？"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "自動（推奨）"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "特に何かをする必要はありません。PDFがアップロードされるたびに、自動的にアクセス可能になります。"
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "月間上限：%s クレジット"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "月間利用限度額"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "マニュアル"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr "修正作業は、メディアライブラリまたはこのダッシュボードからご自身で開始してください。ユーザーによる操作がない限り、何も実行されません。"
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr "ヒント：まず、以下の無料スキャンを実行して、このサイトの現状を確認してください。上記の選択はどちらでも構いません。"
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "作業を開始する"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "PDFの状態"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr "機械検証可能なPDF/UA-1チェックポイントに基づく無料の技術的事前チェック — ブラウザ上で実行され、ファイルがサイト外に流出することはありません。"
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "一部利用可能"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "a11yfy による修正"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "PDFライブラリをスキャンする"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d 件の文書がアクセシビリティ要件を満たしていません（EAAリスク）。"
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "すべて修正する"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "推定：最大～%1$dクレジット — 残高：%2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "修復工事"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "まだ修復処理は実行されていません。"
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "ファイル"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "ステータス"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "結果"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "クレジット"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "a11yfy の設定"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "接続"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "a11yfy に接続する"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr "ワンクリック：a11yfy.com にログインまたは登録し、アクセスを承認すれば完了です。あるいは、以下の欄に API キーを貼り付けてください。"
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "APIキー"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "接続済み"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "切断（保存済みのキーを削除）"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "キーを置き換えるには、以下に新しいキーを貼り付けてください。"
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr "「アカウント」→「API キー」の %s でキーを作成してください。このキーは暗号化されて保存され、ブラウザには一切送信されません。"
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "ステータスの更新"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr "インスタント（Webhook） — ジョブが完了した瞬間に a11yfy が当サイトに通知します。安全策としてポーリングも引き続き行われます。"
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr "ポーリング — サイトはバックグラウンドでジョブのステータスを確認します。ボタン操作による再接続を行うと、サイトが一般にアクセス可能になった際に、Webhookが即座に更新されます。"
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "モード"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "新しくアップロードされたPDFは、自動的に閲覧可能になります。"
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "メディアライブラリまたはダッシュボード上で、修正する項目を選択します。"
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "1暦月内にこの数のクレジットが消費されると、修復作業が一時停止します。0 = 上限なし。"
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "以下、信用度が低い場合に関する注意書き"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "残高がこの値を下回った際に、管理者に通知とメールを送信します。0 = オフ。"
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "貯蓄の戦略"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "その場で置換（推奨）"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "同じURLで、元のデータはバックアップとして保存され、ワンクリックで復元可能です。"
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "保守派"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "元のファイルには一切手を加えません。ページのレンダリング時にリンクが入れ替わります。"
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "通知メール"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "信用度低下および失敗の通知。空欄 = サイト管理者のメールアドレス。"
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "プラグインの削除について"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "修正済みのPDFファイルは保存しておいてください（推奨 — これらはあなたのコンテンツです）。"
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "バックアップから元のファイルを復元してください。"
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "設定を保存"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "ディスクからPDFファイルを読み込むことができませんでした。"
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "a11yfy API キーが設定されていません。"
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "a11yfy API エラー (HTTP %d)。"
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "このサイトへの接続は許可されていません。"
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "添付ファイルはローカルファイルシステム上に存在しません。"
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "このPDFファイルは50 MBを超えており、現在の処理制限を超えています。"
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr "このPDFを安全にアップロードするには、PHPのメモリが不足しています。memory_limitの値を増やすか、より小さなファイルを処理してください。"
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "このサイトに設定されている月間クレジット上限に達しました。"
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr "このPDFはすでにアクセシビリティの事前チェックに合格しています。不必要なクレジットの消費を避けるため、このチェックはスキップします。"
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "このファイルについては、すでに修正済みです。"
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "このPDFに対しては、すでに修復処理が実行されています。"
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] 残高不足"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"a11yfyのクレジット残高は %1$d クレジットまで減少しました。残高がゼロになると、PDFの修正機能は停止します。\n"
+"\n"
+"チャージはこちら：%2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "ジョブが2時間以内に完了しませんでした。a11yfyのサポートまでご連絡ください。"
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "ジョブは完了しましたが、出力ファイルは生成されませんでした。"
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "元のファイルはローカルには保存されません（オフロードプラグイン？）。— 現時点では未対応です。"
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "a11yfyから修正済みのPDFをダウンロードできませんでした。"
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "ダウンロードしたファイルは有効なPDFではありません。"
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "元のPDFをバックアップできませんでした — スワップを中止します。"
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "修正済みのPDFを元のファイルに上書きできませんでした。"
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "修復したPDFを元のファイルの隣に保存できませんでした。"
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "このPDFについては、修正版は記録されていません。"
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "元のPDFのバックアップが見つかりません。"
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "元のPDFを復元できませんでした。"
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "修正"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "復元"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "詳細"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "PDFリストをステータスで絞り込む"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "アクション"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "選択された条件に一致するPDFはありません。"
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "さらに表示"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "詳細を非表示にする"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "メディアライブラリで開く"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "修正プログラムを再適用（無料）"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "別のプログラムによって変更された"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "影響を受けるページ：%s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "機械による検出が可能なアクセシビリティ上の問題は見つかりませんでした。"
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "詳細を読み込めませんでした。"
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "%1$d 件の問題タイプが見つかりました — %2$d 件のチェックに合格しました。"
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "ShortPixelによるPDFの最適化は現在無効になっています。"
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "このPDFについては、まだスキャン結果が保存されていません。まずスキャンを実行してください。"
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "ShortPixelの設定を変更できませんでした — 「設定」→「ShortPixel」でPDFの最適化を無効にしてください。"
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "このPDFにはタグ構造がまったくありません"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr "この文書には構造ツリー（タグ）が含まれていません。スクリーンリーダーは、見出し、段落、リスト、表などの情報を取得できず、コンテンツは構造化されていないデータストリームとして読み上げられるか、あるいはまったく読み上げられません。"
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "修復処理により、タグ構造全体が自動的に再構築されます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "このPDFは、タグ付きであることを宣言していません"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr "MarkInfo エントリが存在しないか、「Marked」に設定されていません。タグ構造の一部が存在していても、支援技術はその構造を信頼することはできません。"
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "修復処理では、タグ付きPDFフラグと有効な構造ツリーが設定されます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "重要"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "深刻な"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "マイナー"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "PDFの最適化に関する競合が検出されました"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"以下のプラグインは、PDFファイルを圧縮します。圧縮処理を行うと、PDFファイルが書き換えられ、アクセシビリティ構造（タグ、言語、PDF/UAメタデータ）が削除されます。また、a11"
+"yfyのクレジットを使用してすでにアクセシビリティ対応が施されたPDFファイルも、この処理によって破損する可能性があります。"
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr "a11yfy によって修正されたファイルは自動的に除外されますが、それ以外の PDF ファイルは依然としてリスクにさらされています。"
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "このプラグインには、ファイル単位での確実な除外機能がありません。そのため、a11yfyでは個々のPDFファイルをこのプラグインの影響から保護することはできません。"
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "ShortPixelのPDF最適化を無効にする"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "アクセシビリティ対応PDF (a11yfy) — 最適化を行うと、アクセシビリティタグが削除されてしまいます。"
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "PDFの最適化に関する競合 (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "どの画像最適化ツールも、PDFファイルの内容を書き換えることはありません"
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr "PDFファイルを圧縮する有効なプラグインは見つかりませんでした。PDFの圧縮を行うと、ファイルが書き換えられ、アクセシビリティタグが削除されます。"
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "%s では PDF の最適化が有効になっています。これにより、PDF のアクセシビリティタグが削除されます。"
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"PDFを圧縮すると、ファイルが上書きされ、アクセシビリティ構造（タグ、言語、PDF/UAメタデータ）が削除されます。これは、a11"
+"yfyのクレジットを使用してすでに修正済みのPDFも同様です。プラグインの設定でPDFの最適化を無効にしてください。また、a11yfyは、オプティマイザーが対応している場合、修正済みのファイルを個別に保護します。"
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "a11yfy ダッシュボードに関するレビュー"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "修正済みのPDFファイルが保存されていません。修正処理を再度実行してください。"
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "修復済みのPDFを元のファイルに上書きできませんでした。"
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "是正措置実施前に発見された問題点"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "修正済み"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "依然として存在する"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "スキャンを再度実行し、修復済みのファイルの現在の状態を確認してください。"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "編集"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "PDFの修正を有効にするには、a11yfyアカウントを接続してください。"
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "技術的な修正"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "完全な修正"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "アカウントを接続"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr "APIキーをこのサーバーに安全に保存できませんでした（暗号化が利用できません）。キーは保存されませんでした。ホスティング会社にPHP sodium拡張機能についてお問い合わせください。その他の設定は保存されました。"
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr "現在、PDFの修正機能は利用できません。有効にするにはa11yfyアカウントを接続してください。無料スキャンは引き続き利用可能です。"
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "この通知を非表示にする"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = 月間制限なし。"
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr "このPDFはパスワードで保護されているか、暗号化されています。保護を解除してから、再度修正を実行してください。"
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "修正されたPDFのURLが有効な公開https URLではありません。"
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "ドキュメントの詳細"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "ドキュメントを分析中…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "この文書は分析できませんでした。"
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "スコア：%d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "文書全体に影響します"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "ページ %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%dページ"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "技術的な詳細"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d このページに掲載されている調査結果"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "ページ %d へ移動"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "ページ %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "前のページ"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "次のページ"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "拡大する"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "ズームアウト"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "修正処理がキューに入れられました — ダッシュボードで進捗を確認してください。"
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "問題が発生しました。もう一度お試しください。"
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "プレビューを表示できませんでした（分析機能は正常に動作しています）。"
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~テキストの %d%% はタグ付けされていません。スクリーンリーダーはこれをスキップするか、順番通りに読み上げません。"
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "元のファイル（修復前）を表示しています — この分析結果は保存されません。"
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "この画像はスクリーンリーダーでは認識されません"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr "この画像は、「図」としてタグ付けされておらず、装飾用（アーティファクト）としてもマークされていません。スクリーンリーダーのユーザーは、この画像の存在を知ることはできません。テキストによる説明文さえも添付できないのです。"
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr "Remediationは、実際の画像を「図」としてタグ付けし、説明文を付加するとともに、装飾的な画像を「アーティファクト」としてタグ付けします。"
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "指定された文書の言語がテキストと一致しません"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr "PDFでは1つの言語が指定されていますが、ページのテキストは別の言語で書かれているようです。スクリーンリーダーは、指定された言語に基づいて音声や発音を選択するため、コンテンツが誤った音声で読み上げられてしまいます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "「修正」機能により、文書の言語が、テキストが実際に書かれている言語に設定されます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "この文書には見出しが一切ありません"
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr "この文書にはかなりの量のテキストが含まれていますが、見出し要素は一つもありません。スクリーンリーダーのユーザーは、主に見出しを頼りにページ内を移動します。見出しがない場合、文書は最初から最後まで順次読み進めるしかありません。"
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "セクションのタイトルに見出し（H1～H6）のタグを付けて、文書構造をナビゲーション可能なものにしてください。"
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "長い文書にはしおりがありません"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr "この文書は10ページ以上ありますが、ブックマークによる目次がありません。ブックマークがあれば、支援技術の利用者だけでなく、すべての読者がそのセクションに直接ジャンプすることができます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "ドキュメントのセクション構成を反映したブックマークのアウトラインを追加します。"
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "テーブルにはヘッダーセルがありません"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr "データ表には「TH」ヘッダーセルが含まれていません。スクリーンリーダーは各セルの前に対応するヘッダーを読み上げますが、ヘッダーがない場合、ユーザーには文脈のない数字だけが読み上げられます。"
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "最初の行および／または列を、適切なスコープを持つTHヘッダーセルとして指定してください。"
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "画像の説明文がプレースホルダーのように見えます"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr "画像には代替テキストが設定されていますが、その内容はファイル名や一般的なプレースホルダー（例：「image3.png」）のように見えます。スクリーンリーダーのユーザーは、その画像に実際に何が描かれているのかについて、何の情報も得られません。"
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "このプレースホルダーを、画像の意味が伝わる説明文に置き換えてください。"
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "タグ付けと構造"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "見出し"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "画像と数式"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "表"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "リストと目次"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "フォーム、リンク、および注釈"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "言語"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "メタデータと表示"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "暗号化と権限"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "その他の技術的"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "内容を最初から最後まで読んだとき、その読み順は理にかなっているでしょうか？"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "画像の説明文（代替テキスト）は、単なるファイル名だけでなく、その意味を伝えていますか？"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "テキストのコントラストは十分ですか（背景に対して少なくとも4.5:1以上ですか）？"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "リンクテキストはそれ自体で意味をなすものか（「ここをクリック」はそうではない）？"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "表には、実際のヘッダーセルがあり、シンプルで規則的な構造になっていますか？"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "そのドキュメントのタイトルは、読者のタイトルバーに表示されたときに、内容が伝わるものになっていますか？"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "a11yfyダッシュボードに戻る"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "ドキュメントが見つかりません"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "このリンクは、メディアライブラリ内のPDFファイルを指していません。"
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "最終スキャンから %s 前"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "a11yfy で修正"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "チェックを再度実行してください"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "レポートを印刷する"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "どのバージョンを確認するか"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "修復済み（現在）"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "オリジナル（変更前）"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "アクセシビリティに関する調査結果"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "手動レビューのチェックリスト"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "こうした点は機械だけでは判断できません。人間がさっと確認することで、全体像が把握できるのです。"
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr "プレビューは視覚的な補助ツールです。左側の「調査結果一覧」こそが、正式な報告書であり、スクリーンリーダーにも対応しています。"
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "このページには1件の結果があります"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "送信されていません"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr "このPDFにはデジタル署名が付いています。修復処理を行うとファイルが書き換えられるため、署名が無効になってしまいます。その場合は、代わりに署名のないコピーを送信してください。"
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr "このPDFにはXFAフォームが含まれていますが、修正処理の際にはこれを保持することはできません。まず、通常のPDFフォームに変換してください。"
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr "このPDFはポートフォリオ（埋め込みファイルの集合体）です。代わりに、個々のドキュメントを修正してください。"
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "a11yfyのページ"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "この証明書をダウンロードすることはできません。"
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "この文書には、まだa11yfy証明書がありません。"
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "証明書 (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "証明書をダウンロードする"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "オンラインで証明書を確認する"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "証明書のダウンロードに失敗しました。もう一度お試しください。"
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr "このドキュメントにはデジタル署名が付いています。修復処理を行うとファイルが変更されるため、署名は無効になります。続行しますか？"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr "このPDFにはデジタル署名が付いています。修復処理を行うとファイルが上書きされるため、署名は無効になります。修正は、確認後にのみ開始されます。"
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "推定費用：約%dクレジット"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "推定費用：%1$d～%2$dクレジット"

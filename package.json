@@ -1,0 +1,17 @@
+{
+	"name": "a11yfy-plugin-dev",
+	"private": true,
+	"description": "Dev tooling for the a11yfy WordPress plugin: wp-env + Playwright e2e (§13.9). The scan-engine build lives in js/.",
+	"devDependencies": {
+		"@playwright/test": "^1.53.0",
+		"@wordpress/env": "^10.26.0",
+		"gettext-parser": "^9.1.1"
+	},
+	"scripts": {
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"test:php": "wp-env run tests-cli --env-cwd=wp-content/plugins/wp-plugin php ./vendor-dev/bin/phpunit",
+		"test:e2e": "playwright test"
+	}
+}

@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefakt markeret som reelt indhold",
+    "description": "Et side-artefakt (sidehoved, sidefod, dekorativt element) er fejlagtigt markeret som reelt indhold i strukturtræet. Skærmlæsere vil forsøge at læse dekorative elementer som dokumentindhold.",
+    "severity_label": "critical",
+    "suggested_fix": "Skift strukturelementets type til Artefakt eller omslut indholdet i en Artefakt-markeret indholdssekvens."
+  },
+  "01-002": {
+    "title": "Reelt indhold markeret som artefakt",
+    "description": "Ægte dokumentindhold (brødtekst, overskrift, billedtekst) er fejlagtigt markeret som et Artefakt. Skærmlæsere vil springe dette indhold helt over.",
+    "severity_label": "critical",
+    "suggested_fix": "Fjern Artefakt-markeringen fra det reelle indhold og sørg for, at det er korrekt tagget med et passende strukturelement."
+  },
+  "01-003": {
+    "title": "Artefakt inde i tagget indhold",
+    "description": "Et artefakt-markeret element optræder inde i et strukturelement, der repræsenterer reelt indhold, hvilket korrumperer indholdshierarkiet.",
+    "severity_label": "critical",
+    "suggested_fix": "Flyt det artefakt-markerede indhold uden for strukturelementet med reelt indhold, eller omstrukturer elementhierarkiet."
+  },
+  "01-004": {
+    "title": "Tagget indhold inde i artefakt",
+    "description": "Et tagget element med reelt indhold er indlejret inde i en Artefakt-beholder. Skærmlæsere kan springe dette indhold over.",
+    "severity_label": "critical",
+    "suggested_fix": "Flyt det taggede indhold ud af Artefakt-beholderen og placer det på det korrekte niveau i strukturtræet."
+  },
+  "01-005": {
+    "title": "Indhold hverken tagget eller artefakt",
+    "description": "Indhold på siden er hverken tagget som et strukturelement eller markeret som et artefakt. Dette er den mest almindelige PDF/UA-overtrædelse og den primære årsag til, at skærmlæsere er tavse ved indhold.",
+    "severity_label": "critical",
+    "suggested_fix": "Tag enten indholdet med et passende strukturelement (P, H1-H6, Figur osv.) eller marker det som Artefakt, hvis det er dekorativt."
+  },
+  "01-006": {
+    "title": "Manglende StructTreeRoot",
+    "description": "Dokumentkatalogets ordbog skal indeholde StructTreeRoot-posten, som fungerer som rod for dokumentets logiske struktur. Uden den kan skærmlæsere slet ikke fortolke dokumentstrukturen.",
+    "severity_label": "critical",
+    "suggested_fix": "Tilføj et StructTreeRoot-objekt til dokumentkatalogets ordbog og opbyg strukturelement-hierarkiet for alle indholdssider."
+  },
+  "01-007": {
+    "title": "Suspect-flag er sandt",
+    "description": "Suspects-posten i dokumentets MarkInfo-ordbog er sat til sand, hvilket indikerer, at strukturtræet kan indeholde upålidelig tagging. Hjælpemidler kan ignorere strukturtræet fuldstændigt.",
+    "severity_label": "critical",
+    "suggested_fix": "Sæt Suspects-flaget til falsk i MarkInfo-ordbogen, efter at du har bekræftet, at alt indhold er korrekt tagget."
+  },
+  "02-001": {
+    "title": "Ikke-standard rolletilknytning ender ikke i standardtype",
+    "description": "En brugerdefineret rolle i RoleMap mapper ikke til en standard PDF-strukturtype. Det endelige mål for mapping-kæden skal være en standardtype fra PDF 32000-1-rollesættet.",
+    "severity_label": "critical",
+    "suggested_fix": "Sørg for, at enhver ikke-standard rolle i RoleMap mapper direkte eller transitivt til en standardtype (f.eks. Document, Part, Sect, P, H1-H6, L, LI, Table, Figure osv.)."
+  },
+  "02-002": {
+    "title": "Semantisk upassende rolletilknytning",
+    "description": "Et strukturelements rolle er blevet mappet til en standardtype, der ikke matcher elementets semantiske formål (f.eks. en overskrift mappet til Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Gennemgå RoleMap og sørg for, at hver mapping afspejler indholdets faktiske semantiske rolle. Menneskelig vurdering kan være påkrævet."
+  },
+  "02-003": {
+    "title": "Cirkulær rolletilknytning",
+    "description": "RoleMap indeholder en cirkulær kæde, hvor rolle A mapper til B, B mapper til C, og C mapper tilbage til A, hvilket skaber en uendelig løkke for processorer.",
+    "severity_label": "major",
+    "suggested_fix": "Bryd den cirkulære kæde ved at mappe den endelige rolle direkte til en passende standardtype."
+  },
+  "02-004": {
+    "title": "Standardtype remappet",
+    "description": "En standard PDF-strukturtype (f.eks. P, H1, Table) bliver remappet til en anden type via RoleMap, hvilket ikke er tilladt ifølge PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Fjern mappingen for denne standardtype fra RoleMap. Standardtyper må ikke remappes."
+  },
+  "06-001": {
+    "title": "Manglende XMP-metadata-strøm",
+    "description": "Dokumentet indeholder ikke en XMP-metadata-strøm i katalogets Metadata-post. PDF/UA-1 kræver XMP-metadata.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en XMP-metadata-strøm til dokumentkataloget med som minimum dc:format (application/pdf), pdfuaid:part (1) og dc:title."
+  },
+  "06-002": {
+    "title": "Manglende PDF/UA-identifikator",
+    "description": "XMP-metadataene indeholder ikke pdfuaid:part-egenskaben, som identificerer dokumentet som værende i overensstemmelse med PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj pdfuaid:part-egenskaben med værdien 1 til XMP-metadata-strømmen for at erklære PDF/UA-1-overensstemmelse."
+  },
+  "06-003": {
+    "title": "Manglende dc:title i metadata",
+    "description": "XMP-metadataene eller dokumentinformations-ordbogen indeholder ikke en dc:title-post. PDF/UA-1 kræver, at dokumentet har en titel.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en dc:title-post til XMP-metadata-strømmen. Brug dokumentets faktiske titel eller et meningsfuldt alternativ."
+  },
+  "07-001": {
+    "title": "Manglende DisplayDocTitle-fremviserindstilling",
+    "description": "Dokumentets ordbog for fremviserindstillinger indeholder ikke DisplayDocTitle-nøglen. Når den mangler eller er falsk, viser fremvisere filnavnet i stedet for dokumenttitlen.",
+    "severity_label": "major",
+    "suggested_fix": "Sæt DisplayDocTitle til sand i dokumentets ordbog for fremviserindstillinger (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle sat til falsk",
+    "description": "DisplayDocTitle-nøglen i fremviserindstillingerne er sat til falsk, hvilket får fremvisere til at vise filnavnet i titellinjen i stedet for dokumenttitlen.",
+    "severity_label": "major",
+    "suggested_fix": "Skift DisplayDocTitle til sand i ordbogen for fremviserindstillinger."
+  },
+  "08-002": {
+    "title": "OCR-tekst ikke tagget i strukturtræ",
+    "description": "Dokumentet indeholder OCR-genereret tekst (almindeligt i scannede PDF'er), som ikke er tagget i strukturtræet. Skærmlæserbrugere kan ikke få adgang til dette indhold.",
+    "severity_label": "critical",
+    "suggested_fix": "Sørg for, at al OCR-genereret tekst er inkluderet i strukturtræet med passende tags. For scannede PDF'er skal dokumentet genopbygges med et fuldt tekstlag."
+  },
+  "09-001": {
+    "title": "Tags ikke i logisk læserækkefølge",
+    "description": "Strukturelementer i træet er ikke arrangeret i dokumentets logiske læserækkefølge. Skærmlæsere navigerer i dokumentet i træ-rækkefølge, hvilket kan afvige fra den visuelle rækkefølge.",
+    "severity_label": "critical",
+    "suggested_fix": "Omarranger strukturelementerne i træet, så de matcher den logiske læserækkefølge (typisk top-til-bund, venstre-til-højre for det givne sprog)."
+  },
+  "09-002": {
+    "title": "Semantisk upassende indlejring",
+    "description": "Et strukturelement er indlejret inde i et overordnet element, hvor det ikke semantisk hører hjemme (f.eks. en tabelrække inde i et afsnit eller en overskrift inde i en liste).",
+    "severity_label": "critical",
+    "suggested_fix": "Omstrukturer elementhierarkiet for at sikre, at hvert element er indlejret inde i et semantisk passende overordnet element."
+  },
+  "09-003": {
+    "title": "Upassende strukturtype efter rolletilknytning",
+    "description": "Efter opløsning af rolletilknytning er den endelige strukturtype ikke semantisk passende for det indhold, den indeholder.",
+    "severity_label": "major",
+    "suggested_fix": "Juster RoleMap eller skift den oprindelige strukturtype, så den opløste type matcher indholdets semantiske rolle."
+  },
+  "09-004": {
+    "title": "Tabelelement overholder ikke Tabel 337",
+    "description": "Et strukturelement af typen Table overholder ikke den tilladte understruktur (Tabel 337 i ISO 32000-1). En tabel skal mindst indeholde en TBody med TR-børn eller THead/TBody/TFoot-sektioner.",
+    "severity_label": "major",
+    "suggested_fix": "Sørg for, at Table-elementet indeholder korrekt strukturerede rækker: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Omslut som minimum rækker i en TBody."
+  },
+  "09-005": {
+    "title": "Listeelement overholder ikke Tabel 336",
+    "description": "Et strukturelement af typen L (liste) overholder ikke den tilladte understruktur (Tabel 336 i ISO 32000-1). En liste skal indeholde LI-elementer, og et LI skal indeholde Lbl (valgfri) og LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Strukturer lister som: L > LI > (Lbl)? + LBody. Sørg for, at hvert listeelement har et LBody-barn, der indeholder elementets indhold."
+  },
+  "09-006": {
+    "title": "TOC-element overholder ikke Tabel 333",
+    "description": "Et strukturelement af typen TOC (indholdsfortegnelse) overholder ikke den tilladte understruktur. TOC skal indeholde TOCI-elementer.",
+    "severity_label": "minor",
+    "suggested_fix": "Strukturer indholdsfortegnelsens elementer som: TOC > TOCI > (Reference) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Ruby-element ikke i overensstemmelse",
+    "description": "Et Ruby-strukturelement (bruges til udtale-annotationer) følger ikke den påkrævede understruktur: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Omstrukturer Ruby-elementet med påkrævede RB (ruby-base) og RT (ruby-tekst) børn."
+  },
+  "09-008": {
+    "title": "Warichu-element ikke i overensstemmelse",
+    "description": "Et Warichu-strukturelement (inline-kommentar eller annotation i CJK-tekst) følger ikke den påkrævede struktur: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Omstrukturer Warichu-elementet med påkrævede WT (warichu-tekst) og WP (warichu-tegnsætning) børn."
+  },
+  "10-001": {
+    "title": "Tegnkode kan ikke mappes til Unicode",
+    "description": "En tegnkode i dokumentets tekst kan ikke mappes til en Unicode-værdi. Dette forårsager ulæselige eller manglende tegn, når hjælpemidler udtrækker tekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at alle skrifttyper har et ToUnicode CMap, der mapper hver anvendt tegnkode til en gyldig Unicode-værdi. Bekræft, at CMap dækker alle glyffer, der bruges i dokumentet."
+  },
+  "11-001": {
+    "title": "Sideindholdets sprog kan ikke bestemmes",
+    "description": "Det naturlige sprog for sideindholdet kan ikke bestemmes, fordi /Lang-posten mangler i dokumentkataloget eller strukturelementer på sideniveau.",
+    "severity_label": "critical",
+    "suggested_fix": "Sæt /Lang-posten i dokumentkataloget til dokumentets primære sprog (f.eks. 'da-DK', 'en-US'). Tilføj /Lang til individuelle strukturelementer, hvis indholdet skifter sprog."
+  },
+  "11-002": {
+    "title": "Alt/ActualText-sprog kan ikke bestemmes",
+    "description": "Sproget for alternative tekstbeskrivelser (Alt) eller ActualText-erstatninger kan ikke bestemmes.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj /Lang-attributter til strukturelementer, der indeholder Alt eller ActualText, når tekstsproget afviger fra dokumentets standardsprog."
+  },
+  "11-003": {
+    "title": "Oversigtssprog ikke angivet",
+    "description": "Dokumentoversigten (bogmærker) har ikke en /Lang-post, hvilket forhindrer hjælpemidler i at udtale overskriftselementer korrekt.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en /Lang-post til oversigtsordbogen, der matcher dokumentets primære sprog."
+  },
+  "11-004": {
+    "title": "Annotationens indholdssprog ikke angivet",
+    "description": "Annotationens indholds-strenge (værktøjstip, formularfeltværdier) har ikke en tilknyttet sprogerklæring.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj /Lang til annotationens fremvisnings-ordbøger, når annotationsteksten afviger fra dokumentets sprog."
+  },
+  "11-005": {
+    "title": "Formularfeltets TU-sprog ikke angivet",
+    "description": "Værktøjstip-posten (TU) for formularfelter har ikke et tilknyttet sprog, hvilket kan medføre forkert udtale af skærmlæsere.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at værktøjstip-tekst for formularfelter inkluderer sprogidentifikation, hvis den afviger fra dokumentets standardsprog."
+  },
+  "11-006": {
+    "title": "Dokumentets metadatasprog ikke angivet",
+    "description": "XMP-metadataene erklærer ikke en dc:language-egenskab, eller dokumentkatalogets /Lang-post mangler eller er tom.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj dc:language til XMP-metadataene og sæt /Lang i dokumentkataloget til et RFC 3066-sprog-tag."
+  },
+  "12-001": {
+    "title": "Strækbare tegn mangler ActualText",
+    "description": "Strækbare tegn (parenteser, klammer, klammeparenteser, rodtegn), der bruges i matematiske eller dekorative sammenhænge, har ikke ActualText-erstatninger.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj ActualText til strækbare tegnsekvenser, der beskriver deres semantiske betydning (f.eks. ActualText='(' for en strækbar venstre parentes)."
+  },
+  "13-001": {
+    "title": "Grafik ikke tagget som Figur",
+    "description": "Et grafisk element (billede, diagram, illustration) i dokumentindholdet er ikke tagget med et Figur-strukturelement.",
+    "severity_label": "major",
+    "suggested_fix": "Tag al ikke-dekorativ grafik som Figur-elementer i strukturtræet med passende alternativ tekst."
+  },
+  "13-002": {
+    "title": "Link med meningsfuld baggrund mangler alternativ tekst",
+    "description": "En link-annotation har et meningsfuldt visuelt udseende (f.eks. et billede brugt som knap), men mangler alternativ tekst, der beskriver dens formål.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en Contents-post til link-annotationen, der beskriver dens destination eller formål."
+  },
+  "13-003": {
+    "title": "Billedtekst ikke tagget som Billedtekst",
+    "description": "En billedtekst (billedtekst, tabeltitel, figurforklaring) er tagget som almindelig tekst (P) i stedet for at bruge Billedtekst-strukturtypen.",
+    "severity_label": "major",
+    "suggested_fix": "Tag billedtekster med Billedtekst-strukturtypen og sørg for, at de er korrekt tilknyttet deres overordnede Figur- eller Tabel-element."
+  },
+  "13-004": {
+    "title": "Figur mangler alternativ tekst",
+    "description": "Et Figur-strukturelement er til stede, men har ikke en Alt-attribut, der giver alternativ tekst. Skærmlæsere vil annoncere figurens tilstedeværelse, men kan ikke beskrive dens indhold.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en /Alt-post til Figur-strukturelementet med en kortfattet beskrivelse af billedets indhold."
+  },
+  "14-001": {
+    "title": "Overskrifter ikke tagget",
+    "description": "Indhold, der visuelt fungerer som en overskrift (større skrifttype, fed, tydelig styling), er ikke tagget med en overskrifts-strukturtype (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identificer alle overskrifter i dokumentet og tag dem med passende H1-H6-strukturelementer, der afspejler deres hierarkiniveau."
+  },
+  "14-002": {
+    "title": "Første overskrift er ikke H1",
+    "description": "Den første overskrift i dokumentets strukturtræ er ikke af typen H1. PDF/UA-1-best practice er, at overskriften på øverste niveau skal være H(n), og efterfølgende overskrifter bør ikke springe niveauer over.",
+    "severity_label": "major",
+    "suggested_fix": "Sørg for, at den første overskrift er H1 (eller H2, hvis dokumenttitlen er i metadataene). Omnummerer efterfølgende overskrifter for at undgå niveauspring."
+  },
+  "14-003": {
+    "title": "Overskriftsniveau sprunget over",
+    "description": "Overskriftsniveauer i strukturtræet springer et niveau over (f.eks. H1 efterfulgt direkte af H3 uden en mellemliggende H2). Dette bryder den logiske overskriftshierarki for brugere af hjælpemidler.",
+    "severity_label": "major",
+    "suggested_fix": "Sørg for, at overskriftsniveauer er sekventielle uden huller. Omnummerer overskrifter, så H1 efterfølges af H2, derefter H3 osv."
+  },
+  "14-005": {
+    "title": "Dyb overskrift uden H7+-type",
+    "description": "En overskrift på indlejringsniveau 7 eller dybere har ikke en tilsvarende H7+-strukturtype. PDF definerer kun H1 til H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Fladgør overskriftshierarkiet til maksimalt 6 niveauer, eller brug ikke-standard rolletilknytning med forsigtighed."
+  },
+  "14-006": {
+    "title": "Flere H-tags i én strukturnode",
+    "description": "Et enkelt strukturelement indeholder mere end ét overskrifts-tag (f.eks. en Sect, der indeholder både H1 og H2). Hver overskrift bør skabe et nyt indlejringsniveau.",
+    "severity_label": "major",
+    "suggested_fix": "Opdel strukturnoden, så hver overskrift starter en ny sektion eller undersektion på det passende niveau."
+  },
+  "14-007": {
+    "title": "Blandet H- og Hn-tags inkonsekvent",
+    "description": "Nogle overskrifter bruger den generiske 'H'-type, mens andre bruger nummererede 'H1'-'H6'-typer inkonsekvent i det samme dokument.",
+    "severity_label": "major",
+    "suggested_fix": "Konverter alle generiske H-tags til nummererede H1-H6-typer baseret på deres placering i overskriftshierarkiet."
+  },
+  "15-001": {
+    "title": "Rækkeoverskrift ikke tagget som overskriftscelle",
+    "description": "En tabelcelle, der fungerer som rækkeoverskrift, er tagget som TD (datacelle) i stedet for TH (overskriftscelle). Dette forhindrer skærmlæsere i korrekt at associere overskrifter med dataceller.",
+    "severity_label": "major",
+    "suggested_fix": "Skift strukturtypen for rækkeoverskriftsceller fra TD til TH og tilføj en passende Scope-attribut (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Kolonneoverskrift ikke tagget som overskriftscelle",
+    "description": "En tabelcelle, der fungerer som kolonneoverskrift, er tagget som TD i stedet for TH. Skærmlæsere kan ikke navigere logisk i tabellen.",
+    "severity_label": "major",
+    "suggested_fix": "Skift strukturtypen for kolonneoverskriftsceller fra TD til TH og tilføj en passende Scope-attribut (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH mangler Scope uden Headers/ID",
+    "description": "Et TH-element (tabeloverskrift) har ikke en Scope-attribut, og tabellen bruger ikke Headers/ID-associationer til at forbinde overskrifter med dataceller.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj Scope='Row', Scope='Column' eller Scope='Both' til TH-elementer, eller implementer Headers/ID-associationer."
+  },
+  "15-005": {
+    "title": "Tvetydig association af celleoverskrift",
+    "description": "En datacelles tilknyttede overskriftsceller kan ikke bestemmes entydigt på grund af kompleks tabelstruktur (sammensmeltede celler, uregelmæssigt layout).",
+    "severity_label": "major",
+    "suggested_fix": "Brug eksplicitte Headers/ID-attributter til at forbinde hver TD med dens tilsvarende TH-elementer, eller forenkl tabelstrukturen."
+  },
+  "16-001": {
+    "title": "Ordnet liste mangler ListNumbering",
+    "description": "En ordnet liste (type L med nummererede elementer) mangler ListNumbering-attributten, som angiver nummereringsformatet.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj ListNumbering-attributten til L-elementet med en værdi såsom 'Decimal', 'UpperRoman', 'LowerAlpha' osv."
+  },
+  "16-002": {
+    "title": "Ugyldig ListNumbering-værdi",
+    "description": "ListNumbering-attributten på et L-element har en ukendt eller ugyldig værdi.",
+    "severity_label": "minor",
+    "suggested_fix": "Sæt ListNumbering til en gyldig værdi: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha eller LowerAlpha."
+  },
+  "16-003": {
+    "title": "Listindhold ikke tagget som liste",
+    "description": "Indhold, der visuelt og semantisk er en liste (punkttegn eller nummererede elementer), er tagget som individuelle afsnit eller andre ikke-listeelementer.",
+    "severity_label": "major",
+    "suggested_fix": "Omstrukturer indholdet som en liste (L) med listeelementer (LI), der hver indeholder et valgfrit Lbl og et påkrævet LBody."
+  },
+  "17-001": {
+    "title": "Matematisk udtryk ikke tagget som Formel",
+    "description": "Et matematisk udtryk i dokumentet er tagget som et almindeligt afsnit eller figur i stedet for at bruge Formel-strukturtypen.",
+    "severity_label": "minor",
+    "suggested_fix": "Tag matematiske udtryk med Formel-strukturtypen og angiv alternativ tekst, der beskriver udtrykket."
+  },
+  "17-002": {
+    "title": "Formel mangler alternativ tekst",
+    "description": "Et Formel-strukturelement er til stede, men har ikke alternativ tekst, der beskriver det matematiske udtryk.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en /Alt-post til Formel-elementet med en tekstlig repræsentation af det matematiske udtryk."
+  },
+  "17-003": {
+    "title": "Formeltegn ikke Unicode-mappet",
+    "description": "Et tegn i en matematisk formel kan ikke mappes til Unicode, hvilket får hjælpemidler til at læse ulæselig output.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at skrifttypen, der bruges til matematiske symboler, har et komplet ToUnicode CMap, der dækker alle glyffer. Se også 10-001."
+  },
+  "18-001": {
+    "title": "Sidehoved/sidefod ikke tagget som paginerings-artefakt",
+    "description": "Løbende sidehoveder og sidefødder (sidetal, kapiteltitler, der gentages på hver side) er tagget som reelt indhold i stedet for at blive markeret som paginerings-artefakter.",
+    "severity_label": "major",
+    "suggested_fix": "Marker løbende sidehoveder og sidefødder som Artefakt med undertypen 'Pagination', så skærmlæsere springer dem over under kontinuerlig læsning."
+  },
+  "18-002": {
+    "title": "Sidehoved/sidefod mangler korrekt artefakt-undertype",
+    "description": "Sidehoveder og sidefødder er markeret som artefakt, men har ikke undertypen 'Pagination' eller bruger en forkert undertype.",
+    "severity_label": "major",
+    "suggested_fix": "Indstil artefakt-undertypen til 'Pagination' for løbende sidehoveder og sidefødder, og kun 'Header' eller 'Footer' for top-/bundtekst på første/sidste side."
+  },
+  "19-001": {
+    "title": "Fodnote er ikke tagget som Note",
+    "description": "En fodnote eller slutnote i dokumentet er tagget som et almindeligt afsnit i stedet for at bruge Note-strukturelementet.",
+    "severity_label": "major",
+    "suggested_fix": "Tag fodnoter og slutnoter som Note-elementer med en unik ID-attribut og et Reference-element i brødteksten, der peger på dem."
+  },
+  "19-002": {
+    "title": "Reference er ikke tagget som Reference",
+    "description": "En henvisning i teksten eller en krydshenvisning er tagget som almindelig tekst i stedet for at bruge Reference-strukturelementet.",
+    "severity_label": "major",
+    "suggested_fix": "Tag henvisningsmarkører og krydshenvisninger som Reference-elementer, der linker til deres tilsvarende Note eller destination."
+  },
+  "19-003": {
+    "title": "Note-ID mangler",
+    "description": "Et Note-strukturelement mangler en ID-attribut, hvilket forhindrer referencemæssig kobling fra Reference-elementet i brødteksten.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en unik ID-attribut til hvert Note-element, så Reference-elementer kan pege på dem."
+  },
+  "19-004": {
+    "title": "Note-ID er ikke unikt",
+    "description": "To eller flere Note-strukturelementer deler den samme ID-attributværdi, hvilket forårsager tvetydig referenceløsning.",
+    "severity_label": "major",
+    "suggested_fix": "Sørg for, at hvert Note-element har et globalt unikt ID i dokumentet."
+  },
+  "20-001": {
+    "title": "Valgfrit indholdskonfiguration mangler Navn (Configs-array)",
+    "description": "En ordbog for valgfri indholdskonfiguration i dokumentets OCConfigs-array mangler en Navn-post.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en beskrivende /Name-post til hver valgfri indholdskonfiguration i OCProperties/Configs-arrayet."
+  },
+  "20-002": {
+    "title": "Valgfrit indholdskonfiguration mangler Navn (D-standard)",
+    "description": "Standardordbogen for valgfri indholdskonfiguration (D-post i OCProperties) mangler en Navn-post.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en /Name-post til standardordbogen for valgfri indholdskonfiguration."
+  },
+  "20-003": {
+    "title": "AS-nøgle findes i valgfri indholdskonfiguration",
+    "description": "En ordbog for valgfri indholdskonfiguration indeholder en AS-post (Application Specific), som ikke er tilladt ifølge PDF/UA-1, da den kan ændre dokumentets visuelle udseende uden brugerens viden.",
+    "severity_label": "minor",
+    "suggested_fix": "Fjern AS-nøglen fra ordbogen for valgfri indholdskonfiguration."
+  },
+  "21-001": {
+    "title": "Indlejret fil mangler F- og UF-nøgler",
+    "description": "En ordbog for indlejret filspecifikation mangler den påkrævede F-post (filspecifikationsstreng) eller UF-post (Unicode-tekstfilspecifikationsstreng).",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj både F- og UF-poster til filspecifikationsordbogen, der beskriver den indlejrede fil."
+  },
+  "22-001": {
+    "title": "Artikeltråd er ikke i overensstemmelse",
+    "description": "En artikeltrådstruktur følger ikke det påkrævede PDF-artikelperleformat med korrekt V- (næste perle) og N- (forrige perle) linking.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at artikelperler er korrekt linket med V- og N-poster, og at hver perle er knyttet til den korrekte side."
+  },
+  "24-001": {
+    "title": "Ikke-interaktiv formular mangler PrintFields",
+    "description": "En ikke-interaktiv formular (f.eks. en flad formular udskrevet fra digitalt input) har ikke NeedAppearances-flaget sat, eller PrintFields-bit mangler fra FieldMDP-transformationsparametre.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at formularfelter beregnet til kun-udskrivning har korrekte FieldMDP-indstillinger med PrintFields-bit aktiveret."
+  },
+  "25-001": {
+    "title": "XFA-formular dynamicRender er ikke påkrævet",
+    "description": "En XFA-formular (XML Forms Architecture) indeholder dynamicRender-elementer, der ikke er sat til 'required', hvilket potentielt kan forårsage inkonsistens ved rendering.",
+    "severity_label": "critical",
+    "suggested_fix": "Sæt dynamicRender='required' på XFA-formularelementer, eller migrer fra XFA til AcroForms for bedre understøttelse af tilgængelighed."
+  },
+  "28-001": {
+    "title": "Annotation er ikke i læserækkefølge",
+    "description": "En annotation (link, formularfelt, kommentar) findes på en side, men dens tilhørende strukturelement er ikke placeret i den korrekte læserækkefølge i strukturtræet.",
+    "severity_label": "major",
+    "suggested_fix": "Placer annotation-strukturelementer (Link, Form, Annot) på den korrekte position i strukturtræet i forhold til det omkringliggende indhold."
+  },
+  "28-002": {
+    "title": "Annotation er ikke inde i Annot-strukturelement",
+    "description": "Et annotationsobjekt på siden er ikke omsluttet af et Annot-strukturelement (eller passende undertype: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Omslut hvert annotationsobjekt i det passende strukturelement (Link til hyperlinks, Form til widgets)."
+  },
+  "28-003": {
+    "title": "Annotation bruges kun til visuel formatering",
+    "description": "En annotation bruges udelukkende til visuel formatering (f.eks. et rektangel tegnet som dekoration) og er ikke tagget korrekt.",
+    "severity_label": "minor",
+    "suggested_fix": "Marker formaterings-kun-annotationer som artefakt eller fjern dem og brug korrekte PDF-tegningsoperatorer i stedet."
+  },
+  "28-004": {
+    "title": "Annotation mangler Contents og Alt",
+    "description": "En annotation har ikke en Contents-post (tekstbeskrivelse) eller Alt-post (alternativ tekst), hvilket efterlader skærmlæser-brugere uden kontekst.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en /Contents-streng til enhver annotation, der beskriver dens formål. Angiv /Alt for ikke-tekstuelle annotationer."
+  },
+  "28-005": {
+    "title": "Formularfelt mangler TU eller Alt",
+    "description": "En formularfelt-widget-annotation har ikke en Tooltip (TU) eller Alt-post, hvilket gør det umuligt for skærmlæser-brugere at forstå feltets formål.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en /TU-post (værktøjstip) til hvert formularfelt, der beskriver dets formål og forventede inputformat."
+  },
+  "28-006": {
+    "title": "Udefineret annotation-undertype",
+    "description": "En annotation har en Subtype-værdi, der ikke er defineret i ISO 32000-1, hvilket kan forårsage uforudsigelig opførsel i PDF-processorer.",
+    "severity_label": "minor",
+    "suggested_fix": "Udskift eller fjern annotationer med udefinerede undertyper, eller sørg for, at den brugerdefinerede undertype er registreret og håndteres korrekt."
+  },
+  "28-007": {
+    "title": "TrapNet-annotation til stede",
+    "description": "En TrapNet-annotation (bruges i prepress-trapping-workflows) findes i dokumentet og er ikke korrekt tagget eller markeret som artefakt.",
+    "severity_label": "minor",
+    "suggested_fix": "Marker TrapNet-annotationer som artefakt, da de ikke bærer nogen semantisk betydning for dokumentbrugere."
+  },
+  "28-008": {
+    "title": "Side med annotationer mangler Tabs-nøgle",
+    "description": "En side, der indeholder annotationer (links, formularfelter), mangler en Tabs-post, som angiver tabulatorrækkefølgen for tastaturnavigation.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en /Tabs-post til sideordbogen. Brug /Tabs=S for strukturrækkefølge (anbefales til tilgængelige dokumenter)."
+  },
+  "28-009": {
+    "title": "Tabs er ikke sat til S (strukturrækkefølge)",
+    "description": "Tabs-nøglen på en side er sat til en anden værdi end 'S' (f.eks. 'R' for rækkerækkefølge, 'C' for kolonnerækkefølge), hvilket muligvis ikke matcher dokumentets logiske læserækkefølge.",
+    "severity_label": "major",
+    "suggested_fix": "Sæt /Tabs til 'S' (strukturrækkefølge) på sider med annotationer, så tastaturnavigation følger strukturtræets rækkefølge."
+  },
+  "28-010": {
+    "title": "Widget-annotation er ikke inde i Form-element",
+    "description": "En widget-annotation (formularfelt) er ikke omsluttet af et Form-strukturelement i træet.",
+    "severity_label": "major",
+    "suggested_fix": "Omslut hver widget-annotation i et Form-strukturelement. Grupper relaterede formularfelter i den samme Form-beholder."
+  },
+  "28-011": {
+    "title": "Link-annotation er ikke inde i Link-element",
+    "description": "En link-annotation (hyperlink) er ikke omsluttet af et Link-strukturelement i træet.",
+    "severity_label": "major",
+    "suggested_fix": "Omslut hver link-annotation i et Link-strukturelement placeret på den korrekte læserækkefølge-placering."
+  },
+  "28-012": {
+    "title": "Link-annotation mangler Contents",
+    "description": "En Link-annotation har ikke en Contents-post, der beskriver linkets destination eller formål.",
+    "severity_label": "major",
+    "suggested_fix": "Tilføj en /Contents-streng til enhver Link-annotation, der beskriver, hvad linket peger på."
+  },
+  "28-013": {
+    "title": "IsMap=true uden server-side billedkort",
+    "description": "En link-annotation har IsMap sat til true, men det tilhørende billede fungerer ikke som et server-side billedkort.",
+    "severity_label": "minor",
+    "suggested_fix": "Sæt IsMap til false, hvis billedet ikke er et aktivt server-side billedkort med koordinatfølsom opførsel."
+  },
+  "28-016": {
+    "title": "Filvedhæftning er ikke i overensstemmelse med 7.11",
+    "description": "En filvedhæftnings-annotation refererer til en indlejret fil, der ikke overholder kravene i punkt 7.11 (Embedded File Streams).",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at indlejrede filer har både F- og UF-poster, og at filspecifikationsordbogen er komplet. Se også 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark i logisk struktur",
+    "description": "En PrinterMark-annotation (skæremærker, registreringsmærker, farvebarer) optræder i dokumentets logiske strukturtræ, hvor den ikke har nogen semantisk betydning.",
+    "severity_label": "minor",
+    "suggested_fix": "Fjern PrinterMark-annotationer fra strukturtræet og marker dem som artefakt."
+  },
+  "28-018": {
+    "title": "PrinterMark-udseende er ikke artefakt",
+    "description": "En PrinterMark-annotations udseendestrøm er ikke markeret som artefakt, hvilket får skærmlæsere til at forsøge at beskrive printmærker.",
+    "severity_label": "minor",
+    "suggested_fix": "Marker PrinterMark-udseendeindhold som artefakt i indholdsstrømmen."
+  },
+  "30-001": {
+    "title": "Reference XObject til stede",
+    "description": "Et Reference XObject bruges i dokumentet. Reference XObjects importerer indhold fra eksterne PDF-filer, hvilket kan ødelægge tilgængeligheden, fordi det importerede indhold ikke er korrekt integreret i strukturtræet.",
+    "severity_label": "major",
+    "suggested_fix": "Undgå Reference XObjects. Hvis de er nødvendige, skal du sikre dig, at alt importeret indhold er korrekt tagget i værtsdokumentets strukturtræ."
+  },
+  "30-002": {
+    "title": "Form XObject med MCIDs refereret flere gange",
+    "description": "Et Form XObject, der indeholder markeret indhold med MCIDs (Marked Content Identifiers), refereres fra flere steder, hvilket forårsager MCID-konflikter i sidens markerede indholdssekvens.",
+    "severity_label": "major",
+    "suggested_fix": "Undgå at genbruge Form XObjects, der indeholder markeret indhold. Fladgør eller dupliker XObject for hvert anvendelsessted."
+  },
+  "31-001": {
+    "title": "CIDSystemInfo-register-uoverensstemmelse på tværs af Type0-efterkommere",
+    "description": "Type0-skrifttype-efterkommer CIDFonts har inkonsistente CIDSystemInfo-registerværdier, hvilket kan forårsage fejl i tegnmapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at alle efterkommer-CIDFonts af en Type0-skrifttype har konsistente CIDSystemInfo-værdier (Registry, Ordering, Supplement)."
+  },
+  "31-002": {
+    "title": "CIDSystemInfo-bestillings-uoverensstemmelse på tværs af Type0-efterkommere",
+    "description": "Type0-skrifttype-efterkommer CIDFonts har inkonsistente CIDSystemInfo-bestillingsværdier.",
+    "severity_label": "minor",
+    "suggested_fix": "Juster bestillingsværdierne på tværs af alle efterkommer-CIDFonts af Type0-skrifttypen."
+  },
+  "31-003": {
+    "title": "CIDSystemInfo-supplement-uoverensstemmelse på tværs af Type0-efterkommere",
+    "description": "Type0-skrifttype-efterkommer CIDFonts har inkonsistente CIDSystemInfo-supplementværdier.",
+    "severity_label": "minor",
+    "suggested_fix": "Juster supplementværdierne på tværs af alle efterkommer-CIDFonts af Type0-skrifttypen."
+  },
+  "31-004": {
+    "title": "CIDFont mangler CIDToGIDMap",
+    "description": "En CIDFont-ordbog indeholder ikke en CIDToGIDMap-post og bruger ikke en Identity-mapping, hvilket gør glyf-opslag upålideligt.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en CIDToGIDMap-post til CIDFont, eller sæt den til 'Identity', hvis skrifttypen bruger identity-CIDs."
+  },
+  "31-005": {
+    "title": "CIDFont kræver ikke-Identity CIDToGIDMap",
+    "description": "En CIDFont, hvis tegnsamling ikke er Adobe-Identity, kræver en eksplicit CIDToGIDMap-strøm for korrekt glyf-mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Angiv en eksplicit CIDToGIDMap-strøm for CIDFont, hvis den ikke bruger Adobe-Identity-tegnsamling."
+  },
+  "31-006": {
+    "title": "CMap ikke angivet eller indlejret",
+    "description": "En CMap-ressource, der bruges af en Type0-skrifttype, er hverken angivet i PDF-specifikationens standard-CMaps eller indlejret i dokumentet.",
+    "severity_label": "minor",
+    "suggested_fix": "Brug enten en standard-CMap fra PDF-specifikationen eller indlejr den brugerdefinerede CMap-strøm i dokumentet."
+  },
+  "31-007": {
+    "title": "WMode-uoverensstemmelse i Type0-skrifttype",
+    "description": "WMode-værdierne (skrivemåde) er forskellige på tværs af CMap og efterkommer-CIDFonts af en Type0-skrifttype.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for konsistente WMode-værdier (0 for vandret, 1 for lodret) på tværs af CMap og alle efterkommer-CIDFonts."
+  },
+  "31-008": {
+    "title": "CMap refererer til ikke-angivet CMap",
+    "description": "En CMap-strøm refererer til en anden CMap, der hverken er en standard-CMap eller indlejret i dokumentet.",
+    "severity_label": "minor",
+    "suggested_fix": "Indlejr alle refererede ikke-standard-CMaps i dokumentet eller brug kun standard-CMaps."
+  },
+  "31-009": {
+    "title": "Skrifttype er ikke indlejret",
+    "description": "En skrifttype, der bruges i dokumentet, er ikke indlejret. Ikke-indlejrede skrifttyper forårsager fallback til systemskrifttyper, som kan have forskellige metrikker og glyfdækning, hvilket ødelægger tekstudtrækning og visuel troskab.",
+    "severity_label": "critical",
+    "suggested_fix": "Indlejr alle skrifttyper, der bruges i dokumentet. For standard 14-skrifttyper, der ikke kan indlejres, skal du sikre dig, at skrifttypeprogrammet er tilgængeligt eller erstatte med en indlejret ækvivalent."
+  },
+  "31-011": {
+    "title": "Indlejret skrifttypeprogram mangler glyf",
+    "description": "En glyf, der refereres til i dokumentets tekst, findes ikke i det indlejrede skrifttypeprogram.",
+    "severity_label": "major",
+    "suggested_fix": "Begræns enten skrifttypen til at inkludere alle påkrævede glyffer, eller brug en anden skrifttype, der inkluderer de nødvendige glyffer."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glyf er ikke angivet",
+    "description": "En Type1-skrifttypes CharSet angiver ikke en glyf, der faktisk findes i skrifttypeprogrammet og bruges i dokumentet.",
+    "severity_label": "minor",
+    "suggested_fix": "Opdater CharSet til at inkludere alle glyffer, der findes i skrifttypeprogrammet, og som refereres til i dokumentet."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: angivet glyf findes ikke i skrifttype",
+    "description": "En Type1-skrifttypes CharSet angiver et glyfnavn, der ikke findes i det indlejrede skrifttypeprogram.",
+    "severity_label": "minor",
+    "suggested_fix": "Fjern ikke-eksisterende glyfnavne fra CharSet eller indlejr den komplette skrifttype."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glyf er ikke angivet",
+    "description": "En CIDFonts CIDSet inkluderer ikke en CID, der faktisk findes i det indlejrede skrifttypeprogram og bruges i dokumentet.",
+    "severity_label": "minor",
+    "suggested_fix": "Opdater CIDSet til at inkludere alle CID-værdier, der bruges i dokumentet."
+  },
+  "31-015": {
+    "title": "CID CIDSet: angivet CID findes ikke i skrifttype",
+    "description": "En CIDFonts CIDSet angiver en CID, der ikke svarer til nogen glyf i det indlejrede skrifttypeprogram.",
+    "severity_label": "minor",
+    "suggested_fix": "Fjern ikke-eksisterende CIDs fra CIDSet eller regenerer det fra det faktiske skrifttypeprogram."
+  },
+  "31-016": {
+    "title": "Glyfbredde-uoverensstemmelse > 1/1000",
+    "description": "Glyfbredden angivet i skrifttypeordbogen afviger med mere end 1 enhed pr. 1000 fra bredden i det indlejrede skrifttypeprogram.",
+    "severity_label": "minor",
+    "suggested_fix": "Ret Widths-arrayet (eller W2-posten) i skrifttypeordbogen, så det matcher de faktiske glyfbredder i det indlejrede skrifttypeprogram."
+  },
+  "31-017": {
+    "title": "Ikke-symbolsk TrueType mangler ikke-symbolsk cmap",
+    "description": "En TrueType-skrifttype med ikke-symbolsk kodning (Encoding-post til stede eller symbolsk flag slået fra) indeholder ikke en (3,1) cmap-undertabel til Unicode-mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at TrueType-skrifttypeprogrammet indeholder en (3,1) Microsoft Unicode BMP cmap-undertabel til korrekt Unicode-tegnmapping."
+  },
+  "31-018": {
+    "title": "Ikke-symbolsk TrueType-glyf findes ikke i cmap",
+    "description": "En glyf i en ikke-symbolsk TrueType-skrifttype kan ikke findes gennem skrifttypens cmap-undertabeller.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at alle glyffer, der bruges i dokumentet, er tilgængelige gennem mindst én cmap-undertabel i skrifttypen."
+  },
+  "31-019": {
+    "title": "Ikke-symbolsk TrueType-skrifttypeordbog mangler Encoding",
+    "description": "En ikke-symbolsk TrueType-skrifttypeordbog har ikke en Encoding-post, hvilket er påkrævet for glyfnavneopløsning.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en passende Encoding-post (f.eks. WinAnsiEncoding, MacRomanEncoding) til skrifttypeordbogen."
+  },
+  "31-020": {
+    "title": "Encoding-ordbog mangler BaseEncoding",
+    "description": "En Encoding-ordbog med et Differences-array angiver ikke en BaseEncoding-post.",
+    "severity_label": "minor",
+    "suggested_fix": "Angiv BaseEncoding (f.eks. WinAnsiEncoding) i Encoding-ordbogen, som Differences-arrayet afviger fra."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding er ikke MacRoman eller WinAnsi",
+    "description": "Encoding eller BaseEncoding for en ikke-symbolsk TrueType-skrifttype er hverken MacRomanEncoding eller WinAnsiEncoding, som er de to standard-basekodninger.",
+    "severity_label": "minor",
+    "suggested_fix": "Brug WinAnsiEncoding eller MacRomanEncoding som basekodning for skrifttypen."
+  },
+  "31-022": {
+    "title": "Differences-glyfnavne findes ikke i Adobe Glyph List",
+    "description": "Et Differences-array i en skrifttyps Encoding-ordbog bruger glyfnavne, der ikke findes i Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Brug kun standard-glyfnavne fra Adobe Glyph List i Differences-arrayet."
+  },
+  "31-023": {
+    "title": "Differences til stede, men ingen (3,1) cmap",
+    "description": "En skrifttype har et Differences-array i sin Encoding, men TrueType-skrifttypeprogrammet indeholder ikke en (3,1) cmap-undertabel til Unicode-mapping.",
+    "severity_label": "minor",
+    "suggested_fix": "Tilføj en ToUnicode CMap til skrifttypen for at sikre pålidelig Unicode-mapping."
+  },
+  "31-024": {
+    "title": "Symbolsk TrueType-skrifttypeordbog har Encoding",
+    "description": "En symbolsk TrueType-skrifttype (Flags bit 3 sat) har en Encoding-post i sin skrifttypeordbog, hvilket ikke er tilladt for symbolske skrifttyper.",
+    "severity_label": "minor",
+    "suggested_fix": "Fjern Encoding-posten fra symbolske TrueType-skrifttypeordbøger. Symbolske skrifttyper stoler på skrifttypeprogrammets cmap til tegnmapping."
+  },
+  "31-025": {
+    "title": "Symbolsk TrueType-skrifttypeprogram mangler cmap",
+    "description": "En symbolsk TrueType-skrifttypes indlejrede skrifttypeprogram indeholder ingen cmap-tabel.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at det indlejrede skrifttypeprogram inkluderer mindst en (3,0) cmap-undertabel til symbolsk tegnmapping."
+  },
+  "31-026": {
+    "title": "Symbolsk TrueType med flere cmaps mangler (3,0)",
+    "description": "En symbolsk TrueType-skrifttype har flere cmap-undertabeller, men mangler den påkrævede (3,0) Microsoft Symbol cmap-undertabel.",
+    "severity_label": "minor",
+    "suggested_fix": "Sørg for, at det indlejrede skrifttypeprogram inkluderer en (3,0) Microsoft Symbol cmap-undertabel til korrekt tegnmapping."
+  },
+  "31-027": {
+    "title": "Mangler ToUnicode CMap",
+    "description": "En skrifttype, der bruges til tekstindhold, har ikke en ToUnicode CMap, og ingen af undtagelsesbetingelserne gælder. Uden en ToUnicode CMap kan hjælpemidler ikke udtrække læsbar tekst.",
+    "severity_label": "critical",
+    "suggested_fix": "Tilføj en ToUnicode CMap-strøm til skrifttypeordbogen, der mapper hver tegnkode, der bruges i dokumentet, til dens tilsvarende Unicode-værdi."
+  },
+  "31-028": {
+    "title": "ToUnicode mapper til CID 0",
+    "description": "En ToUnicode CMap mapper en tegnkode til Unicode-værdien U+0000 (null), hvilket ikke er et gyldigt teksttegn.",
+    "severity_label": "minor",
+    "suggested_fix": "Ret ToUnicode CMap til at mappe tegnkoden til en gyldig, ikke-null Unicode-værdi."
+  },
+  "31-029": {
+    "title": "ToUnicode mapper til U+FEFF eller U+FFFE",
+    "description": "En ToUnicode CMap mapper en tegnkode til U+FEFF (BOM) eller U+FFFE (byte-order mark), som er kontroltegn og ikke gyldig visbar tekst.",
+    "severity_label": "minor",
+    "suggested_fix": "Udskift U+FEFF/U+FFFE-mappings i ToUnicode CMap med den faktiske Unicode-værdi for tegnet."
+  },
+  "31-030": {
+    "title": ".notdef-glyf refereret i tekst",
+    "description": "En tekstvisningsoperator i dokumentet refererer til .notdef-glyffen (glyf-indeks 0), hvilket indikerer et manglende eller utilgængeligt tegn. Tekst, der bruger .notdef, vises som blanke eller tofu-tegn.",
+    "severity_label": "major",
+    "suggested_fix": "Sørg for, at alle tegnkoder, der bruges i dokumentet, svarer til faktiske glyffer i det indlejrede skrifttypeprogram."
+  }
+}

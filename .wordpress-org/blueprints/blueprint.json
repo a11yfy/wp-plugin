@@ -1,0 +1,34 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "a11yfy — PDF Accessibility Checker",
+		"description": "Scan-only demo: the free in-browser PDF accessibility scan on a sample PDF. No account or API key needed.",
+		"author": "a11yfy"
+	},
+	"landingPage": "/wp-admin/admin.php?page=a11yfy",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"phpExtensionBundles": ["kitchen-sink"],
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "a11yfy"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "wp-cli",
+			"command": "wp media import https://a11yfy.com/sample-input-en.pdf --title='Sample PDF (untagged)'"
+		}
+	]
+}

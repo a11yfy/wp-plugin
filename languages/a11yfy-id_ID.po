@@ -1,0 +1,1307 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: id_ID\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr ""
+"Pemindaian aksesibilitas PDF gratis langsung di browser (pemeriksaan otomatis berdasarkan Matterhorn Protocol) dan "
+"perbaikan PDF/UA-1 dengan satu klik melalui layanan a11yfy."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — Aksesibilitas PDF"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "Dasbor"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "Sedang memindai… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "Pemindaian selesai: %d berkas PDF telah diperiksa."
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "Pemindaian gagal untuk %s"
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "Tidak perlu memindai berkas PDF — semuanya sudah diperbarui."
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "Proses perbaikan sedang dalam antrian untuk %d berkas PDF."
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Anda tidak diperbolehkan mengubah pengaturan a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "Pengaturan telah disimpan."
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "Telah terhubung ke a11yfy — kunci API-nya berfungsi."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "Terhubung ke a11yfy — pembaruan status instan (webhook) telah diaktifkan."
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "Terputus. Kunci API yang tersimpan telah dihapus."
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "Itu tampaknya bukan kunci API a11yfy (seharusnya ak_live_… atau ak_test_…). Pengaturan lainnya telah disimpan."
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr ""
+"a11yfy menolak kunci API tersebut. Silakan periksa di a11yfy.com pada bagian Akun → Kunci API. Pengaturan lainnya telah "
+"disimpan."
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "Koneksi terputus di a11yfy.com."
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "Gagal terhubung ke a11yfy — silakan coba lagi."
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "Respons koneksi tidak dapat diverifikasi (permintaan telah kedaluwarsa atau dimanipulasi). Silakan coba lagi."
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "Semuanya sudah siap — a11yfy siap digunakan."
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: %d berkas PDF yang sedang dalam antrean untuk perbaikan. Pantau perkembangannya di Dasbor a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "Saldo kredit Anda rendah (tersisa %d kredit). Proses perbaikan akan berhenti saat saldo mencapai nol."
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "Perbaikan terakhir Anda diblokir: kredit tidak mencukupi."
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "Isi ulang di a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy Aksesibilitas PDF"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "a11yfy sudah dipasang dan berfungsi"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "Aksesibilitas"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "Antrian latar belakang sudah tersedia dan koneksi a11yfy berfungsi dengan baik."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "Pemrosesan latar belakang a11yfy tidak tersedia"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr ""
+"Action Scheduler tidak dapat dimuat — pembaruan status perbaikan akan berjalan lambat (pengganti WP-cron yang dipicu "
+"oleh kunjungan)."
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "a11yfy tidak terhubung"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "Pemindaian gratisnya berfungsi, tetapi perbaikan PDF memerlukan kunci API a11yfy (a11yfy → Pengaturan)."
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "%d berkas PDF di situs ini tidak dapat diakses"
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Buka Dasbor a11yfy untuk memeriksa dan memperbaikinya."
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "Sesuai"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "Telah diperbaiki"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d masalah telah diperbaiki)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "Proses perbaikan sedang berlangsung…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "Upaya perbaikan gagal"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "Lulus pemeriksaan awal"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "Risiko rendah"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "Risiko sedang"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "Berisiko tinggi"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "Tidak dapat diakses"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "Belum dipindai"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "Jadikan situs ini mudah diakses dengan a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "Kembalikan ke versi asli (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "Jadikan lebih mudah diakses (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "Sesi telah kedaluwarsa — muat ulang halaman ini."
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "Kamu tidak boleh melakukan hal itu."
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "Hubungkan akun a11yfy Anda terlebih dahulu (Pengaturan)."
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "Terhubung ke a11yfy"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "Kredit: %d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "Isi ulang"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "Bulan ini: %1$d / %2$d kredit"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "Tidak terhubung — pemindaian gratis ini dapat dilakukan tanpa perlu membuat akun."
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "Hubungkan a11yfy"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "Terhubung. Bagaimana sebaiknya kita bekerja?"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] "Pemindaian gratis ini menemukan %d berkas PDF di situs ini yang tidak memenuhi persyaratan aksesibilitas (risiko EAA)."
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "Bagaimana sebaiknya kita bekerja?"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "Otomatis (disarankan)"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "Anda tidak perlu melakukan apa pun: setiap kali file PDF diunggah, file tersebut akan langsung dapat diakses."
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "Batas bulanan: %s kredit"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "Batas kredit bulanan"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "Panduan"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr ""
+"Anda dapat memulai proses perbaikan sendiri — di Perpustakaan Media atau di Dasbor ini. Tidak ada yang berjalan tanpa "
+"tindakan dari Anda."
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr ""
+"Tips: jalankan pemindaian gratis di bawah ini terlebih dahulu untuk mengetahui kondisi situs ini — pilihan Anda di atas "
+"tetap bisa digunakan."
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "Mulailah bekerja"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "Status PDF"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr ""
+"Pemeriksaan teknis awal gratis berdasarkan poin-poin penilaian PDF/UA-1 yang dapat diverifikasi secara otomatis — "
+"dijalankan langsung di browser Anda, tidak ada file yang keluar dari situs Anda."
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "Dapat diakses sebagian"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "Diedit oleh a11yfy"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "Pustaka PDF yang dapat dipindai"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d dokumen tidak memenuhi persyaratan aksesibilitas (risiko EAA)."
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "Perbaiki semuanya"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "perkiraan: hingga ~%1$d kredit — saldo Anda: %2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "Pekerjaan remediasi"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "Belum ada tindakan perbaikan yang dilakukan."
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "Berkas"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "Status"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "Hasil"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "Kredit"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "Pengaturan a11yfy"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "Koneksi"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "Terhubung ke a11yfy"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr "Cukup satu klik: masuk atau daftar di a11yfy.com, setujui aksesnya, selesai. Atau, tempelkan kunci API di bawah ini."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "Kunci API"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "terhubung"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "Putuskan sambungan (hapus kunci yang tersimpan)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "Untuk mengganti kunci tersebut, tempelkan kunci baru di bawah ini."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr ""
+"Buat kunci di %s pada bagian Akun → Kunci API. Kunci tersebut disimpan dalam bentuk terenkripsi dan tidak pernah "
+"dikirim ke browser."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "Pembaruan status"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr ""
+"Instant (webhook) — a11yfy memberi tahu situs ini begitu suatu tugas selesai; metode polling tetap digunakan sebagai "
+"jaring pengaman."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr ""
+"Polling — situs ini memeriksa status tugas di latar belakang. Menjalin koneksi ulang melalui alur tombol memungkinkan "
+"pembaruan webhook secara instan saat situs Anda dapat diakses publik."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "Mode"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "Unggahan PDF baru secara otomatis dapat diakses."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "Anda bisa memilih apa yang ingin diperbaiki di Perpustakaan Media atau di Dasbor."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr ""
+"Proses remediasi akan dihentikan sementara jika jumlah kredit yang dihabiskan dalam satu bulan kalender mencapai angka "
+"ini. 0 = tidak ada batasan."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "Peringatan mengenai skor kredit rendah di bawah ini"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "Pemberitahuan admin + email saat saldo turun di bawah angka ini. 0 = dinonaktifkan."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "Strategi menabung"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "Ganti tanpa menghapus yang lama (disarankan)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "URL yang sama, versi aslinya disimpan sebagai cadangan dan dapat dipulihkan dengan satu klik."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "Konservatif"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "File aslinya tidak pernah diubah; tautan-tautan tersebut diganti saat halaman ditampilkan."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "Email pemberitahuan"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Pemberitahuan skor kredit rendah dan kegagalan. Kosong = alamat email admin situs."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "Tentang penghapusan plugin"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Simpanlah berkas PDF yang telah diperbaiki (disarankan — berkas-berkas tersebut adalah konten Anda)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "Kembalikan berkas-berkas asli dari cadangan."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "Simpan pengaturan"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "Berkas PDF tidak dapat dibaca dari disk."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "Belum ada kunci API a11yfy yang dikonfigurasi."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "Kesalahan API a11yfy (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Anda tidak diperbolehkan mengakses situs ini."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "File lampiran tersebut tidak tersedia di sistem berkas lokal."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "Ukuran PDF ini lebih besar dari 50 MB — melebihi batas pemrosesan saat ini."
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr ""
+"Memori PHP tidak cukup untuk mengunggah berkas PDF ini dengan aman. Tingkatkan nilai `memory_limit` atau unggah berkas "
+"yang ukurannya lebih kecil."
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "Batas kredit bulanan yang ditetapkan untuk situs ini telah tercapai."
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr "PDF ini telah lulus pemeriksaan awal aksesibilitas — dilewati untuk menghindari penggunaan kuota yang tidak perlu."
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "Berkas ini tepatnya sudah diperbaiki."
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "Proses perbaikan untuk PDF ini sudah berjalan."
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] Saldo kredit rendah"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"Saldo kredit a11yfy Anda kini tinggal %1$d kredit. Proses perbaikan PDF akan dihentikan saat saldo mencapai nol.\n"
+"\n"
+"Isi ulang di: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "Pekerjaan tersebut tidak selesai dalam waktu 2 jam. Silakan hubungi tim dukungan a11yfy."
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "Pekerjaan telah selesai, tetapi tidak ada berkas keluaran yang dihasilkan."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "File aslinya tidak disimpan secara lokal (plugin offload?) — fitur ini belum didukung."
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "Tidak dapat mengunduh berkas PDF yang telah diperbaiki dari a11yfy."
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "File yang diunduh bukanlah berkas PDF yang sah."
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "Tidak dapat membuat cadangan PDF asli — proses pertukaran dibatalkan."
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "Tidak dapat menulis file PDF yang telah diperbaiki ke atas file aslinya."
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "Tidak dapat menyimpan file PDF yang telah diperbaiki di samping file aslinya."
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "Tidak ada versi yang telah diperbaiki yang tercatat untuk PDF ini."
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "Salinan cadangan dari file PDF aslinya tidak ada."
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "Tidak dapat memulihkan berkas PDF aslinya."
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "Perbaiki"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "Pulihkan"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "Rincian"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "Saring daftar PDF berdasarkan status"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "Tindakan"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "Tidak ada berkas PDF yang sesuai dengan filter yang dipilih."
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "Muat lebih banyak"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "Sembunyikan detail"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "Buka di Perpustakaan Media"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "Gunakan kembali solusi tersebut (gratis)"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "Dimodifikasi oleh program lain"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "Halaman yang terpengaruh: %s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "Tidak ditemukan masalah aksesibilitas yang dapat dideteksi oleh mesin."
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "Tidak dapat memuat detailnya."
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "%1$d jenis masalah ditemukan — %2$d pemeriksaan lulus."
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "Optimisasi PDF ShortPixel kini dinonaktifkan."
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "Belum ada hasil pemindaian yang disimpan untuk PDF ini — silakan lakukan pemindaian terlebih dahulu."
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "Tidak dapat mengubah pengaturan ShortPixel — nonaktifkan pengoptimalan PDF di Pengaturan → ShortPixel."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "Berkas PDF tersebut sama sekali tidak memiliki struktur tag"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr ""
+"Dokumen tersebut tidak memiliki pohon struktur (tag). Pembaca layar tidak mendeteksi judul, paragraf, daftar, atau "
+"tabel — kontennya dibacakan sebagai aliran teks yang tidak terstruktur, atau bahkan tidak dibacakan sama sekali."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "Proses remediasi secara otomatis membangun kembali seluruh struktur tag."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "Berkas PDF tersebut tidak menyatakan diri sebagai berkas yang diberi tag"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr ""
+"Entri MarkInfo tidak ada atau tidak disetel ke \"Marked\". Teknologi bantu tidak dapat mempercayai struktur tag "
+"tersebut meskipun sebagian darinya masih ada."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "Proses remediasi menetapkan bendera PDF-berlabel bersama dengan pohon struktur yang valid."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "Kritis"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "Serius"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "Kecil"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "Terdeteksi konflik dalam pengoptimalan PDF"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"Plugin-plugin di bawah ini berfungsi untuk mengompres berkas PDF. Proses kompresi ini akan mengubah isi berkas PDF dan "
+"menghapus struktur aksesibilitasnya (tag, bahasa, metadata PDF/UA) — hal ini juga dapat merusak berkas PDF yang "
+"sebelumnya telah diperbaiki menggunakan kredit a11yfy Anda."
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr ""
+"Berkas-berkas yang telah diperbaiki oleh a11yfy secara otomatis dikecualikan, tetapi semua berkas PDF lainnya masih "
+"berisiko."
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr ""
+"Plugin ini tidak menyediakan fitur pengecualian per berkas yang andal — a11yfy tidak dapat melindungi berkas PDF satu "
+"per satu dari plugin tersebut."
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "Nonaktifkan pengoptimalan PDF ShortPixel"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "PDF yang dapat diakses (a11yfy) — proses pengoptimalan akan menghapus tag aksesibilitas."
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "Konflik dalam pengoptimalan PDF (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "Tidak ada pengoptimal gambar yang mengubah isi berkas PDF"
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr ""
+"Tidak ditemukan plugin aktif yang dapat mengompres berkas PDF. Proses kompresi PDF akan menulis ulang berkas tersebut "
+"dan menghapus tag aksesibilitasnya."
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "Optimasi PDF telah diaktifkan di %s — fitur ini menghapus tag aksesibilitas PDF"
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"Mengompres file PDF akan menulis ulang file tersebut dan menghapus struktur aksesibilitasnya (tag, bahasa, metadata "
+"PDF/UA) — termasuk file PDF yang telah diperbaiki menggunakan a11yfy. Nonaktifkan pengoptimalan PDF di pengaturan "
+"plugin; a11yfy juga melindungi file yang telah diperbaiki secara individual jika pengoptimal mendukungnya."
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "Ulasan tentang Dasbor a11yfy"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "Tidak ada salinan PDF yang telah diperbaiki yang tersimpan — jalankan proses perbaikan lagi."
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "Tidak dapat menulis kembali file PDF yang telah diperbaiki ke file aslinya."
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "Masalah yang ditemukan sebelum perbaikan"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "Sudah diperbaiki"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "Masih ada"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "Jalankan pemindaian lagi untuk memastikan kondisi terkini dari berkas yang telah diperbaiki."
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "Sunting"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "Hubungkan akun a11yfy Anda untuk mengaktifkan remediasi PDF."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "perbaikan teknis"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "perbaikan penuh"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "Hubungkan akun"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr ""
+"Kunci API tidak dapat disimpan dengan aman di server ini (enkripsi tidak tersedia). Kunci TIDAK disimpan — tanyakan "
+"kepada host Anda mengenai ekstensi PHP sodium. Pengaturan lainnya telah disimpan."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr ""
+"Remediasi PDF saat ini tidak tersedia. Hubungkan akun a11yfy Anda untuk mengaktifkannya — pemindaian gratis tetap "
+"berfungsi bagaimanapun juga."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "Sembunyikan pemberitahuan ini"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = tidak ada batas bulanan."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr "PDF ini dilindungi kata sandi atau dienkripsi. Hapus perlindungan tersebut, lalu jalankan kembali remediasi."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "URL PDF yang diremediasi bukan merupakan URL https publik yang valid."
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "Rincian dokumen"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "Menganalisis dokumen…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "Dokumen tersebut tidak dapat dianalisis."
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "Skor: %d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "Berlaku untuk seluruh dokumen"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "Halaman %1$d dari %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%d halaman"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "Rincian teknis"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d temuan di halaman ini"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "Buka halaman %d"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "Halaman %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "Halaman sebelumnya"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "Halaman berikutnya"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "Perbesar"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "Memperkecil tampilan"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "Remediasi sedang dalam antrian — pantau perkembangannya di Dasbor."
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "Terjadi kesalahan — silakan coba lagi."
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "Pratinjau tidak dapat ditampilkan (namun analisisnya tetap berfungsi)."
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~%d%% dari teks tersebut belum diberi tag — pembaca layar akan melewatkannya atau membacanya tidak sesuai urutan."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "Menampilkan berkas asli (sebelum perbaikan) — analisis ini tidak disimpan."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "Sebuah gambar tidak dapat dibaca oleh pembaca layar"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr ""
+"Gambar tersebut tidak diberi label sebagai \"Gambar\" maupun ditandai sebagai elemen dekoratif (artefak). Pengguna "
+"pembaca layar tidak akan pernah mengetahui keberadaannya — bahkan deskripsi teks pun tidak dapat disertakan."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr ""
+"Proses remediasi memberi label pada gambar asli sebagai “Gambar” beserta deskripsinya, dan menandai gambar hiasan "
+"sebagai “artefak”."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "Bahasa dokumen yang dinyatakan tidak sesuai dengan teksnya"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"Berkas PDF tersebut menyatakan satu bahasa, tetapi teks pada halaman tampaknya ditulis dalam bahasa lain. Pembaca layar "
+"menentukan suara dan pengucapannya berdasarkan bahasa yang dinyatakan, sehingga konten tersebut akan dibacakan dengan "
+"suara yang salah."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "Remediasi mengatur bahasa dokumen menjadi bahasa yang sebenarnya digunakan dalam teks tersebut."
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "Dokumen tersebut sama sekali tidak memiliki judul"
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr ""
+"Dokumen ini berisi teks yang cukup banyak, tetapi tidak terdapat satu pun elemen judul. Pengguna pembaca layar biasanya "
+"menavigasi dokumen berdasarkan judul-judul tersebut — tanpa judul-judul tersebut, dokumen harus dibaca secara linier "
+"dari awal hingga akhir."
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Beri tag pada judul bagian sebagai heading (H1–H6) agar struktur dokumen dapat dinavigasi."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "Dokumen yang panjang tidak memiliki penanda halaman"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr ""
+"Dokumen ini terdiri dari sepuluh halaman atau lebih, tetapi tidak memiliki daftar isi berupa penanda halaman. Penanda "
+"halaman memungkinkan setiap pembaca — bukan hanya pengguna teknologi bantu — untuk langsung melompat ke suatu bagian."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "Tambahkan kerangka penanda yang mencerminkan struktur bagian dokumen."
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "Sebuah tabel tidak memiliki sel header"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr ""
+"Tabel data tidak memiliki sel header TH. Pembaca layar membacakan header yang sesuai sebelum setiap sel — tanpa header, "
+"pengguna hanya mendengar angka-angka tanpa konteks."
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Tandai baris dan/atau kolom pertama sebagai sel header TH dengan Cakupan yang sesuai."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "Deskripsi gambar tampak seperti teks pengganti"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr ""
+"Sebuah gambar memiliki teks alternatif, tetapi teks tersebut tampak seperti nama file atau teks pengganti umum "
+"(misalnya, “image3.png”). Pengguna pembaca layar tidak mendapatkan informasi apa pun mengenai apa yang sebenarnya "
+"ditampilkan oleh gambar tersebut."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "Ganti teks pengganti tersebut dengan deskripsi yang menjelaskan makna gambar tersebut."
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "Penandaan & struktur"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "Judul"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "Gambar & rumus"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "Tabel"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "Daftar & daftar isi"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "Formulir, tautan, dan anotasi"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "Bahasa"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "Metadata & tampilan"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "Enkripsi & izin"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "Aspek teknis lainnya"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Apakah urutan bacaan sudah masuk akal jika isinya dibaca dari awal hingga akhir?"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "Apakah deskripsi gambar (teks alternatif) benar-benar menyampaikan maknanya — bukan sekadar nama file?"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "Apakah kontras teks sudah memadai (setidaknya 4,5:1 terhadap latar belakang)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "Apakah teks tautan memiliki makna tersendiri (“klik di sini” tidak)?"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Apakah tabel-tabel tersebut memiliki sel-sel header yang sebenarnya dan struktur yang sederhana serta teratur?"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "Apakah judul dokumen tersebut informatif ketika ditampilkan di bilah judul pembaca?"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "Kembali ke Dasbor a11yfy"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "Dokumen tidak ditemukan"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "Tautan ini tidak mengarah ke berkas PDF di Perpustakaan Media."
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "Terakhir dipindai %s yang lalu"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "Perbaiki dengan a11yfy"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "Lakukan pemeriksaan ulang"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "Cetak laporan"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "Versi mana yang akan diperiksa"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "Telah ditangani (saat ini)"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "Asli (sebelumnya)"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "Temuan terkait aksesibilitas"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "Daftar periksa peninjauan manual"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "Aspek-aspek ini tidak dapat diputuskan oleh mesin — peninjauan singkat oleh manusia akan melengkapi gambaran tersebut."
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr ""
+"Tampilan pratinjau ini berfungsi sebagai bantuan visual — daftar temuan di sebelah kiri merupakan laporan resmi yang "
+"kompatibel dengan pembaca layar."
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "1 hasil di halaman ini"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "Belum terkirim"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr ""
+"PDF ini telah ditandatangani secara digital. Proses perbaikan akan menulis ulang berkas tersebut, yang akan membuat "
+"tanda tangan tersebut tidak sah — kirimkan salinan yang tidak ditandatangani sebagai gantinya."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr ""
+"Berkas PDF ini berisi formulir XFA, yang tidak dapat dipertahankan selama proses perbaikan. Silakan ubah terlebih "
+"dahulu menjadi formulir PDF biasa."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr ""
+"PDF ini merupakan portofolio (wadah yang berisi berkas-berkas tertanam). Silakan perbaiki dokumen-dokumennya satu per "
+"satu."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "Halaman a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "Anda tidak diperbolehkan mengunduh sertifikat ini."
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "Dokumen ini belum memiliki sertifikat a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "Sertifikat (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "Unduh sertifikat"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "Verifikasi sertifikat secara daring"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "Gagal mengunduh sertifikat — silakan coba lagi."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr ""
+"Dokumen ini telah ditandatangani secara digital. Proses perbaikan akan mengubah berkas tersebut, sehingga tanda tangan "
+"tersebut tidak akan berlaku lagi. Apakah Anda ingin melanjutkan?"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr ""
+"PDF ini telah ditandatangani secara digital. Proses perbaikan akan menulis ulang berkas tersebut, sehingga tanda tangan "
+"tersebut tidak akan berlaku lagi — perbaikan baru akan dimulai setelah Anda mengonfirmasi."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "Perkiraan biaya: ~%d kredit"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "Perkiraan biaya: %1$d–%2$d kredit"

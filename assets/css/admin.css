@@ -1,0 +1,310 @@
+/* a11yfy admin — WCAG AA contrast on the WP admin background (§13.7). */
+
+.a11yfy-wrap .a11yfy-topbar {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 12px 0 20px;
+	flex-wrap: wrap;
+}
+
+.a11yfy-conn--ok { color: #00600f; font-weight: 600; }
+.a11yfy-conn--off { color: #5f5f5f; }
+
+.a11yfy-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 16px 20px;
+	margin-bottom: 20px;
+	max-width: 860px;
+}
+
+/* §13.5 one-question onboarding wizard */
+.a11yfy-wizard { border-left: 4px solid #2271b1; }
+.a11yfy-wizard__pain { font-size: 14px; }
+.a11yfy-wizard__option {
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 12px 14px;
+	margin: 0 0 10px;
+	max-width: 640px;
+	cursor: pointer;
+}
+.a11yfy-wizard__option:has(input:checked) { border-color: #2271b1; background: #f0f6fc; }
+.a11yfy-wizard__option input[type="radio"] { margin-top: 4px; }
+.a11yfy-wizard__body { display: block; }
+.a11yfy-wizard__desc { display: block; color: #50575e; margin: 2px 0 4px; }
+.a11yfy-wizard__cap { display: block; }
+.a11yfy-wizard__cap .small-text { margin: 0 4px; }
+
+.a11yfy-stats { border-collapse: collapse; margin: 12px 0; }
+.a11yfy-stats td { padding: 4px 16px 4px 0; }
+.a11yfy-stats td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+/* Status chips = table filters (§7) */
+.a11yfy-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.a11yfy-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border: 1px solid #c3c4c7;
+	border-radius: 16px;
+	background: #f6f7f7;
+	color: #50575e;
+	padding: 4px 12px;
+	font-size: 13px;
+	cursor: pointer;
+}
+.a11yfy-chip.is-active { border-color: #2271b1; background: #f0f6fc; color: #1d2327; }
+.a11yfy-chip__count {
+	background: #dcdcde;
+	border-radius: 10px;
+	padding: 0 8px;
+	font-variant-numeric: tabular-nums;
+	font-weight: 600;
+}
+.a11yfy-chip.is-active .a11yfy-chip__count { background: #2271b1; color: #fff; }
+
+#a11yfy-pdfs-table { max-width: 860px; margin-bottom: 8px; }
+/* A .button display-szabálya erősebb a hidden attribútum UA-stílusánál. */
+#a11yfy-pdfs-more[hidden],
+#a11yfy-pdfs-empty[hidden] { display: none; }
+.a11yfy-row-actions { white-space: nowrap; }
+.a11yfy-row-actions .button { margin-right: 6px; }
+/* Fix-gomb fiók nélkül: látszik, de áthúzva-inaktív (mit oldana fel a connect). */
+.a11yfy-remediate--locked { text-decoration: line-through; cursor: not-allowed; }
+
+/* A wizard havi-plafon magyarázata külön sorba (ne folyjon egybe az inputtal). */
+.a11yfy-wizard__cap .description { display: block; margin-top: 4px; }
+
+.a11yfy-progress { margin-left: 12px; font-style: italic; }
+.a11yfy-estimate { margin-left: 12px; color: #3c434a; }
+
+.a11yfy-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 10px;
+	font-size: 12px;
+	line-height: 1.6;
+	background: #f0f0f1;
+	color: #3c434a;
+	white-space: nowrap;
+}
+.a11yfy-badge--ok   { background: #edfaef; color: #00600f; }
+.a11yfy-badge--low  { background: #edfaef; color: #00600f; }
+.a11yfy-badge--med  { background: #fcf9e8; color: #6d5a00; }
+.a11yfy-badge--high { background: #fcf0f1; color: #8a1f2d; }
+.a11yfy-badge--busy { background: #f0f6fc; color: #043959; }
+.a11yfy-badge--err  { background: #fcf0f1; color: #8a1f2d; }
+
+.a11yfy-status--done { color: #00600f; }
+/* Best-effort: kesz, de nem teljes PDF/UA-1 — figyelmezteto arnyalat */
+.a11yfy-status--besteffort { color: #7a4d00; }
+.a11yfy-status--failed,
+.a11yfy-status--stalled { color: #8a1f2d; }
+.a11yfy-status--processing,
+.a11yfy-status--submitted,
+.a11yfy-status--queued { color: #043959; }
+
+/* ── Optimizer conflict warning (§13.6) ─────────────────────────────────── */
+.a11yfy-optimizer-warning { border-left: 4px solid #d63638; }
+.a11yfy-optimizer-warning h2 { margin-top: 0; }
+.a11yfy-optimizer-warning ul { list-style: disc; margin-left: 20px; }
+.a11yfy-optimizer-warning .button { margin-left: 6px; }
+
+/* ── Plain-language scan details (expandable row) ───────────────────────── */
+.a11yfy-details { background: #f6f7f7; padding: 12px 16px; }
+.a11yfy-details__summary { font-weight: 600; margin: 0 0 8px; }
+.a11yfy-issue {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-left-width: 4px;
+	border-radius: 4px;
+	padding: 8px 12px;
+	margin: 0 0 8px;
+	max-width: 720px;
+}
+.a11yfy-issue--critical { border-left-color: #d63638; }
+.a11yfy-issue--major    { border-left-color: #dba617; }
+.a11yfy-issue--minor    { border-left-color: #72aee6; }
+.a11yfy-issue__head { margin: 0; }
+.a11yfy-issue__sev {
+	display: inline-block;
+	padding: 1px 7px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	background: #f0f0f1;
+	color: #3c434a;
+	margin-right: 4px;
+}
+.a11yfy-issue--critical .a11yfy-issue__sev { background: #fcf0f1; color: #8a1f2d; }
+.a11yfy-issue--major    .a11yfy-issue__sev { background: #fcf9e8; color: #6d5a00; }
+.a11yfy-issue--minor    .a11yfy-issue__sev { background: #f0f6fc; color: #043959; }
+.a11yfy-issue__count { color: #646970; font-variant-numeric: tabular-nums; }
+.a11yfy-issue__desc { margin: 6px 0 0; }
+.a11yfy-issue__fix { margin: 6px 0 0; color: #00600f; }
+.a11yfy-issue__pages { margin: 6px 0 0; color: #646970; font-size: 12px; }
+
+/* Before/after (remediated) details */
+.a11yfy-details__hint { font-style: italic; font-weight: 400; color: #646970; }
+.a11yfy-issue.is-fixed { opacity: 0.75; }
+.a11yfy-issue.is-fixed .a11yfy-issue__head strong { text-decoration: line-through; text-decoration-thickness: 1px; }
+.a11yfy-issue__outcome {
+	display: inline-block;
+	padding: 1px 7px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 600;
+}
+.a11yfy-issue__outcome.is-ok  { background: #edfaef; color: #00600f; }
+.a11yfy-issue__outcome.is-bad { background: #fcf0f1; color: #8a1f2d; }
+
+/* ── Per-document detail page (§7 extension) ────────────────────────────── */
+.a11yfy-doc__back { margin: 12px 0 0; }
+.a11yfy-doc__header .a11yfy-doc__title { margin-bottom: 4px; }
+.a11yfy-doc__meta { margin: 0 0 12px; color: #646970; }
+.a11yfy-doc__meta > span { margin-right: 12px; }
+.a11yfy-doc__actions { margin: 0; }
+
+.a11yfy-doc {
+	display: grid;
+	grid-template-columns: minmax(320px, 5fr) minmax(360px, 7fr);
+	gap: 16px;
+	align-items: start;
+}
+@media (max-width: 1100px) {
+	.a11yfy-doc { grid-template-columns: 1fr; }
+}
+
+.a11yfy-doc__panel .a11yfy-card { margin-top: 0; }
+.a11yfy-doc__score { font-size: 14px; font-weight: 600; }
+.a11yfy-doc__risk--low      { background: #edfaef; color: #00600f; }
+.a11yfy-doc__risk--medium   { background: #fcf9e8; color: #6d5a00; }
+.a11yfy-doc__risk--high,
+.a11yfy-doc__risk--critical { background: #fcf0f1; color: #8a1f2d; }
+
+.a11yfy-doc__category { margin: 0 0 4px; }
+.a11yfy-doc__category-title {
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #3c434a;
+	margin: 16px 0 8px;
+	border-bottom: 1px solid #dcdcde;
+	padding-bottom: 4px;
+}
+
+.a11yfy-page-chip {
+	display: inline-block;
+	border: 1px solid #c3c4c7;
+	border-radius: 10px;
+	background: #f6f7f7;
+	color: #2271b1;
+	font-size: 11px;
+	padding: 0 8px;
+	margin: 2px 4px 0 0;
+	cursor: pointer;
+}
+.a11yfy-page-chip:hover,
+.a11yfy-page-chip:focus { background: #f0f6fc; border-color: #2271b1; }
+
+.a11yfy-issue__tech { margin: 6px 0 0; font-size: 12px; color: #646970; }
+.a11yfy-issue__tech summary { cursor: pointer; }
+.a11yfy-issue__tech ul { list-style: disc; margin: 4px 0 0 20px; }
+
+.a11yfy-doc__checklist ul { margin: 0; }
+.a11yfy-doc__checklist li { margin: 0 0 8px; }
+
+.a11yfy-doc__viewer { position: sticky; top: 46px; }
+.a11yfy-doc__toolbar {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+.a11yfy-doc__toolbar-spacer { flex: 1; }
+.a11yfy-doc__pagefindings { color: #8a1f2d; font-weight: 600; font-size: 12px; }
+.a11yfy-doc__canvas-wrap {
+	overflow: auto;
+	max-height: calc(100vh - 220px);
+	background: #f0f0f1;
+	border: 1px solid #dcdcde;
+	text-align: center;
+}
+.a11yfy-doc__canvas-wrap canvas {
+	background: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	margin: 12px auto;
+}
+.a11yfy-doc__viewer-note { margin: 8px 0 0; }
+
+/* Print = exportable report: findings only, fully expanded. */
+@media print {
+	#adminmenumain, #wpadminbar, #wpfooter,
+	.a11yfy-doc__back, .a11yfy-doc__actions,
+	.a11yfy-doc__viewer, .a11yfy-progress { display: none !important; }
+	#wpcontent { margin-left: 0 !important; }
+	.a11yfy-doc { display: block; }
+	.a11yfy-card { border: none; box-shadow: none; padding: 0; }
+	.a11yfy-issue { break-inside: avoid; max-width: none; }
+	.a11yfy-issue__tech { display: block; }
+}
+
+/* ── Finding overlay boxes on the preview canvas ────────────────────────── */
+.a11yfy-doc__canvas-holder {
+	position: relative;
+	display: inline-block;
+	margin: 12px auto;
+}
+.a11yfy-doc__canvas-holder canvas { display: block; margin: 0; }
+.a11yfy-doc__overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+.a11yfy-doc__box {
+	position: absolute;
+	pointer-events: auto;
+	cursor: pointer;
+	border: 2px solid #d63638;
+	background: rgba(214, 54, 56, 0.10);
+	border-radius: 2px;
+}
+.a11yfy-doc__box--critical { border-color: #d63638; background: rgba(214, 54, 56, 0.10); }
+.a11yfy-doc__box--major    { border-color: #dba617; background: rgba(219, 166, 23, 0.12); }
+.a11yfy-doc__box--minor    { border-color: #2271b1; background: rgba(34, 113, 177, 0.10); }
+.a11yfy-doc__box:hover { box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25); }
+
+@keyframes a11yfy-flash {
+	0%   { box-shadow: 0 0 0 3px #2271b1; }
+	100% { box-shadow: 0 0 0 0 rgba(34, 113, 177, 0); }
+}
+.a11yfy-issue.is-flash { animation: a11yfy-flash 1.2s ease-out 2; }
+
+/* ── Source toggle (remediated ↔ original) + coverage headline ──────────── */
+.a11yfy-doc__source { margin-left: 8px; display: inline-flex; }
+.a11yfy-doc__source-btn.is-active {
+	background: #2271b1;
+	border-color: #2271b1;
+	color: #fff;
+}
+.a11yfy-doc__source-btn:first-child { border-radius: 3px 0 0 3px; }
+.a11yfy-doc__source-btn:last-child { border-radius: 0 3px 3px 0; margin-left: -1px; }
+.a11yfy-doc__coverage { color: #8a1f2d; font-weight: 600; }
+
+/* ── Credit estimate next to the Fix affordance ────────────────────────── */
+.a11yfy-credit-est { color: #646970; font-size: 12px; white-space: nowrap; margin-right: 6px; }
+
+/* ── Unsendable documents (password / signature / XFA / portfolio) ─────── */
+.a11yfy-badge__reason { color: #8a1f2d; font-size: 12px; }
+.a11yfy-doc__blocked { color: #8a1f2d; font-weight: 600; margin: 8px 0 0; }
+/* Best-effort remediacio jelzese a dokumentum-aloldalon */
+.a11yfy-doc__besteffort { border-left: 4px solid #dba617; background: #fcf9e8; padding: 8px 12px; margin: 0 0 12px; }
+.a11yfy-doc__besteffort p { margin: 4px 0 0; }

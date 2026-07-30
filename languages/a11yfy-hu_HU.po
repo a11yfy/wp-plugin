@@ -1,0 +1,1214 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-plugin\n"
+"POT-Creation-Date: 2026-07-16T12:10:41+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: hu_HU\n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr ""
+"Ingyenes, böngészőben futó PDF-akadálymentességi ellenőrzés (Matterhorn Protocol gépi ellenőrzőpontok) és "
+"egykattintásos PDF/UA-1 akadálymentesítés az a11yfy szolgáltatással."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:41
+#: includes/admin/views/dashboard.php:25
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — PDF-akadálymentesség"
+
+#: includes/admin/class-a11yfy-admin.php:50
+msgid "Dashboard"
+msgstr "Vezérlőpult"
+
+#: includes/admin/class-a11yfy-admin.php:51
+#: includes/admin/class-a11yfy-admin.php:121
+msgid "Settings"
+msgstr "Beállítások"
+
+#: includes/admin/class-a11yfy-admin.php:74
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "Ellenőrzés… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:76
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "Az ellenőrzés kész: %d PDF átvizsgálva."
+
+#: includes/admin/class-a11yfy-admin.php:78
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "Nem sikerült ellenőrizni: %s"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "Nincs ellenőrzésre váró PDF — minden naprakész."
+
+#: includes/admin/class-a11yfy-admin.php:81
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "%d PDF akadálymentesítése sorba állítva."
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Fix"
+msgstr "Javítás"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "Csatlakoztasd az a11yfy-fiókodat a PDF-javítás bekapcsolásához."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "technikai javítás"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "teljes javítás"
+
+#: includes/admin/class-a11yfy-admin.php:87
+msgid "Restore"
+msgstr "Visszaállítás"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "Details"
+msgstr "Részletek"
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: includes/admin/class-a11yfy-admin.php:90
+msgid "Hide details"
+msgstr "Részletek elrejtése"
+
+#: includes/admin/class-a11yfy-admin.php:91
+msgid "Open in Media Library"
+msgstr "Megnyitás a Médiatárban"
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "Re-apply fix (free)"
+msgstr "Javítás újraalkalmazása (ingyenes)"
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Modified by another program"
+msgstr "Egy másik program módosította"
+
+#: includes/admin/class-a11yfy-admin.php:95
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:97
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "Érintett oldalak: %s"
+
+#: includes/admin/class-a11yfy-admin.php:98
+msgid "No machine-detectable accessibility issues were found."
+msgstr "Géppel kimutatható akadálymentesítési hiba nem található."
+
+#: includes/admin/class-a11yfy-admin.php:99
+msgid "Could not load the details."
+msgstr "A részleteket nem sikerült betölteni."
+
+#: includes/admin/class-a11yfy-admin.php:101
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "%1$d hibatípus található — %2$d ellenőrzés sikeres."
+
+#: includes/admin/class-a11yfy-admin.php:102
+msgid "ShortPixel PDF optimization is now off."
+msgstr "A ShortPixel PDF-optimalizálása mostantól ki van kapcsolva."
+
+#: includes/admin/class-a11yfy-admin.php:103
+msgid "Issues found before remediation"
+msgstr "A javítás előtt talált hibák"
+
+#: includes/admin/class-a11yfy-admin.php:104
+msgid "Fixed"
+msgstr "Javítva"
+
+#: includes/admin/class-a11yfy-admin.php:105
+msgid "Still present"
+msgstr "Továbbra is fennáll"
+
+#: includes/admin/class-a11yfy-admin.php:106
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr "Futtasd újra az ellenőrzést a javított fájl jelenlegi állapotának megerősítéséhez."
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "Fiók összekapcsolása"
+
+#: includes/admin/class-a11yfy-admin.php:145
+#: includes/admin/class-a11yfy-admin.php:202
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Nincs jogosultságod az a11yfy beállításainak módosításához."
+
+#: includes/admin/class-a11yfy-admin.php:243
+msgid "Settings saved."
+msgstr "Beállítások elmentve."
+
+#: includes/admin/class-a11yfy-admin.php:244
+msgid "Connected to a11yfy — the API key works."
+msgstr "Csatlakoztatva az a11yfy-hoz — az API-kulcs működik."
+
+#: includes/admin/class-a11yfy-admin.php:245
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "Csatlakoztatva az a11yfy-hoz — az azonnali (webhook) állapotfrissítés bekapcsolva."
+
+#: includes/admin/class-a11yfy-admin.php:246
+msgid "Disconnected. The stored API key was removed."
+msgstr "Kapcsolat bontva. A tárolt API-kulcsot eltávolítottuk."
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "Ez nem tűnik a11yfy API-kulcsnak (ak_live_… vagy ak_test_… formátum várható). A többi beállítást elmentettük."
+
+#: includes/admin/class-a11yfy-admin.php:248
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr ""
+"Az a11yfy elutasította az API-kulcsot. Ellenőrizd az a11yfy.com oldalon a Fiók → API-kulcsok alatt. A többi beállítást "
+"elmentettük."
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr ""
+"Az API-kulcsot nem sikerült biztonságosan tárolni ezen a szerveren (a titkosítás nem érhető el). A kulcs NEM lett "
+"elmentve — érdeklődj a tárhelyszolgáltatódnál a PHP sodium bővítményről. A többi beállítás mentve lett."
+
+#: includes/admin/class-a11yfy-admin.php:250
+msgid "Connection cancelled on a11yfy.com."
+msgstr "A csatlakozást megszakítottad az a11yfy.com oldalon."
+
+#: includes/admin/class-a11yfy-admin.php:251
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "Az a11yfy-csatlakozás nem sikerült — próbáld újra."
+
+#: includes/admin/class-a11yfy-admin.php:252
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "A csatlakozási válasz nem ellenőrizhető (lejárt vagy módosított kérés). Próbáld újra."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "All set — a11yfy is ready to work."
+msgstr "Minden kész — az a11yfy munkára fogható."
+
+#: includes/admin/class-a11yfy-admin.php:268
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: %d PDF akadálymentesítése sorba állítva. A haladást az a11yfy Vezérlőpulton követheted."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr ""
+"A PDF-fájlok javítása jelenleg nem elérhető. Csatlakoztasd az a11yfy-fiókodat a bekapcsolásához — az ingyenes "
+"ellenőrzés enélkül is működik."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "Értesítés elrejtése"
+
+#: includes/admin/class-a11yfy-admin.php:301
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "A kreditegyenleged alacsony (%d kredit maradt). Nullánál az akadálymentesítés leáll."
+
+#: includes/admin/class-a11yfy-admin.php:302
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "Az utolsó akadálymentesítés nem futott le: nincs elég kredit."
+
+#: includes/admin/class-a11yfy-admin.php:305
+msgid "Top up on a11yfy.com"
+msgstr "Feltöltés az a11yfy.com oldalon"
+
+#: includes/admin/class-a11yfy-admin.php:315
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy PDF-akadálymentesség"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "a11yfy is set up and working"
+msgstr "Az a11yfy be van állítva és működik"
+
+#: includes/admin/class-a11yfy-admin.php:326
+#: includes/admin/class-a11yfy-admin.php:361
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid "Accessibility"
+msgstr "Akadálymentesség"
+
+#: includes/admin/class-a11yfy-admin.php:329
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "A háttérsor elérhető, és az a11yfy-kapcsolat működik."
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "a11yfy background processing is unavailable"
+msgstr "Az a11yfy háttérfeldolgozása nem érhető el"
+
+#: includes/admin/class-a11yfy-admin.php:336
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr ""
+"Az Action Scheduler nem tölthető be — az akadálymentesítési állapotfrissítések lassúak lesznek (látogatás-vezérelt "
+"WP-cron tartalék)."
+
+#: includes/admin/class-a11yfy-admin.php:342
+msgid "a11yfy is not connected"
+msgstr "Az a11yfy nincs csatlakoztatva"
+
+#: includes/admin/class-a11yfy-admin.php:343
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "Az ingyenes ellenőrzés működik, de a PDF-ek akadálymentesítéséhez a11yfy API-kulcs kell (a11yfy → Beállítások)."
+
+#: includes/admin/class-a11yfy-admin.php:351
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "%d PDF nem akadálymentes ezen az oldalon"
+
+#: includes/admin/class-a11yfy-admin.php:352
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Nyisd meg az a11yfy Vezérlőpultot az áttekintésükhöz és javításukhoz."
+
+#: includes/admin/class-a11yfy-admin.php:379
+msgid "Compliant"
+msgstr "Megfelelő"
+
+#: includes/admin/class-a11yfy-admin.php:380
+msgid "Remediated"
+msgstr "Akadálymentesítve"
+
+#: includes/admin/class-a11yfy-admin.php:384
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d hiba javítva)"
+
+#: includes/admin/class-a11yfy-admin.php:391
+msgid "Remediation in progress…"
+msgstr "Akadálymentesítés folyamatban…"
+
+#: includes/admin/class-a11yfy-admin.php:395
+msgid "Remediation failed"
+msgstr "Az akadálymentesítés sikertelen"
+
+#: includes/admin/class-a11yfy-admin.php:401
+#: includes/admin/views/dashboard.php:181
+msgid "Passed pre-check"
+msgstr "Előellenőrzésen megfelelt"
+
+#: includes/admin/class-a11yfy-admin.php:403
+msgid "Low risk"
+msgstr "Alacsony kockázat"
+
+#: includes/admin/class-a11yfy-admin.php:405
+msgid "Medium risk"
+msgstr "Közepes kockázat"
+
+#: includes/admin/class-a11yfy-admin.php:407
+msgid "High risk"
+msgstr "Magas kockázat"
+
+#: includes/admin/class-a11yfy-admin.php:409
+#: includes/admin/views/dashboard.php:183
+msgid "Not accessible"
+msgstr "Nem akadálymentes"
+
+#: includes/admin/class-a11yfy-admin.php:411
+#: includes/admin/views/dashboard.php:185
+msgid "Not scanned yet"
+msgstr "Még nincs ellenőrizve"
+
+#: includes/admin/class-a11yfy-admin.php:417
+msgid "Make accessible with a11yfy"
+msgstr "Akadálymentesítés az a11yfy-jal"
+
+#: includes/admin/class-a11yfy-admin.php:447
+msgid "Restore original (a11yfy)"
+msgstr "Eredeti visszaállítása (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:454
+msgid "Make accessible (a11yfy)"
+msgstr "Akadálymentesítés (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:41
+msgid "Session expired — reload the page."
+msgstr "A munkamenet lejárt — töltsd újra az oldalt."
+
+#: includes/admin/class-a11yfy-ajax.php:44
+#: includes/admin/class-a11yfy-ajax.php:149
+#: includes/admin/class-a11yfy-ajax.php:244
+#: includes/admin/class-a11yfy-ajax.php:287
+msgid "You are not allowed to do that."
+msgstr "Ehhez nincs jogosultságod."
+
+#: includes/admin/class-a11yfy-ajax.php:292
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "Ehhez a PDF-hez még nincs mentett ellenőrzési eredmény — előbb futtasd az ellenőrzést."
+
+#: includes/admin/class-a11yfy-ajax.php:320
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr "A ShortPixel beállításait nem sikerült módosítani — kapcsold ki a PDF-optimalizálást a Beállítások → ShortPixel alatt."
+
+#: includes/admin/class-a11yfy-ajax.php:336
+#: includes/admin/class-a11yfy-ajax.php:351
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "Először csatlakoztasd az a11yfy-fiókodat (Beállítások)."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "A PDF-ben egyáltalán nincs címkestruktúra"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr ""
+"A dokumentum nem tartalmaz struktúrafát (címkéket). A képernyőolvasók nem kapnak címsorokat, bekezdéseket, listákat "
+"vagy táblázatokat — a tartalom strukturálatlan folyamként olvasódik fel, vagy sehogy."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "A javítás automatikusan újraépíti a teljes címkestruktúrát."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "A PDF nem jelöli magát címkézettként"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr ""
+"A MarkInfo bejegyzés hiányzik, vagy nincs Marked értékre állítva. A kisegítő technológiák így akkor sem bízhatnak a "
+"címkestruktúrában, ha annak részei léteznek."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "A javítás beállítja a címkézett PDF jelölést, érvényes struktúrafával együtt."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "Kritikus"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "Súlyos"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "Kisebb"
+
+#: includes/admin/views/dashboard.php:29
+msgid "Connected to a11yfy"
+msgstr "Csatlakoztatva az a11yfy-hoz"
+
+#: includes/admin/views/dashboard.php:34
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "Kreditek: %d"
+
+#: includes/admin/views/dashboard.php:36
+msgid "Top up"
+msgstr "Feltöltés"
+
+#: includes/admin/views/dashboard.php:43
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "Ebben a hónapban: %1$d / %2$d kredit"
+
+#: includes/admin/views/dashboard.php:48
+msgid "Not connected — the free scan works without an account."
+msgstr "Nincs csatlakoztatva — az ingyenes ellenőrzés fiók nélkül is működik."
+
+#: includes/admin/views/dashboard.php:51
+msgid "Connect a11yfy"
+msgstr "a11yfy csatlakoztatása"
+
+#: includes/admin/views/dashboard.php:63
+msgid "PDF optimization conflict detected"
+msgstr "PDF-optimalizálási ütközés észlelhető"
+
+#: includes/admin/views/dashboard.php:65
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"Az alábbi bővítmények PDF-fájlokat tömörítenek. A tömörítés újraírja a PDF-et, és eltávolítja az akadálymentesítési "
+"struktúráját (címkék, nyelv, PDF/UA-metaadatok) — az a11yfy-kreditjeidből már javított PDF-eket is tönkreteheti."
+
+#: includes/admin/views/dashboard.php:74
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr "az a11yfy által javított fájlok automatikusan ki vannak zárva, de az összes többi PDF továbbra is veszélyben van."
+
+#: includes/admin/views/dashboard.php:76
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "ez a bővítmény nem kínál megbízható fájlonkénti kizárást — az a11yfy nem tudja megvédeni tőle az egyes PDF-eket."
+
+#: includes/admin/views/dashboard.php:82
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "ShortPixel PDF-optimalizálás kikapcsolása"
+
+#: includes/admin/views/dashboard.php:94
+msgid "Connected. How should we work?"
+msgstr "Csatlakoztatva. Hogyan dolgozzunk?"
+
+#: includes/admin/views/dashboard.php:102
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] ""
+"Az ingyenes ellenőrzés %d olyan PDF-et talált ezen az oldalon, amely nem felel meg az akadálymentességi "
+"követelményeknek (EAA-kockázat)."
+msgstr[1] ""
+"Az ingyenes ellenőrzés %d olyan PDF-et talált ezen az oldalon, amelyek nem felelnek meg az akadálymentességi "
+"követelményeknek (EAA-kockázat)."
+
+#: includes/admin/views/dashboard.php:120 includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "Hogyan dolgozzunk?"
+
+#: includes/admin/views/dashboard.php:125 includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "Automatikus (ajánlott)"
+
+#: includes/admin/views/dashboard.php:127
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "Nincs teendőd: a feltöltött PDF-eket automatikusan akadálymentesítjük."
+
+#: includes/admin/views/dashboard.php:133
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "Havi keret: %s kredit"
+
+#: includes/admin/views/dashboard.php:137 includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "Havi kreditkeret"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = nincs havi korlát."
+
+#: includes/admin/views/dashboard.php:148 includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "Manuális"
+
+#: includes/admin/views/dashboard.php:150
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr "Az akadálymentesítést te indítod el — a Médiatárban vagy ezen a Vezérlőpulton. Semmi nem fut a jóváhagyásod nélkül."
+
+#: includes/admin/views/dashboard.php:158
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr ""
+"Tipp: futtasd le előbb az alábbi ingyenes ellenőrzést, hogy lásd, hogyan áll az oldal — a fenti választásod mindkét "
+"esetben érvényes."
+
+#: includes/admin/views/dashboard.php:164
+msgid "Start working"
+msgstr "Kezdjük"
+
+#: includes/admin/views/dashboard.php:172
+msgid "PDF status"
+msgstr "PDF-állapot"
+
+#: includes/admin/views/dashboard.php:174
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr ""
+"Ingyenes technikai előellenőrzés a géppel ellenőrizhető PDF/UA-1 ellenőrzőpontok szerint — a böngésződben fut, egyetlen "
+"fájl sem hagyja el az oldaladat."
+
+#: includes/admin/views/dashboard.php:182
+msgid "Partially accessible"
+msgstr "Részben akadálymentes"
+
+#: includes/admin/views/dashboard.php:184
+msgid "Remediated by a11yfy"
+msgstr "Az a11yfy által akadálymentesítve"
+
+#: includes/admin/views/dashboard.php:188
+msgid "Filter the PDF list by status"
+msgstr "PDF-lista szűrése állapot szerint"
+
+#: includes/admin/views/dashboard.php:201
+#: includes/admin/views/dashboard.php:256
+msgid "File"
+msgstr "Fájl"
+
+#: includes/admin/views/dashboard.php:202
+#: includes/admin/views/dashboard.php:257
+msgid "Status"
+msgstr "Állapot"
+
+#: includes/admin/views/dashboard.php:203
+msgid "Actions"
+msgstr "Műveletek"
+
+#: includes/admin/views/dashboard.php:208
+msgid "No PDFs match the selected filters."
+msgstr "A kiválasztott szűrőknek egyetlen PDF sem felel meg."
+
+#: includes/admin/views/dashboard.php:211
+msgid "Load more"
+msgstr "Továbbiak betöltése"
+
+#: includes/admin/views/dashboard.php:217
+msgid "Scan PDF library"
+msgstr "PDF-könyvtár ellenőrzése"
+
+#: includes/admin/views/dashboard.php:227
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d dokumentum nem felel meg az akadálymentességi követelményeknek (EAA-kockázat)."
+
+#: includes/admin/views/dashboard.php:232
+msgid "Fix all"
+msgstr "Összes javítása"
+
+#: includes/admin/views/dashboard.php:239
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "becslés: legfeljebb ~%1$d kredit — egyenleged: %2$d"
+
+#: includes/admin/views/dashboard.php:251
+msgid "Remediation jobs"
+msgstr "Akadálymentesítési feladatok"
+
+#: includes/admin/views/dashboard.php:252
+msgid "No remediation has been run yet."
+msgstr "Még nem futott akadálymentesítés."
+
+#: includes/admin/views/dashboard.php:258
+msgid "Result"
+msgstr "Eredmény"
+
+#: includes/admin/views/dashboard.php:259
+msgid "Credits"
+msgstr "Kredit"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "a11yfy-beállítások"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "Kapcsolat"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "Csatlakozás az a11yfy-hoz"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr ""
+"Egy kattintás: jelentkezz be vagy regisztrálj az a11yfy.com oldalon, hagyd jóvá a hozzáférést, és kész. Vagy illessz be "
+"egy API-kulcsot alább."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "API-kulcs"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "csatlakoztatva"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "Kapcsolat bontása (a tárolt kulcs eltávolítása)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "A kulcs cseréjéhez illessz be egy újat alább."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr ""
+"Hozz létre egy kulcsot a %s oldalon a Fiók → API-kulcsok alatt. A kulcsot titkosítva tároljuk, és soha nem küldjük el a "
+"böngészőnek."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "Állapotfrissítések"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr ""
+"Azonnali (webhook) — az a11yfy azonnal értesíti az oldalt, amint egy feladat elkészül; a lekérdezés biztonsági hálóként "
+"megmarad."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr ""
+"Lekérdezés — az oldal a háttérben ellenőrzi a feladatok állapotát. A gombos csatlakozás újrafuttatása azonnali "
+"webhook-frissítést kapcsol be, ha az oldalad nyilvánosan elérhető."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "Mód"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "az új PDF-feltöltéseket automatikusan akadálymentesítjük."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "te jelölöd ki, mit javítsunk — a Médiatárban vagy a Vezérlőpulton."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "Az akadálymentesítés szünetel, ha egy naptári hónapban ennyi kredit elfogyott. 0 = nincs keret."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "Alacsony kredit figyelmeztetés ez alatt"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "Admin-értesítés + e-mail, ha az egyenleg ez alá csökken. 0 = kikapcsolva."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "Mentési stratégia"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "Csere helyben (ajánlott)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "ugyanaz az URL, az eredeti biztonsági másolatként megmarad, egy kattintással visszaállítható."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "Konzervatív"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "az eredeti fájlhoz nem nyúlunk; a linkeket az oldalak megjelenítésekor cseréljük."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "Értesítési e-mail"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Alacsony kreditről és hibákról szóló értesítések. Üresen = az oldal admin e-mail-címe."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "A bővítmény törlésekor"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Az akadálymentesített PDF-ek megtartása (ajánlott — ezek a te tartalmaid)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "Az eredeti fájlok visszaállítása a biztonsági másolatból."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "Beállítások mentése"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "A PDF-fájl nem olvasható be a lemezről."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "Nincs beállítva a11yfy API-kulcs."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "a11yfy API-hiba (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39 includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Nincs jogosultságod az oldal csatlakoztatásához."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "A csatolmány fájlja nem érhető el a helyi fájlrendszeren."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "Ez a PDF nagyobb 50 MB-nál — a jelenlegi feldolgozási korlát felett van."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr "Ez a PDF jelszóval védett vagy titkosított. Távolítsd el a védelmet, majd futtasd újra a javítást."
+
+#: includes/class-a11yfy-guardrails.php:48
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr "Nincs elég PHP-memória a PDF biztonságos feltöltéséhez. Emeld a memory_limit értéket, vagy dolgozz fel kisebb fájlt."
+
+#: includes/class-a11yfy-guardrails.php:54
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "Elérted az oldalra beállított havi kreditkeretet."
+
+#: includes/class-a11yfy-guardrails.php:61
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr "Ez a PDF már átment az akadálymentességi előellenőrzésen — kihagyjuk, hogy ne fogyjon feleslegesen kredit."
+
+#: includes/class-a11yfy-guardrails.php:67
+msgid "This exact file was already remediated."
+msgstr "Pontosan ezt a fájlt már akadálymentesítettük."
+
+#: includes/class-a11yfy-guardrails.php:72
+msgid "A remediation job is already running for this PDF."
+msgstr "Ehhez a PDF-hez már fut akadálymentesítési feladat."
+
+#: includes/class-a11yfy-optimizer-guard.php:212
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "PDF-optimalizálási ütközések (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:220
+msgid "No image optimizer is rewriting PDF files"
+msgstr "Egyetlen képoptimalizáló sem írja újra a PDF-fájlokat"
+
+#: includes/class-a11yfy-optimizer-guard.php:226
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr ""
+"Nem található olyan aktív bővítmény, amely PDF-fájlokat tömörítene. A PDF-tömörítés újraírja a fájlt, és eltávolítja az "
+"akadálymentesítési címkéit."
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "A(z) %s bővítményben be van kapcsolva a PDF-optimalizálás — ez eltávolítja a PDF-ek akadálymentesítési címkéit"
+
+#: includes/class-a11yfy-optimizer-guard.php:244
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"A PDF-tömörítés újraírja a fájlt, és eltávolítja az akadálymentesítési struktúráját (címkék, nyelv, PDF/UA-metaadatok) "
+"— az a11yfy-kreditekből már javított PDF-ekét is. Kapcsold ki a PDF-optimalizálást a bővítmény beállításaiban; az "
+"a11yfy a javított fájlokat egyenként is védi ott, ahol az optimalizáló ezt támogatja."
+
+#: includes/class-a11yfy-optimizer-guard.php:248
+msgid "Review on the a11yfy Dashboard"
+msgstr "Áttekintés az a11yfy Vezérlőpulton"
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] Alacsony kreditegyenleg"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"Az a11yfy-kreditegyenleged %1$d kreditre csökkent. A PDF-akadálymentesítés leáll, ha eléri a nullát.\n"
+"\n"
+"Feltöltés itt: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:160
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "A feladat nem készült el 2 órán belül. Fordulj az a11yfy ügyfélszolgálatához."
+
+#: includes/class-a11yfy-remediate-service.php:270
+msgid "The job finished but no output file was provided."
+msgstr "A feladat elkészült, de nem érkezett kimeneti fájl."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "Az eredeti fájl nem helyben tárolódik (offload bővítmény?) — ez egyelőre nem támogatott."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "A javított PDF URL-je nem érvényes nyilvános https URL."
+
+#: includes/class-a11yfy-replacer.php:119
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "Nem sikerült letölteni az akadálymentesített PDF-et az a11yfy-ról."
+
+#: includes/class-a11yfy-replacer.php:128
+msgid "The downloaded file is not a valid PDF."
+msgstr "A letöltött fájl nem érvényes PDF."
+
+#: includes/class-a11yfy-replacer.php:144
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "Nem sikerült biztonsági másolatot készíteni az eredeti PDF-ről — a cserét megszakítottuk."
+
+#: includes/class-a11yfy-replacer.php:153
+msgid "Could not write the remediated PDF over the original."
+msgstr "Nem sikerült az akadálymentesített PDF-et az eredeti helyére írni."
+
+#: includes/class-a11yfy-replacer.php:177
+msgid "Could not store the remediated PDF next to the original."
+msgstr "Nem sikerült az akadálymentesített PDF-et az eredeti mellé menteni."
+
+#: includes/class-a11yfy-replacer.php:212
+#: includes/class-a11yfy-replacer.php:241
+msgid "No remediated version is recorded for this PDF."
+msgstr "Ehhez a PDF-hez nincs rögzítve akadálymentesített változat."
+
+#: includes/class-a11yfy-replacer.php:215
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "A javított PDF-ről nincs elmentett másolat — futtasd újra a javítást."
+
+#: includes/class-a11yfy-replacer.php:218
+msgid "Could not write the remediated PDF back over the file."
+msgstr "A javított PDF-et nem sikerült visszaírni a fájl helyére."
+
+#: includes/class-a11yfy-replacer.php:246
+msgid "The backup of the original PDF is missing."
+msgstr "Az eredeti PDF biztonsági másolata hiányzik."
+
+#: includes/class-a11yfy-replacer.php:250
+msgid "Could not restore the original PDF."
+msgstr "Nem sikerült visszaállítani az eredeti PDF-et."
+
+msgid "Document details"
+msgstr "Dokumentum részletei"
+
+msgid "Analyzing the document…"
+msgstr "A dokumentum elemzése folyamatban…"
+
+msgid "The document could not be analyzed."
+msgstr "A dokumentumot nem sikerült elemezni."
+
+msgid "Score: %d / 100"
+msgstr "Pontszám: %d / 100"
+
+msgid "Affects the whole document"
+msgstr "A teljes dokumentumot érinti"
+
+msgid "Page %1$d of %2$d"
+msgstr "%1$d. oldal, összesen %2$d"
+
+msgid "%d pages"
+msgstr "%d oldal"
+
+msgid "Technical details"
+msgstr "Technikai részletek"
+
+msgid "%d findings on this page"
+msgstr "%d találat ezen az oldalon"
+
+msgid "Go to page %d"
+msgstr "Ugrás a(z) %d. oldalra"
+
+msgid "Page %d"
+msgstr "%d. oldal"
+
+msgid "Previous page"
+msgstr "Előző oldal"
+
+msgid "Next page"
+msgstr "Következő oldal"
+
+msgid "Zoom in"
+msgstr "Nagyítás"
+
+msgid "Zoom out"
+msgstr "Kicsinyítés"
+
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "A javítás sorba állítva — a Vezérlőpulton követheted."
+
+msgid "Something went wrong — please try again."
+msgstr "Hiba történt — próbáld újra."
+
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "Az előnézetet nem sikerült megjeleníteni (az elemzés ettől még működik)."
+
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "A szöveg ~%d%%-a címkézetlen — a képernyőolvasók kihagyják vagy rossz sorrendben olvassák fel."
+
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "Az eredeti (javítás előtti) fájlt látod — ez az elemzés nem kerül mentésre."
+
+msgid "An image is invisible to screen readers"
+msgstr "Egy kép láthatatlan a képernyőolvasók számára"
+
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr ""
+"A kép se Figure-ként nincs címkézve, se dekoratívként (artifact) nincs megjelölve. A képernyőolvasót használó sosem "
+"tudja meg, hogy létezik — még szöveges leírást sem lehet hozzárendelni."
+
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr "A javítás a valódi képeket Figure-ként címkézi fel leírással, a dekoratívakat pedig artifactként jelöli meg."
+
+msgid "The declared document language does not match the text"
+msgstr "A megadott dokumentumnyelv nem egyezik a szöveggel"
+
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"A PDF egy nyelvet ad meg, a szöveg viszont láthatóan más nyelven íródott. A képernyőolvasók a megadott nyelv alapján "
+"választanak hangot és kiejtést, így a tartalom rossz hanggal szólalna meg."
+
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "A javítás a dokumentum nyelvét arra a nyelvre állítja, amelyen a szöveg ténylegesen íródott."
+
+msgid "The document has no headings at all"
+msgstr "A dokumentumban egyáltalán nincsenek címsorok"
+
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr ""
+"A dokumentum jelentős mennyiségű szöveget tartalmaz, de egyetlen címsor-elemet sem. A képernyőolvasót használók "
+"elsősorban címsorok mentén navigálnak — ezek nélkül a dokumentumot elejétől a végéig, lineárisan kell végigolvasni."
+
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Címkézd fel a szakaszcímeket címsorként (H1–H6), hogy a dokumentum szerkezete navigálhatóvá váljon."
+
+msgid "A long document has no bookmarks"
+msgstr "Egy hosszú dokumentumban nincsenek könyvjelzők"
+
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr ""
+"A dokumentum legalább tíz oldalas, de nincs könyvjelző-vázlata. A könyvjelzőkkel minden olvasó — nem csak a segítő "
+"technológiát használók — közvetlenül egy adott szakaszra ugorhat."
+
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "Adj hozzá a dokumentum szakaszszerkezetét tükröző könyvjelző-vázlatot."
+
+msgid "A table has no header cells"
+msgstr "Egy táblázatnak nincsenek fejléccellái"
+
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr ""
+"Egy adattáblázat nem tartalmaz TH fejléccellákat. A képernyőolvasók minden cella előtt bemondják a hozzá tartozó "
+"fejlécet — fejlécek nélkül a felhasználó csupasz számokat hall, kontextus nélkül."
+
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Címkézd fel az első sort és/vagy oszlopot TH fejléccellaként, megfelelő Scope attribútummal."
+
+msgid "An image description looks like a placeholder"
+msgstr "Egy képleírás helykitöltőnek tűnik"
+
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr ""
+"Egy képhez tartozik ugyan alternatív szöveg, de az fájlnévnek vagy általános helykitöltőnek tűnik (pl. „image3.png”). A "
+"képernyőolvasót használó semmit sem tud meg arról, mit ábrázol a kép valójában."
+
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "Cseréld le a helykitöltőt olyan leírásra, amely átadja a kép jelentését."
+
+msgid "Tagging & structure"
+msgstr "Címkézés és szerkezet"
+
+msgid "Headings"
+msgstr "Címsorok"
+
+msgid "Images & formulas"
+msgstr "Képek és képletek"
+
+msgid "Tables"
+msgstr "Táblázatok"
+
+msgid "Lists & table of contents"
+msgstr "Listák és tartalomjegyzék"
+
+msgid "Forms, links & annotations"
+msgstr "Űrlapok, linkek és annotációk"
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Metadata & display"
+msgstr "Metaadatok és megjelenítés"
+
+msgid "Encryption & permissions"
+msgstr "Titkosítás és jogosultságok"
+
+msgid "Other technical"
+msgstr "Egyéb technikai"
+
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Logikus-e az olvasási sorrend, ha a tartalmat elejétől a végéig olvassuk?"
+
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "A képleírások (alt szövegek) a jelentést adják-e át — nem csak egy fájlnevet?"
+
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "Elegendő-e a szöveg kontrasztja (legalább 4,5:1 a háttérhez képest)?"
+
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "Önmagukban is értelmesek-e a linkszövegek (a „kattints ide” nem az)?"
+
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Vannak-e a táblázatoknak valódi fejléccellái és egyszerű, szabályos szerkezetük?"
+
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "Informatív-e a dokumentum címe, amikor az olvasó címsorában megjelenik?"
+
+msgid "Back to the a11yfy Dashboard"
+msgstr "Vissza az a11yfy Vezérlőpultra"
+
+msgid "Document not found"
+msgstr "A dokumentum nem található"
+
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "Ez a hivatkozás nem a Médiatár egy PDF-jére mutat."
+
+msgid "last scanned %s ago"
+msgstr "utoljára ellenőrizve: %s ezelőtt"
+
+msgid "Fix with a11yfy"
+msgstr "Javítás az a11yfy-jal"
+
+msgid "Re-run the check"
+msgstr "Ellenőrzés újrafuttatása"
+
+msgid "Print report"
+msgstr "Riport nyomtatása"
+
+msgid "Which version to inspect"
+msgstr "Melyik verziót vizsgáljuk"
+
+msgid "Remediated (current)"
+msgstr "Javított (jelenlegi)"
+
+msgid "Original (before)"
+msgstr "Eredeti (javítás előtti)"
+
+msgid "Accessibility findings"
+msgstr "Akadálymentességi találatok"
+
+msgid "Manual review checklist"
+msgstr "Kézi ellenőrzőlista"
+
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "Ezeket a szempontokat gép nem tudja eldönteni — egy gyors emberi átnézés teszi teljessé a képet."
+
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr "Az előnézet vizuális segédlet — a mérvadó, képernyőolvasó-barát riport a bal oldali találatlista."
+
+msgid "1 finding on this page"
+msgstr "1 találat ezen az oldalon"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "Nincs elküldve"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr ""
+"Ez a PDF digitálisan alá van írva. Az akadálymentesítés átírja a fájlt, ami érvénytelenítené az aláírást — küldjön "
+"helyette aláírás nélküli példányt."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr ""
+"Ez a PDF XFA-űrlapot tartalmaz, amelyet az akadálymentesítés nem tud megőrizni. Először alakítsa át hagyományos "
+"PDF-űrlappá."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr "Ez a PDF egy portfólió (beágyazott fájlok gyűjteménye). Ehelyett az egyes beágyazott dokumentumokat akadálymentesítse."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "a11yfy-oldalak"
+
+#: includes/admin/class-a11yfy-admin.php
+msgid "Certificate (a11yfy)"
+msgstr "Tanúsítvány (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php
+msgid "Download certificate"
+msgstr "Tanúsítvány letöltése"
+
+#: includes/class-a11yfy-api-client.php
+msgid "Downloading the certificate failed — please try again."
+msgstr "A tanúsítvány letöltése nem sikerült — próbálja újra."
+
+#: includes/admin/class-a11yfy-admin.php
+msgid "This document has no a11yfy certificate yet."
+msgstr "Ehhez a dokumentumhoz még nincs a11yfy-tanúsítvány."
+
+#: includes/admin/views/document.php
+msgid "Verify certificate online"
+msgstr "Tanúsítvány online ellenőrzése"
+
+#: includes/admin/class-a11yfy-admin.php
+msgid "You are not allowed to download this certificate."
+msgstr "Nincs jogosultsága a tanúsítvány letöltéséhez."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr ""
+"A dokumentum digitálisan alá van írva. Az akadálymentesítés módosítja a fájlt, így az aláírás érvényét veszti. Biztosan "
+"folytatod?"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr ""
+"Ez a PDF digitálisan alá van írva. A javítás átírja a fájlt, így az aláírás érvényét veszti — a javítás csak a "
+"megerősítésed után indul."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "Becsült költség: ~%d kredit"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "Becsült költség: %1$d–%2$d kredit"
+
+#~ msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+#~ msgstr "Akadálymentes PDF (a11yfy) — az optimalizálás eltávolítaná az akadálymentesítési címkéket."

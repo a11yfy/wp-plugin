@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "Artefact marcat ca conținut real",
+    "description": "Un artefact de pagină (antet, subsol, element decorativ) este marcat incorect ca conținut real în arbore de structură. Cititor de ecran va încerca să citească elementele decorative ca fiind conținutul documentului.",
+    "severity_label": "critical",
+    "suggested_fix": "Schimbați tipul elementului de structură în Artefact sau încadrați conținutul într-o secvență de conținut marcat de tip Artefact."
+  },
+  "01-002": {
+    "title": "Conținut real marcat ca artefact",
+    "description": "Conținutul autentic al documentului (textul corpului, titlu, legendă) este marcat incorect ca Artefact. Cititor de ecran va ignora complet acest conținut.",
+    "severity_label": "critical",
+    "suggested_fix": "Eliminați marcajul de Artefact de pe conținutul real și asigurați-vă că este marcat corespunzător cu un element de structură adecvat."
+  },
+  "01-003": {
+    "title": "Artefact în interiorul conținutului marcat",
+    "description": "Un element marcat ca artefact apare în interiorul unui element de structură care reprezintă conținut real, corupând ierarhia conținutului.",
+    "severity_label": "critical",
+    "suggested_fix": "Mutați conținutul marcat ca artefact în afara elementului de structură de conținut real sau restructurați ierarhia elementelor."
+  },
+  "01-004": {
+    "title": "Conținut marcat în interiorul unui artefact",
+    "description": "Un element de conținut real marcat este imbricat în interiorul unui container Artefact. Cititor de ecran ar putea ignora acest conținut.",
+    "severity_label": "critical",
+    "suggested_fix": "Mutați conținutul marcat în afara containerului Artefact și plasați-l la nivelul corect în arbore de structură."
+  },
+  "01-005": {
+    "title": "Conținut nici marcat, nici artefact",
+    "description": "Conținutul de pe pagină nu este nici marcat ca element de structură, nici marcat ca artefact. Aceasta este cea mai frecventă încălcare PDF/UA și cauza principală a tăcerii cititor de ecran asupra conținutului.",
+    "severity_label": "critical",
+    "suggested_fix": "Fie marcați conținutul cu un element de structură adecvat (P, H1-H6, Figure etc.), fie marcați-l ca Artefact dacă este decorativ."
+  },
+  "01-006": {
+    "title": "StructTreeRoot lipsește",
+    "description": "Dicționarul catalog document trebuie să includă intrarea StructTreeRoot, care servește drept rădăcină a structurii logice a documentului. Fără aceasta, cititor de ecran nu pot interpreta deloc structura documentului.",
+    "severity_label": "critical",
+    "suggested_fix": "Adăugați un obiect StructTreeRoot la dicționarul catalog document și construiți ierarhia elementelor de structură pentru toate paginile cu conținut."
+  },
+  "01-007": {
+    "title": "Indicatorul Suspect este true",
+    "description": "Intrarea Suspects din dicționarul MarkInfo al documentului este setată pe true, indicând faptul că arbore de structură poate conține marcaje nesigure. Tehnologiile asistive pot ignora complet arbore de structură.",
+    "severity_label": "critical",
+    "suggested_fix": "Setați indicatorul Suspects pe false în dicționarul MarkInfo după ce ați verificat că tot conținutul este marcat corect."
+  },
+  "02-001": {
+    "title": "Maparea rolurilor non-standard nu se termină cu un tip standard",
+    "description": "Un rol personalizat în RoleMap nu se mapează la un tip de structură PDF standard. Ținta finală a lanțului de mapare trebuie să fie un tip standard din setul de roluri PDF 32000-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Asigurați-vă că fiecare rol non-standard din RoleMap se mapează direct sau tranzitiv la un tip standard (de exemplu, Document, Part, Sect, P, H1-H6, L, LI, Table, Figure etc.)."
+  },
+  "02-002": {
+    "title": "Mapare de rol semantic inadecvată",
+    "description": "Rolul unui element de structură a fost mapat la un tip standard care nu corespunde scopului semantic al elementului (de exemplu, un titlu mapat la Span).",
+    "severity_label": "critical",
+    "suggested_fix": "Revizuiți RoleMap și asigurați-vă că fiecare mapare reflectă rolul semantic real al conținutului. Poate fi necesară judecata umană."
+  },
+  "02-003": {
+    "title": "Mapare de rol circulară",
+    "description": "RoleMap conține un lanț circular în care rolul A se mapează la B, B se mapează la C, iar C se mapează înapoi la A, creând o buclă infinită pentru procesoare.",
+    "severity_label": "major",
+    "suggested_fix": "Întrerupeți lanțul circular prin maparea rolului final direct la un tip standard adecvat."
+  },
+  "02-004": {
+    "title": "Tip standard remapat",
+    "description": "Un tip de structură PDF standard (de exemplu, P, H1, Table) este remapat la un tip diferit prin RoleMap, ceea ce nu este permis de PDF/UA-1.",
+    "severity_label": "critical",
+    "suggested_fix": "Eliminați maparea pentru acest tip standard din RoleMap. Tipurile standard nu trebuie remapate."
+  },
+  "06-001": {
+    "title": "Flux de metadate XMP lipsă",
+    "description": "Documentul nu conține un flux de metadate XMP în intrarea Metadata a catalogului. PDF/UA-1 necesită metadate XMP.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați un flux de metadate XMP la catalog document cu cel puțin dc:format (application/pdf), pdfuaid:part (1) și dc:title."
+  },
+  "06-002": {
+    "title": "Identificator PDF/UA lipsă",
+    "description": "Metadate XMP nu conține proprietatea pdfuaid:part, care identifică documentul ca fiind conform cu PDF/UA-1 (ISO 14289-1).",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați proprietatea pdfuaid:part cu valoarea 1 la fluxul de metadate XMP pentru a declara conformitatea cu PDF/UA-1."
+  },
+  "06-003": {
+    "title": "dc:title lipsește în metadate",
+    "description": "Metadate XMP sau dicționarul de informații al documentului nu conține o intrare dc:title. PDF/UA-1 necesită ca documentul să aibă un titlu.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați o intrare dc:title la fluxul de metadate XMP. Utilizați titlul real al documentului sau o alternativă semnificativă."
+  },
+  "07-001": {
+    "title": "Preferință vizualizator DisplayDocTitle lipsă",
+    "description": "Dicționarul de preferințe vizualizator al documentului nu conține cheia DisplayDocTitle. Când lipsește sau este false, vizualizatoarele afișează numele fișierului în loc de titlul documentului.",
+    "severity_label": "major",
+    "suggested_fix": "Setați DisplayDocTitle pe true în dicționarul de preferințe vizualizator al documentului (Catalog/ViewerPreferences)."
+  },
+  "07-002": {
+    "title": "DisplayDocTitle setat pe false",
+    "description": "Cheia DisplayDocTitle din preferințe vizualizator este setată pe false, determinând vizualizatoarele să afișeze numele fișierului în bara de titlu în loc de titlul documentului.",
+    "severity_label": "major",
+    "suggested_fix": "Schimbați DisplayDocTitle pe true în dicționarul de preferințe vizualizator."
+  },
+  "08-002": {
+    "title": "Textul OCR nu este marcat în arbore de structură",
+    "description": "Documentul conține text generat prin OCR (frecvent în PDF-urile scanate) care nu este marcat în arbore de structură. Utilizatorii de cititor de ecran nu pot accesa acest conținut.",
+    "severity_label": "critical",
+    "suggested_fix": "Asigurați-vă că tot textul generat prin OCR este inclus în arbore de structură cu etichete adecvate. Pentru PDF-urile scanate, reconstruiți documentul cu un strat de text complet suprapus."
+  },
+  "09-001": {
+    "title": "Etichete care nu sunt în ordine logică de citire",
+    "description": "Elementele de structură din arbore nu sunt aranjate în ordine logică de citire a documentului. Cititor de ecran navighează prin document în ordinea arborelui, care poate diferi de ordinea vizuală.",
+    "severity_label": "critical",
+    "suggested_fix": "Reordonați elementele de structură din arbore pentru a corespunde cu ordine logică de citire (de obicei de sus în jos, de la stânga la dreapta pentru limba dată)."
+  },
+  "09-002": {
+    "title": "Imbricare semantic inadecvată",
+    "description": "Un element de structură este imbricat în interiorul unui element părinte unde nu aparține din punct de vedere semantic (de exemplu, un rând de tabel în interiorul unui paragraf sau un titlu în interiorul unei liste).",
+    "severity_label": "critical",
+    "suggested_fix": "Restructurați ierarhia elementelor pentru a vă asigura că fiecare element este imbricat în interiorul unui părinte semantic adecvat."
+  },
+  "09-003": {
+    "title": "Tip de structură inadecvat după maparea rolurilor",
+    "description": "După rezolvarea mapării rolurilor, tipul final de structură nu este adecvat din punct de vedere semantic pentru conținutul pe care îl conține.",
+    "severity_label": "major",
+    "suggested_fix": "Ajustați RoleMap sau schimbați tipul original de structură astfel încât tipul rezolvat să corespundă cu rolul semantic al conținutului."
+  },
+  "09-004": {
+    "title": "Elementul de tabel nu respectă Tabelul 337",
+    "description": "Un element de structură de tip Table nu respectă structura copil permisă (Tabelul 337 în ISO 32000-1). Un tabel trebuie să conțină cel puțin un TBody cu copii TR sau secțiuni THead/TBody/TFoot.",
+    "severity_label": "major",
+    "suggested_fix": "Asigurați-vă că elementul Table conține rânduri structurate corespunzător: Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD. Cel puțin, încadrați rândurile într-un TBody."
+  },
+  "09-005": {
+    "title": "Elementul de listă nu respectă Tabelul 336",
+    "description": "Un element de structură de tip L (Listă) nu respectă structura copil permisă (Tabelul 336 în ISO 32000-1). O listă trebuie să conțină elemente LI, iar un LI trebuie să conțină Lbl (opțional) și LBody.",
+    "severity_label": "major",
+    "suggested_fix": "Structurați listele ca: L > LI > (Lbl)? + LBody. Asigurați-vă că fiecare element de listă are un copil LBody care conține conținutul elementului."
+  },
+  "09-006": {
+    "title": "Elementul de cuprins nu respectă Tabelul 333",
+    "description": "Un element de structură de tip TOC (cuprins) nu respectă structura copil permisă. TOC trebuie să conțină elemente TOCI.",
+    "severity_label": "minor",
+    "suggested_fix": "Structurați intrările din cuprins ca: TOC > TOCI > (referință) + (Lbl)? + (P)."
+  },
+  "09-007": {
+    "title": "Element Ruby neconform",
+    "description": "Un element de structură Ruby (utilizat pentru anotări de pronunție) nu respectă structura copil necesară: Ruby > RB + (RT | RP).",
+    "severity_label": "minor",
+    "suggested_fix": "Restructurați elementul Ruby cu copiii necesari RB (bază ruby) și RT (text ruby)."
+  },
+  "09-008": {
+    "title": "Element Warichu neconform",
+    "description": "Un element de structură Warichu (comentariu sau anotare în linie în text CJK) nu respectă structura necesară: Warichu > WT + WP.",
+    "severity_label": "minor",
+    "suggested_fix": "Restructurați elementul Warichu cu copiii necesari WT (text warichu) și WP (punctuație warichu)."
+  },
+  "10-001": {
+    "title": "Codul de caracter nu poate fi mapat la Unicode",
+    "description": "Un cod de caracter din textul documentului nu poate fi mapat la o valoare Unicode. Aceasta cauzează caractere ilizibile sau lipsă atunci când tehnologiile asistive extrag textul.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că toate fonturile au un CMap ToUnicode care mapează fiecare cod de caracter utilizat la o valoare Unicode validă. Verificați dacă CMap acoperă toate glifele utilizate în document."
+  },
+  "11-001": {
+    "title": "Limba conținutului paginii nu poate fi determinată",
+    "description": "Limba naturală a conținutului paginii nu poate fi determinată deoarece intrarea /Lang lipsește din catalog document sau din elementele de structură la nivel de pagină.",
+    "severity_label": "critical",
+    "suggested_fix": "Setați intrarea /Lang în catalog document la limba principală a documentului (de exemplu, 'ro-RO', 'en-US'). Adăugați /Lang la elementele de structură individuale dacă conținutul schimbă limba."
+  },
+  "11-002": {
+    "title": "Limba pentru text alternativ/ActualText nu poate fi determinată",
+    "description": "Limba descrierilor textului alternativ (Alt) sau a înlocuirilor ActualText nu poate fi determinată.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați atribute /Lang la elementele de structură care conțin Alt sau ActualText atunci când limba textului diferă de cea implicită a documentului."
+  },
+  "11-003": {
+    "title": "Limba conturului nu este setată",
+    "description": "Conturul documentului (semne de carte) nu are o intrare /Lang, împiedicând tehnologiile asistive să pronunțe corect elementele conturului.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare /Lang la dicționarul conturului care să corespundă limbii principale a documentului."
+  },
+  "11-004": {
+    "title": "Limba conținutului anotării nu este setată",
+    "description": "Șirurile de conținut ale anotării (indicii, valori câmp formular) nu au o declarație de limbă asociată.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați /Lang la dicționarele de aspect ale anotării atunci când textul anotării diferă de limba documentului."
+  },
+  "11-005": {
+    "title": "Limba TU a câmp formular nu este setată",
+    "description": "Intrarea Tooltip (TU) a câmpuri formular nu are o limbă asociată, ceea ce poate cauza o pronunție incorectă de către cititor de ecran.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că textul indiciului câmp formular include identificarea limbii dacă diferă de limba implicită a documentului."
+  },
+  "11-006": {
+    "title": "Limba metadatelor documentului nu este setată",
+    "description": "Metadate XMP nu declară o proprietate dc:language, sau intrarea /Lang din catalog document lipsește sau este goală.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați dc:language la metadate XMP și setați /Lang în catalog document la o etichetă de limbă RFC 3066."
+  },
+  "12-001": {
+    "title": "Caracterele extensibile nu au ActualText",
+    "description": "Caracterele extensibile (paranteze, acolade, semne radicale) utilizate în contexte matematice sau decorative nu au înlocuiri ActualText.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați ActualText la secvențele de caractere extensibile care descriu semnificația lor semantică (de exemplu, ActualText='(' pentru o paranteză stânga extensibilă)."
+  },
+  "13-001": {
+    "title": "Grafică nemarcată ca Figure",
+    "description": "Un element grafic (imagine, diagramă, grafic) din conținutul documentului nu este marcat cu un element de structură Figure.",
+    "severity_label": "major",
+    "suggested_fix": "Marcați toate elementele grafice non-decorative ca elemente Figure în arbore de structură, cu text alternativ adecvat."
+  },
+  "13-002": {
+    "title": "Link cu fundal semnificativ fără text alternativ",
+    "description": "O anotare de link are un aspect vizual semnificativ (de exemplu, o imagine utilizată ca buton), dar îi lipsește textul alternativ care să îi descrie scopul.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați o intrare Contents la anotarea de link care să îi descrie destinația sau scopul."
+  },
+  "13-003": {
+    "title": "Legendă nemarcată ca Caption",
+    "description": "O legendă (legendă imagine, titlu tabel, legendă figură) este marcată ca text obișnuit (P) în loc să utilizeze tipul de structură Caption.",
+    "severity_label": "major",
+    "suggested_fix": "Marcați legendele cu tipul de structură Caption și asigurați-vă că sunt asociate corect cu elementul părinte Figure sau Table."
+  },
+  "13-004": {
+    "title": "Figure fără text alternativ",
+    "description": "Un element de structură Figure este prezent, dar nu are un atribut Alt care să ofere text alternativ. Cititor de ecran vor anunța prezența figurii, dar nu pot descrie conținutul acesteia.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați o intrare /Alt la elementul de structură Figure cu o descriere concisă a conținutului imaginii."
+  },
+  "14-001": {
+    "title": "Titluri nemarcate",
+    "description": "Conținutul care funcționează vizual ca un titlu (font mai mare, aldine, stil distinct) nu este marcat cu un tip de structură de titlu (H1-H6).",
+    "severity_label": "major",
+    "suggested_fix": "Identificați toate titlurile din document și marcați-le cu elemente de structură H1-H6 adecvate care reflectă nivelul lor ierarhic."
+  },
+  "14-002": {
+    "title": "Primul titlu nu este H1",
+    "description": "Primul titlu din arbore de structură al documentului nu este de tip H1. O bună practică PDF/UA-1 este ca titlul de nivel superior să fie H(n), iar titlurile ulterioare să nu sară peste niveluri.",
+    "severity_label": "major",
+    "suggested_fix": "Asigurați-vă că primul titlu este H1 (sau H2 dacă titlul documentului este în metadate). Renumerați titlurile ulterioare pentru a evita săriturile de nivel."
+  },
+  "14-003": {
+    "title": "Nivel de titlu sărit",
+    "description": "Nivelurile de titlu din arbore de structură sar peste un nivel (de exemplu, H1 urmat direct de H3 fără un H2 intermediar). Acest lucru întrerupe ierarhia logică a titlurilor pentru utilizatorii de tehnologii asistive.",
+    "severity_label": "major",
+    "suggested_fix": "Asigurați-vă că nivelurile de titlu sunt secvențiale, fără goluri. Renumerați titlurile astfel încât H1 să fie urmat de H2, apoi H3 etc."
+  },
+  "14-005": {
+    "title": "Titlu profund fără tip H7+",
+    "description": "Un titlu la nivelul de imbricare 7 sau mai profund nu are un tip de structură H7+ corespunzător. PDF definește doar H1 până la H6.",
+    "severity_label": "minor",
+    "suggested_fix": "Aplatizați ierarhia titlurilor la maximum 6 niveluri sau utilizați maparea de roluri non-standard cu precauție."
+  },
+  "14-006": {
+    "title": "Mai multe etichete H într-un singur nod de structură",
+    "description": "Un singur element de structură conține mai mult de o etichetă de titlu (de exemplu, un Sect care conține atât H1, cât și H2). Fiecare titlu ar trebui să creeze un nou nivel de imbricare.",
+    "severity_label": "major",
+    "suggested_fix": "Divideți nodul de structură astfel încât fiecare titlu să înceapă o nouă secțiune sau subsecțiune la nivelul adecvat."
+  },
+  "14-007": {
+    "title": "Etichete H și Hn amestecate inconsistent",
+    "description": "Unele titluri utilizează tipul generic 'H', în timp ce altele utilizează tipuri numerotate 'H1'-'H6' în mod inconsistent în cadrul aceluiași document.",
+    "severity_label": "major",
+    "suggested_fix": "Convertiți toate etichetele H generice în tipuri numerotate H1-H6 pe baza poziției lor în ierarhia titlurilor."
+  },
+  "15-001": {
+    "title": "Antet rând nemarcat ca celulă antet",
+    "description": "O celulă de tabel care servește drept antet rând este marcată ca TD (celulă de date) în loc de TH (celulă antet). Acest lucru împiedică cititor de ecran să asocieze corect antetele cu celulele de date.",
+    "severity_label": "major",
+    "suggested_fix": "Schimbați tipul de structură al celulelor antet rând din TD în TH și adăugați un atribut Scope adecvat (Scope='Row')."
+  },
+  "15-002": {
+    "title": "Antet coloană nemarcat ca celulă antet",
+    "description": "O celulă de tabel care servește drept antet coloană este marcată ca TD în loc de TH. Cititor de ecran nu pot naviga logic prin tabel.",
+    "severity_label": "major",
+    "suggested_fix": "Schimbați tipul de structură al celulelor antet coloană din TD în TH și adăugați un atribut Scope adecvat (Scope='Column')."
+  },
+  "15-003": {
+    "title": "TH fără Scope fără asocieri Headers/ID",
+    "description": "Un element TH (antet tabel) nu are un atribut Scope, iar tabelul nu utilizează asocieri Headers/ID pentru a lega antetele de celulele de date.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați Scope='Row', Scope='Column' sau Scope='Both' la elementele TH sau implementați asocieri Headers/ID."
+  },
+  "15-005": {
+    "title": "Asociere ambiguă a antetului de celulă",
+    "description": "Celulele antet asociate unei celule de date nu pot fi determinate fără ambiguitate din cauza structurii complexe a tabelului (celule îmbinate, aspect neregulat).",
+    "severity_label": "major",
+    "suggested_fix": "Utilizați atribute explicite Headers/ID pentru a lega fiecare TD de elementele TH corespunzătoare sau simplificați structura tabelului."
+  },
+  "16-001": {
+    "title": "Listă ordonată fără ListNumbering",
+    "description": "O listă ordonată (tip L cu elemente numerotate) nu are atributul ListNumbering, care specifică formatul de numerotare.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați atributul ListNumbering la elementul L cu o valoare precum 'Decimal', 'UpperRoman', 'LowerAlpha' etc."
+  },
+  "16-002": {
+    "title": "Valoare ListNumbering invalidă",
+    "description": "Atributul ListNumbering pe un element L are o valoare nerecunoscută sau invalidă.",
+    "severity_label": "minor",
+    "suggested_fix": "Setați ListNumbering la o valoare validă: None, Disc, Circle, Square, Decimal, UpperRoman, LowerRoman, UpperAlpha sau LowerAlpha."
+  },
+  "16-003": {
+    "title": "Conținut listă nemarcat ca listă",
+    "description": "Conținutul care este vizual și semantic o listă (elemente cu marcatori sau numerotate) este marcat ca paragrafe individuale sau alte elemente care nu sunt de tip listă.",
+    "severity_label": "major",
+    "suggested_fix": "Restructurați conținutul ca o Listă (L) cu elemente de listă (LI), fiecare conținând un Lbl opțional și un LBody necesar."
+  },
+  "17-001": {
+    "title": "Expresie matematică nemarcată ca formulă",
+    "description": "O expresie matematică din document este marcată ca paragraf obișnuit sau figură în loc să utilizeze tipul de structură Formula.",
+    "severity_label": "minor",
+    "suggested_fix": "Marcați expresiile matematice cu tipul de structură Formula și furnizați text alternativ care să descrie expresia."
+  },
+  "17-002": {
+    "title": "Formula fără text alternativ",
+    "description": "Un element de structură Formula este prezent, dar nu are text alternativ care să descrie expresia matematică.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare /Alt la elementul Formula cu o reprezentare textuală a expresiei matematice."
+  },
+  "17-003": {
+    "title": "Caracter de formulă nemapat la Unicode",
+    "description": "Un caracter dintr-o formulă matematică nu poate fi mapat la Unicode, cauzând citirea de către tehnologiile asistive a unei ieșiri ilizibile.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că fontul utilizat pentru simbolurile matematice are un CMap ToUnicode complet care acoperă toate glifele. Consultați și 10-001."
+  },
+  "18-001": {
+    "title": "Antet/subsol nemarcat ca artefact de paginare",
+    "description": "Antetele și subsolurile curente (numere de pagină, titluri de capitole care se repetă pe fiecare pagină) sunt marcate ca conținut real în loc să fie marcate ca artefacte de paginare.",
+    "severity_label": "major",
+    "suggested_fix": "Marcați antetele și subsolurile curente ca Artefact cu subtipul 'Pagination' astfel încât cititor de ecran să le ignore în timpul citirii continue."
+  },
+  "18-002": {
+    "title": "Antet/subsol fără subtip de artefact corect",
+    "description": "Antetele și subsolurile sunt marcate ca artefact, dar nu au subtipul „Pagination” sau utilizează un subtip incorect.",
+    "severity_label": "major",
+    "suggested_fix": "Setați subtipul artefact la „Pagination” pentru antetele și subsolurile curente și la „Header” sau „Footer” doar pentru conținutul de sus/jos de pe prima/ultima pagină."
+  },
+  "19-001": {
+    "title": "Notă de subsol neetichetată ca notă",
+    "description": "O notă de subsol sau o notă de final din document este etichetată ca paragraf obișnuit în loc să utilizeze tipul de structură Notă.",
+    "severity_label": "major",
+    "suggested_fix": "Etichetați notele de subsol și notele de final ca elemente Notă, cu un atribut ID unic și un element Referință în corpul textului care să indice către acestea."
+  },
+  "19-002": {
+    "title": "Referință neetichetată ca Referință",
+    "description": "O citare în text sau un marcaj de referință încrucișată este etichetat ca text obișnuit în loc să utilizeze tipul de structură Referință.",
+    "severity_label": "major",
+    "suggested_fix": "Etichetați marcajele de citare și referințele încrucișate ca elemente Referință, legându-le de Nota sau destinația corespunzătoare."
+  },
+  "19-003": {
+    "title": "ID-ul Notei lipsește",
+    "description": "Un element de structură Notă nu are un atribut ID, ceea ce împiedică legătura referențială de la elementul Referință din corpul textului.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați un atribut ID unic fiecărui element Notă, astfel încât elementele Referință să poată indica către acestea."
+  },
+  "19-004": {
+    "title": "ID-ul Notei nu este unic",
+    "description": "Două sau mai multe elemente de structură Notă partajează aceeași valoare a atributului ID, cauzând o rezoluție ambiguă a referinței.",
+    "severity_label": "major",
+    "suggested_fix": "Asigurați-vă că fiecare element Notă are un ID unic la nivel global în cadrul documentului."
+  },
+  "20-001": {
+    "title": "Configurația conținutului opțional nu are Nume (tablou Configs)",
+    "description": "Un dicționar de configurare a conținutului opțional din tabloul OCConfigs al documentului nu are o intrare Nume.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare descriptivă /Name fiecărei configurații de conținut opțional din tabloul OCProperties/Configs."
+  },
+  "20-002": {
+    "title": "Configurația conținutului opțional nu are Nume (D implicit)",
+    "description": "Dicționarul de configurare a conținutului opțional implicit (intrarea D în OCProperties) nu are o intrare Nume.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare /Name dicționarului de configurare a conținutului opțional implicit."
+  },
+  "20-003": {
+    "title": "Cheia AS este prezentă în configurația conținutului opțional",
+    "description": "Un dicționar de configurare a conținutului opțional conține o intrare AS (specifică aplicației), care nu este permisă de PDF/UA-1 deoarece poate modifica aspectul vizual al documentului fără știrea utilizatorului.",
+    "severity_label": "minor",
+    "suggested_fix": "Eliminați cheia AS din dicționarul de configurare a conținutului opțional."
+  },
+  "21-001": {
+    "title": "Fișier încorporat fără cheile F și UF",
+    "description": "Un dicționar de specificații pentru fișiere încorporate nu are intrarea obligatorie F (șir de specificații fișier) sau UF (șir de specificații fișier text Unicode).",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați ambele intrări F și UF dicționarului de specificații al fișierului care descrie fișierul încorporat."
+  },
+  "22-001": {
+    "title": "Fir articol neconform",
+    "description": "O structură de fir articol nu respectă formatul obligatoriu de fir articol PDF cu legături V (fir următor) și N (fir anterior) corespunzătoare.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că firele de articol sunt legate corect cu intrările V și N și că fiecare fir este asociat cu pagina corectă."
+  },
+  "24-001": {
+    "title": "Formular non-interactiv fără PrintFields",
+    "description": "Un formular non-interactiv (de exemplu, un formular plat imprimat dintr-o intrare digitală) nu are setat indicatorul NeedAppearances sau bitul PrintFields lipsește din parametrii de transformare FieldMDP.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că acele câmpuri de formular destinate exclusiv imprimării au setările FieldMDP corecte, cu bitul PrintFields activat."
+  },
+  "25-001": {
+    "title": "XFA form dynamicRender nu este obligatoriu",
+    "description": "Un formular XFA (XML Forms Architecture) conține elemente dynamicRender care nu sunt setate pe „required”, ceea ce poate cauza inconsecvențe de redare.",
+    "severity_label": "critical",
+    "suggested_fix": "Setați dynamicRender='required' pe elementele formularului XFA sau migrați de la XFA la AcroForms pentru un suport mai bun de accesibilitate."
+  },
+  "28-001": {
+    "title": "Anotare care nu este în ordinea de citire",
+    "description": "O anotare (link, câmp formular, comentariu) este prezentă pe o pagină, dar elementul de structură asociat nu este plasat în poziția corectă a ordinii de citire în arborele de structură.",
+    "severity_label": "major",
+    "suggested_fix": "Plasați elementele de structură ale anotării (Link, Form, Annot) în poziția corectă în arborele de structură în raport cu conținutul din jur."
+  },
+  "28-002": {
+    "title": "Anotare care nu se află în interiorul unui element de structură Annot",
+    "description": "Un obiect de anotare de pe pagină nu este inclus într-un element de structură Annot (sau subtip corespunzător: Link, Form).",
+    "severity_label": "major",
+    "suggested_fix": "Includeți fiecare obiect de anotare în elementul de structură corespunzător (Link pentru hyperlinkuri, Form pentru widgeturi)."
+  },
+  "28-003": {
+    "title": "Anotare utilizată doar pentru formatare vizuală",
+    "description": "O anotare este utilizată pur pentru formatare vizuală (de exemplu, un dreptunghi desenat ca decor) și nu este etichetată corespunzător.",
+    "severity_label": "minor",
+    "suggested_fix": "Marcați anotările destinate doar formatării ca artefact sau eliminați-le și utilizați în schimb operatori de desenare PDF corespunzători."
+  },
+  "28-004": {
+    "title": "Anotare fără Contents și Alt",
+    "description": "O anotare nu are o intrare Contents (descriere text) sau o intrare Alt (text alternativ), lăsând utilizatorii de cititor de ecran fără context.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați un șir /Contents fiecărei anotări care îi descrie scopul. Furnizați /Alt pentru anotările care nu sunt text."
+  },
+  "28-005": {
+    "title": "Câmp formular fără TU sau Alt",
+    "description": "O anotare de tip widget de câmp formular nu are o intrare Tooltip (TU) sau Alt, făcând imposibil pentru utilizatorii de cititor de ecran să înțeleagă scopul câmpului.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați o intrare /TU (tooltip) fiecărui câmp formular care îi descrie scopul și formatul de intrare așteptat."
+  },
+  "28-006": {
+    "title": "Subtip de anotare nedefinit",
+    "description": "O anotare are o valoare Subtype care nu este definită în ISO 32000-1, ceea ce poate cauza un comportament imprevizibil în procesoarele PDF.",
+    "severity_label": "minor",
+    "suggested_fix": "Înlocuiți sau eliminați anotările cu subtipuri nedefinite sau asigurați-vă că subtipul personalizat este înregistrat și gestionat corespunzător."
+  },
+  "28-007": {
+    "title": "Anotare TrapNet prezentă",
+    "description": "O anotare TrapNet (utilizată în fluxurile de lucru de trapping pentru prepress) este prezentă în document și nu este etichetată sau marcată ca artefact corespunzător.",
+    "severity_label": "minor",
+    "suggested_fix": "Marcați anotările TrapNet ca artefact, deoarece nu au nicio semnificație semantică pentru consumatorii documentului."
+  },
+  "28-008": {
+    "title": "Pagină cu anotări fără cheia Tabs",
+    "description": "O pagină care conține anotări (linkuri, câmpuri formular) nu are o intrare Tabs, care specifică ordinea tab-urilor pentru navigarea de la tastatură.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați o intrare /Tabs dicționarului paginii. Utilizați /Tabs=S pentru ordinea structurii (recomandat pentru documente accesibile)."
+  },
+  "28-009": {
+    "title": "Tabs nu este setat pe S (ordinea structurii)",
+    "description": "Cheia Tabs de pe o pagină este setată la o altă valoare decât „S” (de exemplu, „R” pentru ordinea pe rânduri, „C” pentru ordinea pe coloane), care s-ar putea să nu corespundă ordinii logice de citire a documentului.",
+    "severity_label": "major",
+    "suggested_fix": "Setați /Tabs pe „S” (ordinea structurii) pe paginile cu anotări, astfel încât navigarea de la tastatură să urmeze ordinea arborelui de structură."
+  },
+  "28-010": {
+    "title": "Anotare widget care nu se află în interiorul unui element Form",
+    "description": "O anotare widget (câmp formular) nu este inclusă într-un element de structură Form în arbore.",
+    "severity_label": "major",
+    "suggested_fix": "Includeți fiecare anotare widget într-un element de structură Form. Grupați câmpurile de formular conexe în același container Form."
+  },
+  "28-011": {
+    "title": "Anotare link care nu se află în interiorul unui element Link",
+    "description": "O anotare link (hyperlink) nu este inclusă într-un element de structură Link în arbore.",
+    "severity_label": "major",
+    "suggested_fix": "Includeți fiecare anotare link într-un element de structură Link poziționat în locul corect din ordinea de citire."
+  },
+  "28-012": {
+    "title": "Anotare link fără Contents",
+    "description": "O anotare Link nu are o intrare Contents care să descrie destinația sau scopul linkului.",
+    "severity_label": "major",
+    "suggested_fix": "Adăugați un șir /Contents fiecărei anotări Link care descrie către ce indică linkul."
+  },
+  "28-013": {
+    "title": "IsMap=true fără hartă de imagine pe partea de server",
+    "description": "O anotare link are IsMap setat pe true, dar imaginea asociată nu funcționează ca o hartă de imagine pe partea de server.",
+    "severity_label": "minor",
+    "suggested_fix": "Setați IsMap pe false dacă imaginea nu este o hartă de imagine activă pe partea de server cu comportament sensibil la coordonate."
+  },
+  "28-016": {
+    "title": "Fișier atașat care nu respectă clauza 7.11",
+    "description": "O anotare de atașare fișier face referire la un fișier încorporat care nu respectă cerințele clauzei 7.11 (Fluxuri de fișiere încorporate).",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că fișierele încorporate au ambele intrări F și UF și că dicționarul de specificații al fișierului este complet. Consultați și 21-001."
+  },
+  "28-017": {
+    "title": "PrinterMark în structura logică",
+    "description": "O anotare PrinterMark (semne de tăiere, semne de înregistrare, bare de culoare) apare în arborele de structură logică al documentului, unde nu are nicio semnificație semantică.",
+    "severity_label": "minor",
+    "suggested_fix": "Eliminați anotările PrinterMark din arborele de structură și marcați-le ca artefact."
+  },
+  "28-018": {
+    "title": "Aspectul PrinterMark nu este marcat ca artefact",
+    "description": "Fluxul de aspect al unei anotări PrinterMark nu este marcat ca artefact, determinând cititoarele de ecran să încerce să descrie semnele de imprimare.",
+    "severity_label": "minor",
+    "suggested_fix": "Marcați conținutul de aspect PrinterMark ca artefact în fluxul de conținut."
+  },
+  "30-001": {
+    "title": "XObject de referință prezent",
+    "description": "Un XObject de referință este utilizat în document. XObject-urile de referință importă conținut din fișiere PDF externe, ceea ce poate compromite accesibilitatea deoarece conținutul importat nu este integrat corect în arborele de structură.",
+    "severity_label": "major",
+    "suggested_fix": "Evitați XObject-urile de referință. Dacă sunt necesare, asigurați-vă că tot conținutul importat este etichetat corect în arborele de structură al documentului gazdă."
+  },
+  "30-002": {
+    "title": "Form XObject cu MCID-uri referențiate de mai multe ori",
+    "description": "Un Form XObject care conține conținut marcat cu MCID-uri (identificatori de conținut marcat) este referențiat din mai multe locații, cauzând conflicte de MCID în secvența de conținut marcat a paginii.",
+    "severity_label": "major",
+    "suggested_fix": "Evitați reutilizarea Form XObject-urilor care conțin conținut marcat. Aplatizați sau duplicați XObject-ul pentru fiecare locație de utilizare."
+  },
+  "31-001": {
+    "title": "Nepotrivire în registrul CIDSystemInfo între descendenții Type0",
+    "description": "CIDFont-urile descendente ale fontului Type0 au valori de registru CIDSystemInfo inconsistente, ceea ce poate cauza eșecuri în maparea caracterelor.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că toate CIDFont-urile descendente ale unui font Type0 au valori CIDSystemInfo (Registry, Ordering, Supplement) consistente."
+  },
+  "31-002": {
+    "title": "Nepotrivire în Ordering CIDSystemInfo între descendenții Type0",
+    "description": "CIDFont-urile descendente ale fontului Type0 au valori de Ordering CIDSystemInfo inconsistente.",
+    "severity_label": "minor",
+    "suggested_fix": "Aliniați valorile Ordering între toate CIDFont-urile descendente ale fontului Type0."
+  },
+  "31-003": {
+    "title": "Nepotrivire în Supplement CIDSystemInfo între descendenții Type0",
+    "description": "CIDFont-urile descendente ale fontului Type0 au valori de Supplement CIDSystemInfo inconsistente.",
+    "severity_label": "minor",
+    "suggested_fix": "Aliniați valorile Supplement între toate CIDFont-urile descendente ale fontului Type0."
+  },
+  "31-004": {
+    "title": "CIDFont fără CIDToGIDMap",
+    "description": "Un dicționar CIDFont nu conține o intrare CIDToGIDMap și nu utilizează o mapare Identity, ceea ce face căutarea glifelor nesigură.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare CIDToGIDMap dicționarului CIDFont sau setați-o pe „Identity” dacă fontul utilizează CID-uri de identitate."
+  },
+  "31-005": {
+    "title": "CIDFont necesită o mapare CIDToGIDMap care nu este Identity",
+    "description": "Un CIDFont a cărui colecție de caractere nu este Adobe-Identity necesită un flux CIDToGIDMap explicit pentru o mapare corectă a glifelor.",
+    "severity_label": "minor",
+    "suggested_fix": "Furnizați un flux CIDToGIDMap explicit pentru CIDFont dacă nu utilizează colecția de caractere Adobe-Identity."
+  },
+  "31-006": {
+    "title": "CMap nelistat sau neîncorporat",
+    "description": "O resursă CMap utilizată de un font Type0 nu este listată în CMap-urile standard din specificația PDF și nici încorporată în document.",
+    "severity_label": "minor",
+    "suggested_fix": "Utilizați un CMap standard din specificația PDF sau încorporați fluxul CMap personalizat în document."
+  },
+  "31-007": {
+    "title": "Nepotrivire WMode în fontul Type0",
+    "description": "Valorile WMode (mod de scriere) diferă între CMap și CIDFont-urile descendente ale unui font Type0.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că valorile WMode sunt consistente (0 pentru orizontal, 1 pentru vertical) între CMap și toate CIDFont-urile descendente."
+  },
+  "31-008": {
+    "title": "CMap face referire la un CMap nelistat",
+    "description": "Un flux CMap face referire la un alt CMap care nu este nici un CMap standard, nici încorporat în document.",
+    "severity_label": "minor",
+    "suggested_fix": "Încorporați toate CMap-urile non-standard referențiate în document sau utilizați doar CMap-uri standard."
+  },
+  "31-009": {
+    "title": "Font neîncorporat",
+    "description": "Un font utilizat în document nu este încorporat. Fonturile neîncorporate cauzează revenirea la fonturile de sistem, care pot avea metrici și acoperire de glife diferite, afectând extragerea textului și fidelitatea vizuală.",
+    "severity_label": "critical",
+    "suggested_fix": "Încorporați toate fonturile utilizate în document. Pentru cele 14 fonturi standard care nu pot fi încorporate, asigurați-vă că programul fontului este disponibil sau substituiți-l cu un echivalent încorporat."
+  },
+  "31-011": {
+    "title": "Programul fontului încorporat nu are glifa",
+    "description": "O glifă la care se face referire în textul documentului nu este prezentă în programul fontului încorporat.",
+    "severity_label": "major",
+    "suggested_fix": "Subsetați fontul pentru a include toate glifele necesare sau utilizați un font diferit care include glifele necesare."
+  },
+  "31-012": {
+    "title": "Type1 CharSet: glifă nelistată",
+    "description": "CharSet-ul unui font Type1 nu listează o glifă care este de fapt prezentă în programul fontului și utilizată în document.",
+    "severity_label": "minor",
+    "suggested_fix": "Actualizați CharSet-ul pentru a include toate glifele prezente în programul fontului la care se face referire în document."
+  },
+  "31-013": {
+    "title": "Type1 CharSet: glifa listată nu este în font",
+    "description": "CharSet-ul unui font Type1 listează un nume de glifă care nu există în programul fontului încorporat.",
+    "severity_label": "minor",
+    "suggested_fix": "Eliminați numele de glife inexistente din CharSet sau încorporați fontul complet."
+  },
+  "31-014": {
+    "title": "CID CIDSet: glifă nelistată",
+    "description": "CIDSet-ul unui CIDFont nu include un CID care este de fapt prezent în programul fontului încorporat și utilizat în document.",
+    "severity_label": "minor",
+    "suggested_fix": "Actualizați CIDSet-ul pentru a include toate valorile CID utilizate în document."
+  },
+  "31-015": {
+    "title": "CID CIDSet: CID-ul listat nu este în font",
+    "description": "CIDSet-ul unui CIDFont listează un CID care nu corespunde niciunei glife din programul fontului încorporat.",
+    "severity_label": "minor",
+    "suggested_fix": "Eliminați CID-urile inexistente din CIDSet sau regenerați-l din programul fontului real."
+  },
+  "31-016": {
+    "title": "Discrepanță lățime glifă > 1/1000",
+    "description": "Lățimea glifei specificată în dicționarul fontului diferă cu mai mult de 1 unitate la 1000 față de lățimea din programul fontului încorporat.",
+    "severity_label": "minor",
+    "suggested_fix": "Corectați tabloul Widths (sau intrarea W2) din dicționarul fontului pentru a corespunde lățimilor reale ale glifelor din programul fontului încorporat."
+  },
+  "31-017": {
+    "title": "TrueType non-simbolic fără cmap non-simbolic",
+    "description": "Un font TrueType cu codificare non-simbolică (intrare Encoding prezentă sau indicator simbolic dezactivat) nu conține un subtablou cmap (3,1) pentru maparea Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că programul fontului TrueType conține un subtablou cmap (3,1) Microsoft Unicode BMP pentru o mapare corectă a caracterelor Unicode."
+  },
+  "31-018": {
+    "title": "Glifă TrueType non-simbolică nu este în cmap",
+    "description": "O glifă dintr-un font TrueType non-simbolic nu poate fi găsită prin subtablourile cmap ale fontului.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că toate glifele utilizate în document sunt accesibile prin cel puțin un subtablou cmap din font."
+  },
+  "31-019": {
+    "title": "Dicționar font TrueType non-simbolic fără Encoding",
+    "description": "Un dicționar de font TrueType non-simbolic nu are o intrare Encoding, care este obligatorie pentru rezoluția numelor de glife.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați o intrare Encoding corespunzătoare (de exemplu, WinAnsiEncoding, MacRomanEncoding) dicționarului fontului."
+  },
+  "31-020": {
+    "title": "Dicționar Encoding fără BaseEncoding",
+    "description": "Un dicționar Encoding cu un tablou de diferențe nu specifică o intrare BaseEncoding.",
+    "severity_label": "minor",
+    "suggested_fix": "Specificați BaseEncoding (de exemplu, WinAnsiEncoding) în dicționarul Encoding, față de care tabloul de diferențe deviază."
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncoding nu este MacRoman sau WinAnsi",
+    "description": "Encoding-ul sau BaseEncoding-ul unui font TrueType non-simbolic nu este nici MacRomanEncoding, nici WinAnsiEncoding, care sunt cele două codificări de bază standard.",
+    "severity_label": "minor",
+    "suggested_fix": "Utilizați WinAnsiEncoding sau MacRomanEncoding ca codificare de bază pentru font."
+  },
+  "31-022": {
+    "title": "Numele de glife din diferențe nu sunt în Adobe Glyph List",
+    "description": "Un tablou de diferențe dintr-un dicționar Encoding al unui font utilizează nume de glife care nu se află în Adobe Glyph List (AGL).",
+    "severity_label": "minor",
+    "suggested_fix": "Utilizați doar nume de glife standard din Adobe Glyph List în tabloul de diferențe."
+  },
+  "31-023": {
+    "title": "Diferențe prezente, dar fără cmap (3,1)",
+    "description": "Un font are un tablou de diferențe în Encoding-ul său, dar programul fontului TrueType nu conține un subtablou cmap (3,1) pentru maparea Unicode.",
+    "severity_label": "minor",
+    "suggested_fix": "Adăugați un CMap ToUnicode pentru font pentru a asigura o mapare Unicode fiabilă."
+  },
+  "31-024": {
+    "title": "Dicționar font TrueType simbolic are Encoding",
+    "description": "Un font TrueType simbolic (bitul 3 al indicatorilor setat) are o intrare Encoding în dicționarul său de font, ceea ce nu este permis pentru fonturile simbolice.",
+    "severity_label": "minor",
+    "suggested_fix": "Eliminați intrarea Encoding din dicționarele de fonturi TrueType simbolice. Fonturile simbolice se bazează pe cmap-ul programului fontului pentru maparea caracterelor."
+  },
+  "31-025": {
+    "title": "Program font TrueType simbolic fără cmap",
+    "description": "Programul fontului încorporat al unui font TrueType simbolic nu conține niciun tabel cmap.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că programul fontului încorporat include cel puțin un subtablou cmap (3,0) pentru maparea caracterelor simbolice."
+  },
+  "31-026": {
+    "title": "TrueType simbolic cu mai multe cmap-uri fără (3,0)",
+    "description": "Un font TrueType simbolic are mai multe subtablouri cmap, dar îi lipsește subtabloul cmap (3,0) Microsoft Symbol obligatoriu.",
+    "severity_label": "minor",
+    "suggested_fix": "Asigurați-vă că programul fontului încorporat include un subtablou cmap (3,0) Microsoft Symbol pentru o mapare corectă a caracterelor."
+  },
+  "31-027": {
+    "title": "CMap ToUnicode lipsește",
+    "description": "Un font utilizat pentru conținut text nu are un CMap ToUnicode și nu se aplică nicio condiție de scutire. Fără un CMap ToUnicode, tehnologiile asistive nu pot extrage text lizibil.",
+    "severity_label": "critical",
+    "suggested_fix": "Adăugați un flux CMap ToUnicode dicționarului fontului, mapând fiecare cod de caracter utilizat în document la valoarea Unicode corespunzătoare."
+  },
+  "31-028": {
+    "title": "ToUnicode mapează la CID 0",
+    "description": "Un CMap ToUnicode mapează un cod de caracter la valoarea Unicode U+0000 (nul), care nu este un caracter text valid.",
+    "severity_label": "minor",
+    "suggested_fix": "Corectați CMap-ul ToUnicode pentru a mapa codul de caracter la o valoare Unicode validă, non-nulă."
+  },
+  "31-029": {
+    "title": "ToUnicode mapează la U+FEFF sau U+FFFE",
+    "description": "Un CMap ToUnicode mapează un cod de caracter la U+FEFF (BOM) sau U+FFFE (byte-order mark), care sunt caractere de control și nu sunt text afișabil valid.",
+    "severity_label": "minor",
+    "suggested_fix": "Înlocuiți mapările U+FEFF/U+FFFE din CMap-ul ToUnicode cu valoarea Unicode reală a caracterului."
+  },
+  "31-030": {
+    "title": "Glifa .notdef referențiată în text",
+    "description": "Un operator de afișare text din document face referire la glifa .notdef (index glifă 0), ceea ce indică un caracter lipsă sau indisponibil. Textul care utilizează .notdef apare ca caractere goale sau tofu.",
+    "severity_label": "major",
+    "suggested_fix": "Asigurați-vă că toate codurile de caractere utilizate în document corespund glifelor reale din programul fontului încorporat."
+  }
+}

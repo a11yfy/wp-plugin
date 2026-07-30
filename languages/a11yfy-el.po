@@ -1,0 +1,1325 @@
+# Copyright (C) 2026 a11yfy
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/a11yfy\n"
+"Last-Translator: a11yfy (DeepL machine translation)\n"
+"Language-Team: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-07T07:17:03+00:00\n"
+"PO-Revision-Date: 2026-07-23 13:48+0000\n"
+"X-Generator: a11yfy translate-po.mjs (DeepL)\n"
+"X-Domain: a11yfy\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "a11yfy – PDF Accessibility Checker & Fixer"
+msgstr "a11yfy – PDF Accessibility Checker & Fixer"
+
+#. Plugin URI of the plugin
+msgid "https://a11yfy.com/wordpress"
+msgstr "https://a11yfy.com/wordpress"
+
+#. Description of the plugin
+msgid ""
+"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
+"a11yfy service."
+msgstr ""
+"Δωρεάν έλεγχος προσβασιμότητας αρχείων PDF απευθείας στον περιηγητή (αυτόματοι έλεγχοι σύμφωνα με το Πρωτόκολλο "
+"Matterhorn) και διόρθωση σύμφωνα με το πρότυπο PDF/UA-1 με ένα μόνο κλικ μέσω της υπηρεσίας a11yfy."
+
+#. Author of the plugin
+msgid "a11yfy"
+msgstr "a11yfy"
+
+#. Author URI of the plugin
+msgid "https://a11yfy.com"
+msgstr "https://a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:39
+#: includes/admin/views/dashboard.php:23
+msgid "a11yfy — PDF Accessibility"
+msgstr "a11yfy — Προσβασιμότητα αρχείων PDF"
+
+#: includes/admin/class-a11yfy-admin.php:47
+msgid "Dashboard"
+msgstr "Πίνακας ελέγχου"
+
+#: includes/admin/class-a11yfy-admin.php:48
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: includes/admin/class-a11yfy-admin.php:68
+#. translators: 1: current position, 2: total number of PDFs.
+msgid "Scanning… %1$d / %2$d"
+msgstr "Σάρωση… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:70
+#. translators: %d: number of PDFs checked.
+msgid "Scan finished: %d PDFs checked."
+msgstr "Η σάρωση ολοκληρώθηκε: ελέγχθηκαν %d αρχεία PDF."
+
+#: includes/admin/class-a11yfy-admin.php:72
+#. translators: %s: file name.
+msgid "Scan failed for %s"
+msgstr "Η σάρωση απέτυχε για το %s"
+
+#: includes/admin/class-a11yfy-admin.php:73
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "Δεν χρειάζεται να σαρώσετε κανένα αρχείο PDF — όλα είναι ενημερωμένα."
+
+#: includes/admin/class-a11yfy-admin.php:75
+#. translators: %d: number of PDFs queued.
+msgid "Remediation queued for %d PDFs."
+msgstr "Η διόρθωση έχει τεθεί σε ουρά για %d αρχεία PDF."
+
+#: includes/admin/class-a11yfy-admin.php:96
+#: includes/admin/class-a11yfy-admin.php:150
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Δεν επιτρέπεται να αλλάξετε τις ρυθμίσεις του a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:178
+msgid "Settings saved."
+msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
+
+#: includes/admin/class-a11yfy-admin.php:179
+msgid "Connected to a11yfy — the API key works."
+msgstr "Συνδεδεμένο με το a11yfy — το κλειδί API λειτουργεί."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
+msgstr "Συνδεδεμένο με το a11yfy — οι άμεσες ενημερώσεις κατάστασης (webhook) είναι ενεργοποιημένες."
+
+#: includes/admin/class-a11yfy-admin.php:181
+msgid "Disconnected. The stored API key was removed."
+msgstr "Αποσύνδεση. Το αποθηκευμένο κλειδί API καταργήθηκε."
+
+#: includes/admin/class-a11yfy-admin.php:182
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr ""
+"Αυτό δεν μοιάζει με κλειδί API του a11yfy (αναμένεται να είναι ak_live_… ή ak_test_…). Οι υπόλοιπες ρυθμίσεις "
+"αποθηκεύτηκαν."
+
+#: includes/admin/class-a11yfy-admin.php:183
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr ""
+"Το a11yfy απέρριψε το κλειδί API. Ελέγξτε το στο a11yfy.com στην ενότητα Λογαριασμός → Κλειδιά API. Οι υπόλοιπες "
+"ρυθμίσεις αποθηκεύτηκαν."
+
+#: includes/admin/class-a11yfy-admin.php:184
+msgid "Connection cancelled on a11yfy.com."
+msgstr "Η σύνδεση ακυρώθηκε στον ιστότοπο a11yfy.com."
+
+#: includes/admin/class-a11yfy-admin.php:185
+msgid "Connecting to a11yfy failed — please try again."
+msgstr "Η σύνδεση με το a11yfy απέτυχε — παρακαλώ δοκιμάστε ξανά."
+
+#: includes/admin/class-a11yfy-admin.php:186
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "Δεν ήταν δυνατή η επαλήθευση της απόκρισης σύνδεσης (το αίτημα έχει λήξει ή έχει παραποιηθεί). Παρακαλώ δοκιμάστε ξανά."
+
+#: includes/admin/class-a11yfy-admin.php:187
+msgid "All set — a11yfy is ready to work."
+msgstr "Όλα έτοιμα — το a11yfy είναι έτοιμο για χρήση."
+
+#: includes/admin/class-a11yfy-admin.php:202
+#. translators: %d: number of queued PDFs.
+msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
+msgstr "a11yfy: %d αρχεία PDF σε αναμονή για διόρθωση. Παρακολουθήστε την πρόοδο στον πίνακα ελέγχου του a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:219
+#. translators: %d: remaining credits.
+msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
+msgstr "Το υπόλοιπό σας είναι χαμηλό (απομένουν %d μονάδες). Η αποκατάσταση θα διακοπεί όταν το υπόλοιπο φτάσει στο μηδέν."
+
+#: includes/admin/class-a11yfy-admin.php:220
+msgid "Your last remediation was blocked: not enough credits."
+msgstr "Η τελευταία σας διορθωτική ενέργεια αποκλείστηκε: δεν έχετε αρκετές μονάδες."
+
+#: includes/admin/class-a11yfy-admin.php:223
+msgid "Top up on a11yfy.com"
+msgstr "Ανανέωση στο a11yfy.com"
+
+#: includes/admin/class-a11yfy-admin.php:233
+msgid "a11yfy PDF accessibility"
+msgstr "a11yfy Προσβασιμότητα αρχείων PDF"
+
+#: includes/admin/class-a11yfy-admin.php:241
+msgid "a11yfy is set up and working"
+msgstr "Το a11yfy έχει εγκατασταθεί και λειτουργεί"
+
+#: includes/admin/class-a11yfy-admin.php:244
+#: includes/admin/class-a11yfy-admin.php:279
+msgid "Accessibility"
+msgstr "Προσβασιμότητα"
+
+#: includes/admin/class-a11yfy-admin.php:247
+msgid "Background queue is available and the a11yfy connection works."
+msgstr "Η ουρά παρασκηνίου είναι διαθέσιμη και η σύνδεση a11yfy λειτουργεί."
+
+#: includes/admin/class-a11yfy-admin.php:253
+msgid "a11yfy background processing is unavailable"
+msgstr "Η επεξεργασία στο παρασκήνιο του a11yfy δεν είναι διαθέσιμη"
+
+#: includes/admin/class-a11yfy-admin.php:254
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr ""
+"Δεν ήταν δυνατή η φόρτωση του Action Scheduler — οι ενημερώσεις σχετικά με την κατάσταση αποκατάστασης θα είναι αργές "
+"(εναλλακτική λύση WP-cron που ενεργοποιείται με την επίσκεψη)."
+
+#: includes/admin/class-a11yfy-admin.php:260
+msgid "a11yfy is not connected"
+msgstr "Το a11yfy δεν είναι συνδεδεμένο"
+
+#: includes/admin/class-a11yfy-admin.php:261
+msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
+msgstr "Η δωρεάν σάρωση λειτουργεί, αλλά για τη διόρθωση αρχείων PDF απαιτείται κλειδί API του a11yfy (a11yfy → Ρυθμίσεις)."
+
+#: includes/admin/class-a11yfy-admin.php:269
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d PDFs on this site are not accessible"
+msgstr "%d αρχεία PDF σε αυτόν τον ιστότοπο δεν είναι προσβάσιμα"
+
+#: includes/admin/class-a11yfy-admin.php:270
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Ανοίξτε τον πίνακα ελέγχου του a11yfy για να τα ελέγξετε και να τα διορθώσετε."
+
+#: includes/admin/class-a11yfy-admin.php:297
+msgid "Compliant"
+msgstr "Σύμφωνο"
+
+#: includes/admin/class-a11yfy-admin.php:298
+msgid "Remediated"
+msgstr "Αποκαταστάθηκε"
+
+#: includes/admin/class-a11yfy-admin.php:302
+#. translators: %d: number of issues fixed.
+msgid "(%d issues fixed)"
+msgstr "(%d προβλήματα επιλύθηκαν)"
+
+#: includes/admin/class-a11yfy-admin.php:309
+msgid "Remediation in progress…"
+msgstr "Η αποκατάσταση βρίσκεται σε εξέλιξη…"
+
+#: includes/admin/class-a11yfy-admin.php:313
+msgid "Remediation failed"
+msgstr "Η αποκατάσταση απέτυχε"
+
+#: includes/admin/class-a11yfy-admin.php:319
+#: includes/admin/views/dashboard.php:141
+msgid "Passed pre-check"
+msgstr "Πέρασε τον προκαταρκτικό έλεγχο"
+
+#: includes/admin/class-a11yfy-admin.php:321
+msgid "Low risk"
+msgstr "Χαμηλός κίνδυνος"
+
+#: includes/admin/class-a11yfy-admin.php:323
+msgid "Medium risk"
+msgstr "Μέτριος κίνδυνος"
+
+#: includes/admin/class-a11yfy-admin.php:325
+msgid "High risk"
+msgstr "Υψηλός κίνδυνος"
+
+#: includes/admin/class-a11yfy-admin.php:327
+#: includes/admin/views/dashboard.php:143
+msgid "Not accessible"
+msgstr "Δεν είναι προσβάσιμο"
+
+#: includes/admin/class-a11yfy-admin.php:329
+#: includes/admin/views/dashboard.php:145
+msgid "Not scanned yet"
+msgstr "Δεν έχει σαρωθεί ακόμα"
+
+#: includes/admin/class-a11yfy-admin.php:335
+msgid "Make accessible with a11yfy"
+msgstr "Δημιουργία προσβασιμότητας με το a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:365
+msgid "Restore original (a11yfy)"
+msgstr "Επαναφορά αρχικής μορφής (a11yfy)"
+
+#: includes/admin/class-a11yfy-admin.php:372
+msgid "Make accessible (a11yfy)"
+msgstr "Δημιουργία προσβασιμότητας (a11yfy)"
+
+#: includes/admin/class-a11yfy-ajax.php:30
+msgid "Session expired — reload the page."
+msgstr "Η συνεδρία έχει λήξει — ανανεώστε τη σελίδα."
+
+#: includes/admin/class-a11yfy-ajax.php:33
+msgid "You are not allowed to do that."
+msgstr "Δεν επιτρέπεται να το κάνεις αυτό."
+
+#: includes/admin/class-a11yfy-ajax.php:213
+#: includes/admin/class-a11yfy-ajax.php:228
+msgid "Connect your a11yfy account first (Settings)."
+msgstr "Συνδέστε πρώτα τον λογαριασμό σας στο a11yfy (Ρυθμίσεις)."
+
+#: includes/admin/views/dashboard.php:27
+msgid "Connected to a11yfy"
+msgstr "Συνδεδεμένο με το a11yfy"
+
+#: includes/admin/views/dashboard.php:32
+#. translators: %d: credit balance.
+msgid "Credits: %d"
+msgstr "Πιστώσεις: %d"
+
+#: includes/admin/views/dashboard.php:34
+msgid "Top up"
+msgstr "Ανανέωση"
+
+#: includes/admin/views/dashboard.php:41
+#. translators: 1: credits spent this month, 2: monthly cap.
+msgid "This month: %1$d / %2$d credits"
+msgstr "Αυτόν τον μήνα: %1$d / %2$d μονάδες"
+
+#: includes/admin/views/dashboard.php:46
+msgid "Not connected — the free scan works without an account."
+msgstr "Δεν έχετε συνδεθεί — η δωρεάν σάρωση λειτουργεί χωρίς λογαριασμό."
+
+#: includes/admin/views/dashboard.php:49
+msgid "Connect a11yfy"
+msgstr "Σύνδεση a11yfy"
+
+#: includes/admin/views/dashboard.php:57
+msgid "Connected. How should we work?"
+msgstr "Συνδεδεμένοι. Πώς πρέπει να δουλεύουμε;"
+
+#: includes/admin/views/dashboard.php:65
+#. translators: %d: number of non-compliant PDFs found by the free scan.
+msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA risk)."
+msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA risk)."
+msgstr[0] ""
+"Η δωρεάν σάρωση εντόπισε %d αρχεία PDF σε αυτόν τον ιστότοπο που δεν πληρούν τις απαιτήσεις προσβασιμότητας (κίνδυνος "
+"EAA)."
+msgstr[1] ""
+"Η δωρεάν σάρωση εντόπισε %d αρχεία PDF σε αυτόν τον ιστότοπο που δεν πληρούν τις απαιτήσεις προσβασιμότητας (κίνδυνος "
+"EAA)."
+
+#: includes/admin/views/dashboard.php:83
+#: includes/admin/views/settings.php:78
+msgid "How should we work?"
+msgstr "Πώς πρέπει να εργαστούμε;"
+
+#: includes/admin/views/dashboard.php:88
+#: includes/admin/views/settings.php:86
+msgid "Automatic (recommended)"
+msgstr "Αυτόματη (συνιστάται)"
+
+#: includes/admin/views/dashboard.php:90
+msgid "Nothing for you to do: whenever a PDF is uploaded, it is made accessible automatically."
+msgstr "Δεν χρειάζεται να κάνετε τίποτα: κάθε φορά που ανεβαίνει ένα αρχείο PDF, καθίσταται αυτόματα προσβάσιμο."
+
+#: includes/admin/views/dashboard.php:96
+#. translators: %s: number input for the monthly credit cap.
+msgid "Monthly cap: %s credits"
+msgstr "Μηνιαίο όριο: %s μονάδες"
+
+#: includes/admin/views/dashboard.php:100
+#: includes/admin/views/settings.php:98
+msgid "Monthly credit cap"
+msgstr "Μηνιαίο πιστωτικό όριο"
+
+#: includes/admin/views/dashboard.php:110
+#: includes/admin/views/settings.php:91
+msgid "Manual"
+msgstr "Εγχειρίδιο"
+
+#: includes/admin/views/dashboard.php:112
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr ""
+"Μπορείτε να ξεκινήσετε τη διόρθωση μόνοι σας — στη Βιβλιοθήκη πολυμέσων ή σε αυτόν τον Πίνακα ελέγχου. Τίποτα δεν "
+"εκτελείται χωρίς τη δική σας παρέμβαση."
+
+#: includes/admin/views/dashboard.php:120
+msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
+msgstr ""
+"Συμβουλή: εκτελέστε πρώτα τον δωρεάν έλεγχο που ακολουθεί για να δείτε πώς τα πάει αυτός ο ιστότοπος — η επιλογή που "
+"κάνατε παραπάνω ισχύει σε κάθε περίπτωση."
+
+#: includes/admin/views/dashboard.php:126
+msgid "Start working"
+msgstr "Ξεκινήστε να εργάζεστε"
+
+#: includes/admin/views/dashboard.php:134
+msgid "PDF status"
+msgstr "Κατάσταση αρχείου PDF"
+
+#: includes/admin/views/dashboard.php:136
+msgid ""
+"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
+"your site."
+msgstr ""
+"Δωρεάν τεχνικός προ-έλεγχος βάσει των κριτηρίων PDF/UA-1 που μπορούν να επαληθευτούν αυτόματα — εκτελείται στον "
+"περιηγητή σας, χωρίς να αποστέλλεται κανένα αρχείο από τον ιστότοπό σας."
+
+#: includes/admin/views/dashboard.php:142
+msgid "Partially accessible"
+msgstr "Μερικώς προσβάσιμο"
+
+#: includes/admin/views/dashboard.php:144
+msgid "Remediated by a11yfy"
+msgstr "Επεξεργάστηκε από τον a11yfy"
+
+#: includes/admin/views/dashboard.php:151
+msgid "Scan PDF library"
+msgstr "Σάρωση βιβλιοθήκης PDF"
+
+#: includes/admin/views/dashboard.php:161
+#. translators: %d: number of non-compliant PDFs.
+msgid "%d documents do not meet the accessibility requirements (EAA risk)."
+msgstr "%d έγγραφα δεν πληρούν τις απαιτήσεις προσβασιμότητας (κίνδυνος EAA)."
+
+#: includes/admin/views/dashboard.php:166
+msgid "Fix all"
+msgstr "Διόρθωση όλων"
+
+#: includes/admin/views/dashboard.php:173
+#. translators: 1: estimated credits, 2: current balance.
+msgid "estimated: up to ~%1$d credits — your balance: %2$d"
+msgstr "εκτιμώμενο: έως ~%1$d μονάδες — το υπόλοιπό σας: %2$d"
+
+#: includes/admin/views/dashboard.php:185
+msgid "Remediation jobs"
+msgstr "Εργασίες αποκατάστασης"
+
+#: includes/admin/views/dashboard.php:186
+msgid "No remediation has been run yet."
+msgstr "Δεν έχει πραγματοποιηθεί ακόμη καμία διορθωτική ενέργεια."
+
+#: includes/admin/views/dashboard.php:190
+msgid "File"
+msgstr "Αρχείο"
+
+#: includes/admin/views/dashboard.php:191
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: includes/admin/views/dashboard.php:192
+msgid "Result"
+msgstr "Αποτέλεσμα"
+
+#: includes/admin/views/dashboard.php:193
+msgid "Credits"
+msgstr "Ευχαριστίες"
+
+#: includes/admin/views/settings.php:16
+msgid "a11yfy Settings"
+msgstr "Ρυθμίσεις a11yfy"
+
+#: includes/admin/views/settings.php:22
+msgid "Connection"
+msgstr "Σύνδεση"
+
+#: includes/admin/views/settings.php:28
+msgid "Connect to a11yfy"
+msgstr "Σύνδεση με το a11yfy"
+
+#: includes/admin/views/settings.php:32
+msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
+msgstr ""
+"Με ένα κλικ: συνδεθείτε ή εγγραφείτε στο a11yfy.com, εγκρίνετε την πρόσβαση, και τελειώσατε. Εναλλακτικά, επικολλήστε "
+"ένα κλειδί API παρακάτω."
+
+#: includes/admin/views/settings.php:38
+msgid "API key"
+msgstr "Κλειδί API"
+
+#: includes/admin/views/settings.php:43
+msgid "connected"
+msgstr "συνδεδεμένος"
+
+#: includes/admin/views/settings.php:47
+msgid "Disconnect (remove the stored key)"
+msgstr "Αποσύνδεση (αφαίρεση του αποθηκευμένου κλειδιού)"
+
+#: includes/admin/views/settings.php:49
+msgid "To replace the key, paste a new one below."
+msgstr "Για να αντικαταστήσετε το κλειδί, επικολλήστε ένα νέο παρακάτω."
+
+#: includes/admin/views/settings.php:57
+#. translators: %s: link to the a11yfy account page.
+msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
+msgstr ""
+"Δημιουργήστε ένα κλειδί στο %s, στην ενότητα Λογαριασμός → Κλειδιά API. Το κλειδί αποθηκεύεται κρυπτογραφημένο και δεν "
+"αποστέλλεται ποτέ στον περιηγητή."
+
+#: includes/admin/views/settings.php:66
+msgid "Status updates"
+msgstr "Ενημερώσεις κατάστασης"
+
+#: includes/admin/views/settings.php:69
+msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes; polling remains as a safety net."
+msgstr ""
+"Άμεσα (webhook) — το a11yfy ειδοποιεί αυτόν τον ιστότοπο τη στιγμή που ολοκληρώνεται μια εργασία· η περιοδική έλεγχος "
+"παραμένει ως δίχτυ ασφαλείας."
+
+#: includes/admin/views/settings.php:71
+msgid ""
+"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
+"updates when your site is publicly reachable."
+msgstr ""
+"Ελέγχος κατάστασης — ο ιστότοπος ελέγχει την κατάσταση της εργασίας στο παρασκήνιο. Η επανασύνδεση μέσω της διαδικασίας "
+"με τα κουμπιά επιτρέπει άμεσες ενημερώσεις μέσω webhook όταν ο ιστότοπός σας είναι προσβάσιμος στο κοινό."
+
+#: includes/admin/views/settings.php:81
+msgid "Mode"
+msgstr "Λειτουργία"
+
+#: includes/admin/views/settings.php:87
+msgid "new PDF uploads are made accessible automatically."
+msgstr "Τα νέα αρχεία PDF που ανεβάζονται καθίστανται προσβάσιμα αυτόματα."
+
+#: includes/admin/views/settings.php:92
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "επιλέγετε τι θέλετε να διορθώσετε στη Βιβλιοθήκη πολυμέσων ή στον Πίνακα ελέγχου."
+
+#: includes/admin/views/settings.php:102
+msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
+msgstr "Η αποκατάσταση διακόπτεται όταν ξοδευτεί αυτός ο αριθμός πιστώσεων σε ένα ημερολογιακό μήνα. 0 = χωρίς όριο."
+
+#: includes/admin/views/settings.php:106
+msgid "Low-credit warning below"
+msgstr "Παρακάτω ακολουθεί προειδοποίηση για χαμηλή πιστοληπτική ικανότητα"
+
+#: includes/admin/views/settings.php:110
+msgid "Admin notice + email when the balance drops below this. 0 = off."
+msgstr "Ειδοποίηση διαχειριστή + email όταν το υπόλοιπο πέσει κάτω από αυτό το όριο. 0 = απενεργοποιημένο."
+
+#: includes/admin/views/settings.php:114
+msgid "Saving strategy"
+msgstr "Στρατηγική αποταμίευσης"
+
+#: includes/admin/views/settings.php:119
+msgid "Replace in place (recommended)"
+msgstr "Αντικατάσταση χωρίς αφαίρεση (συνιστάται)"
+
+#: includes/admin/views/settings.php:120
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "ίδια διεύθυνση URL, με το πρωτότυπο να διατηρείται ως αντίγραφο ασφαλείας με δυνατότητα επαναφοράς με ένα κλικ."
+
+#: includes/admin/views/settings.php:124
+msgid "Conservative"
+msgstr "Συντηρητικός"
+
+#: includes/admin/views/settings.php:125
+msgid "the original file is never touched; links are swapped when pages render."
+msgstr "το αρχικό αρχείο δεν τροποποιείται ποτέ· οι σύνδεσμοι αντικαθίστανται κατά την εμφάνιση των σελίδων."
+
+#: includes/admin/views/settings.php:131
+msgid "Notification email"
+msgstr "Ειδοποιητικό email"
+
+#: includes/admin/views/settings.php:136
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Ειδοποιήσεις για χαμηλό υπόλοιπο και αποτυχίες. Κενό = email διαχειριστή ιστότοπου."
+
+#: includes/admin/views/settings.php:140
+msgid "On plugin deletion"
+msgstr "Σχετικά με τη διαγραφή προσθηκών"
+
+#: includes/admin/views/settings.php:145
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Φυλάξτε τα επεξεργασμένα αρχεία PDF (συνιστάται — αποτελούν το περιεχόμενό σας)."
+
+#: includes/admin/views/settings.php:149
+msgid "Restore the original files from backup."
+msgstr "Επαναφέρετε τα αρχικά αρχεία από το αντίγραφο ασφαλείας."
+
+#: includes/admin/views/settings.php:156
+msgid "Save settings"
+msgstr "Αποθήκευση ρυθμίσεων"
+
+#: includes/class-a11yfy-api-client.php:102
+msgid "The PDF file could not be read from disk."
+msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου PDF από το δίσκο."
+
+#: includes/class-a11yfy-api-client.php:125
+msgid "No a11yfy API key configured."
+msgstr "Δεν έχει ρυθμιστεί κλειδί API a11yfy."
+
+#: includes/class-a11yfy-api-client.php:185
+#. translators: %d: HTTP status code.
+msgid "a11yfy API error (HTTP %d)."
+msgstr "Σφάλμα API a11yfy (HTTP %d)."
+
+#: includes/class-a11yfy-connect.php:39
+#: includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Δεν επιτρέπεται η σύνδεση με αυτόν τον ιστότοπο."
+
+#: includes/class-a11yfy-guardrails.php:27
+msgid "The attachment file is not available on the local filesystem."
+msgstr "Το συνημμένο αρχείο δεν είναι διαθέσιμο στο τοπικό σύστημα αρχείων."
+
+#: includes/class-a11yfy-guardrails.php:33
+msgid "This PDF is larger than 50 MB — above the current processing limit."
+msgstr "Αυτό το αρχείο PDF έχει μέγεθος μεγαλύτερο από 50 MB — υπερβαίνει το τρέχον όριο επεξεργασίας."
+
+#: includes/class-a11yfy-guardrails.php:40
+msgid "Not enough PHP memory to upload this PDF safely. Raise memory_limit or process a smaller file."
+msgstr ""
+"Δεν υπάρχει αρκετή μνήμη PHP για την ασφαλή μεταφόρτωση αυτού του αρχείου PDF. Αυξήστε την τιμή του memory_limit ή "
+"επεξεργαστείτε ένα μικρότερο αρχείο."
+
+#: includes/class-a11yfy-guardrails.php:46
+msgid "The monthly credit cap set for this site has been reached."
+msgstr "Έχει εξαντληθεί το μηνιαίο όριο πίστωσης που έχει οριστεί για αυτόν τον ιστότοπο."
+
+#: includes/class-a11yfy-guardrails.php:53
+msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
+msgstr ""
+"Αυτό το αρχείο PDF έχει ήδη περάσει τον προκαταρκτικό έλεγχο προσβασιμότητας — παραλείπεται για να αποφευχθεί η άσκοπη "
+"χρήση πιστώσεων."
+
+#: includes/class-a11yfy-guardrails.php:59
+msgid "This exact file was already remediated."
+msgstr "Αυτό ακριβώς το αρχείο έχει ήδη διορθωθεί."
+
+#: includes/class-a11yfy-guardrails.php:64
+msgid "A remediation job is already running for this PDF."
+msgstr "Για αυτό το αρχείο PDF έχει ήδη ξεκινήσει μια διαδικασία διόρθωσης."
+
+#: includes/class-a11yfy-queue.php:123
+msgid "[a11yfy] Low credit balance"
+msgstr "[a11yfy] Χαμηλό υπόλοιπο πίστωσης"
+
+#: includes/class-a11yfy-queue.php:126
+#. translators: 1: credit balance, 2: top-up URL.
+msgid ""
+"Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
+"\n"
+"Top up at: %2$s"
+msgstr ""
+"Το υπόλοιπό σας στο a11yfy έχει μειωθεί σε %1$d μονάδες. Η διόρθωση αρχείων PDF θα διακοπεί όταν το υπόλοιπο φτάσει στο "
+"μηδέν.\n"
+"\n"
+"Ανανεώστε το υπόλοιπό σας στο: %2$s"
+
+#: includes/class-a11yfy-remediate-service.php:151
+msgid "The job did not finish within 2 hours. Please contact a11yfy support."
+msgstr "Η εργασία δεν ολοκληρώθηκε εντός 2 ωρών. Παρακαλούμε επικοινωνήστε με την υποστήριξη του a11yfy."
+
+#: includes/class-a11yfy-remediate-service.php:252
+msgid "The job finished but no output file was provided."
+msgstr "Η εργασία ολοκληρώθηκε, αλλά δεν δημιουργήθηκε αρχείο εξόδου."
+
+#: includes/class-a11yfy-replacer.php:41
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "Το αρχικό αρχείο δεν αποθηκεύεται τοπικά (πρόσθετο εκφόρτωσης;) — δεν υποστηρίζεται ακόμα."
+
+#: includes/class-a11yfy-replacer.php:99
+msgid "Could not download the remediated PDF from a11yfy."
+msgstr "Δεν ήταν δυνατή η λήψη του διορθωμένου αρχείου PDF από το a11yfy."
+
+#: includes/class-a11yfy-replacer.php:108
+msgid "The downloaded file is not a valid PDF."
+msgstr "Το αρχείο που κατεβάσατε δεν είναι έγκυρο αρχείο PDF."
+
+#: includes/class-a11yfy-replacer.php:121
+msgid "Could not back up the original PDF — aborting the swap."
+msgstr "Δεν ήταν δυνατή η δημιουργία αντιγράφου ασφαλείας του αρχικού αρχείου PDF — διακοπή της ανταλλαγής."
+
+#: includes/class-a11yfy-replacer.php:130
+msgid "Could not write the remediated PDF over the original."
+msgstr "Δεν ήταν δυνατή η εγγραφή του διορθωμένου αρχείου PDF πάνω στο αρχικό."
+
+#: includes/class-a11yfy-replacer.php:154
+msgid "Could not store the remediated PDF next to the original."
+msgstr "Δεν ήταν δυνατή η αποθήκευση του διορθωμένου αρχείου PDF δίπλα στο πρωτότυπο."
+
+#: includes/class-a11yfy-replacer.php:174
+msgid "No remediated version is recorded for this PDF."
+msgstr "Δεν έχει καταγραφεί καμία διορθωμένη έκδοση για αυτό το αρχείο PDF."
+
+#: includes/class-a11yfy-replacer.php:179
+msgid "The backup of the original PDF is missing."
+msgstr "Λείπει το αντίγραφο ασφαλείας του αρχικού αρχείου PDF."
+
+#: includes/class-a11yfy-replacer.php:183
+msgid "Could not restore the original PDF."
+msgstr "Δεν ήταν δυνατή η επαναφορά του αρχικού αρχείου PDF."
+
+#: includes/admin/class-a11yfy-admin.php:77
+msgid "Fix"
+msgstr "Διόρθωση"
+
+#: includes/admin/class-a11yfy-admin.php:78
+msgid "Restore"
+msgstr "Επαναφορά"
+
+#: includes/admin/class-a11yfy-admin.php:79
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+#: includes/admin/views/dashboard.php:150
+msgid "Filter the PDF list by status"
+msgstr "Φιλτράρετε τη λίστα PDF ανά κατάσταση"
+
+#: includes/admin/views/dashboard.php:164
+msgid "Actions"
+msgstr "Ενέργειες"
+
+#: includes/admin/views/dashboard.php:169
+msgid "No PDFs match the selected filters."
+msgstr "Δεν υπάρχουν αρχεία PDF που να ανταποκρίνονται στα επιλεγμένα κριτήρια."
+
+#: includes/admin/views/dashboard.php:172
+msgid "Load more"
+msgstr "Φόρτωση περισσότερων"
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Hide details"
+msgstr "Απόκρυψη λεπτομερειών"
+
+#: includes/admin/class-a11yfy-admin.php:81
+msgid "Open in Media Library"
+msgstr "Άνοιγμα στη Βιβλιοθήκη πολυμέσων"
+
+#: includes/admin/class-a11yfy-admin.php:82
+msgid "Re-apply fix (free)"
+msgstr "Επανάληψη εφαρμογής της επιδιόρθωσης (δωρεάν)"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Modified by another program"
+msgstr "Τροποποιήθηκε από άλλο πρόγραμμα"
+
+#: includes/admin/class-a11yfy-admin.php:85
+#. translators: %d: how many times the issue occurs.
+msgid "%d×"
+msgstr "%d×"
+
+#: includes/admin/class-a11yfy-admin.php:87
+#. translators: %s: comma-separated page numbers.
+msgid "Affected pages: %s"
+msgstr "Σελίδες που επηρεάζονται: %s"
+
+#: includes/admin/class-a11yfy-admin.php:88
+msgid "No machine-detectable accessibility issues were found."
+msgstr "Δεν εντοπίστηκαν προβλήματα προσβασιμότητας που να μπορούν να ανιχνευθούν από μηχανές."
+
+#: includes/admin/class-a11yfy-admin.php:89
+msgid "Could not load the details."
+msgstr "Δεν ήταν δυνατή η φόρτωση των λεπτομερειών."
+
+#: includes/admin/class-a11yfy-admin.php:91
+#. translators: 1: number of failed checks, 2: number of passed checks.
+msgid "%1$d issue types found — %2$d checks passed."
+msgstr "Βρέθηκαν %1$d τύποι προβλημάτων — %2$d έλεγχοι ολοκληρώθηκαν με επιτυχία."
+
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "ShortPixel PDF optimization is now off."
+msgstr "Η βελτιστοποίηση PDF του ShortPixel είναι πλέον απενεργοποιημένη."
+
+#: includes/admin/class-a11yfy-ajax.php:234
+msgid "No scan result is stored for this PDF yet — run the scan first."
+msgstr "Δεν έχει αποθηκευτεί ακόμη κανένα αποτέλεσμα σάρωσης για αυτό το PDF — εκτελέστε πρώτα τη σάρωση."
+
+#: includes/admin/class-a11yfy-ajax.php:262
+msgid "Could not change the ShortPixel settings — disable PDF optimization in Settings → ShortPixel."
+msgstr ""
+"Δεν ήταν δυνατή η αλλαγή των ρυθμίσεων του ShortPixel — απενεργοποιήστε τη βελτιστοποίηση PDF από το μενού «Ρυθμίσεις» "
+"→ «ShortPixel»."
+
+#: includes/admin/class-a11yfy-scan-report.php:57
+msgid "The PDF has no tag structure at all"
+msgstr "Το αρχείο PDF δεν διαθέτει καθόλου δομή ετικετών"
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid ""
+"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
+"content is read as an unstructured stream, or not at all."
+msgstr ""
+"Το έγγραφο δεν περιέχει δέντρο δομής (ετικέτες). Τα προγράμματα ανάγνωσης οθόνης δεν λαμβάνουν επικεφαλίδες, "
+"παραγράφους, λίστες ή πίνακες — το περιεχόμενο διαβάζεται ως μια μη δομημένη ροή ή δεν διαβάζεται καθόλου."
+
+#: includes/admin/class-a11yfy-scan-report.php:60
+msgid "Remediation rebuilds the full tag structure automatically."
+msgstr "Η αποκατάσταση αναδομεί αυτόματα ολόκληρη τη δομή των ετικετών."
+
+#: includes/admin/class-a11yfy-scan-report.php:63
+msgid "The PDF does not declare itself as tagged"
+msgstr "Το αρχείο PDF δεν δηλώνεται ως αρχείο με ετικέτες"
+
+#: includes/admin/class-a11yfy-scan-report.php:64
+msgid ""
+"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
+"of it exist."
+msgstr ""
+"Η καταχώριση MarkInfo λείπει ή δεν έχει οριστεί ως «Marked». Η τεχνολογία υποβοήθησης δεν μπορεί να βασιστεί στη δομή "
+"των ετικετών, ακόμη και αν υπάρχουν τμήματα αυτής."
+
+#: includes/admin/class-a11yfy-scan-report.php:66
+msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
+msgstr "Η αποκατάσταση ορίζει τη σημαία «tagged-PDF» μαζί με ένα έγκυρο δέντρο δομής."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "Critical"
+msgstr "Κρίσιμο"
+
+#: includes/admin/class-a11yfy-scan-report.php:77
+msgid "Serious"
+msgstr "Σοβαρό"
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Minor"
+msgstr "Μικρός"
+
+#: includes/admin/views/dashboard.php:61
+msgid "PDF optimization conflict detected"
+msgstr "Εντοπίστηκε σύγκρουση στη βελτιστοποίηση του PDF"
+
+#: includes/admin/views/dashboard.php:63
+msgid ""
+"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
+"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr ""
+"Τα παρακάτω πρόσθετα συμπιέζουν αρχεία PDF. Η συμπίεση αναδιαμορφώνει το PDF και αφαιρεί τη δομή προσβασιμότητάς του "
+"(ετικέτες, γλώσσα, μεταδεδομένα PDF/UA) — μπορεί επίσης να καταστρέψει αρχεία PDF που έχουν ήδη βελτιωθεί με τις "
+"πιστώσεις σας από το a11yfy."
+
+#: includes/admin/views/dashboard.php:72
+msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
+msgstr ""
+"Τα αρχεία που έχουν υποστεί διόρθωση από το a11yfy εξαιρούνται αυτόματα, αλλά όλα τα άλλα αρχεία PDF εξακολουθούν να "
+"διατρέχουν κίνδυνο."
+
+#: includes/admin/views/dashboard.php:74
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr ""
+"Αυτό το πρόσθετο δεν προσφέρει αξιόπιστη δυνατότητα εξαίρεσης ανά αρχείο — το a11yfy δεν μπορεί να προστατεύσει "
+"μεμονωμένα αρχεία PDF από αυτό."
+
+#: includes/admin/views/dashboard.php:80
+msgid "Turn off ShortPixel PDF optimization"
+msgstr "Απενεργοποίηση της βελτιστοποίησης PDF του ShortPixel"
+
+#: includes/class-a11yfy-optimizer-guard.php:55
+msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
+msgstr "Προσβάσιμο PDF (a11yfy) — η βελτιστοποίηση θα αφαιρούσε τις ετικέτες προσβασιμότητας."
+
+#: includes/class-a11yfy-optimizer-guard.php:209
+msgid "PDF optimization conflicts (a11yfy)"
+msgstr "Συγκρούσεις βελτιστοποίησης PDF (a11yfy)"
+
+#: includes/class-a11yfy-optimizer-guard.php:217
+msgid "No image optimizer is rewriting PDF files"
+msgstr "Κανένα πρόγραμμα βελτιστοποίησης εικόνων δεν αναδιαμορφώνει τα αρχεία PDF"
+
+#: includes/class-a11yfy-optimizer-guard.php:223
+msgid ""
+"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
+"tags."
+msgstr ""
+"Δεν εντοπίστηκε κανένα ενεργό πρόσθετο που να συμπιέζει αρχεία PDF. Η συμπίεση αρχείων PDF επαναγράφει το αρχείο και "
+"αφαιρεί τις ετικέτες προσβασιμότητάς του."
+
+#: includes/class-a11yfy-optimizer-guard.php:238
+#. translators: %s: comma-separated plugin names.
+msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
+msgstr "Η βελτιστοποίηση PDF είναι ενεργοποιημένη στο %s — αφαιρεί τις ετικέτες προσβασιμότητας του PDF"
+
+#: includes/class-a11yfy-optimizer-guard.php:241
+msgid ""
+"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
+"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
+"protects remediated files individually where the optimizer supports it."
+msgstr ""
+"Η συμπίεση ενός αρχείου PDF επαναγράφει το αρχείο και καταργεί τη δομή προσβασιμότητάς του (ετικέτες, γλώσσα, "
+"μεταδεδομένα PDF/UA) — συμπεριλαμβανομένων των αρχείων PDF που έχουν ήδη υποστεί βελτίωση με το a11yfy. Απενεργοποιήστε "
+"τη βελτιστοποίηση PDF στις ρυθμίσεις του πρόσθετου· το a11yfy προστατεύει επίσης τα αρχεία που έχουν υποστεί βελτίωση "
+"ξεχωριστά, όπου το υποστηρίζει το εργαλείο βελτιστοποίησης."
+
+#: includes/class-a11yfy-optimizer-guard.php:245
+msgid "Review on the a11yfy Dashboard"
+msgstr "Αξιολόγηση του πίνακα ελέγχου a11yfy"
+
+#: includes/class-a11yfy-replacer.php:196
+msgid "No saved copy of the remediated PDF exists — run remediation again."
+msgstr "Δεν υπάρχει αποθηκευμένο αντίγραφο του διορθωμένου αρχείου PDF — εκτελέστε ξανά τη διαδικασία διόρθωσης."
+
+#: includes/class-a11yfy-replacer.php:199
+msgid "Could not write the remediated PDF back over the file."
+msgstr "Δεν ήταν δυνατή η επανεγγραφή του διορθωμένου αρχείου PDF στο αρχικό αρχείο."
+
+#: includes/admin/class-a11yfy-admin.php:93
+msgid "Issues found before remediation"
+msgstr "Προβλήματα που εντοπίστηκαν πριν από τη διόρθωση"
+
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Fixed"
+msgstr "Διορθώθηκε"
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "Still present"
+msgstr "Εξακολουθεί να υπάρχει"
+
+#: includes/admin/class-a11yfy-admin.php:96
+msgid "Run the scan again to confirm the current state of the remediated file."
+msgstr ""
+"Εκτελέστε ξανά τη σάρωση για να επιβεβαιώσετε την τρέχουσα κατάσταση του αρχείου στο οποίο έχουν εφαρμοστεί διορθωτικές "
+"ενέργειες."
+
+#: includes/admin/class-a11yfy-admin.php:80
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: includes/admin/class-a11yfy-admin.php:83
+msgid "Connect your a11yfy account to enable PDF remediation."
+msgstr "Συνδέστε τον λογαριασμό σας στο a11yfy για να ενεργοποιήσετε τη διόρθωση PDF."
+
+#: includes/admin/class-a11yfy-admin.php:85
+msgid "technical repair"
+msgstr "τεχνική επιδιόρθωση"
+
+#: includes/admin/class-a11yfy-admin.php:86
+msgid "full repair"
+msgstr "πλήρης επιδιόρθωση"
+
+#: includes/admin/class-a11yfy-admin.php:125
+#: includes/admin/class-a11yfy-admin.php:285
+msgid "Connect account"
+msgstr "Σύνδεση λογαριασμού"
+
+#: includes/admin/class-a11yfy-admin.php:249
+msgid ""
+"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
+"about the PHP sodium extension. Other settings were saved."
+msgstr ""
+"Το κλειδί API δεν μπόρεσε να αποθηκευτεί με ασφάλεια σε αυτόν τον διακομιστή (η κρυπτογράφηση δεν είναι διαθέσιμη). Το "
+"κλειδί ΔΕΝ αποθηκεύτηκε — ρωτήστε τον πάροχο φιλοξενίας σας σχετικά με την επέκταση PHP sodium. Οι υπόλοιπες ρυθμίσεις "
+"αποθηκεύτηκαν."
+
+#: includes/admin/class-a11yfy-admin.php:283
+msgid ""
+"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
+"way."
+msgstr ""
+"Η διόρθωση PDF δεν είναι διαθέσιμη αυτήν τη στιγμή. Συνδέστε τον λογαριασμό σας στο a11yfy για να την ενεργοποιήσετε — "
+"η δωρεάν σάρωση συνεχίζει να λειτουργεί ούτως ή άλλως."
+
+#: includes/admin/class-a11yfy-admin.php:287
+msgid "Hide this notice"
+msgstr "Απόκρυψη αυτής της ειδοποίησης"
+
+#: includes/admin/views/dashboard.php:140
+msgid "0 = no monthly limit."
+msgstr "0 = χωρίς μηνιαίο όριο."
+
+#: includes/class-a11yfy-guardrails.php:41
+msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
+msgstr ""
+"Αυτό το PDF προστατεύεται με κωδικό πρόσβασης ή είναι κρυπτογραφημένο. Καταργήστε την προστασία και, στη συνέχεια, "
+"εκτελέστε ξανά τη διόρθωση."
+
+#: includes/class-a11yfy-replacer.php:112
+msgid "The remediated PDF URL is not a valid public https URL."
+msgstr "Η διεύθυνση URL του διορθωμένου PDF δεν είναι έγκυρη δημόσια διεύθυνση URL https."
+
+#: includes/admin/class-a11yfy-admin.php:56
+msgid "Document details"
+msgstr "Λεπτομέρειες εγγράφου"
+
+#: includes/admin/class-a11yfy-admin.php:144
+msgid "Analyzing the document…"
+msgstr "Ανάλυση του εγγράφου…"
+
+#: includes/admin/class-a11yfy-admin.php:145
+msgid "The document could not be analyzed."
+msgstr "Δεν ήταν δυνατή η ανάλυση του εγγράφου."
+
+#: includes/admin/class-a11yfy-admin.php:150
+#. translators: %d: score 0-100.
+msgid "Score: %d / 100"
+msgstr "Βαθμολογία: %d / 100"
+
+#: includes/admin/class-a11yfy-admin.php:157
+msgid "Affects the whole document"
+msgstr "Επηρεάζει ολόκληρο το έγγραφο"
+
+#: includes/admin/class-a11yfy-admin.php:159
+#. translators: 1: current page, 2: total pages.
+msgid "Page %1$d of %2$d"
+msgstr "Σελίδα %1$d από %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:161
+#. translators: %d: total number of pages.
+msgid "%d pages"
+msgstr "%d σελίδες"
+
+#: includes/admin/class-a11yfy-admin.php:162
+msgid "Technical details"
+msgstr "Τεχνικές λεπτομέρειες"
+
+#: includes/admin/class-a11yfy-admin.php:164
+#. translators: %d: number of findings.
+msgid "%d findings on this page"
+msgstr "%d ευρήματα σε αυτή τη σελίδα"
+
+#: includes/admin/class-a11yfy-admin.php:166
+#. translators: %d: page number.
+msgid "Go to page %d"
+msgstr "Μετάβαση στη σελίδα %d"
+
+#: includes/admin/class-a11yfy-admin.php:168
+#. translators: %d: page number.
+msgid "Page %d"
+msgstr "Σελίδα %d"
+
+#: includes/admin/class-a11yfy-admin.php:169
+#: includes/admin/views/document.php:145
+msgid "Previous page"
+msgstr "Προηγούμενη σελίδα"
+
+#: includes/admin/class-a11yfy-admin.php:170
+#: includes/admin/views/document.php:147
+msgid "Next page"
+msgstr "Επόμενη σελίδα"
+
+#: includes/admin/class-a11yfy-admin.php:171
+#: includes/admin/views/document.php:151
+msgid "Zoom in"
+msgstr "Μεγέθυνση"
+
+#: includes/admin/class-a11yfy-admin.php:172
+#: includes/admin/views/document.php:150
+msgid "Zoom out"
+msgstr "Μικρή κλίμακα"
+
+#: includes/admin/class-a11yfy-admin.php:175
+msgid "Remediation queued — track it on the Dashboard."
+msgstr "Η διόρθωση βρίσκεται στην ουρά — παρακολουθήστε την στο Dashboard."
+
+#: includes/admin/class-a11yfy-admin.php:176
+msgid "Something went wrong — please try again."
+msgstr "Παρουσιάστηκε κάποιο σφάλμα — παρακαλώ δοκιμάστε ξανά."
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "The preview could not be rendered (the analysis still works)."
+msgstr "Δεν ήταν δυνατή η εμφάνιση της προεπισκόπησης (η ανάλυση εξακολουθεί να λειτουργεί)."
+
+#: includes/admin/class-a11yfy-admin.php:179
+#. translators: %d: percentage of untagged text.
+msgid "~%d%% of the text is untagged — screen readers skip it or read it out of order."
+msgstr "~%d%% του κειμένου δεν έχει ετικέτες — τα προγράμματα ανάγνωσης οθόνης το παραλείπουν ή το διαβάζουν σε λάθος σειρά."
+
+#: includes/admin/class-a11yfy-admin.php:180
+msgid "Showing the original file (before remediation) — this analysis is not saved."
+msgstr "Εμφάνιση του αρχικού αρχείου (πριν από τη διόρθωση) — η ανάλυση αυτή δεν αποθηκεύεται."
+
+#: includes/admin/class-a11yfy-scan-report.php:69
+msgid "An image is invisible to screen readers"
+msgstr "Μια εικόνα δεν είναι ορατή στους αναγνώστες οθόνης"
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid ""
+"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
+"exists — even a text description cannot be attached."
+msgstr ""
+"Η εικόνα δεν έχει επισημανθεί ούτε ως «Σχήμα» ούτε ως διακοσμητικό στοιχείο (αντικείμενο). Ένας χρήστης προγράμματος "
+"ανάγνωσης οθόνης δεν μαθαίνει ποτέ ότι υπάρχει — δεν είναι δυνατή καν η προσθήκη περιγραφής κειμένου."
+
+#: includes/admin/class-a11yfy-scan-report.php:72
+msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
+msgstr ""
+"Η διαδικασία αποκατάστασης επισημαίνει τις πραγματικές εικόνες ως «Εικόνες» με περιγραφή, ενώ τις διακοσμητικές εικόνες "
+"τις επισημαίνει ως «αντικείμενα»."
+
+#: includes/admin/class-a11yfy-scan-report.php:75
+msgid "The declared document language does not match the text"
+msgstr "Η γλώσσα του εγγράφου που έχει δηλωθεί δεν αντιστοιχεί στο κείμενο"
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid ""
+"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
+"pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr ""
+"Το αρχείο PDF δηλώνει μία γλώσσα, αλλά το κείμενο της σελίδας φαίνεται να είναι γραμμένο σε άλλη. Τα προγράμματα "
+"ανάγνωσης οθόνης επιλέγουν τη φωνή και την προφορά τους με βάση τη δηλωμένη γλώσσα, οπότε το περιεχόμενο θα διαβάζεται "
+"με λάθος φωνή."
+
+#: includes/admin/class-a11yfy-scan-report.php:78
+msgid "Remediation sets the document language to the language the text is actually written in."
+msgstr "Η λειτουργία «Διόρθωση» ορίζει τη γλώσσα του εγγράφου ως τη γλώσσα στην οποία είναι πραγματικά γραμμένο το κείμενο."
+
+#: includes/admin/class-a11yfy-scan-report.php:81
+msgid "The document has no headings at all"
+msgstr "Το έγγραφο δεν περιέχει καθόλου επικεφαλίδες"
+
+#: includes/admin/class-a11yfy-scan-report.php:82
+msgid ""
+"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
+"headings — without them the document must be read linearly from start to finish."
+msgstr ""
+"Το έγγραφο περιέχει μεγάλο όγκο κειμένου, αλλά δεν περιλαμβάνει ούτε ένα στοιχείο επικεφαλίδας. Οι χρήστες προγραμμάτων "
+"ανάγνωσης οθόνης πλοηγούνται κυρίως μέσω των επικεφαλίδων — χωρίς αυτές, το έγγραφο πρέπει να διαβάζεται γραμμικά από "
+"την αρχή μέχρι το τέλος."
+
+#: includes/admin/class-a11yfy-scan-report.php:84
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Ορίστε τους τίτλους των ενοτήτων ως επικεφαλίδες (H1–H6), ώστε η δομή του εγγράφου να γίνει πλοηγήσιμη."
+
+#: includes/admin/class-a11yfy-scan-report.php:87
+msgid "A long document has no bookmarks"
+msgstr "Ένα μακρύ έγγραφο δεν έχει σελιδοδείκτες"
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid ""
+"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
+"technology users — jump straight to a section."
+msgstr ""
+"Το έγγραφο έχει δέκα σελίδες ή περισσότερες, αλλά δεν διαθέτει δομή σελιδοδεικτών. Οι σελιδοδείκτες επιτρέπουν σε κάθε "
+"αναγνώστη — όχι μόνο στους χρήστες τεχνολογιών υποβοήθησης — να μεταβεί απευθείας σε μια ενότητα."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Add a bookmark outline that mirrors the document’s section structure."
+msgstr "Προσθέστε ένα πλαίσιο σελιδοδείκτη που να αντανακλά τη δομή των ενοτήτων του εγγράφου."
+
+#: includes/admin/class-a11yfy-scan-report.php:93
+msgid "A table has no header cells"
+msgstr "Ένας πίνακας δεν έχει κελιά κεφαλίδας"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid ""
+"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
+"headers the user hears bare numbers with no context."
+msgstr ""
+"Ένας πίνακας δεδομένων δεν περιέχει κελιά κεφαλίδας με το γράμμα «TH». Τα προγράμματα ανάγνωσης οθόνης αναγγέλλουν την "
+"αντίστοιχη κεφαλίδα πριν από κάθε κελί — χωρίς κεφαλίδες, ο χρήστης ακούει απλώς αριθμούς χωρίς κανένα πλαίσιο."
+
+#: includes/admin/class-a11yfy-scan-report.php:96
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Ορίστε την πρώτη σειρά και/ή στήλη ως κελιά κεφαλίδας TH με το κατάλληλο πεδίο εφαρμογής."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "An image description looks like a placeholder"
+msgstr "Η περιγραφή μιας εικόνας μοιάζει με σύμβολο κράτησης θέσης"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid ""
+"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
+"reader user learns nothing about what the image actually shows."
+msgstr ""
+"Μια εικόνα διαθέτει εναλλακτικό κείμενο, αλλά αυτό μοιάζει με όνομα αρχείου ή με γενικό σύμβολο κράτησης θέσης (π.χ. "
+"«image3.png»). Ο χρήστης ενός προγράμματος ανάγνωσης οθόνης δεν μαθαίνει τίποτα σχετικά με το τι απεικονίζει πραγματικά "
+"η εικόνα."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Replace the placeholder with a description that conveys the meaning of the image."
+msgstr "Αντικαταστήστε το σύμβολο κράτησης θέσης με μια περιγραφή που να αποδίδει το νόημα της εικόνας."
+
+#: includes/admin/class-a11yfy-scan-report.php:126
+msgid "Tagging & structure"
+msgstr "Ετικέτες και δομή"
+
+#: includes/admin/class-a11yfy-scan-report.php:127
+msgid "Headings"
+msgstr "Επικεφαλίδες"
+
+#: includes/admin/class-a11yfy-scan-report.php:128
+msgid "Images & formulas"
+msgstr "Εικόνες και τύποι"
+
+#: includes/admin/class-a11yfy-scan-report.php:129
+msgid "Tables"
+msgstr "Πίνακες"
+
+#: includes/admin/class-a11yfy-scan-report.php:130
+msgid "Lists & table of contents"
+msgstr "Λίστες και πίνακας περιεχομένων"
+
+#: includes/admin/class-a11yfy-scan-report.php:131
+msgid "Forms, links & annotations"
+msgstr "Φόρμες, σύνδεσμοι και σχολιασμοί"
+
+#: includes/admin/class-a11yfy-scan-report.php:132
+msgid "Language"
+msgstr "Γλώσσα"
+
+#: includes/admin/class-a11yfy-scan-report.php:133
+msgid "Metadata & display"
+msgstr "Μεταδεδομένα και εμφάνιση"
+
+#: includes/admin/class-a11yfy-scan-report.php:134
+msgid "Encryption & permissions"
+msgstr "Κρυπτογράφηση και δικαιώματα πρόσβασης"
+
+#: includes/admin/class-a11yfy-scan-report.php:135
+msgid "Other technical"
+msgstr "Άλλα τεχνικά θέματα"
+
+#: includes/admin/class-a11yfy-scan-report.php:188
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Είναι λογική η σειρά ανάγνωσης όταν το κείμενο διαβάζεται από την αρχή μέχρι το τέλος;"
+
+#: includes/admin/class-a11yfy-scan-report.php:189
+msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
+msgstr "Οι περιγραφές εικόνων (κείμενα alt) μεταδίδουν το νόημα — και όχι απλώς το όνομα του αρχείου;"
+
+#: includes/admin/class-a11yfy-scan-report.php:190
+msgid "Is the text contrast sufficient (at least 4.5:1 against the background)?"
+msgstr "Είναι επαρκής η αντίθεση του κειμένου (τουλάχιστον 4,5:1 σε σχέση με το φόντο);"
+
+#: includes/admin/class-a11yfy-scan-report.php:191
+msgid "Are link texts meaningful on their own (“click here” is not)?"
+msgstr "Έχουν τα κείμενα των συνδέσμων νόημα από μόνα τους («κάντε κλικ εδώ» δεν έχει);"
+
+#: includes/admin/class-a11yfy-scan-report.php:192
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Οι πίνακες διαθέτουν πραγματικά κελιά κεφαλίδας και μια απλή, κανονική δομή;"
+
+#: includes/admin/class-a11yfy-scan-report.php:193
+msgid "Is the document title informative when shown in a reader’s title bar?"
+msgstr "Ο τίτλος του εγγράφου παρέχει πληροφορίες όταν εμφανίζεται στη γραμμή τίτλου του προγράμματος ανάγνωσης;"
+
+#: includes/admin/views/document.php:22
+#: includes/admin/views/document.php:49
+msgid "Back to the a11yfy Dashboard"
+msgstr "Επιστροφή στον πίνακα ελέγχου του a11yfy"
+
+#: includes/admin/views/document.php:25
+msgid "Document not found"
+msgstr "Το έγγραφο δεν βρέθηκε"
+
+#: includes/admin/views/document.php:26
+msgid "This link does not point to a PDF in the Media Library."
+msgstr "Αυτός ο σύνδεσμος δεν παραπέμπει σε αρχείο PDF στη Βιβλιοθήκη πολυμέσων."
+
+#: includes/admin/views/document.php:64
+#. translators: %s: human-readable time difference.
+msgid "last scanned %s ago"
+msgstr "τελευταία σάρωση πριν από %s"
+
+#: includes/admin/views/document.php:72
+#: includes/admin/views/document.php:76
+msgid "Fix with a11yfy"
+msgstr "Διόρθωση με a11yfy"
+
+#: includes/admin/views/document.php:79
+msgid "Re-run the check"
+msgstr "Εκτελέστε ξανά τον έλεγχο"
+
+#: includes/admin/views/document.php:80
+msgid "Print report"
+msgstr "Εκτύπωση αναφοράς"
+
+#: includes/admin/views/document.php:82
+msgid "Which version to inspect"
+msgstr "Ποια έκδοση πρέπει να ελεγχθεί"
+
+#: includes/admin/views/document.php:84
+msgid "Remediated (current)"
+msgstr "Αποκατασταθείσα (τρέχουσα)"
+
+#: includes/admin/views/document.php:87
+msgid "Original (before)"
+msgstr "Πρωτότυπο (πριν)"
+
+#: includes/admin/views/document.php:98
+msgid "Accessibility findings"
+msgstr "Αποτελέσματα σχετικά με την προσβασιμότητα"
+
+#: includes/admin/views/document.php:126
+msgid "Manual review checklist"
+msgstr "Λίστα ελέγχου για τον χειροκίνητο έλεγχο"
+
+#: includes/admin/views/document.php:128
+msgid "These aspects cannot be decided by a machine — a quick human review completes the picture."
+msgstr "Αυτά τα ζητήματα δεν μπορούν να αποφασιστούν από μια μηχανή — μια γρήγορη ανθρώπινη εξέταση συμπληρώνει την εικόνα."
+
+#: includes/admin/views/document.php:161
+msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
+msgstr ""
+"Η προεπισκόπηση αποτελεί οπτικό βοήθημα — ο κατάλογος των ευρημάτων στα αριστερά αποτελεί την επίσημη έκθεση, η οποία "
+"είναι συμβατή με προγράμματα ανάγνωσης οθόνης."
+
+#: includes/admin/class-a11yfy-admin.php:167
+msgid "1 finding on this page"
+msgstr "1 αποτέλεσμα σε αυτή τη σελίδα"
+
+#: includes/admin/class-a11yfy-admin.php:488
+msgid "Not sent"
+msgstr "Δεν έχει σταλεί"
+
+#: includes/class-a11yfy-guardrails.php:30
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
+"copy instead."
+msgstr ""
+"Αυτό το αρχείο PDF φέρει ψηφιακή υπογραφή. Η διόρθωση θα επαναγράψει το αρχείο, γεγονός που θα ακυρώσει την υπογραφή — "
+"στείλτε αντ’ αυτού ένα αντίγραφο χωρίς υπογραφή."
+
+#: includes/class-a11yfy-guardrails.php:31
+msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
+msgstr ""
+"Αυτό το αρχείο PDF περιέχει μια φόρμα XFA, η οποία δεν μπορεί να διατηρηθεί κατά τη διαδικασία διόρθωσης. Μετατρέψτε το "
+"πρώτα σε μια κανονική φόρμα PDF."
+
+#: includes/class-a11yfy-guardrails.php:32
+msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
+msgstr ""
+"Αυτό το αρχείο PDF είναι ένα χαρτοφυλάκιο (ένα σύνολο ενσωματωμένων αρχείων). Αντ’ αυτού, διορθώστε τα μεμονωμένα "
+"έγγραφα."
+
+#: includes/admin/class-a11yfy-admin.php:226
+msgid "a11yfy pages"
+msgstr "σελίδες a11yfy"
+
+#: includes/admin/class-a11yfy-admin.php:453
+msgid "You are not allowed to download this certificate."
+msgstr "Δεν επιτρέπεται η λήψη αυτού του πιστοποιητικού."
+
+#: includes/admin/class-a11yfy-admin.php:460
+msgid "This document has no a11yfy certificate yet."
+msgstr "Το παρόν έγγραφο δεν διαθέτει ακόμη πιστοποιητικό a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:640
+msgid "Certificate (a11yfy)"
+msgstr "Πιστοποιητικό (a11yfy)"
+
+#: includes/admin/views/document.php:101
+msgid "Download certificate"
+msgstr "Λήψη πιστοποιητικού"
+
+#: includes/admin/views/document.php:109
+msgid "Verify certificate online"
+msgstr "Επαλήθευση πιστοποιητικού μέσω διαδικτύου"
+
+#: includes/class-a11yfy-api-client.php:82
+msgid "Downloading the certificate failed — please try again."
+msgstr "Η λήψη του πιστοποιητικού απέτυχε — παρακαλώ δοκιμάστε ξανά."
+
+#: includes/admin/class-a11yfy-admin.php:97
+#: includes/admin/class-a11yfy-admin.php:152
+msgid ""
+"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
+"to continue?"
+msgstr ""
+"Το παρόν έγγραφο φέρει ψηφιακή υπογραφή. Η διόρθωση θα τροποποιήσει το αρχείο, με αποτέλεσμα η υπογραφή να μην είναι "
+"πλέον έγκυρη. Θέλετε να συνεχίσετε;"
+
+#: includes/class-a11yfy-guardrails.php:35
+msgid ""
+"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
+"starts after you confirm."
+msgstr ""
+"Αυτό το αρχείο PDF φέρει ψηφιακή υπογραφή. Η διόρθωση θα επαναγράψει το αρχείο, οπότε η υπογραφή δεν θα είναι πλέον "
+"έγκυρη — η διόρθωση θα ξεκινήσει μόνο αφού δώσετε την επιβεβαίωσή σας."
+
+#: includes/admin/class-a11yfy-admin.php:190
+#: includes/admin/class-a11yfy-admin.php:593
+#. translators: %d: estimated number of credits.
+msgid "Estimated cost: ~%d credits"
+msgstr "Εκτιμώμενο κόστος: ~%d μονάδες"
+
+#: includes/admin/class-a11yfy-admin.php:192
+#: includes/admin/class-a11yfy-admin.php:596
+#. translators: 1: minimum credits, 2: maximum credits.
+msgid "Estimated cost: %1$d–%2$d credits"
+msgstr "Εκτιμώμενο κόστος: %1$d–%2$d μονάδες"

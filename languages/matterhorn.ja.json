@@ -1,0 +1,680 @@
+{
+  "01-001": {
+    "title": "アーティファクトが実コンテンツとしてタグ付けされています",
+    "description": "ページアーティファクト（ヘッダー、フッター、装飾要素）が、構造ツリー内で誤って実コンテンツとしてタグ付けされています。スクリーンリーダーは、これらの装飾要素を文書コンテンツとして読み上げようとします。",
+    "severity_label": "critical",
+    "suggested_fix": "構造要素タイプをアーティファクトに変更するか、コンテンツをマーク付きコンテンツシーケンスのアーティファクトで囲んでください。"
+  },
+  "01-002": {
+    "title": "実コンテンツがアーティファクトとしてマークされています",
+    "description": "本来の文書コンテンツ（本文、見出し、キャプション）が、誤ってアーティファクトとしてマークされています。スクリーンリーダーは、このコンテンツを完全にスキップしてしまいます。",
+    "severity_label": "critical",
+    "suggested_fix": "実コンテンツからアーティファクトのマークを削除し、適切な構造要素で正しくタグ付けされていることを確認してください。"
+  },
+  "01-003": {
+    "title": "タグ付きコンテンツ内にアーティファクトがあります",
+    "description": "アーティファクトとしてマークされた要素が、実コンテンツを表す構造要素内に現れており、コンテンツの階層を破損させています。",
+    "severity_label": "critical",
+    "suggested_fix": "アーティファクトとしてマークされたコンテンツを実コンテンツの構造要素の外に移動するか、要素の階層を再構築してください。"
+  },
+  "01-004": {
+    "title": "アーティファクト内にタグ付きコンテンツがあります",
+    "description": "タグ付けされた実コンテンツ要素が、アーティファクトコンテナ内にネストされています。スクリーンリーダーがこのコンテンツをスキップする可能性があります。",
+    "severity_label": "critical",
+    "suggested_fix": "タグ付きコンテンツをアーティファクトコンテナから移動し、構造ツリー内の正しいレベルに配置してください。"
+  },
+  "01-005": {
+    "title": "コンテンツがタグ付けもアーティファクト化もされていません",
+    "description": "ページ上のコンテンツが、構造要素としてタグ付けされておらず、アーティファクトとしてもマークされていません。これは最も一般的なPDF/UA違反であり、スクリーンリーダーがコンテンツを読み上げない主な原因です。",
+    "severity_label": "critical",
+    "suggested_fix": "コンテンツを適切な構造要素（P、H1-H6、Figureなど）でタグ付けするか、装飾的なものである場合はアーティファクトとしてマークしてください。"
+  },
+  "01-006": {
+    "title": "StructTreeRootがありません",
+    "description": "文書カタログ辞書には、文書の論理構造のルートとして機能するStructTreeRootエントリが含まれている必要があります。これがないと、スクリーンリーダーは文書構造を全く解釈できません。",
+    "severity_label": "critical",
+    "suggested_fix": "文書カタログ辞書にStructTreeRootオブジェクトを追加し、すべてのコンテンツページに対して構造要素階層を構築してください。"
+  },
+  "01-007": {
+    "title": "Suspectフラグがtrueになっています",
+    "description": "文書のMarkInfo辞書のSuspectsエントリがtrueに設定されており、構造ツリーに信頼性の低いタグ付けが含まれている可能性があることを示しています。支援技術は構造ツリーを完全に無視する場合があります。",
+    "severity_label": "critical",
+    "suggested_fix": "すべてのコンテンツが正しくタグ付けされていることを確認した後、MarkInfo辞書のSuspectsフラグをfalseに設定してください。"
+  },
+  "02-001": {
+    "title": "非標準の役割マッピングが標準タイプで終了していません",
+    "description": "RoleMap内のカスタムの役割が、標準のPDF構造タイプにマッピングされていません。マッピングチェーンの最終的なターゲットは、PDF 32000-1の役割セットにある標準タイプである必要があります。",
+    "severity_label": "critical",
+    "suggested_fix": "RoleMap内のすべての非標準の役割が、標準タイプ（例：Document、Part、Sect、P、H1-H6、L、LI、Table、Figureなど）に直接または推移的にマッピングされていることを確認してください。"
+  },
+  "02-002": {
+    "title": "意味的に不適切な役割マッピングです",
+    "description": "構造要素の役割が、その要素の意味的な目的に一致しない標準タイプにマッピングされています（例：見出しがSpanにマッピングされている）。",
+    "severity_label": "critical",
+    "suggested_fix": "RoleMapを見直し、各マッピングがコンテンツの実際の意味的な役割を反映していることを確認してください。人の判断が必要になる場合があります。"
+  },
+  "02-003": {
+    "title": "循環的な役割マッピングです",
+    "description": "RoleMapに、役割AがBへ、BがCへ、CがAに戻るという循環チェーンが含まれており、プロセッサにとって無限ループが発生しています。",
+    "severity_label": "major",
+    "suggested_fix": "最終的な役割を適切な標準タイプに直接マッピングすることで、循環チェーンを断ち切ってください。"
+  },
+  "02-004": {
+    "title": "標準タイプが再マッピングされています",
+    "description": "標準のPDF構造タイプ（例：P、H1、Table）がRoleMapを介して別のタイプに再マッピングされていますが、これはPDF/UA-1では許可されていません。",
+    "severity_label": "critical",
+    "suggested_fix": "RoleMapからこの標準タイプに対するマッピングを削除してください。標準タイプを再マッピングしてはいけません。"
+  },
+  "06-001": {
+    "title": "XMPメタデータストリームがありません",
+    "description": "文書のカタログのMetadataエントリにXMPメタデータストリームが含まれていません。PDF/UA-1ではXMPメタデータが必須です。",
+    "severity_label": "major",
+    "suggested_fix": "少なくともdc:format（application/pdf）、pdfuaid:part（1）、およびdc:titleを含むXMPメタデータストリームを文書カタログに追加してください。"
+  },
+  "06-002": {
+    "title": "PDF/UA識別子がありません",
+    "description": "XMPメタデータに、文書がPDF/UA-1（ISO 14289-1）に準拠していることを識別するpdfuaid:partプロパティが含まれていません。",
+    "severity_label": "major",
+    "suggested_fix": "PDF/UA-1準拠を宣言するために、値1を持つpdfuaid:partプロパティをXMPメタデータストリームに追加してください。"
+  },
+  "06-003": {
+    "title": "メタデータにdc:titleがありません",
+    "description": "XMPメタデータまたは文書情報辞書にdc:titleエントリが含まれていません。PDF/UA-1では文書にタイトルが必要です。",
+    "severity_label": "major",
+    "suggested_fix": "XMPメタデータストリームにdc:titleエントリを追加してください。文書の実際のタイトルか、意味のある代替名を使用してください。"
+  },
+  "07-001": {
+    "title": "DisplayDocTitleビューア設定がありません",
+    "description": "文書のビューア設定辞書にDisplayDocTitleキーが含まれていません。存在しないかfalseの場合、ビューアは文書タイトルの代わりにファイル名を表示します。",
+    "severity_label": "major",
+    "suggested_fix": "文書のビューア設定辞書（Catalog/ViewerPreferences）でDisplayDocTitleをtrueに設定してください。"
+  },
+  "07-002": {
+    "title": "DisplayDocTitleがfalseに設定されています",
+    "description": "ビューア設定のDisplayDocTitleキーがfalseに設定されており、ビューアがタイトルバーに文書タイトルの代わりにファイル名を表示する原因となっています。",
+    "severity_label": "major",
+    "suggested_fix": "ビューア設定辞書でDisplayDocTitleをtrueに変更してください。"
+  },
+  "08-002": {
+    "title": "OCRテキストが構造ツリーでタグ付けされていません",
+    "description": "文書にOCR生成されたテキスト（スキャンされたPDFで一般的）が含まれていますが、構造ツリーでタグ付けされていません。スクリーンリーダーのユーザーはこのコンテンツにアクセスできません。",
+    "severity_label": "critical",
+    "suggested_fix": "すべてのOCR生成テキストが適切なタグで構造ツリーに含まれていることを確認してください。スキャンされたPDFの場合は、完全なテキストレイヤーオーバーレイを使用して文書を再構築してください。"
+  },
+  "09-001": {
+    "title": "タグが論理読み取り順序になっていません",
+    "description": "ツリー内の構造要素が、文書の論理読み取り順序で配置されていません。スクリーンリーダーは視覚的な順序とは異なる可能性があるツリー順序で文書をナビゲートします。",
+    "severity_label": "critical",
+    "suggested_fix": "ツリー内の構造要素を論理読み取り順序（通常は言語に応じて上から下、左から右）に一致するように並べ替えてください。"
+  },
+  "09-002": {
+    "title": "意味的に不適切なネストです",
+    "description": "構造要素が、意味的に属さない親要素内にネストされています（例：段落内のテーブル行、またはリスト内の見出し）。",
+    "severity_label": "critical",
+    "suggested_fix": "各要素が意味的に適切な親要素内にネストされるよう、要素階層を再構築してください。"
+  },
+  "09-003": {
+    "title": "役割マッピング後の不適切な構造タイプです",
+    "description": "役割マッピングの解決後、最終的な構造タイプが、含まれているコンテンツに対して意味的に適切ではありません。",
+    "severity_label": "major",
+    "suggested_fix": "解決されたタイプがコンテンツの意味的な役割と一致するように、RoleMapを調整するか、元の構造タイプを変更してください。"
+  },
+  "09-004": {
+    "title": "Table要素がTable 337に準拠していません",
+    "description": "Tableタイプの構造要素が、許可された子構造（ISO 32000-1のTable 337）に準拠していません。Tableには、少なくともTRを子に持つTBody、またはTHead/TBody/TFootセクションが含まれている必要があります。",
+    "severity_label": "major",
+    "suggested_fix": "Table要素に適切に構造化された行が含まれていることを確認してください：Table > (THead)? > (TBody) > (TFoot)? > TR > TH/TD。少なくとも、行をTBodyで囲んでください。"
+  },
+  "09-005": {
+    "title": "List要素がTable 336に準拠していません",
+    "description": "L（List）タイプの構造要素が、許可された子構造（ISO 32000-1のTable 336）に準拠していません。ListにはLI要素が含まれている必要があり、LIにはLbl（オプション）とLBodyが含まれている必要があります。",
+    "severity_label": "major",
+    "suggested_fix": "リストを次のように構造化してください：L > LI > (Lbl)? + LBody。各リスト項目に、項目コンテンツを含むLBodyの子があることを確認してください。"
+  },
+  "09-006": {
+    "title": "TOC要素がTable 333に準拠していません",
+    "description": "TOC（Table of Contents）タイプの構造要素が、許可された子構造に準拠していません。TOCにはTOCI要素が含まれている必要があります。",
+    "severity_label": "minor",
+    "suggested_fix": "目次のエントリを次のように構造化してください：TOC > TOCI > (Reference) + (Lbl)? + (P)。"
+  },
+  "09-007": {
+    "title": "ルビ要素が不適合です",
+    "description": "ルビ構造要素（発音注釈に使用）が、必要な子構造（Ruby > RB + (RT | RP)）に従っていません。",
+    "severity_label": "minor",
+    "suggested_fix": "必要なRB（ルビベース）とRT（ルビテキスト）の子を持つようにルビ要素を再構築してください。"
+  },
+  "09-008": {
+    "title": "割注要素が不適合です",
+    "description": "割注構造要素（CJKテキスト内のインラインコメントや注釈）が、必要な構造（Warichu > WT + WP）に従っていません。",
+    "severity_label": "minor",
+    "suggested_fix": "必要なWT（割注テキスト）とWP（割注句読点）の子を持つように割注要素を再構築してください。"
+  },
+  "10-001": {
+    "title": "文字コードをUnicodeにマッピングできません",
+    "description": "文書のテキスト内の文字コードをUnicode値にマッピングできません。これにより、支援技術がテキストを抽出する際に文字化けや欠落が発生します。",
+    "severity_label": "minor",
+    "suggested_fix": "すべてのフォントが、使用されているすべての文字コードを有効なUnicode値にマッピングするToUnicode CMapを持っていることを確認してください。CMapが文書内で使用されているすべてのグリフをカバーしていることを検証してください。"
+  },
+  "11-001": {
+    "title": "ページコンテンツの言語を特定できません",
+    "description": "文書カタログまたはページレベルの構造要素に/Langエントリがないため、ページコンテンツの自然言語を特定できません。",
+    "severity_label": "critical",
+    "suggested_fix": "文書カタログの/Langエントリを文書の主要言語（例：'en-US'、'hu-HU'）に設定してください。コンテンツが言語を切り替える場合は、個々の構造要素に/Langを追加してください。"
+  },
+  "11-002": {
+    "title": "Alt/ActualTextの言語を特定できません",
+    "description": "代替テキストの説明（Alt）またはActualTextの置換の言語を特定できません。",
+    "severity_label": "minor",
+    "suggested_fix": "テキストの言語が文書のデフォルトと異なる場合は、AltまたはActualTextを含む構造要素に/Lang属性を追加してください。"
+  },
+  "11-003": {
+    "title": "アウトラインの言語が設定されていません",
+    "description": "文書のアウトライン（ブックマーク）に/Langエントリがなく、支援技術がアウトライン項目を正しく発音できません。",
+    "severity_label": "minor",
+    "suggested_fix": "文書の主要言語と一致する/Langエントリをアウトライン辞書に追加してください。"
+  },
+  "11-004": {
+    "title": "注釈コンテンツの言語が設定されていません",
+    "description": "注釈コンテンツ文字列（ツールチップ、フォームフィールド値）に関連付けられた言語宣言がありません。",
+    "severity_label": "minor",
+    "suggested_fix": "注釈テキストが文書の言語と異なる場合は、注釈の外観辞書に/Langを追加してください。"
+  },
+  "11-005": {
+    "title": "フォームフィールドのTU言語が設定されていません",
+    "description": "フォームフィールドのツールチップ（TU）エントリに関連付けられた言語がなく、スクリーンリーダーによる誤った発音の原因となる可能性があります。",
+    "severity_label": "minor",
+    "suggested_fix": "フォームフィールドのツールチップテキストが文書のデフォルト言語と異なる場合は、言語識別が含まれていることを確認してください。"
+  },
+  "11-006": {
+    "title": "文書メタデータの言語が設定されていません",
+    "description": "XMPメタデータがdc:languageプロパティを宣言していないか、文書カタログの/Langエントリがないか空です。",
+    "severity_label": "major",
+    "suggested_fix": "XMPメタデータにdc:languageを追加し、文書カタログの/LangをRFC 3066言語タグに設定してください。"
+  },
+  "12-001": {
+    "title": "伸縮可能な文字にActualTextがありません",
+    "description": "数学的または装飾的な文脈で使用される伸縮可能な文字（括弧、ブラケット、波括弧、根号）にActualTextの置換がありません。",
+    "severity_label": "minor",
+    "suggested_fix": "伸縮可能な文字シーケンスに、その意味を説明するActualTextを追加してください（例：伸縮可能な左括弧に対してActualText='('）。"
+  },
+  "13-001": {
+    "title": "グラフィックがFigureとしてタグ付けされていません",
+    "description": "文書コンテンツ内のグラフィック要素（画像、チャート、図）がFigure構造要素でタグ付けされていません。",
+    "severity_label": "major",
+    "suggested_fix": "装飾的でないすべてのグラフィックを、適切な代替テキストを付けて、構造ツリー内でFigure要素としてタグ付けしてください。"
+  },
+  "13-002": {
+    "title": "意味のある背景を持つリンクにAltがありません",
+    "description": "リンク注釈が意味のある視覚的外観（例：ボタンとして使用される画像）を持っていますが、その目的を説明する代替テキストがありません。",
+    "severity_label": "major",
+    "suggested_fix": "リンク注釈に、その宛先や目的を説明するContentsエントリを追加してください。"
+  },
+  "13-003": {
+    "title": "キャプションがCaptionとしてタグ付けされていません",
+    "description": "キャプション（画像キャプション、テーブルタイトル、図の凡例）が、Caption構造タイプを使用せずに通常のテキスト（P）としてタグ付けされています。",
+    "severity_label": "major",
+    "suggested_fix": "キャプションをCaption構造タイプでタグ付けし、親のFigureまたはTable要素と適切に関連付けられていることを確認してください。"
+  },
+  "13-004": {
+    "title": "Figureに代替テキストがありません",
+    "description": "Figure構造要素は存在しますが、代替テキストを提供するAlt属性がありません。スクリーンリーダーは図の存在をアナウンスしますが、その内容を説明できません。",
+    "severity_label": "major",
+    "suggested_fix": "Figure構造要素に、画像内容の簡潔な説明を含む/Altエントリを追加してください。"
+  },
+  "14-001": {
+    "title": "見出しがタグ付けされていません",
+    "description": "視覚的に見出しとして機能するコンテンツ（大きなフォント、太字、独特のスタイル）が、見出し構造タイプ（H1-H6）でタグ付けされていません。",
+    "severity_label": "major",
+    "suggested_fix": "文書内のすべての見出しを特定し、階層レベルを反映した適切なH1-H6構造要素でタグ付けしてください。"
+  },
+  "14-002": {
+    "title": "最初の見出しがH1ではありません",
+    "description": "文書構造ツリーの最初の見出しがH1タイプではありません。PDF/UA-1のベストプラクティスでは、トップレベルの見出しはH(n)であり、後続の見出しはレベルをスキップすべきではありません。",
+    "severity_label": "major",
+    "suggested_fix": "最初の見出しがH1であることを確認してください（文書タイトルがメタデータにある場合はH2）。レベルのスキップを避けるために、後続の見出しを番号付けし直してください。"
+  },
+  "14-003": {
+    "title": "見出しレベルがスキップされています",
+    "description": "構造ツリー内の見出しレベルがレベルをスキップしています（例：H2を挟まずにH1の直後にH3が続く）。これは支援技術ユーザーにとって論理的な見出し階層を壊します。",
+    "severity_label": "major",
+    "suggested_fix": "見出しレベルがギャップなしで連続していることを確認してください。H1の後にH2、次にH3と続くように見出しを番号付けし直してください。"
+  },
+  "14-005": {
+    "title": "H7+タイプのない深い見出しです",
+    "description": "ネストレベル7以上の見出しに、対応するH7+構造タイプがありません。PDFではH1からH6までしか定義されていません。",
+    "severity_label": "minor",
+    "suggested_fix": "見出し階層を最大6レベルまで平坦化するか、非標準の役割マッピングを慎重に使用してください。"
+  },
+  "14-006": {
+    "title": "1つの構造ノードに複数のHタグがあります",
+    "description": "単一の構造要素に複数の見出しタグが含まれています（例：H1とH2の両方を含むSect）。各見出しは新しいネストレベルを作成する必要があります。",
+    "severity_label": "major",
+    "suggested_fix": "構造ノードを分割して、各見出しが適切なレベルで新しいセクションまたはサブセクションを開始するようにしてください。"
+  },
+  "14-007": {
+    "title": "HタグとHnタグが一貫性なく混在しています",
+    "description": "同じ文書内で、汎用的な「H」タイプと番号付きの「H1」-「H6」タイプが混在して使用されています。",
+    "severity_label": "major",
+    "suggested_fix": "見出し階層内での位置に基づいて、すべての汎用Hタグを番号付きのH1-H6タイプに変換してください。"
+  },
+  "15-001": {
+    "title": "行ヘッダーがヘッダーセルとしてタグ付けされていません",
+    "description": "行ヘッダーとして機能するテーブルセルが、TH（ヘッダーセル）ではなくTD（データセル）としてタグ付けされています。これにより、スクリーンリーダーがヘッダーとデータセルを正しく関連付けられなくなります。",
+    "severity_label": "major",
+    "suggested_fix": "行ヘッダーセルの構造タイプをTDからTHに変更し、適切なScope属性（Scope='Row'）を追加してください。"
+  },
+  "15-002": {
+    "title": "列ヘッダーがヘッダーセルとしてタグ付けされていません",
+    "description": "列ヘッダーとして機能するテーブルセルが、THではなくTDとしてタグ付けされています。スクリーンリーダーはテーブルを論理的にナビゲートできません。",
+    "severity_label": "major",
+    "suggested_fix": "列ヘッダーセルの構造タイプをTDからTHに変更し、適切なScope属性（Scope='Column'）を追加してください。"
+  },
+  "15-003": {
+    "title": "Headers/IDなしでTHにScopeがありません",
+    "description": "TH（テーブルヘッダー）要素にScope属性がなく、テーブルがヘッダーとデータセルをリンクするためのHeaders/ID関連付けを使用していません。",
+    "severity_label": "major",
+    "suggested_fix": "TH要素にScope='Row'、Scope='Column'、またはScope='Both'を追加するか、Headers/ID関連付けを実装してください。"
+  },
+  "15-005": {
+    "title": "曖昧なセルヘッダー関連付けです",
+    "description": "複雑なテーブル構造（結合されたセル、不規則なレイアウト）のため、データセルに関連付けられたヘッダーセルを明確に特定できません。",
+    "severity_label": "major",
+    "suggested_fix": "各TDを対応するTH要素にリンクするために明示的なHeaders/ID属性を使用するか、テーブル構造を簡素化してください。"
+  },
+  "16-001": {
+    "title": "順序付きリストにListNumberingがありません",
+    "description": "順序付きリスト（番号付き項目のLタイプ）に、番号付け形式を指定するListNumbering属性がありません。",
+    "severity_label": "minor",
+    "suggested_fix": "L要素に、'Decimal'、'UpperRoman'、'LowerAlpha'などの値を持つListNumbering属性を追加してください。"
+  },
+  "16-002": {
+    "title": "無効なListNumbering値です",
+    "description": "L要素のListNumbering属性に、認識できないか無効な値が設定されています。",
+    "severity_label": "minor",
+    "suggested_fix": "ListNumberingを有効な値（None、Disc、Circle、Square、Decimal、UpperRoman、LowerRoman、UpperAlpha、またはLowerAlpha）に設定してください。"
+  },
+  "16-003": {
+    "title": "リストコンテンツがリストとしてタグ付けされていません",
+    "description": "視覚的および意味的にリストであるコンテンツ（箇条書きまたは番号付き項目）が、個別の段落やその他の非リスト要素としてタグ付けされています。",
+    "severity_label": "major",
+    "suggested_fix": "コンテンツを、オプションのLblと必須のLBodyを含むリスト項目（LI）を持つリスト（L）として再構築してください。"
+  },
+  "17-001": {
+    "title": "数式がFormulaとしてタグ付けされていません",
+    "description": "文書内の数式が、Formula構造タイプを使用せずに通常の段落や図としてタグ付けされています。",
+    "severity_label": "minor",
+    "suggested_fix": "数式をFormula構造タイプでタグ付けし、式を説明する代替テキストを提供してください。"
+  },
+  "17-002": {
+    "title": "Formulaに代替テキストがありません",
+    "description": "Formula構造要素は存在しますが、数式を説明する代替テキストがありません。",
+    "severity_label": "minor",
+    "suggested_fix": "Formula要素に、数式のテキスト表現を含む/Altエントリを追加してください。"
+  },
+  "17-003": {
+    "title": "数式文字がUnicodeマッピングされていません",
+    "description": "数式内の文字をUnicodeにマッピングできず、支援技術が文字化けした出力を読み上げる原因となります。",
+    "severity_label": "minor",
+    "suggested_fix": "数式に使用されるフォントが、すべてのグリフをカバーする完全なToUnicode CMapを持っていることを確認してください。10-001も参照してください。"
+  },
+  "18-001": {
+    "title": "ヘッダー/フッターがページネーションアーティファクトとしてタグ付けされていません",
+    "description": "実行中のヘッダーとフッター（各ページで繰り返されるページ番号、章タイトル）が、ページネーションアーティファクトとしてマークされずに実コンテンツとしてタグ付けされています。",
+    "severity_label": "major",
+    "suggested_fix": "スクリーンリーダーが連続読み上げ中にスキップするように、実行中のヘッダーとフッターをサブタイプ'Pagination'のアーティファクトとしてマークしてください。"
+  },
+  "18-002": {
+    "title": "ヘッダー/フッターに正しいアーティファクトサブタイプがありません",
+    "description": "ヘッダーおよびフッターがアーティファクトとしてマークされていますが、'Pagination'サブタイプがないか、正しくないサブタイプが使用されています。",
+    "severity_label": "major",
+    "suggested_fix": "実行中のヘッダーおよびフッターにはアーティファクトサブタイプを'Pagination'に設定し、最初のページや最後のページの先頭/末尾のコンテンツにのみ'Header'または'Footer'を設定してください。"
+  },
+  "19-001": {
+    "title": "脚注がNoteとしてタグ付けされていません",
+    "description": "文書内の脚注または文末脚注が、Note構造タイプを使用せず、通常の段落としてタグ付けされています。",
+    "severity_label": "major",
+    "suggested_fix": "脚注および文末脚注をNote要素としてタグ付けし、一意のID属性と、本文テキスト内でそれを指し示すReference要素を含めてください。"
+  },
+  "19-002": {
+    "title": "参照がReferenceとしてタグ付けされていません",
+    "description": "本文中の引用または相互参照マーカーが、Reference構造タイプを使用せず、通常のテキストとしてタグ付けされています。",
+    "severity_label": "major",
+    "suggested_fix": "引用マーカーおよび相互参照をReference要素としてタグ付けし、対応するNoteまたは宛先にリンクしてください。"
+  },
+  "19-003": {
+    "title": "Note IDがありません",
+    "description": "Note構造要素にID属性がないため、本文テキストのReference要素からの参照リンクができません。",
+    "severity_label": "major",
+    "suggested_fix": "すべてのNote要素に一意のID属性を追加し、Reference要素がそれらを指し示せるようにしてください。"
+  },
+  "19-004": {
+    "title": "Note IDが一意ではありません",
+    "description": "2つ以上のNote構造要素が同じID属性値を共有しており、参照解決が曖昧になっています。",
+    "severity_label": "major",
+    "suggested_fix": "各Note要素が文書内でグローバルに一意のIDを持つようにしてください。"
+  },
+  "20-001": {
+    "title": "オプションコンテンツ設定にNameがありません (Configs配列)",
+    "description": "文書のOCConfigs配列内のオプションコンテンツ設定辞書にNameエントリがありません。",
+    "severity_label": "minor",
+    "suggested_fix": "OCProperties/Configs配列内の各オプションコンテンツ設定に、説明的な/Nameエントリを追加してください。"
+  },
+  "20-002": {
+    "title": "オプションコンテンツ設定にNameがありません (Dデフォルト)",
+    "description": "デフォルトのオプションコンテンツ設定辞書 (OCPropertiesのDエントリ) にNameエントリがありません。",
+    "severity_label": "minor",
+    "suggested_fix": "デフォルトのオプションコンテンツ設定辞書に/Nameエントリを追加してください。"
+  },
+  "20-003": {
+    "title": "オプションコンテンツ設定にASキーが存在します",
+    "description": "オプションコンテンツ設定辞書にAS (Application Specific) エントリが含まれていますが、これはユーザーの知識なしに文書の視覚的外観を変更する可能性があるため、PDF/UA-1では許可されていません。",
+    "severity_label": "minor",
+    "suggested_fix": "オプションコンテンツ設定辞書からASキーを削除してください。"
+  },
+  "21-001": {
+    "title": "埋め込みファイルにFキーとUFキーがありません",
+    "description": "埋め込みファイルの仕様辞書に、必須のF (ファイル仕様文字列) またはUF (Unicodeテキストファイル仕様文字列) エントリがありません。",
+    "severity_label": "minor",
+    "suggested_fix": "埋め込みファイルを表すファイル仕様辞書に、FエントリとUFエントリの両方を追加してください。"
+  },
+  "22-001": {
+    "title": "記事スレッドが不適合です",
+    "description": "記事スレッド構造が、適切なV (次のビード) およびN (前のビード) リンクを持つ必須のPDF記事ビード形式に従っていません。",
+    "severity_label": "minor",
+    "suggested_fix": "記事ビードがVエントリとNエントリで適切にリンクされ、各ビードが正しいページに関連付けられていることを確認してください。"
+  },
+  "24-001": {
+    "title": "非対話型フォームにPrintFieldsがありません",
+    "description": "非対話型フォーム (デジタル入力から印刷されたフラットフォームなど) にNeedAppearancesフラグが設定されていないか、FieldMDP変換パラメータからPrintFieldsビットが欠落しています。",
+    "severity_label": "minor",
+    "suggested_fix": "印刷専用表示を目的としたフォームフィールドに、PrintFieldsビットが有効な正しいFieldMDP設定があることを確認してください。"
+  },
+  "25-001": {
+    "title": "XFAフォームのdynamicRenderは必須ではありません",
+    "description": "XFA (XML Forms Architecture) フォームに、'required'に設定されていないdynamicRender要素が含まれており、レンダリングの不整合を引き起こす可能性があります。",
+    "severity_label": "critical",
+    "suggested_fix": "XFAフォーム要素でdynamicRender='required'を設定するか、より優れたアクセシビリティサポートのためにXFAからAcroFormsへ移行してください。"
+  },
+  "28-001": {
+    "title": "注釈が読み取り順序に含まれていません",
+    "description": "ページ上に注釈 (リンク、フォームフィールド、コメント) が存在しますが、関連する構造要素が構造ツリー内の正しい読み取り順序位置に配置されていません。",
+    "severity_label": "major",
+    "suggested_fix": "注釈構造要素 (Link、Form、Annot) を、周囲のコンテンツに対して構造ツリー内の正しい位置に配置してください。"
+  },
+  "28-002": {
+    "title": "注釈がAnnot構造要素内にありません",
+    "description": "ページ上の注釈オブジェクトが、Annot構造要素 (または適切なサブタイプ: Link、Form) でラップされていません。",
+    "severity_label": "major",
+    "suggested_fix": "すべての注釈オブジェクトを適切な構造要素 (ハイパーリンクにはLink、ウィジェットにはForm) でラップしてください。"
+  },
+  "28-003": {
+    "title": "注釈が視覚的な書式設定のみに使用されています",
+    "description": "注釈が純粋に視覚的な書式設定 (装飾として描画された長方形など) のために使用されており、適切にタグ付けされていません。",
+    "severity_label": "minor",
+    "suggested_fix": "書式設定のみの注釈はアーティファクトとしてマークするか、削除して適切なPDF描画演算子を使用してください。"
+  },
+  "28-004": {
+    "title": "注釈にContentsとAltがありません",
+    "description": "注釈にContentsエントリ (テキスト説明) またはAltエントリ (代替テキスト) がなく、スクリーンリーダーユーザーがコンテキストを理解できません。",
+    "severity_label": "major",
+    "suggested_fix": "すべての注釈にその目的を説明する/Contents文字列を追加してください。非テキスト注釈には/Altを提供してください。"
+  },
+  "28-005": {
+    "title": "フォームフィールドにTUまたはAltがありません",
+    "description": "フォームフィールドのウィジェット注釈にツールチップ (TU) またはAltエントリがなく、スクリーンリーダーユーザーがフィールドの目的を理解できません。",
+    "severity_label": "major",
+    "suggested_fix": "各フォームフィールドに、その目的と期待される入力形式を説明する/TU (ツールチップ) エントリを追加してください。"
+  },
+  "28-006": {
+    "title": "未定義の注釈サブタイプ",
+    "description": "注釈にISO 32000-1で定義されていないSubtype値があり、PDFプロセッサで予期しない動作を引き起こす可能性があります。",
+    "severity_label": "minor",
+    "suggested_fix": "未定義のサブタイプを持つ注釈を置き換えるか削除するか、カスタムサブタイプが登録され適切に処理されることを確認してください。"
+  },
+  "28-007": {
+    "title": "TrapNet注釈が存在します",
+    "description": "プリプレス・トラッピング・ワークフローで使用されるTrapNet注釈が文書内に存在し、適切にタグ付けまたはアーティファクト化されていません。",
+    "severity_label": "minor",
+    "suggested_fix": "TrapNet注釈は文書の利用者にとって意味を持たないため、アーティファクトとしてマークしてください。"
+  },
+  "28-008": {
+    "title": "注釈付きページにTabsキーがありません",
+    "description": "注釈 (リンク、フォームフィールド) を含むページに、キーボードナビゲーションのタブ順序を指定するTabsエントリがありません。",
+    "severity_label": "major",
+    "suggested_fix": "ページ辞書に/Tabsエントリを追加してください。構造順序には/Tabs=Sを使用してください (アクセシブルな文書に推奨)。"
+  },
+  "28-009": {
+    "title": "TabsがS (構造順序) に設定されていません",
+    "description": "ページのTabsキーが'S'以外の値 (行順序の'R'、列順序の'C'など) に設定されており、文書の論理読み取り順序と一致しない可能性があります。",
+    "severity_label": "major",
+    "suggested_fix": "注釈付きページでは、キーボードナビゲーションが構造ツリーの順序に従うよう、/Tabsを'S' (構造順序) に設定してください。"
+  },
+  "28-010": {
+    "title": "ウィジェット注釈がForm要素内にありません",
+    "description": "ウィジェット注釈 (フォームフィールド) がツリー内のForm構造要素でラップされていません。",
+    "severity_label": "major",
+    "suggested_fix": "すべてのウィジェット注釈をForm構造要素でラップしてください。関連するフォームフィールドは同じFormコンテナ内にグループ化してください。"
+  },
+  "28-011": {
+    "title": "リンク注釈がLink要素内にありません",
+    "description": "リンク注釈 (ハイパーリンク) がツリー内のLink構造要素でラップされていません。",
+    "severity_label": "major",
+    "suggested_fix": "すべてのリンク注釈を、正しい読み取り順序位置に配置されたLink構造要素でラップしてください。"
+  },
+  "28-012": {
+    "title": "リンク注釈にContentsがありません",
+    "description": "リンク注釈に、リンクの宛先や目的を説明するContentsエントリがありません。",
+    "severity_label": "major",
+    "suggested_fix": "すべてのLink注釈に、リンク先を説明する/Contents文字列を追加してください。"
+  },
+  "28-013": {
+    "title": "サーバーサイドのイメージマップなしでIsMap=trueになっています",
+    "description": "リンク注釈のIsMapがtrueに設定されていますが、関連付けられた画像がサーバーサイドのイメージマップとして機能していません。",
+    "severity_label": "minor",
+    "suggested_fix": "画像が座標感応型の動作を持つアクティブなサーバーサイドのイメージマップではない場合は、IsMapをfalseに設定してください。"
+  },
+  "28-016": {
+    "title": "ファイル添付が7.11に準拠していません",
+    "description": "ファイル添付注釈が、第7.11節 (埋め込みファイルストリーム) の要件に準拠していない埋め込みファイルを参照しています。",
+    "severity_label": "minor",
+    "suggested_fix": "埋め込みファイルにFエントリとUFエントリの両方があり、ファイル仕様辞書が完全であることを確認してください。21-001も参照してください。"
+  },
+  "28-017": {
+    "title": "論理構造内にPrinterMarkがあります",
+    "description": "PrinterMark注釈 (トンボ、見当合わせマーク、カラーバー) が文書の論理構造ツリー内に現れていますが、そこでは意味的な意味を持ちません。",
+    "severity_label": "minor",
+    "suggested_fix": "構造ツリーからPrinterMark注釈を削除し、アーティファクトとしてマークしてください。"
+  },
+  "28-018": {
+    "title": "PrinterMarkの外観がアーティファクトではありません",
+    "description": "PrinterMark注釈の外観ストリームがアーティファクトとしてマークされておらず、スクリーンリーダーが印刷マークを説明しようとしてしまいます。",
+    "severity_label": "minor",
+    "suggested_fix": "コンテンツストリーム内のPrinterMarkの外観コンテンツをアーティファクトとしてマークしてください。"
+  },
+  "30-001": {
+    "title": "参照XObjectが存在します",
+    "description": "文書内で参照XObjectが使用されています。参照XObjectは外部PDFファイルからコンテンツをインポートしますが、インポートされたコンテンツが構造ツリーに適切に統合されないため、アクセシビリティを損なう可能性があります。",
+    "severity_label": "major",
+    "suggested_fix": "参照XObjectの使用は避けてください。必要な場合は、インポートされたすべてのコンテンツがホスト文書の構造ツリーに適切にタグ付けされていることを確認してください。"
+  },
+  "30-002": {
+    "title": "MCIDを持つフォームXObjectが複数回参照されています",
+    "description": "MCID (マーク付きコンテンツ識別子) を持つマーク付きコンテンツを含むフォームXObjectが複数の場所から参照されており、ページのマーク付きコンテンツシーケンスでMCIDの競合が発生しています。",
+    "severity_label": "major",
+    "suggested_fix": "マーク付きコンテンツを含むフォームXObjectの再利用は避けてください。各使用場所でXObjectをフラット化するか複製してください。"
+  },
+  "31-001": {
+    "title": "Type0フォントの派生フォント間でCIDSystemInfoレジストリが一致しません",
+    "description": "Type0フォントの派生CIDフォントのCIDSystemInfoレジストリ値に一貫性がなく、文字マッピングの失敗を引き起こす可能性があります。",
+    "severity_label": "minor",
+    "suggested_fix": "Type0フォントのすべての派生CIDフォントが、一貫したCIDSystemInfo (Registry、Ordering、Supplement) 値を持っていることを確認してください。"
+  },
+  "31-002": {
+    "title": "Type0フォントの派生フォント間でCIDSystemInfoのOrderingが一致しません",
+    "description": "Type0フォントの派生CIDフォントのCIDSystemInfoのOrdering値に一貫性がありません。",
+    "severity_label": "minor",
+    "suggested_fix": "Type0フォントのすべての派生CIDフォント間でOrdering値を揃えてください。"
+  },
+  "31-003": {
+    "title": "Type0フォントの派生フォント間でCIDSystemInfoのSupplementが一致しません",
+    "description": "Type0フォントの派生CIDフォントのCIDSystemInfoのSupplement値に一貫性がありません。",
+    "severity_label": "minor",
+    "suggested_fix": "Type0フォントのすべての派生CIDフォント間でSupplement値を揃えてください。"
+  },
+  "31-004": {
+    "title": "CIDフォントにCIDToGIDMapがありません",
+    "description": "CIDフォント辞書にCIDToGIDMapエントリが含まれておらず、Identityマッピングも使用されていないため、グリフの検索が信頼できません。",
+    "severity_label": "minor",
+    "suggested_fix": "CIDフォントにCIDToGIDMapエントリを追加するか、フォントがIdentity CIDを使用している場合は'Identity'に設定してください。"
+  },
+  "31-005": {
+    "title": "CIDフォントにはIdentity以外のCIDToGIDMapが必要です",
+    "description": "文字コレクションがAdobe-IdentityではないCIDフォントでは、正しいグリフマッピングのために明示的なCIDToGIDMapストリームが必要です。",
+    "severity_label": "minor",
+    "suggested_fix": "フォントがAdobe-Identity文字コレクションを使用していない場合は、CIDフォントに明示的なCIDToGIDMapストリームを提供してください。"
+  },
+  "31-006": {
+    "title": "CMapがリストされていないか埋め込まれていません",
+    "description": "Type0フォントで使用されるCMapリソースが、PDF仕様の標準CMapにリストされておらず、文書にも埋め込まれていません。",
+    "severity_label": "minor",
+    "suggested_fix": "PDF仕様の標準CMapを使用するか、カスタムCMapストリームを文書に埋め込んでください。"
+  },
+  "31-007": {
+    "title": "Type0フォントでWModeが一致しません",
+    "description": "Type0フォントのCMapと派生CIDフォント間でWMode (書き込みモード) 値が異なります。",
+    "severity_label": "minor",
+    "suggested_fix": "CMapとすべての派生CIDフォント間で一貫したWMode値 (横書きは0、縦書きは1) を確認してください。"
+  },
+  "31-008": {
+    "title": "CMapがリストされていないCMapを参照しています",
+    "description": "CMapストリームが、標準CMapではなく文書にも埋め込まれていない別のCMapを参照しています。",
+    "severity_label": "minor",
+    "suggested_fix": "参照されているすべての非標準CMapを文書に埋め込むか、標準CMapのみを使用してください。"
+  },
+  "31-009": {
+    "title": "フォントが埋め込まれていません",
+    "description": "文書で使用されているフォントが埋め込まれていません。埋め込まれていないフォントはシステムフォントへのフォールバックを引き起こし、メトリクスやグリフの範囲が異なる可能性があるため、テキスト抽出や視覚的な忠実度が損なわれます。",
+    "severity_label": "critical",
+    "suggested_fix": "文書で使用されるすべてのフォントを埋め込んでください。埋め込み不可能な標準14フォントについては、フォントプログラムが利用可能であることを確認するか、埋め込み可能な同等のフォントに置き換えてください。"
+  },
+  "31-011": {
+    "title": "埋め込みフォントプログラムにグリフがありません",
+    "description": "文書のテキストで参照されているグリフが、埋め込みフォントプログラム内に存在しません。",
+    "severity_label": "major",
+    "suggested_fix": "必要なすべてのグリフを含むようにフォントをサブセット化するか、必要なグリフを含む別のフォントを使用してください。"
+  },
+  "31-012": {
+    "title": "Type1 CharSet: グリフがリストされていません",
+    "description": "Type1フォントのCharSetに、フォントプログラム内に実際に存在し文書で使用されているグリフがリストされていません。",
+    "severity_label": "minor",
+    "suggested_fix": "文書で参照されているフォントプログラム内のすべてのグリフを含むようにCharSetを更新してください。"
+  },
+  "31-013": {
+    "title": "Type1 CharSet: リストされたグリフがフォント内にありません",
+    "description": "Type1フォントのCharSetに、埋め込みフォントプログラム内に存在しないグリフ名がリストされています。",
+    "severity_label": "minor",
+    "suggested_fix": "CharSetから存在しないグリフ名を削除するか、完全なフォントを埋め込んでください。"
+  },
+  "31-014": {
+    "title": "CID CIDSet: グリフがリストされていません",
+    "description": "CIDフォントのCIDSetに、埋め込みフォントプログラム内に実際に存在し文書で使用されているCIDが含まれていません。",
+    "severity_label": "minor",
+    "suggested_fix": "文書で使用されているすべてのCID値を含むようにCIDSetを更新してください。"
+  },
+  "31-015": {
+    "title": "CID CIDSet: リストされたCIDがフォント内にありません",
+    "description": "CIDフォントのCIDSetに、埋め込みフォントプログラム内のどのグリフにも対応しないCIDがリストされています。",
+    "severity_label": "minor",
+    "suggested_fix": "CIDSetから存在しないCIDを削除するか、実際のフォントプログラムから再生成してください。"
+  },
+  "31-016": {
+    "title": "グリフ幅の不一致が1/1000を超えています",
+    "description": "フォント辞書で指定されたグリフ幅が、埋め込みフォントプログラム内の幅と1/1000単位を超えて異なります。",
+    "severity_label": "minor",
+    "suggested_fix": "フォント辞書のWidths配列 (またはW2エントリ) を、埋め込みフォントプログラム内の実際のグリフ幅と一致するように修正してください。"
+  },
+  "31-017": {
+    "title": "非シンボリックTrueTypeに非シンボリックcmapがありません",
+    "description": "非シンボリックエンコーディング (Encodingエントリが存在するか、シンボリックフラグがオフ) を持つTrueTypeフォントに、Unicodeマッピング用の(3,1) cmapサブテーブルが含まれていません。",
+    "severity_label": "minor",
+    "suggested_fix": "適切なUnicode文字マッピングのために、TrueTypeフォントプログラムに(3,1) Microsoft Unicode BMP cmapサブテーブルが含まれていることを確認してください。"
+  },
+  "31-018": {
+    "title": "非シンボリックTrueTypeのグリフがcmapにありません",
+    "description": "非シンボリックTrueTypeフォント内のグリフが、フォントのcmapサブテーブルを通じて検索できません。",
+    "severity_label": "minor",
+    "suggested_fix": "文書で使用されるすべてのグリフが、フォント内の少なくとも1つのcmapサブテーブルを通じてアクセス可能であることを確認してください。"
+  },
+  "31-019": {
+    "title": "非シンボリックTrueTypeフォント辞書にEncodingがありません",
+    "description": "非シンボリックTrueTypeフォント辞書にEncodingエントリがなく、グリフ名の解決に必要です。",
+    "severity_label": "minor",
+    "suggested_fix": "フォント辞書に適切なEncodingエントリ (WinAnsiEncoding、MacRomanEncodingなど) を追加してください。"
+  },
+  "31-020": {
+    "title": "Encoding辞書にBaseEncodingがありません",
+    "description": "Differences配列を持つEncoding辞書で、BaseEncodingエントリが指定されていません。",
+    "severity_label": "minor",
+    "suggested_fix": "Differences配列が逸脱している元となるBaseEncoding (WinAnsiEncodingなど) をEncoding辞書で指定してください。"
+  },
+  "31-021": {
+    "title": "Encoding/BaseEncodingがMacRomanまたはWinAnsiではありません",
+    "description": "非シンボリックTrueTypeフォントのEncodingまたはBaseEncodingが、2つの標準ベースエンコーディングであるMacRomanEncodingでもWinAnsiEncodingでもありません。",
+    "severity_label": "minor",
+    "suggested_fix": "フォントのベースエンコーディングとしてWinAnsiEncodingまたはMacRomanEncodingを使用してください。"
+  },
+  "31-022": {
+    "title": "Differencesのグリフ名がAdobe Glyph Listにありません",
+    "description": "フォントのEncoding辞書のDifferences配列で、Adobe Glyph List (AGL) にないグリフ名が使用されています。",
+    "severity_label": "minor",
+    "suggested_fix": "Differences配列には、Adobe Glyph Listの標準的なグリフ名のみを使用してください。"
+  },
+  "31-023": {
+    "title": "Differencesは存在しますが(3,1) cmapがありません",
+    "description": "フォントのEncodingにDifferences配列がありますが、TrueTypeフォントプログラムにUnicodeマッピング用の(3,1) cmapサブテーブルが含まれていません。",
+    "severity_label": "minor",
+    "suggested_fix": "信頼性の高いUnicodeマッピングを確保するために、フォントにToUnicode CMapを追加してください。"
+  },
+  "31-024": {
+    "title": "シンボリックTrueTypeフォント辞書にEncodingがあります",
+    "description": "シンボリックTrueTypeフォント (Flagsビット3が設定) のフォント辞書にEncodingエントリがありますが、シンボリックフォントでは許可されていません。",
+    "severity_label": "minor",
+    "suggested_fix": "シンボリックTrueTypeフォント辞書からEncodingエントリを削除してください。シンボリックフォントは文字マッピングにフォントプログラムのcmapに依存します。"
+  },
+  "31-025": {
+    "title": "シンボリックTrueTypeフォントプログラムにcmapがありません",
+    "description": "シンボリックTrueTypeフォントの埋め込みフォントプログラムにcmapテーブルが含まれていません。",
+    "severity_label": "minor",
+    "suggested_fix": "埋め込みフォントプログラムに、シンボリック文字マッピング用の少なくとも(3,0) cmapサブテーブルが含まれていることを確認してください。"
+  },
+  "31-026": {
+    "title": "複数のcmapを持つシンボリックTrueTypeに(3,0)がありません",
+    "description": "シンボリックTrueTypeフォントに複数のcmapサブテーブルがありますが、必須の(3,0) Microsoft Symbol cmapサブテーブルが欠落しています。",
+    "severity_label": "minor",
+    "suggested_fix": "正しい文字マッピングのために、埋め込みフォントプログラムに(3,0) Microsoft Symbol cmapサブテーブルが含まれていることを確認してください。"
+  },
+  "31-027": {
+    "title": "ToUnicode CMapがありません",
+    "description": "テキストコンテンツに使用されるフォントにToUnicode CMapがなく、免除条件も適用されません。ToUnicode CMapがないと、支援技術は読み取り可能なテキストを抽出できません。",
+    "severity_label": "critical",
+    "suggested_fix": "文書で使用されるすべての文字コードを対応するUnicode値にマッピングするToUnicode CMapストリームをフォント辞書に追加してください。"
+  },
+  "31-028": {
+    "title": "ToUnicodeがCID 0にマッピングされています",
+    "description": "ToUnicode CMapが文字コードを有効なテキスト文字ではないUnicode値U+0000 (null) にマッピングしています。",
+    "severity_label": "minor",
+    "suggested_fix": "文字コードを有効な非nullのUnicode値にマッピングするようにToUnicode CMapを修正してください。"
+  },
+  "31-029": {
+    "title": "ToUnicodeがU+FEFFまたはU+FFFEにマッピングされています",
+    "description": "ToUnicode CMapが文字コードを制御文字であり表示可能なテキストではないU+FEFF (BOM) またはU+FFFE (バイト順マーク) にマッピングしています。",
+    "severity_label": "minor",
+    "suggested_fix": "ToUnicode CMap内のU+FEFF/U+FFFEマッピングを、文字の実際のUnicode値に置き換えてください。"
+  },
+  "31-030": {
+    "title": ".notdefグリフがテキスト内で参照されています",
+    "description": "文書内のテキスト表示演算子が.notdefグリフ (グリフインデックス0) を参照しており、文字が欠落しているか利用できないことを示しています。.notdefを使用するテキストは空白または豆腐文字として表示されます。",
+    "severity_label": "major",
+    "suggested_fix": "文書で使用されるすべての文字コードが、埋め込みフォントプログラム内の実際のグリフに対応していることを確認してください。"
+  }
+}
