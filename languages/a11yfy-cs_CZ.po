@@ -402,7 +402,7 @@ msgstr "Výsledek"
 
 #: includes/admin/views/dashboard.php:193
 msgid "Credits"
-msgstr "Závěrečné titulky"
+msgstr "Kredity"
 
 #: includes/admin/views/settings.php:16
 msgid "a11yfy Settings"
@@ -1294,7 +1294,7 @@ msgstr "Odhadované náklady: %1$d–%2$d kreditů"
 
 #: includes/admin/class-a11yfy-admin.php:109
 msgid "best effort"
-msgstr "v rámci možností"
+msgstr "částečná oprava"
 
 #: includes/admin/class-a11yfy-admin.php:110
 #: includes/admin/views/document.php:141
@@ -1314,12 +1314,12 @@ msgstr "vaše partnerská organizace"
 #: includes/admin/class-a11yfy-admin.php:453
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
-msgstr "Váš přidělený úvěrový limit je nízký (zbývá %1$d kreditů). Limit vám poskytuje %2$s – požádejte je o jeho zvýšení."
+msgstr "Váš delegovaný limit kreditů je téměř vyčerpán (zbývá %1$d kreditů). Poskytuje ho %2$s — požádejte je o zvýšení limitu."
 
 #: includes/admin/class-a11yfy-admin.php:455
 #. translators: %s: parent organization name.
 msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
-msgstr "Vaše poslední nápravná akce byla zablokována: vyčerpán byl delegovaný úvěrový limit nastavený %s."
+msgstr "Vaše poslední náprava byla zablokována: delegovaný limit kreditů nastavený organizací %s je vyčerpán."
 
 #: includes/admin/class-a11yfy-scan-report.php:69
 msgid "The encrypted file is missing its permissions entry"
@@ -1369,38 +1369,30 @@ msgstr ""
 msgid ""
 "Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
 "content."
-msgstr ""
-"Funkce „Remediation“ označuje dekorativní grafické prvky (rámečky, oddělovače, pozadí) jako artefakty a označuje ty, "
-"které obsahují skutečný obsah."
+msgstr "Náprava označí dekorativní grafiku (rámečky, oddělovače, pozadí) jako artefakty a prvky nesoucí obsah otaguje."
 
 #: includes/admin/views/dashboard.php:41
 #. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
 msgid "Delegated credits: %1$d of %2$d left (provided by %3$s)"
-msgstr "Převedené kredity: %1$d z %2$d zbývá (poskytnuto %3$s)"
+msgstr "Delegované kredity: zbývá %1$d z %2$d (poskytuje %3$s)"
 
 #: includes/admin/views/dashboard.php:44
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Delegated credits: %1$d (provided by %2$s)"
-msgstr "Převedené kredity: %1$d (poskytnuto %2$s)"
+msgstr "Delegované kredity: %1$d (poskytuje %2$s)"
 
 #: includes/admin/views/dashboard.php:47
 #. translators: %d: remaining delegated credits.
 msgid "Delegated credits: %d"
-msgstr "Převedené kredity: %d"
+msgstr "Delegované kredity: %d"
 
 #: includes/admin/views/dashboard.php:122
 #. translators: %d: number of non-compliant PDFs found by the free scan.
 msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
 msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
-msgstr[0] ""
-"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
-"EAA/ADA)."
-msgstr[1] ""
-"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
-"EAA/ADA)."
-msgstr[2] ""
-"Bezplatná kontrola na tomto webu odhalila %d souborů PDF, které nesplňují požadavky na přístupnost (riziko podle "
-"EAA/ADA)."
+msgstr[0] "Bezplatná kontrola našla na tomto webu %d soubor PDF, který nesplňuje požadavky na přístupnost (riziko EAA/ADA)."
+msgstr[1] "Bezplatná kontrola našla na tomto webu %d soubory PDF, které nesplňují požadavky na přístupnost (riziko EAA/ADA)."
+msgstr[2] "Bezplatná kontrola našla na tomto webu %d souborů PDF, které nesplňují požadavky na přístupnost (riziko EAA/ADA)."
 
 #: includes/admin/views/dashboard.php:247
 #. translators: %d: number of non-compliant PDFs.
@@ -1445,7 +1437,7 @@ msgid ""
 "Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
 "organization settings."
 msgstr ""
-"Váš limit kreditů přidělených službou a11yfy klesl na %1$d kreditů. Oprava PDF se zastaví, jakmile dosáhne nuly.\n"
+"Váš delegovaný limit kreditů a11yfy klesl na %1$d kreditů. Oprava PDF se zastaví, jakmile dosáhne nuly.\n"
 "\n"
-"Vaše kredity poskytuje %2$s – požádejte je o zvýšení limitu nebo přepněte na vlastní kredity v nastavení vaší "
+"Vaše kredity poskytuje %2$s — požádejte je o zvýšení limitu, nebo přepněte na vlastní kredity v nastavení vaší "
 "organizace a11yfy."

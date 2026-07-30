@@ -405,7 +405,7 @@ msgstr "Resultaat"
 
 #: includes/admin/views/dashboard.php:193
 msgid "Credits"
-msgstr "Colofon"
+msgstr "Credits"
 
 #: includes/admin/views/settings.php:16
 msgid "a11yfy Settings"
@@ -1313,7 +1313,7 @@ msgstr "Geschatte kosten: %1$d–%2$d credits"
 
 #: includes/admin/class-a11yfy-admin.php:109
 msgid "best effort"
-msgstr "naar beste vermogen"
+msgstr "gedeeltelijk hersteld"
 
 #: includes/admin/class-a11yfy-admin.php:110
 #: includes/admin/views/document.php:141
@@ -1328,19 +1328,19 @@ msgstr ""
 #: includes/admin/views/settings.php:121
 #: includes/class-a11yfy-queue.php:146
 msgid "your partner organization"
-msgstr "uw partnerorganisatie"
+msgstr "je partnerorganisatie"
 
 #: includes/admin/class-a11yfy-admin.php:453
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
 msgstr ""
-"Je toegewezen kredietlimiet is laag (%1$d kredietpunten over). Deze limiet wordt verstrekt door %2$s — vraag hen om je "
-"limiet te verhogen."
+"Je toegewezen creditlimiet is bijna op (nog %1$d credits over). Deze wordt verstrekt door %2$s — vraag hen om je limiet "
+"te verhogen."
 
 #: includes/admin/class-a11yfy-admin.php:455
 #. translators: %s: parent organization name.
 msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
-msgstr "Uw laatste herstelactie is geblokkeerd: de door %s vastgestelde gedelegeerde kredietlimiet is opgebruikt."
+msgstr "Je laatste herstelactie is geblokkeerd: de door %s ingestelde gedelegeerde creditlimiet is opgebruikt."
 
 #: includes/admin/class-a11yfy-scan-report.php:69
 msgid "The encrypted file is missing its permissions entry"
@@ -1404,12 +1404,12 @@ msgstr "Toegewezen credits: %1$d van %2$d over (verstrekt door %3$s)"
 #: includes/admin/views/dashboard.php:44
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Delegated credits: %1$d (provided by %2$s)"
-msgstr "Toegewezen studiepunten: %1$d (verstrekt door %2$s)"
+msgstr "Toegewezen credits: %1$d (verstrekt door %2$s)"
 
 #: includes/admin/views/dashboard.php:47
 #. translators: %d: remaining delegated credits.
 msgid "Delegated credits: %d"
-msgstr "Toegewezen studiepunten: %d"
+msgstr "Toegewezen credits: %d"
 
 #: includes/admin/views/dashboard.php:122
 #. translators: %d: number of non-compliant PDFs found by the free scan.
@@ -1430,11 +1430,11 @@ msgstr "%d documenten voldoen niet aan de toegankelijkheidseisen (EAA/ADA-risico
 #: includes/admin/views/dashboard.php:270
 #. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
 msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
-msgstr "geschat: %1$d–%2$d studiepunten — je saldo: %3$d"
+msgstr "geschat: %1$d–%2$d credits — je saldo: %3$d"
 
 #: includes/admin/views/document.php:140
 msgid "Best-effort repair applied"
-msgstr "Er is een 'best-effort'-herstel toegepast"
+msgstr "Best mogelijke reparatie toegepast"
 
 #: includes/admin/views/settings.php:54
 #. translators: %s: organization name the key belongs to.
@@ -1465,8 +1465,7 @@ msgid ""
 "Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
 "organization settings."
 msgstr ""
-"Je toegewezen kredietlimiet bij a11yfy is gedaald tot %1$d kredieten. Het corrigeren van PDF-bestanden wordt stopgezet "
-"zodra deze limiet op nul staat.\n"
+"Je toegewezen a11yfy-creditlimiet is gedaald tot %1$d credits. PDF-herstel stopt zodra deze nul bereikt.\n"
 "\n"
-"Je kredieten worden verstrekt door %2$s — vraag hen om je limiet te verhogen, of schakel over naar je eigen kredieten "
-"in de instellingen van je a11yfy-organisatie."
+"Je credits worden verstrekt door %2$s — vraag hen om je limiet te verhogen, of schakel over naar je eigen credits in de "
+"instellingen van je a11yfy-organisatie."

@@ -1318,7 +1318,7 @@ msgstr[0] ""
 "Az ingyenes vizsgálat %d olyan PDF-fájlt talált ezen a webhelyen, amely nem felel meg az akadálymentességi "
 "követelményeknek (EAA/ADA-kockázat)."
 msgstr[1] ""
-"Az ingyenes vizsgálat %d olyan PDF-fájlt talált ezen a webhelyen, amelyek nem felelnek meg az akadálymentességi "
+"Az ingyenes vizsgálat %d olyan PDF-fájlt talált ezen a webhelyen, amely nem felel meg az akadálymentességi "
 "követelményeknek (EAA/ADA-kockázat)."
 
 #: includes/admin/views/dashboard.php:247

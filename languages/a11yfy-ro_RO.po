@@ -1309,7 +1309,7 @@ msgstr "Cost estimat: %1$d–%2$d credite"
 
 #: includes/admin/class-a11yfy-admin.php:109
 msgid "best effort"
-msgstr "efort maxim"
+msgstr "reparație parțială"
 
 #: includes/admin/class-a11yfy-admin.php:110
 #: includes/admin/views/document.php:141
@@ -1324,19 +1324,19 @@ msgstr ""
 #: includes/admin/views/settings.php:121
 #: includes/class-a11yfy-queue.php:146
 msgid "your partner organization"
-msgstr "organizația parteneră"
+msgstr "organizația ta parteneră"
 
 #: includes/admin/class-a11yfy-admin.php:453
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
 msgstr ""
-"Limita de credit delegată este scăzută (mai ai %1$d credite). Aceasta este acordată de %2$s — cere-le să-ți mărească "
+"Limita ta de credite delegate e aproape epuizată (mai ai %1$d credite). Este oferită de %2$s — cere-le să îți mărească "
 "limita."
 
 #: includes/admin/class-a11yfy-admin.php:455
 #. translators: %s: parent organization name.
 msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
-msgstr "Ultima dvs. acțiune de remediere a fost blocată: limita de credit delegată stabilită de %s a fost epuizată."
+msgstr "Ultima ta remediere a fost blocată: limita de credite delegată stabilită de %s a fost epuizată."
 
 #: includes/admin/class-a11yfy-scan-report.php:69
 msgid "The encrypted file is missing its permissions entry"
@@ -1352,7 +1352,7 @@ msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:72
 msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
-msgstr "Salvați din nou fișierul cu setări de criptare care permit în mod explicit accesul tehnologiilor de asistență."
+msgstr "Salvează din nou fișierul cu setări de criptare care permit în mod explicit accesul tehnologiilor de asistență."
 
 #: includes/admin/class-a11yfy-scan-report.php:75
 msgid "The encryption blocks screen reader access"
@@ -1368,7 +1368,7 @@ msgstr ""
 
 #: includes/admin/class-a11yfy-scan-report.php:78
 msgid "Re-save the file with encryption settings that allow assistive-technology access."
-msgstr "Salvați din nou fișierul cu setări de criptare care permit accesul tehnologiilor asistive."
+msgstr "Salvează din nou fișierul cu setări de criptare care permit accesul tehnologiilor de asistență."
 
 #: includes/admin/class-a11yfy-scan-report.php:87
 msgid "Unmarked graphic elements in the document"
@@ -1387,8 +1387,8 @@ msgid ""
 "Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
 "content."
 msgstr ""
-"Procesul de remediere identifică elementele grafice decorative (chenare, separatoare, fundaluri) ca artefacte și le "
-"etichetează pe cele care conțin conținut."
+"Remedierea marchează grafica decorativă (chenare, separatoare, fundaluri) ca artefacte și etichetează elementele care "
+"poartă conținut."
 
 #: includes/admin/views/dashboard.php:41
 #. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
@@ -1409,14 +1409,10 @@ msgstr "Credite delegate: %d"
 #. translators: %d: number of non-compliant PDFs found by the free scan.
 msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
 msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
-msgstr[0] ""
-"Scanarea gratuită a identificat %d fișiere PDF pe acest site care nu îndeplinesc cerințele de accesibilitate (risc "
-"EAA/ADA)."
-msgstr[1] ""
-"Scanarea gratuită a identificat %d fișiere PDF pe acest site care nu îndeplinesc cerințele de accesibilitate (risc "
-"EAA/ADA)."
+msgstr[0] "Scanarea gratuită a găsit pe acest site %d fișier PDF care nu îndeplinește cerințele de accesibilitate (risc EAA/ADA)."
+msgstr[1] "Scanarea gratuită a găsit pe acest site %d fișiere PDF care nu îndeplinesc cerințele de accesibilitate (risc EAA/ADA)."
 msgstr[2] ""
-"Scanarea gratuită a identificat %d fișiere PDF pe acest site care nu îndeplinesc cerințele de accesibilitate (risc "
+"Scanarea gratuită a găsit pe acest site %d de fișiere PDF care nu îndeplinesc cerințele de accesibilitate (risc "
 "EAA/ADA)."
 
 #: includes/admin/views/dashboard.php:247
@@ -1431,7 +1427,7 @@ msgstr "estimare: %1$d–%2$d credite — soldul tău: %3$d"
 
 #: includes/admin/views/document.php:140
 msgid "Best-effort repair applied"
-msgstr "S-a aplicat repararea prin efort maxim"
+msgstr "S-a aplicat cea mai bună reparație posibilă"
 
 #: includes/admin/views/settings.php:54
 #. translators: %s: organization name the key belongs to.

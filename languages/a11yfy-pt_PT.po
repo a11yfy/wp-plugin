@@ -138,7 +138,7 @@ msgstr "O seu saldo de créditos está baixo (%d créditos restantes). A correç
 
 #: includes/admin/class-a11yfy-admin.php:220
 msgid "Your last remediation was blocked: not enough credits."
-msgstr "A tua última correção foi bloqueada: não tens créditos suficientes."
+msgstr "A sua última correção foi bloqueada: créditos insuficientes."
 
 #: includes/admin/class-a11yfy-admin.php:223
 msgid "Top up on a11yfy.com"
@@ -1305,7 +1305,7 @@ msgstr "Custo estimado: %1$d–%2$d créditos"
 
 #: includes/admin/class-a11yfy-admin.php:109
 msgid "best effort"
-msgstr "melhor esforço possível"
+msgstr "reparação parcial"
 
 #: includes/admin/class-a11yfy-admin.php:110
 #: includes/admin/views/document.php:141
@@ -1320,14 +1320,14 @@ msgstr ""
 #: includes/admin/views/settings.php:121
 #: includes/class-a11yfy-queue.php:146
 msgid "your partner organization"
-msgstr "a vossa organização parceira"
+msgstr "a sua organização parceira"
 
 #: includes/admin/class-a11yfy-admin.php:453
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
 msgstr ""
-"O teu limite de crédito delegado está baixo (%1$d créditos restantes). É concedido pela %2$s — pede-lhes para "
-"aumentarem o teu limite."
+"O seu limite de créditos delegados está baixo (restam %1$d créditos). É disponibilizado por %2$s — peça-lhes que "
+"aumentem o seu limite."
 
 #: includes/admin/class-a11yfy-admin.php:455
 #. translators: %s: parent organization name.

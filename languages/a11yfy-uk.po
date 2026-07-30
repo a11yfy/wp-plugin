@@ -410,7 +410,7 @@ msgstr "Результат"
 
 #: includes/admin/views/dashboard.php:193
 msgid "Credits"
-msgstr "Подяки"
+msgstr "Кредити"
 
 #: includes/admin/views/settings.php:16
 msgid "a11yfy Settings"

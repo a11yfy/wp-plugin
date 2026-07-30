@@ -401,7 +401,7 @@ msgstr "Tulos"
 
 #: includes/admin/views/dashboard.php:193
 msgid "Credits"
-msgstr "Tekijätiedot"
+msgstr "Krediitit"
 
 #: includes/admin/views/settings.php:16
 msgid "a11yfy Settings"

@@ -397,7 +397,7 @@ msgstr "النتيجة"
 
 #: includes/admin/views/dashboard.php:193
 msgid "Credits"
-msgstr "قائمة المساهمين"
+msgstr "الأرصدة"
 
 #: includes/admin/views/settings.php:16
 msgid "a11yfy Settings"
