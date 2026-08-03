@@ -1,0 +1,222 @@
+/**
+ * a11yfy visitor modal (public front-end).
+ *
+ * Every rule is scoped under .a11yfy-modal / .a11yfy-modal__overlay so the
+ * theme cannot leak in (and we cannot leak out). The accent color comes from
+ * the plugin settings via the --a11yfy-accent custom property.
+ */
+
+.a11yfy-modal__overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 99999;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	background: rgba( 15, 23, 42, 0.6 );
+}
+
+.a11yfy-modal {
+	--a11yfy-accent: #1d4ed8;
+	position: relative;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 480px;
+	max-height: 90vh;
+	overflow-y: auto;
+	padding: 28px;
+	border-radius: 8px;
+	background: #fff;
+	color: #111827;
+	font-size: 16px;
+	line-height: 1.5;
+	box-shadow: 0 20px 50px rgba( 0, 0, 0, 0.3 );
+}
+
+.a11yfy-modal * {
+	box-sizing: border-box;
+}
+
+.a11yfy-modal__close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: #4b5563;
+	font-size: 22px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.a11yfy-modal__close:hover,
+.a11yfy-modal__close:focus {
+	background: #f3f4f6;
+	color: #111827;
+}
+
+.a11yfy-modal__title {
+	margin: 0 0 12px;
+	padding: 0 24px 0 0;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.3;
+	color: inherit;
+}
+
+.a11yfy-modal__title:focus {
+	outline: none;
+}
+
+.a11yfy-modal__body,
+.a11yfy-modal__info {
+	margin: 0 0 16px;
+}
+
+.a11yfy-modal__actions {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: stretch;
+	margin: 20px 0 0;
+	text-align: center;
+}
+
+.a11yfy-modal__btn {
+	display: inline-block;
+	padding: 12px 20px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: filter 0.15s ease;
+}
+
+/*
+ * Color fallbacks at zero specificity (:where): a block theme's
+ * .wp-element-button rules (theme.json) override them, so in theme-inherit
+ * mode the primary buttons look exactly like the theme's buttons. Classic
+ * themes without such rules get the accent-blue fallback.
+ */
+:where( .a11yfy-modal__btn--primary ) {
+	border: 2px solid var( --a11yfy-accent );
+	border-radius: 6px;
+	background: var( --a11yfy-accent );
+	color: #fff;
+}
+
+/* The secondary action stays theme-neutral: outlined, inherits text color. */
+.a11yfy-modal__btn--secondary {
+	border: 2px solid currentColor;
+	border-radius: 6px;
+	background: transparent;
+	color: inherit;
+}
+
+/* Explicit accent mode (admin-picked color): enforce over the theme. */
+.a11yfy-modal--accent .a11yfy-modal__btn--primary {
+	border: 2px solid var( --a11yfy-accent );
+	border-radius: 6px;
+	background: var( --a11yfy-accent );
+	color: #fff;
+}
+
+.a11yfy-modal--accent .a11yfy-modal__btn--secondary {
+	border-color: var( --a11yfy-accent );
+	background: #fff;
+	color: var( --a11yfy-accent );
+}
+
+.a11yfy-modal__btn:hover,
+.a11yfy-modal__btn:focus {
+	filter: brightness( 0.9 );
+}
+
+.a11yfy-modal__btn:focus-visible,
+.a11yfy-modal__close:focus-visible,
+.a11yfy-modal__input:focus-visible {
+	outline: 3px solid var( --a11yfy-accent );
+	outline-offset: 2px;
+}
+
+.a11yfy-modal__btn[disabled] {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.a11yfy-modal__step {
+	margin-top: 16px;
+}
+
+.a11yfy-modal__form {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin: 0 0 8px;
+}
+
+.a11yfy-modal__label {
+	font-weight: 600;
+}
+
+.a11yfy-modal__input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #9ca3af;
+	border-radius: 6px;
+	font-size: 16px;
+	color: #111827;
+	background: #fff;
+}
+
+/* Honeypot: off-screen, still submittable by naive bots. */
+.a11yfy-modal__hp {
+	position: absolute !important;
+	left: -9999px !important;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.a11yfy-modal__privacy {
+	margin: 8px 0 0;
+	font-size: 13px;
+	color: #4b5563;
+}
+
+.a11yfy-modal__success {
+	margin: 0;
+	font-weight: 600;
+	color: #166534;
+}
+
+.a11yfy-modal__feedback {
+	margin: 8px 0 0;
+	min-height: 1em;
+}
+
+.a11yfy-modal__feedback--error {
+	color: #b91c1c;
+	font-weight: 600;
+}
+
+@media ( prefers-reduced-motion: reduce ) {
+	.a11yfy-modal__btn {
+		transition: none;
+	}
+}
+
+@media ( min-width: 480px ) {
+	.a11yfy-modal__actions {
+		align-items: center;
+	}
+
+	.a11yfy-modal__btn {
+		min-width: 280px;
+	}
+}

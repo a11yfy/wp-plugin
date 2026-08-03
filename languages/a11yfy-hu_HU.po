@@ -1372,3 +1372,150 @@ msgstr ""
 
 #~ msgid "Accessible PDF (a11yfy) — optimization would strip the accessibility tags."
 #~ msgstr "Akadálymentes PDF (a11yfy) — az optimalizálás eltávolítaná az akadálymentesítési címkéket."
+
+msgid "This document is not yet accessible"
+msgstr "Ez a dokumentum jelenleg nem akadálymentes"
+
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "A megnyitni kívánt PDF jelenleg nem felel meg az akadálymentességi követelményeknek. Megnyithatja így is, vagy igényelhet belőle akadálymentes változatot."
+
+msgid "Open document"
+msgstr "Dokumentum megnyitása"
+
+msgid "Request accessible version"
+msgstr "Akadálymentes verzió igénylése"
+
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "E-mailben értesítjük, amint az akadálymentes változat elkészült."
+
+msgid "Email address"
+msgstr "E-mail-cím"
+
+msgid "Request document"
+msgstr "Dokumentum igénylése"
+
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Köszönjük! E-mailben értesítjük, amint az akadálymentes változat elkészült."
+
+msgid "We only use your email address to send this one notification."
+msgstr "E-mail-címét kizárólag ennek az egy értesítésnek a kiküldésére használjuk."
+
+msgid "An accessible version of this document is already being prepared."
+msgstr "A dokumentum akadálymentes változata már készül."
+
+msgid "Please enter a valid email address."
+msgstr "Adjon meg egy érvényes e-mail-címet."
+
+msgid "Too many requests — please try again later."
+msgstr "Túl sok kérés érkezett — próbálja meg újra később."
+
+msgid "The request could not be submitted. Please try again later."
+msgstr "A kérést nem sikerült elküldeni. Próbálja meg újra később."
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Elkészült az akadálymentes dokumentuma"
+
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Üdvözöljük!\n\nJó hírünk van: elkészült a(z) „{document_title}” dokumentum akadálymentes változata, amelyet a(z) {site_name} oldalon igényelt.\n\nInnen töltheti le:\n{document_url}\n\nKöszönjük, hogy fontos Önnek az akadálymentesség.\n\n{site_name}"
+
+msgid "On demand"
+msgstr "Igény szerint"
+
+msgid "On demand (visitor requests)"
+msgstr "Igény szerint (látogatói kérések)"
+
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "ha egy látogató nem akadálymentes PDF-re kattint, akadálymentes változatot igényelhet — a javítás csak valós igény esetén fut le."
+
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "A nem akadálymentes PDF-et megnyitó látogatók akadálymentes változatot igényelhetnek — csak azokért a dokumentumokért fizetsz, amelyekre tényleg szükség van."
+
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Várakozó látogatói kérések: %1$d (%2$d dokumentum)."
+
+msgid "Visitor requests (on-demand mode)"
+msgstr "Látogatói kérések (igény szerinti mód)"
+
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Ezek a szövegek abban a párbeszédablakban jelennek meg, amelyet a látogatók egy még nem akadálymentes PDF-re kattintva látnak, valamint az elkészült változatról értesítő e-mailben. Ha egy mezőt üresen hagysz, a beépített szöveg jelenik meg az oldal nyelvén."
+
+msgid "Dialog title"
+msgstr "Párbeszédablak címe"
+
+msgid "Dialog message"
+msgstr "Párbeszédablak szövege"
+
+msgid "\"Open document\" button"
+msgstr "„Dokumentum megnyitása” gomb"
+
+msgid "\"Request accessible version\" button"
+msgstr "„Akadálymentes verzió igénylése” gomb"
+
+msgid "Request explanation"
+msgstr "Igénylés magyarázó szövege"
+
+msgid "Email field label"
+msgstr "E-mail-mező címkéje"
+
+msgid "\"Request document\" button"
+msgstr "„Dokumentum igénylése” gomb"
+
+msgid "Confirmation message"
+msgstr "Visszaigazoló üzenet"
+
+msgid "Privacy note"
+msgstr "Adatkezelési megjegyzés"
+
+msgid "Dialog button style"
+msgstr "Párbeszédablak gombstílusa"
+
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Gombstílus öröklése a sablontól (ajánlott)"
+
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Blokksablonoknál a párbeszédablak gombjai pontosan a sablon gombstílusát követik. A géppel olvasható gombstílus nélküli klasszikus sablonoknál a lenti kiemelőszín érvényesül."
+
+msgid "Dialog accent color"
+msgstr "Párbeszédablak kiemelőszíne"
+
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "A párbeszédablak gombjaihoz használjuk, ha a sablon-öröklés ki van kapcsolva (és tartalékként). Válassz elég sötét színt: a gombfelirat fehér, és legalább 4,5:1 kontraszt kell hozzá."
+
+msgid "Ready-email subject"
+msgstr "Értesítő e-mail tárgya"
+
+msgid "Ready-email body"
+msgstr "Értesítő e-mail szövege"
+
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Helyettesítők: {site_name}, {document_title}, {document_url}, {request_date}. Üresen hagyva a beépített szöveg megy ki, minden látogatónak a saját nyelvén."
+
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Az oldalad látogatói akadálymentes PDF-változatokat igényeltek, de az a11yfy kreditegyenleged nem fedezi a munkát.\n\nVárakozó kérések: %1$d (%2$d dokumentum)\nBecsült kreditigény: legfeljebb %3$d\n\nA kérések várakoznak, és automatikusan elindulnak, amint elegendő kredit áll rendelkezésre."
+
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "A kreditjeidet %s biztosítja — kérd tőlük a kereted emelését."
+
+msgid "Top up at: %s"
+msgstr "Feltöltés: %s"
+
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Látogatói kérések várnak kreditre"
+
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy — akadálymentes dokumentumok igénylései"
+
+msgid "Accessible-document requests"
+msgstr "Akadálymentes dokumentumok igénylései"
+
+msgid "Document"
+msgstr "Dokumentum"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Requested at"
+msgstr "Igénylés ideje"

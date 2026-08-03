@@ -13,7 +13,8 @@ class A11yfy_Install {
 
 	// v3: reruns the guard backfill — rewrites our prevent-meta reasons to the
 	// stable English form (they were locale-baked before 0.2.2).
-	const SCHEMA_VERSION = '4';
+	// v5: a11yfy_requests table (visitor on-demand mode) + map.remediated_path index.
+	const SCHEMA_VERSION = '5';
 
 	public static function activate() {
 		self::create_tables();
@@ -31,7 +32,7 @@ class A11yfy_Install {
 		}
 		// WP-cron fallback events (scheduled when Action Scheduler is
 		// unavailable) — clear regardless of args.
-		foreach ( array( 'a11yfy_submit_job', 'a11yfy_retry_submit', 'a11yfy_poll_job', 'a11yfy_triage' ) as $hook ) {
+		foreach ( array( 'a11yfy_submit_job', 'a11yfy_retry_submit', 'a11yfy_poll_job', 'a11yfy_triage', 'a11yfy_purge_requests' ) as $hook ) {
 			wp_unschedule_hook( $hook );
 		}
 	}
@@ -95,11 +96,30 @@ class A11yfy_Install {
 			opt_out TINYINT(1) NOT NULL DEFAULT 0,
 			remediated_at DATETIME NULL,
 			PRIMARY KEY  (id),
-			UNIQUE KEY attachment_id (attachment_id)
+			UNIQUE KEY attachment_id (attachment_id),
+			KEY remediated_path (remediated_path(191))
+		) $charset;";
+
+		// Visitor on-demand requests: one row per (attachment, email) subscriber.
+		$requests = "CREATE TABLE {$wpdb->prefix}a11yfy_requests (
+			id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+			attachment_id BIGINT UNSIGNED NOT NULL,
+			email VARCHAR(190) NOT NULL,
+			status VARCHAR(20) NOT NULL DEFAULT 'queued',
+			ip_hash CHAR(64) NULL,
+			locale VARCHAR(16) NULL,
+			created_at DATETIME NOT NULL,
+			updated_at DATETIME NOT NULL,
+			notified_at DATETIME NULL,
+			PRIMARY KEY  (id),
+			UNIQUE KEY attachment_email (attachment_id,email),
+			KEY attachment_status (attachment_id,status),
+			KEY status (status)
 		) $charset;";
 
 		dbDelta( $jobs );
 		dbDelta( $map );
+		dbDelta( $requests );
 	}
 
 	/**

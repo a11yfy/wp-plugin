@@ -1475,3 +1475,210 @@ msgstr ""
 "\n"
 "Ваши кредиты предоставляются %2$s — обратитесь к ним с просьбой увеличить лимит или перейдите на использование "
 "собственных кредитов в настройках вашей организации a11yfy."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "По запросу"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Посетители, открывшие PDF-файл, не адаптированный для людей с ограниченными возможностями, могут запросить его адаптированную версию — вы платите только за те документы, которые действительно нужны пользователям."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Запросы посетителей в очереди: %1$d (%2$d документов)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "По запросу (по просьбе посетителей)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Когда посетитель нажимает на PDF-файл, не адаптированный для людей с ограниченными возможностями, он может запросить его адаптированную версию — преобразование осуществляется только по фактическому запросу."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Запросы посетителей (режим по запросу)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Эти тексты отображаются в диалоговом окне, которое появляется у посетителей при нажатии на PDF-файл, доступ к которому пока закрыт, а также в электронном письме, которое они получают, когда доступная версия будет готова. Оставьте поле пустым, чтобы использовать встроенный текст на языке сайта."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Заголовок диалога"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Сообщение диалога"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Кнопка «Открыть документ»"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Кнопка «Запросить версию для людей с ограниченными возможностями»"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Попросить разъяснения"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Название поля «Электронная почта»"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Кнопка «Запросить документ»"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Сообщение с подтверждением"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Цвет выделения диалога"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Используется для кнопок диалогового окна. Выберите достаточно тёмный цвет: надпись на кнопке белого цвета, и для неё требуется контрастность не менее 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Готовая тема письма"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Ваш документ в доступном формате готов"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Готовый текст письма"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Заполнители: {site_name}, {document_title}, {document_url}, {request_date}. Пустое поле = встроенный текст на языке, который использовал каждый посетитель."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Здравствуйте,\n\nХорошие новости: доступная версия «{document_title}», которую вы заказали на {site_name}, готова.\n\nВы можете скачать её здесь:\n{document_url}\n\nСпасибо за то, что заботитесь о доступности.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Посетители вашего сайта запросили доступные версии в формате PDF, но вашего баланса кредитов a11yfy недостаточно для выполнения этой работы.\n\nЗапросы в очереди: %1$d (%2$d документ)\nПредполагаемое количество необходимых кредитов: до %3$d\n\nЗапросы отложены и будут выполнены автоматически, как только появится достаточное количество кредитов."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Ваши кредиты предоставляются компанией %s — обратитесь к ним с просьбой увеличить ваш лимит."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Пополнить баланс: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Запросы посетителей ожидают начисления кредитов"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "В настоящее время ведётся подготовка версии этого документа, доступной для людей с ограниченными возможностями."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Мы используем ваш адрес электронной почты исключительно для отправки этого единственного уведомления."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Пожалуйста, введите действительный адрес электронной почты."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Слишком много запросов — попробуйте позже."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Запрос не удалось отправить. Пожалуйста, попробуйте позже."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Закрыть"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Этот документ пока недоступен"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF-файл, который вы собираетесь открыть, в настоящее время не соответствует требованиям доступности. Вы можете открыть его в текущем виде или запросить версию, соответствующую требованиям доступности."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Открыть документ"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Запросить версию для людей с ограниченными возможностями"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Мы отправим вам электронное письмо, как только версия для людей с ограниченными возможностями будет готова."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Запросить документ"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Спасибо! Мы сообщим вам по электронной почте, как только версия для людей с ограниченными возможностями будет готова."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy: запросы на доступные документы"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Запросы на предоставление документов в доступном формате"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Документ"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "Электронная почта"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Запрошено в"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Примечание о конфиденциальности"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Стиль кнопок диалогового окна"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Использовать стиль кнопок из темы (рекомендуется)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Темы на основе блоков оформляют кнопки диалоговых окон точно так же, как и кнопки темы. Классические темы, не имеющие машиночитаемого стиля кнопок, используют в качестве запасного варианта цвет акцента, указанный ниже."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Используется для кнопок диалогового окна, когда наследование темы отключено (а также в качестве резервного варианта). Выберите достаточно тёмный цвет: надпись на кнопке белого цвета, и для неё требуется контрастность не менее 4,5:1."

@@ -44,6 +44,7 @@ function a11yfy_uninstall_current_site() {
 	// Drop tables.
 	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}a11yfy_jobs" ); // phpcs:ignore WordPress.DB
 	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}a11yfy_map" );  // phpcs:ignore WordPress.DB
+	$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}a11yfy_requests" ); // phpcs:ignore WordPress.DB
 
 	// Options + transients.
 	delete_option( 'a11yfy_settings' );
@@ -59,10 +60,22 @@ function a11yfy_uninstall_current_site() {
 			$wpdb->esc_like( 'a11yfy_monthly_spend_' ) . '%'
 		)
 	);
+	// Visitor rate-limit counters + URL-resolution transients (on-demand mode).
+	$wpdb->query( // phpcs:ignore WordPress.DB
+		$wpdb->prepare(
+			"DELETE FROM {$wpdb->options} WHERE option_name LIKE %s OR option_name LIKE %s OR option_name LIKE %s OR option_name LIKE %s OR option_name LIKE %s",
+			$wpdb->esc_like( 'a11yfy_vrl_' ) . '%',
+			$wpdb->esc_like( '_transient_a11yfy_url2id_' ) . '%',
+			$wpdb->esc_like( '_transient_timeout_a11yfy_url2id_' ) . '%',
+			$wpdb->esc_like( '_transient_a11yfy_vrs_' ) . '%',
+			$wpdb->esc_like( '_transient_timeout_a11yfy_vrs_' ) . '%'
+		)
+	);
 	delete_transient( 'a11yfy_balance' );
 	delete_transient( 'a11yfy_low_credit' );
 	delete_transient( 'a11yfy_low_credit_mailed' );
 	delete_transient( 'a11yfy_connect_state' );
+	delete_transient( 'a11yfy_pending_notify' );
 
 	// User meta.
 	delete_metadata( 'user', 0, 'a11yfy_connect_notice_dismissed', '', true );

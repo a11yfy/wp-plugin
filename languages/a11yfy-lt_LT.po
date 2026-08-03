@@ -1463,3 +1463,210 @@ msgstr ""
 "\n"
 "Jūsų kreditus suteikia %2$s — paprašykite jų padidinti limitą arba „a11yfy“ organizacijos nustatymuose pereikite prie "
 "savo kreditų."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Pagal užsakymą"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Lankytojai, atidarę nepritaikytą PDF failą, gali paprašyti prieinamos versijos – mokate tik už tuos dokumentus, kurių žmonėms iš tikrųjų reikia."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Laukiančių lankytojų užklausų skaičius: %1$d (%2$d dokumentai)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Pagal užklausą (lankytojų prašymai)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "kai lankytojas paspaudžia neprieinamą PDF failą, jis gali paprašyti prieinamos versijos — failo pritaikymas atliekamas tik esant realiam poreikiui."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Lankytojų užklausos (užsakymo režimas)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Šie tekstai rodomi dialogo lange, kurį lankytojai mato, kai paspaudžia dar neprieinamą PDF failą, taip pat el. laiške, kurį jie gauna, kai prieinama versija yra paruošta. Palikite laukelį tuščią, jei norite naudoti įdiegtą tekstą svetainės kalba."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Dialogo pavadinimas"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Dialogo lango pranešimas"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Mygtukas „Atidaryti dokumentą“"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Mygtukas „Prašyti prieinamos versijos“"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Paprašyti paaiškinimo"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Lauko „El. paštas“ pavadinimas"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Mygtukas „Prašyti dokumento“"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Patvirtinimo pranešimas"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Dialogo akcento spalva"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Naudojama dialogo lango mygtukams. Pasirinkite pakankamai tamsią spalvą: mygtuko užrašas yra baltas, todėl reikia užtikrinti ne mažesnį kaip 4,5:1 kontrastą."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Parengtas el. laiško temos pavadinimas"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Jūsų pritaikytas dokumentas paruoštas"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Parengtas el. laiško tekstas"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Vietos laikikliai: {site_name}, {document_title}, {document_url}, {request_date}. Tuščia vieta = įterptas tekstas lankytojo pasirinkta kalba."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Sveiki,\n\nGeros naujienos: jūsų {site_name} prašyta „{document_title}“ versija, pritaikyta žmonėms su negalia, jau paruošta.\n\nJą galite atsisiųsti čia:\n{document_url}\n\nDėkojame už rūpestį dėl prieinamumo.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Jūsų svetainės lankytojai paprašė prieinamų PDF versijų, tačiau jūsų „a11yfy“ kreditų likutis nepadengia šio darbo išlaidų.\n\nLaukiančių užklausų skaičius: %1$d (%2$d dokumentai)\nNumatomas reikalingų kreditų skaičius: iki %3$d\n\nPrašymai yra atidėti ir bus pradėti vykdyti automatiškai, kai bus pakankamai kreditų."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Jūsų kreditus suteikia %s — paprašykite jų padidinti jūsų limitą."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Papildykite sąskaitą: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Lankytojų užklausos laukia kreditų"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Šio dokumento versija, pritaikyta žmonėms su negalia, jau rengiama."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Jūsų el. pašto adresą naudojame tik tam, kad išsiųstume šį vienintelį pranešimą."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Įveskite galiojantį el. pašto adresą."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Per daug užklausų — prašome pabandyti vėliau."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Nepavyko pateikti užklausos. Prašome pabandyti vėliau."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Uždaryti"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Šis dokumentas dar nėra prieinamas"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF failas, kurį ketinate atidaryti, šiuo metu neatitinka prieinamumo reikalavimų. Galite jį atidaryti tokį, koks yra, arba paprašyti pateikti prieinamą versiją."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Atidaryti dokumentą"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Prašyti prieinamos versijos"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Kai tik bus parengta pritaikyta versija, išsiųsime jums el. laišką."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "El. pašto adresas"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Prašyti dokumento"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Ačiū! Kai prieinama versija bus paruošta, pranešime jums el. paštu."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy prašymai dėl prieinamų dokumentų"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Prašymai dėl prieinamų dokumentų"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokumentas"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "El. paštas"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Užsakyta adresu"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Pranešimas apie privatumą"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Dialogo mygtuko stilius"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Paveldėti mygtuko stilių iš temos (rekomenduojama)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "„Block“ temos dialogų langų mygtukus formatuoja lygiai taip pat, kaip ir temos mygtukus. Klasikinės temos, kuriose nėra kompiuteriui suprantamo mygtukų stiliaus, naudoja žemiau nurodytą akcento spalvą."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Naudojama dialogo langų mygtukams, kai išjungtas temos paveldėjimas (ir kaip atsarginis variantas). Pasirinkite pakankamai tamsią spalvą: mygtuko užrašas yra baltas, todėl reikia užtikrinti bent 4,5:1 kontrastą."

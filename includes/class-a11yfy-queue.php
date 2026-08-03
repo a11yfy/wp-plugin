@@ -25,6 +25,7 @@ class A11yfy_Queue {
 		add_action( 'a11yfy_triage', array( 'A11yfy_Triage', 'run' ) );
 		add_action( 'a11yfy_reconcile', array( __CLASS__, 'reconcile' ) );
 		add_action( 'a11yfy_credit_check', array( __CLASS__, 'credit_check' ) );
+		add_action( 'a11yfy_purge_requests', array( 'A11yfy_Requests', 'purge' ) );
 
 		// Recurring maintenance (idempotent scheduling).
 		add_action( 'init', array( __CLASS__, 'schedule_recurring' ) );
@@ -35,14 +36,23 @@ class A11yfy_Queue {
 	}
 
 	public static function schedule_recurring() {
-		if ( ! self::available() || ! A11yfy_Settings::is_connected() ) {
+		if ( ! self::available() ) {
+			return;
+		}
+		// Daily visitor-request maintenance (GDPR retention + notify retry) —
+		// runs regardless of connection: stored emails must age out even on a
+		// disconnected site.
+		if ( ! as_next_scheduled_action( 'a11yfy_purge_requests', array(), self::GROUP ) ) {
+			as_schedule_recurring_action( time() + 900, DAY_IN_SECONDS, 'a11yfy_purge_requests', array(), self::GROUP );
+		}
+		if ( ! A11yfy_Settings::is_connected() ) {
 			return;
 		}
 		// Reconciliation sweep — mandatory even in future webhook mode (at-most-once!).
 		if ( ! as_next_scheduled_action( 'a11yfy_reconcile', array(), self::GROUP ) ) {
 			as_schedule_recurring_action( time() + 300, 15 * MINUTE_IN_SECONDS, 'a11yfy_reconcile', array(), self::GROUP );
 		}
-		// Hourly low-credit poll (§14/15).
+		// Hourly low-credit poll (§14/15) — doubles as the pending-request resume tick.
 		if ( ! as_next_scheduled_action( 'a11yfy_credit_check', array(), self::GROUP ) ) {
 			as_schedule_recurring_action( time() + 600, HOUR_IN_SECONDS, 'a11yfy_credit_check', array(), self::GROUP );
 		}
@@ -108,8 +118,15 @@ class A11yfy_Queue {
 	 * threshold crossing.
 	 */
 	public static function credit_check() {
+		if ( ! A11yfy_Settings::is_connected() ) {
+			return;
+		}
 		$threshold = (int) A11yfy_Settings::get( 'low_credit_threshold' );
-		if ( $threshold <= 0 || ! A11yfy_Settings::is_connected() ) {
+		// F3: the pending-request resume must run even with the low-credit
+		// warning switched off (threshold 0) — only skip the API call when
+		// there is nothing to do at all.
+		$has_pending = A11yfy_Requests::has_pending();
+		if ( $threshold <= 0 && ! $has_pending ) {
 			return;
 		}
 		$client  = new A11yfy_ApiClient();
@@ -119,6 +136,14 @@ class A11yfy_Queue {
 		}
 
 		set_transient( 'a11yfy_balance', $balance, 15 * MINUTE_IN_SECONDS );
+
+		if ( $has_pending ) {
+			self::resume_pending( $balance );
+		}
+
+		if ( $threshold <= 0 ) {
+			return;
+		}
 
 		if ( (int) $balance['credits'] >= $threshold ) {
 			delete_transient( 'a11yfy_low_credit' );
@@ -164,6 +189,37 @@ class A11yfy_Queue {
 				$body
 			);
 			update_option( self::LOW_CREDIT_NOTIFIED_OPTION, time(), false );
+		}
+	}
+
+	/**
+	 * Resume parked visitor requests (feature spec 2026-08-03 §3.4): walk the
+	 * pending attachments oldest-request-first and enqueue as many jobs as the
+	 * fresh balance covers by the rolling worst-case estimate. The hard gate
+	 * stays the server-side atomic reserve — a 402 at submit re-parks the
+	 * requests (A11yfy_RemediateService::handle_submit_error()).
+	 *
+	 * @param array $balance Fresh /v1/balance payload.
+	 */
+	private static function resume_pending( array $balance ) {
+		$credits_left = isset( $balance['credits'] ) ? (int) $balance['credits'] : 0;
+		if ( $credits_left <= 0 ) {
+			return;
+		}
+		foreach ( A11yfy_Requests::pending_attachments( 20 ) as $attachment_id ) {
+			if ( A11yfy_Jobs::has_active( $attachment_id ) ) {
+				// A job is already running (e.g. admin fixed it manually) — the
+				// terminal action will notify the subscribers either way.
+				A11yfy_Requests::set_status_for_attachment( $attachment_id, 'queued' );
+				continue;
+			}
+			$estimate = A11yfy_Guardrails::estimate( array( $attachment_id ) );
+			if ( $credits_left < (int) $estimate['max'] ) {
+				break; // Oldest-first: do not skip ahead past an unaffordable doc.
+			}
+			$credits_left -= (int) $estimate['max'];
+			A11yfy_Requests::set_status_for_attachment( $attachment_id, 'queued' );
+			self::enqueue_remediation( $attachment_id, 'visitor' );
 		}
 	}
 

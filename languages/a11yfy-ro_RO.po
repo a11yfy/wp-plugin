@@ -1463,3 +1463,210 @@ msgstr ""
 "\n"
 "Creditele îți sunt furnizate de %2$s — cere-le să-ți mărească limita sau treci la propriile credite din setările "
 "organizației tale a11yfy."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "La cerere"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Vizitatorii care deschid un PDF neaccesibil pot solicita o versiune accesibilă — plătești doar pentru documentele de care oamenii au cu adevărat nevoie."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Solicitări ale vizitatorilor în așteptare: %1$d (%2$d documente)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "La cerere (solicitări ale vizitatorilor)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "atunci când un vizitator dă clic pe un PDF inaccesibil, acesta poate solicita o versiune accesibilă — procesul de remediere rulează doar la cerere reală."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Solicitările vizitatorilor (modul la cerere)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Aceste texte apar în fereastra de dialog afișată vizitatorilor atunci când fac clic pe un fișier PDF care nu este încă accesibil, precum și în e-mailul pe care îl primesc atunci când versiunea accesibilă este gata. Lăsați un câmp necompletat pentru a utiliza textul prestabilit în limba site-ului."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Titlul ferestrei de dialog"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Mesaj de dialog"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Butonul „Deschide documentul”"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Butonul „Solicită versiunea accesibilă”"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Explicația solicitării"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Eticheta câmpului email"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Butonul „Solicită document”"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Mesaj de confirmare"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Culoare de accent a dialogului"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Se utilizează pentru butoanele dialogului. Alege o culoare suficient de închisă: textul butonului este alb și necesită un contrast de cel puțin 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Subiectul emailului de notificare"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Documentul tău accesibil este gata"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Textul emailului de notificare"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Simboluri de substituție: {site_name}, {document_title}, {document_url}, {request_date}. Câmp gol = text predefinit în limba utilizată de fiecare vizitator."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Bună ziua,\n\nVești bune: versiunea accesibilă a „{document_title}” pe care ai solicitat-o pe {site_name} este gata.\n\nO poți descărca de aici:\n{document_url}\n\nÎți mulțumim că îți pasă de accesibilitate.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Vizitatorii site-ului tău au solicitat versiuni PDF accesibile, dar soldul tău de credite a11yfy nu acoperă costul lucrării.\n\nSolicitări ale vizitatorilor în așteptare: %1$d (%2$d documente)\nCredite estimate necesare: până la %3$d\n\nSolicitările sunt puse în așteptare și vor fi procesate automat imediat ce vor fi disponibile suficiente credite."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Creditele tale sunt oferite de %s — roagă-i să-ți mărească limita."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Reîncarcă la: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Solicitările vizitatorilor așteaptă credite"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "O versiune accesibilă a acestui document este deja în curs de elaborare."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Folosim adresa ta de email doar pentru a-ți trimite această singură notificare."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Te rog să introduci o adresă de email validă."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Sunt prea multe solicitări — te rog să încerci din nou mai târziu."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Solicitarea nu a putut fi trimisă. Te rog să încerci din nou mai târziu."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Închide"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Acest document nu este încă accesibil"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF-ul pe care urmează să îl deschizi nu îndeplinește în prezent cerințele de accesibilitate. Îl poți deschide așa cum este sau poți solicita o versiune accesibilă."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Deschide documentul"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Solicită versiunea accesibilă"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Îți vom trimite un email imediat ce versiunea accesibilă va fi gata."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "Adresă de email"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Solicită documentul"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Îți mulțumim! Te vom anunța prin email imediat ce versiunea accesibilă va fi gata."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "Solicitări privind documentele accesibile (a11yfy)"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Solicitări privind documentele accesibile"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Document"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "Email"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Solicitat la"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Notă privind confidențialitatea"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Stilul butonului de dialog"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Preia stilul butonului din temă (recomandat)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Temele de tip „Block” stilizează butoanele din ferestrele de dialog exact ca butoanele din temă. Temele clasice, care nu dispun de un stil de buton recunoscut automat, utilizează în schimb culoarea de accent prezentată mai jos."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Se utilizează pentru butoanele dialogului atunci când moștenirea temei este dezactivată (și ca soluție de rezervă). Alege o culoare suficient de închisă: textul butonului este alb și necesită un contrast de cel puțin 4,5:1."

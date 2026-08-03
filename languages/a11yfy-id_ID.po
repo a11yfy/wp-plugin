@@ -1460,3 +1460,210 @@ msgstr ""
 "\n"
 "Kredit Anda disediakan oleh %2$s — mintalah mereka untuk menaikkan batas kuota Anda, atau beralihlah ke kredit milik "
 "Anda sendiri melalui pengaturan organisasi a11yfy Anda."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Sesuai permintaan"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Pengunjung yang membuka berkas PDF yang tidak dapat diakses dapat meminta versi yang dapat diakses — Anda hanya perlu membayar untuk dokumen yang benar-benar dibutuhkan orang."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Permintaan pengunjung yang sedang ditunggu: %1$d (%2$d dokumen)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Sesuai permintaan (permintaan pengunjung)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Ketika seorang pengunjung mengklik berkas PDF yang tidak dapat diakses, mereka dapat meminta versi yang dapat diakses — proses perbaikan hanya dilakukan atas permintaan yang sebenarnya."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Permintaan pengunjung (mode sesuai permintaan)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Teks-teks ini muncul dalam kotak dialog yang terlihat oleh pengunjung saat mereka mengklik berkas PDF yang belum dapat diakses, serta dalam email yang mereka terima saat versi yang dapat diakses sudah siap. Biarkan kolom tersebut kosong untuk menggunakan teks bawaan dalam bahasa situs."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Judul dialog"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Pesan dialog"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Tombol \"Buka dokumen\""
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Tombol \"Minta versi yang mudah diakses\""
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Minta penjelasan"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Label kolom email"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Tombol \"Minta dokumen\""
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Pesan konfirmasi"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Warna aksen dialog"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Digunakan untuk tombol-tombol pada kotak dialog. Pilih warna yang cukup gelap: teks pada tombol berwarna putih dan memerlukan rasio kontras minimal 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Contoh subjek email siap pakai"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Dokumen Anda yang dapat diakses sudah siap"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Isi email siap pakai"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Penanda tempat: {site_name}, {document_title}, {document_url}, {request_date}. Kosong = teks bawaan dalam bahasa yang digunakan masing-masing pengunjung."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Halo,\n\nKabar baik: versi yang ramah aksesibilitas dari \"{document_title}\" yang Anda minta pada {site_name} sudah siap.\n\nAnda dapat mengunduhnya di sini:\n{document_url}\n\nTerima kasih atas perhatian Anda terhadap aksesibilitas.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Pengunjung situs Anda meminta versi PDF yang dapat diakses, tetapi saldo kredit a11yfy Anda tidak mencukupi untuk membiayai pekerjaan tersebut.\n\nPermintaan yang tertunda: %1$d (%2$d dokumen)\nPerkiraan kredit yang dibutuhkan: hingga %3$d\n\nPermintaan tersebut ditunda dan akan dimulai secara otomatis begitu kredit yang cukup tersedia."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Kredit Anda disediakan oleh %s — mintalah kepada mereka untuk menaikkan batas kredit Anda."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Isi ulang di: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Permintaan pengunjung sedang menunggu kredit"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Versi yang mudah diakses dari dokumen ini sedang disiapkan."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Kami hanya menggunakan alamat email Anda untuk mengirimkan pemberitahuan ini saja."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Silakan masukkan alamat email yang valid."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Terlalu banyak permintaan — silakan coba lagi nanti."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Permintaan tidak dapat dikirim. Silakan coba lagi nanti."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Tutup"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Dokumen ini belum dapat diakses"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF yang akan Anda buka saat ini belum memenuhi persyaratan aksesibilitas. Anda dapat membukanya apa adanya, atau meminta versi yang dapat diakses."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Buka dokumen"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Minta versi yang mudah diakses"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Kami akan mengirimkan email kepada Anda segera setelah versi yang dapat diakses sudah siap."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "Alamat email"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Minta dokumen"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Terima kasih! Kami akan memberi tahu Anda melalui email begitu versi yang dapat diakses sudah siap."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "Permintaan dokumen yang dapat diakses (a11yfy)"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Permohonan dokumen yang dapat diakses"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokumen"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "Email"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Diminta pada"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Catatan tentang Privasi"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Gaya tombol dialog"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Menggunakan gaya tombol dari tema (disarankan)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Tema blok menampilkan tombol-tombol dialog dengan gaya yang persis sama seperti tombol-tombol pada tema tersebut. Tema klasik yang tidak memiliki gaya tombol yang dapat dibaca oleh sistem akan menggunakan warna aksen di bawah ini sebagai pengganti."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Digunakan untuk tombol dialog saat pewarisan tema dinonaktifkan (dan sebagai opsi cadangan). Pilih warna yang cukup gelap: teks pada tombol berwarna putih dan memerlukan rasio kontras minimal 4,5:1."

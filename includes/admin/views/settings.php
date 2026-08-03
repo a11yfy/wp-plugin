@@ -100,6 +100,11 @@ $a11yfy_delegated = is_array( $a11yfy_balance ) && ! empty( $a11yfy_balance['del
 							— <?php esc_html_e( 'new PDF uploads are made accessible automatically.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
 						</label><br />
 						<label>
+							<input type="radio" name="a11yfy_mode" value="on_demand" <?php checked( $a11yfy_settings['mode'], 'on_demand' ); ?> />
+							<strong><?php esc_html_e( 'On demand (visitor requests)', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></strong>
+							— <?php esc_html_e( 'when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
+						</label><br />
+						<label>
 							<input type="radio" name="a11yfy_mode" value="manual" <?php checked( $a11yfy_settings['mode'], 'manual' ); ?> />
 							<strong><?php esc_html_e( 'Manual', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></strong>
 							— <?php esc_html_e( 'you pick what to fix in the Media Library or on the Dashboard.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
@@ -179,6 +184,87 @@ $a11yfy_delegated = is_array( $a11yfy_balance ) && ! empty( $a11yfy_balance['del
 							<?php esc_html_e( 'Restore the original files from backup.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
 						</label>
 					</fieldset>
+				</td>
+			</tr>
+		</table>
+
+		<h2><?php esc_html_e( 'Visitor requests (on-demand mode)', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></h2>
+		<p class="description">
+			<?php esc_html_e( 'These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
+		</p>
+		<?php
+		$a11yfy_visitor_defaults = A11yfy_Visitor::default_texts();
+		$a11yfy_visitor_fields   = array(
+			'visitor_modal_title'  => array( __( 'Dialog title', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_modal_body'   => array( __( 'Dialog message', 'a11yfy-pdf-accessibility-checker-fixer' ), 'textarea' ),
+			'visitor_btn_open'     => array( __( '"Open document" button', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_btn_request'  => array( __( '"Request accessible version" button', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_request_info' => array( __( 'Request explanation', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_email_label'  => array( __( 'Email field label', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_btn_submit'   => array( __( '"Request document" button', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_success_msg'  => array( __( 'Confirmation message', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+			'visitor_privacy_note' => array( __( 'Privacy note', 'a11yfy-pdf-accessibility-checker-fixer' ), 'text' ),
+		);
+		?>
+		<table class="form-table" role="presentation">
+			<?php foreach ( $a11yfy_visitor_fields as $a11yfy_key => $a11yfy_field ) : ?>
+				<tr>
+					<th scope="row">
+						<label for="a11yfy_<?php echo esc_attr( $a11yfy_key ); ?>"><?php echo esc_html( $a11yfy_field[0] ); ?></label>
+					</th>
+					<td>
+						<?php $a11yfy_default = isset( $a11yfy_visitor_defaults[ str_replace( 'visitor_', '', $a11yfy_key ) ] ) ? $a11yfy_visitor_defaults[ str_replace( 'visitor_', '', $a11yfy_key ) ] : ''; ?>
+						<?php if ( 'textarea' === $a11yfy_field[1] ) : ?>
+							<textarea class="large-text" rows="3" id="a11yfy_<?php echo esc_attr( $a11yfy_key ); ?>"
+								name="a11yfy_<?php echo esc_attr( $a11yfy_key ); ?>"
+								placeholder="<?php echo esc_attr( $a11yfy_default ); ?>"><?php echo esc_textarea( $a11yfy_settings[ $a11yfy_key ] ); ?></textarea>
+						<?php else : ?>
+							<input type="text" class="large-text" id="a11yfy_<?php echo esc_attr( $a11yfy_key ); ?>"
+								name="a11yfy_<?php echo esc_attr( $a11yfy_key ); ?>"
+								value="<?php echo esc_attr( $a11yfy_settings[ $a11yfy_key ] ); ?>"
+								placeholder="<?php echo esc_attr( $a11yfy_default ); ?>" />
+						<?php endif; ?>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+			<tr>
+				<th scope="row"><?php esc_html_e( 'Dialog button style', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" name="a11yfy_visitor_theme_style" value="1" <?php checked( ! empty( $a11yfy_settings['visitor_theme_style'] ) ); ?> />
+						<?php esc_html_e( 'Inherit the button style from the theme (recommended)', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
+					</label>
+					<p class="description"><?php esc_html_e( 'Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="a11yfy_visitor_accent_color"><?php esc_html_e( 'Dialog accent color', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></label></th>
+				<td>
+					<input type="color" id="a11yfy_visitor_accent_color" name="a11yfy_visitor_accent_color"
+						value="<?php echo esc_attr( $a11yfy_settings['visitor_accent_color'] ); ?>" />
+					<p class="description"><?php esc_html_e( 'Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="a11yfy_visitor_email_subject"><?php esc_html_e( 'Ready-email subject', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></label></th>
+				<td>
+					<input type="text" class="large-text" id="a11yfy_visitor_email_subject" name="a11yfy_visitor_email_subject"
+						value="<?php echo esc_attr( $a11yfy_settings['visitor_email_subject'] ); ?>"
+						placeholder="
+						<?php
+						/* translators: %s: site name. */
+						echo esc_attr( sprintf( __( '[%s] Your accessible document is ready', 'a11yfy-pdf-accessibility-checker-fixer' ), get_bloginfo( 'name' ) ) );
+						?>
+						" />
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><label for="a11yfy_visitor_email_body"><?php esc_html_e( 'Ready-email body', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></label></th>
+				<td>
+					<textarea class="large-text" rows="6" id="a11yfy_visitor_email_body" name="a11yfy_visitor_email_body"><?php echo esc_textarea( $a11yfy_settings['visitor_email_body'] ); ?></textarea>
+					<p class="description">
+						<?php esc_html_e( 'Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
+					</p>
 				</td>
 			</tr>
 		</table>

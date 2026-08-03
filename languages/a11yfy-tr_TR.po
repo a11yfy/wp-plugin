@@ -1463,3 +1463,210 @@ msgstr ""
 "\n"
 "Kredileriniz %2$s tarafından sağlanmaktadır — limitinizin artırılmasını talep edin ya da a11yfy kuruluş ayarlarınızdan "
 "kendi kredilerinize geçin."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Talep üzerine"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Erişilebilir olmayan bir PDF dosyasını açan ziyaretçiler, erişilebilir bir sürüm talep edebilir — yalnızca kullanıcıların gerçekten ihtiyaç duyduğu belgeler için ödeme yaparsınız."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Bekleyen ziyaretçi talepleri: %1$d (%2$d belge)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Talep üzerine (ziyaretçi talepleri)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Bir ziyaretçi erişilebilir olmayan bir PDF dosyasına tıkladığında, erişilebilir bir sürüm talep edebilir — düzeltme işlemi yalnızca gerçek talep üzerine gerçekleştirilir."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Ziyaretçi talepleri (isteğe bağlı mod)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Bu metinler, ziyaretçilerin henüz erişilebilir olmayan bir PDF dosyasına tıkladıklarında gördükleri iletişim kutusunda ve erişilebilir sürüm hazır olduğunda aldıkları e-postada görüntülenir. Site dilinde yerleşik metni kullanmak için ilgili alanı boş bırakın."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Diyalog başlığı"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Diyalog mesajı"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "\"Belgeyi aç\" düğmesi"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "\"Erişilebilir sürümü iste\" düğmesi"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Açıklama isteği"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "E-posta alanı etiketi"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "\"Belge iste\" düğmesi"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Onay mesajı"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Diyalog vurgu rengi"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Diyalog pencerelerindeki düğmeler için kullanılır. Yeterince koyu bir renk seçin: Düğme etiketi beyaz olduğundan en az 4,5:1 kontrast oranı gereklidir."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Hazır e-posta konusu"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Erişilebilir belgeniz hazır"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Hazır e-posta gövdesi"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Yer tutucular: {site_name}, {document_title}, {document_url}, {request_date}. Boş = her ziyaretçinin kullandığı dildeki yerleşik metin."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Merhaba,\n\nİyi haber: {site_name}'de talep ettiğiniz \"{document_title}\"nin erişilebilir sürümü hazır.\n\nBuradan indirebilirsiniz:\n{document_url}\n\nErişilebilirliğe önem verdiğiniz için teşekkür ederiz.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Sitenizin ziyaretçileri erişilebilir PDF sürümleri talep etti, ancak a11yfy kredi bakiyeniz bu işin maliyetini karşılamıyor.\n\nBekleyen talepler: %1$d (%2$d belge)\nTahmini gerekli kredi miktarı: en fazla %3$d\n\nİstekler beklemeye alınmıştır ve yeterli kredi mevcut olduğunda otomatik olarak başlatılacaktır."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Kredi limitiniz %s tarafından sağlanmaktadır — limitinizin artırılmasını talep edin."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Şu adresten kontör yükleyin: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Ziyaretçi talepleri kredi bekliyor"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Bu belgenin erişilebilir bir sürümü halihazırda hazırlanmaktadır."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "E-posta adresinizi yalnızca bu tek bildirimi göndermek için kullanıyoruz."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Lütfen geçerli bir e-posta adresi girin."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Çok fazla istek var — lütfen daha sonra tekrar deneyin."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "İstek gönderilemedi. Lütfen daha sonra tekrar deneyin."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Kapat"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Bu belgeye henüz erişilememektedir"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "Açmak üzere olduğunuz PDF dosyası şu anda erişilebilirlik gereksinimlerini karşılamamaktadır. Dosyayı olduğu gibi açabilir veya erişilebilir bir sürümünü talep edebilirsiniz."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Belgeyi aç"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Erişilebilir sürümü isteyin"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Erişilebilir sürüm hazır olur olmaz size e-posta göndereceğiz."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-posta adresi"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Belge talebi"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Teşekkür ederiz! Erişilebilir sürüm hazır olduğunda size e-posta yoluyla haber vereceğiz."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy erişilebilir belge talepleri"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Erişilebilir belge talepleri"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Belge"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-posta"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Talep edildiği tarih:"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Gizlilik bildirimi"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Diyalog düğmesi stili"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Düğme stilini temadan devral (önerilir)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Blok temaları, iletişim kutusu düğmelerini tema düğmeleriyle tamamen aynı şekilde biçimlendirir. Makine tarafından okunabilir bir düğme stiline sahip olmayan klasik temalarda ise aşağıdaki vurgu rengi kullanılır."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Tema devralma özelliği kapalıyken (ve yedek seçenek olarak) iletişim kutusu düğmeleri için kullanılır. Yeterince koyu bir renk seçin: Düğme etiketi beyaz olduğundan en az 4,5:1 kontrast oranı gereklidir."

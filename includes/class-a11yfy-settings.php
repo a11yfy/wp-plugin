@@ -19,16 +19,32 @@ class A11yfy_Settings {
 	 */
 	public static function all() {
 		$defaults = array(
-			'mode'                 => 'manual',      // manual | auto (§6, §13.5)
-			'monthly_cap'          => 0,             // credits/month guardrail; 0 = no cap
-			'onboarded'            => false,         // §13.5 one-question wizard answered
-			'low_credit_threshold' => 100,           // admin notice below this balance; 0 = off
-			'save_strategy'        => 'inplace',     // inplace | conservative (§14/1)
-			'notify_email'         => '',            // empty → admin_email
-			'delete_data'          => 'keep',        // keep | restore — uninstall behavior (§14/17)
-			'webhook_mode'         => false,         // feature-flag (§14/3) — a connect-flow élesíti
-			'org_id'               => '',            // multi-org: melyik szervezethez kötődik a kulcs (connect-flow tölti)
-			'org_name'             => '',
+			'mode'                  => 'manual',      // manual | auto | on_demand (§6, §13.5, visitor spec 2026-08-03)
+			'monthly_cap'           => 0,             // credits/month guardrail; 0 = no cap
+			'onboarded'             => false,         // §13.5 one-question wizard answered
+			'low_credit_threshold'  => 100,           // admin notice below this balance; 0 = off
+			'save_strategy'         => 'inplace',     // inplace | conservative (§14/1)
+			'notify_email'          => '',            // empty → admin_email
+			'delete_data'           => 'keep',        // keep | restore — uninstall behavior (§14/17)
+			'webhook_mode'          => false,         // feature-flag (§14/3) — a connect-flow élesíti
+			'org_id'                => '',            // multi-org: melyik szervezethez kötődik a kulcs (connect-flow tölti)
+			'org_name'              => '',
+			// Visitor on-demand mode (feature spec 2026-08-03). Empty string =
+			// localized default (A11yfy_Visitor::default_texts()) — no language
+			// is ever baked into stored values.
+			'visitor_modal_title'   => '',
+			'visitor_modal_body'    => '',
+			'visitor_btn_open'      => '',
+			'visitor_btn_request'   => '',
+			'visitor_request_info'  => '',
+			'visitor_email_label'   => '',
+			'visitor_btn_submit'    => '',
+			'visitor_success_msg'   => '',
+			'visitor_privacy_note'  => '',
+			'visitor_theme_style'   => true,        // gombok a téma stílusát öröklik (wp-element-button)
+			'visitor_accent_color'  => '#1d4ed8',
+			'visitor_email_subject' => '',
+			'visitor_email_body'    => '',
 		);
 		$stored   = get_option( self::OPTION, array() );
 		return array_merge( $defaults, is_array( $stored ) ? $stored : array() );

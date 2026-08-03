@@ -1375,3 +1375,210 @@ msgstr ""
 "a11yfy 위임 크레딧 한도가 %1$d 크레딧으로 줄었습니다. 크레딧이 0이 되면 PDF 수정 작업이 중단됩니다.\n"
 "\n"
 "크레딧은 %2$s에서 제공됩니다. 해당 업체에 한도 증액을 요청하거나, a11yfy 조직 설정에서 자체 크레딧으로 전환하세요."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "주문형"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "접근성이 보장되지 않은 PDF 파일을 연 방문자는 접근성이 보장된 버전을 요청할 수 있습니다. 사용자는 실제로 필요한 문서에 대해서만 비용을 지불하면 됩니다."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "대기 중인 방문 요청: %1$d (%2$d 건)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "요청 시 (방문객 요청에 따라)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "방문자가 접근성이 보장되지 않은 PDF를 클릭하면, 접근성이 보장된 버전을 요청할 수 있으며, 수정 작업은 실제 요청이 있을 때만 수행됩니다."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "방문자 요청 (주문형 모드)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "이 텍스트는 방문자가 아직 접근 가능한 상태가 아닌 PDF를 클릭했을 때 표시되는 대화 상자와, 접근 가능한 버전이 준비되었을 때 방문자가 받는 이메일에 표시됩니다. 해당 필드를 비워두면 사이트 언어에 맞춰 기본 텍스트가 사용됩니다."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "대화 상자 제목"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "대화 상자 메시지"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "\"문서 열기\" 버튼"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "\"접근성 지원 버전 요청\" 버튼"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "설명 요청"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "이메일 입력란 레이블"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "\"문서 요청\" 버튼"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "확인 메시지"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "대화창 강조색"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "대화 상자 버튼에 사용됩니다. 충분히 어두운 색상을 선택하세요. 버튼 라벨은 흰색이므로 최소 4.5:1의 명암비가 필요합니다."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "이메일 제목 예시"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] 접근성 지원 문서가 준비되었습니다."
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "이메일 본문 예시"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "자리 표시자: {site_name}, {document_title}, {document_url}, {request_date}. 비어 있는 경우 = 각 방문자가 사용한 언어의 기본 텍스트가 표시됩니다."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "안녕하세요,\n\n좋은 소식입니다. {site_name}에서 요청하신 “{document_title}”의 접근성 지원 버전이 준비되었습니다.\n\n여기에서 다운로드하실 수 있습니다:\n{document_url}\n\n접근성에 관심을 가져 주셔서 감사합니다.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "사이트 방문자들이 접근성 지원 PDF 버전을 요청했으나, 귀하의 a11yfy 크레딧 잔액이 해당 작업 비용을 충당하기에 부족합니다.\n\n대기 중인 요청: %1$d (%2$d개 문서)\n예상 필요 크레딧: 최대 %3$d\n\n요청은 보류 중이며, 충분한 크레딧이 확보되는 대로 자동으로 처리될 예정입니다."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "귀하의 크레딧은 %s에서 제공됩니다. 한도 증액을 요청해 보세요."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "충전하기: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] 방문자 요청이 크레딧을 기다리고 있습니다"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "이 문서의 접근성 지원 버전은 현재 준비 중입니다."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "당사는 이 알림 한 건을 발송하는 목적으로만 귀하의 이메일 주소를 사용합니다."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "유효한 이메일 주소를 입력해 주세요."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "요청 건수가 너무 많습니다. 잠시 후 다시 시도해 주세요."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "요청을 전송할 수 없습니다. 잠시 후 다시 시도해 주십시오."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "닫기"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "이 문서는 아직 열람할 수 없습니다."
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "지금 열려고 하는 PDF 파일은 현재 접근성 요건을 충족하지 않습니다. 이 파일을 있는 그대로 열거나, 접근성이 보장된 버전을 요청할 수 있습니다."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "문서 열기"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "접근성 지원 버전 요청"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "접근성 지원 버전이 준비되는 대로 이메일로 안내해 드리겠습니다."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "이메일 주소"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "문서 요청"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "감사합니다! 접근성 지원 버전이 준비되는 대로 이메일로 안내해 드리겠습니다."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy 접근성 문서 요청"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "접근성 문서 요청"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "문서"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "이메일"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "요청일:"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "개인정보 처리방침"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "대화 상자 버튼 스타일"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "테마에서 버튼 스타일을 상속받습니다(권장)."
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "블록 테마는 대화 상자 버튼의 스타일을 테마 버튼과 정확히 동일하게 적용합니다. 기계가 인식할 수 있는 버튼 스타일이 없는 클래식 테마의 경우, 아래에 명시된 강조색으로 대체됩니다."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "테마 상속이 비활성화된 경우(및 대체 용도로) 대화 상자 버튼에 사용됩니다. 충분히 어두운 색상을 선택하세요. 버튼 레이블은 흰색이므로 최소 4.5:1의 명암비가 필요합니다."

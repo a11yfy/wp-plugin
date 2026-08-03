@@ -25,12 +25,8 @@ msgid "https://a11yfy.com/wordpress"
 msgstr "https://a11yfy.com/wordpress"
 
 #. Description of the plugin
-msgid ""
-"Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the "
-"a11yfy service."
-msgstr ""
-"Gratis toegankelijkheidscontrole van PDF-bestanden in de browser (automatische controles volgens het Matterhorn "
-"Protocol) en correctie volgens de PDF/UA-1-standaard met één muisklik via de a11yfy-service."
+msgid "Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the a11yfy service."
+msgstr "Gratis toegankelijkheidscontrole van PDF-bestanden in de browser (automatische controles volgens het Matterhorn Protocol) en correctie volgens de PDF/UA-1-standaard met één muisklik via de a11yfy-service."
 
 #. Author of the plugin
 msgid "a11yfy"
@@ -80,7 +76,7 @@ msgstr "Er staan %d PDF-bestanden in de wachtrij voor herstel."
 #: includes/admin/class-a11yfy-admin.php:96
 #: includes/admin/class-a11yfy-admin.php:150
 msgid "You are not allowed to change a11yfy settings."
-msgstr "Je mag de instellingen van a11yfy niet wijzigen."
+msgstr "Je hebt geen toestemming om de a11yfy-instellingen te wijzigen."
 
 #: includes/admin/class-a11yfy-admin.php:178
 msgid "Settings saved."
@@ -100,19 +96,15 @@ msgstr "Verbinding verbroken. De opgeslagen API-sleutel is verwijderd."
 
 #: includes/admin/class-a11yfy-admin.php:182
 msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
-msgstr ""
-"Dat lijkt geen a11yfy-API-sleutel te zijn (verwacht werd ak_live_… of ak_test_…). De overige instellingen zijn "
-"opgeslagen."
+msgstr "Dat lijkt geen a11yfy-API-sleutel te zijn (verwacht werd ak_live_… of ak_test_…). De overige instellingen zijn opgeslagen."
 
 #: includes/admin/class-a11yfy-admin.php:183
 msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
-msgstr ""
-"a11yfy heeft de API-sleutel geweigerd. Controleer dit op a11yfy.com onder Account → API-sleutels. De overige "
-"instellingen zijn opgeslagen."
+msgstr "a11yfy heeft de API-sleutel geweigerd. Controleer dit op a11yfy.com onder Account → API-sleutels. De overige instellingen zijn opgeslagen."
 
 #: includes/admin/class-a11yfy-admin.php:184
 msgid "Connection cancelled on a11yfy.com."
-msgstr "Verbinding op a11yfy.com is verbroken."
+msgstr "Verbinding geannuleerd op a11yfy.com."
 
 #: includes/admin/class-a11yfy-admin.php:185
 msgid "Connecting to a11yfy failed — please try again."
@@ -120,7 +112,7 @@ msgstr "Het verbinden met a11yfy is mislukt — probeer het nog eens."
 
 #: includes/admin/class-a11yfy-admin.php:186
 msgid "The connect response could not be verified (expired or tampered request). Please try again."
-msgstr "Het antwoord op de verbinding kon niet worden geverifieerd (verzoek is verlopen of gemanipuleerd). Probeer het nog eens."
+msgstr "Het verbindingsantwoord kon niet worden geverifieerd (verlopen of gemanipuleerd verzoek). Probeer het opnieuw."
 
 #: includes/admin/class-a11yfy-admin.php:187
 msgid "All set — a11yfy is ready to work."
@@ -167,9 +159,7 @@ msgstr "a11yfy-achtergrondverwerking is niet beschikbaar"
 
 #: includes/admin/class-a11yfy-admin.php:254
 msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
-msgstr ""
-"Action Scheduler kon niet worden geladen — updates over de status van herstelmaatregelen zullen vertraging oplopen "
-"(WP-cron-fallback die wordt geactiveerd door een bezoek)."
+msgstr "Action Scheduler kon niet worden geladen — statusupdates van het herstel zullen traag zijn (WP-cron-fallback bij paginabezoek)."
 
 #: includes/admin/class-a11yfy-admin.php:260
 msgid "a11yfy is not connected"
@@ -177,9 +167,7 @@ msgstr "a11yfy is niet verbonden"
 
 #: includes/admin/class-a11yfy-admin.php:261
 msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
-msgstr ""
-"De gratis scan werkt, maar voor het corrigeren van PDF-bestanden is een a11yfy-API-sleutel nodig (a11yfy → "
-"Instellingen)."
+msgstr "De gratis scan werkt, maar voor het corrigeren van PDF-bestanden is een a11yfy-API-sleutel nodig (a11yfy → Instellingen)."
 
 #: includes/admin/class-a11yfy-admin.php:269
 #. translators: %d: number of non-compliant PDFs.
@@ -188,11 +176,11 @@ msgstr "%d PDF-bestanden op deze site zijn niet toegankelijk"
 
 #: includes/admin/class-a11yfy-admin.php:270
 msgid "Open the a11yfy Dashboard to review and fix them."
-msgstr "Open het a11yfy-dashboard om ze te bekijken en te verhelpen."
+msgstr "Open het a11yfy-dashboard om ze te bekijken en op te lossen."
 
 #: includes/admin/class-a11yfy-admin.php:297
 msgid "Compliant"
-msgstr "In overeenstemming met"
+msgstr "Voldoet"
 
 #: includes/admin/class-a11yfy-admin.php:298
 msgid "Remediated"
@@ -331,15 +319,11 @@ msgstr "Handleiding"
 
 #: includes/admin/views/dashboard.php:112
 msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
-msgstr ""
-"Je start de herstelmaatregelen zelf — in de mediabibliotheek of op dit dashboard. Zonder jouw tussenkomst gebeurt er "
-"niets."
+msgstr "Je start de herstelmaatregelen zelf — in de mediabibliotheek of op dit dashboard. Zonder jouw tussenkomst gebeurt er niets."
 
 #: includes/admin/views/dashboard.php:120
 msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
-msgstr ""
-"Tip: voer eerst de gratis scan hieronder uit om te zien hoe deze site ervoor staat — de keuze die je hierboven maakt, "
-"maakt in beide gevallen niet uit."
+msgstr "Tip: voer eerst de gratis scan hieronder uit om te zien hoe deze site ervoor staat — de keuze die je hierboven maakt, maakt in beide gevallen niet uit."
 
 #: includes/admin/views/dashboard.php:126
 msgid "Start working"
@@ -350,12 +334,8 @@ msgid "PDF status"
 msgstr "PDF-status"
 
 #: includes/admin/views/dashboard.php:136
-msgid ""
-"Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves "
-"your site."
-msgstr ""
-"Gratis technische voorcontrole aan de hand van de machinaal verifieerbare PDF/UA-1-controlepunten — wordt in je browser "
-"uitgevoerd, er verlaten geen bestanden je site."
+msgid "Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves your site."
+msgstr "Gratis technische voorcontrole aan de hand van de machinaal verifieerbare PDF/UA-1-controlepunten — wordt in je browser uitgevoerd, er verlaten geen bestanden je site."
 
 #: includes/admin/views/dashboard.php:142
 msgid "Partially accessible"
@@ -421,9 +401,7 @@ msgstr "Maak verbinding met a11yfy"
 
 #: includes/admin/views/settings.php:32
 msgid "One click: log in or register on a11yfy.com, approve the access, done. Alternatively, paste an API key below."
-msgstr ""
-"Eén klik: log in of registreer je op a11yfy.com, geef toestemming voor de toegang, en klaar is Kees. Je kunt ook "
-"hieronder een API-sleutel invoeren."
+msgstr "Eén klik: log in of registreer je op a11yfy.com, geef toestemming voor de toegang, en klaar is Kees. Je kunt ook hieronder een API-sleutel invoeren."
 
 #: includes/admin/views/settings.php:38
 msgid "API key"
@@ -444,9 +422,7 @@ msgstr "Om de sleutel te vervangen, plak je hieronder een nieuwe."
 #: includes/admin/views/settings.php:57
 #. translators: %s: link to the a11yfy account page.
 msgid "Create a key on %s under Account → API keys. The key is stored encrypted and is never sent to the browser."
-msgstr ""
-"Maak een sleutel aan op %s onder Account → API-sleutels. De sleutel wordt versleuteld opgeslagen en wordt nooit naar de "
-"browser verzonden."
+msgstr "Maak een sleutel aan op %s onder Account → API-sleutels. De sleutel wordt versleuteld opgeslagen en wordt nooit naar de browser verzonden."
 
 #: includes/admin/views/settings.php:66
 msgid "Status updates"
@@ -457,12 +433,8 @@ msgid "Instant (webhook) — a11yfy notifies this site the moment a job finishes
 msgstr "Direct (webhook) — a11yfy stelt deze site op de hoogte zodra een taak is voltooid; polling blijft bestaan als vangnet."
 
 #: includes/admin/views/settings.php:71
-msgid ""
-"Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook "
-"updates when your site is publicly reachable."
-msgstr ""
-"Polling — de site controleert de status van de taak op de achtergrond. Door opnieuw verbinding te maken via de "
-"knoppenreeks worden webhooks onmiddellijk bijgewerkt zodra je site openbaar bereikbaar is."
+msgid "Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook updates when your site is publicly reachable."
+msgstr "Polling — de site controleert de taakstatus op de achtergrond. Opnieuw verbinden via de knop schakelt directe webhook-updates in wanneer je site openbaar bereikbaar is."
 
 #: includes/admin/views/settings.php:81
 msgid "Mode"
@@ -498,7 +470,7 @@ msgstr "Ter plaatse vervangen (aanbevolen)"
 
 #: includes/admin/views/settings.php:120
 msgid "same URL, original kept as a backup with one-click restore."
-msgstr "dezelfde URL, waarbij het origineel als back-up wordt bewaard en met één klik kan worden hersteld."
+msgstr "dezelfde URL; het origineel blijft bewaard als back-up en is met één klik terug te zetten."
 
 #: includes/admin/views/settings.php:124
 msgid "Conservative"
@@ -518,15 +490,15 @@ msgstr "Meldingen over onvoldoende krediet en mislukkingen. Leeg = e-mailadres v
 
 #: includes/admin/views/settings.php:140
 msgid "On plugin deletion"
-msgstr "Over het verwijderen van plug-ins"
+msgstr "Bij het verwijderen van de plugin"
 
 #: includes/admin/views/settings.php:145
 msgid "Keep the remediated PDFs (recommended — they are your content)."
-msgstr "Bewaar de bewerkte PDF-bestanden (aanbevolen — het is immers uw inhoud)."
+msgstr "Bewaar de herstelde PDF-bestanden (aanbevolen — ze zijn je eigen content)."
 
 #: includes/admin/views/settings.php:149
 msgid "Restore the original files from backup."
-msgstr "Herstel de originele bestanden vanuit de back-up."
+msgstr "Zet de originele bestanden terug vanuit de back-up."
 
 #: includes/admin/views/settings.php:156
 msgid "Save settings"
@@ -548,7 +520,7 @@ msgstr "a11yfy API-fout (HTTP %d)."
 #: includes/class-a11yfy-connect.php:39
 #: includes/class-a11yfy-connect.php:64
 msgid "You are not allowed to connect this site."
-msgstr "Het is niet toegestaan om verbinding te maken met deze site."
+msgstr "Je hebt geen toestemming om deze site te verbinden."
 
 #: includes/class-a11yfy-guardrails.php:27
 msgid "The attachment file is not available on the local filesystem."
@@ -568,9 +540,7 @@ msgstr "De maandelijkse kredietlimiet voor deze site is bereikt."
 
 #: includes/class-a11yfy-guardrails.php:53
 msgid "This PDF already passed the accessibility pre-check — skipping to avoid unnecessary credit use."
-msgstr ""
-"Deze PDF heeft de toegankelijkheidscontrole al doorstaan — we slaan deze stap over om onnodig gebruik van credits te "
-"voorkomen."
+msgstr "Deze PDF heeft de toegankelijkheidscontrole al doorstaan — we slaan deze stap over om onnodig gebruik van credits te voorkomen."
 
 #: includes/class-a11yfy-guardrails.php:59
 msgid "This exact file was already remediated."
@@ -578,7 +548,7 @@ msgstr "Dit specifieke bestand is al hersteld."
 
 #: includes/class-a11yfy-guardrails.php:64
 msgid "A remediation job is already running for this PDF."
-msgstr "Er is al een herstelbewerking voor deze PDF aan de gang."
+msgstr "Er loopt al een hersteltaak voor deze PDF."
 
 #: includes/class-a11yfy-queue.php:123
 msgid "[a11yfy] Low credit balance"
@@ -605,7 +575,7 @@ msgstr "De taak is voltooid, maar er is geen uitvoerbestand geleverd."
 
 #: includes/class-a11yfy-replacer.php:41
 msgid "The original file is not stored locally (offload plugin?) — not supported yet."
-msgstr "Het originele bestand wordt niet lokaal opgeslagen (offload-plug-in?) — dit wordt nog niet ondersteund."
+msgstr "Het originele bestand is niet lokaal opgeslagen (offload-plugin?) — dit wordt nog niet ondersteund."
 
 #: includes/class-a11yfy-replacer.php:99
 msgid "Could not download the remediated PDF from a11yfy."
@@ -637,7 +607,7 @@ msgstr "De back-up van de originele PDF ontbreekt."
 
 #: includes/class-a11yfy-replacer.php:183
 msgid "Could not restore the original PDF."
-msgstr "De oorspronkelijke PDF kon niet worden hersteld."
+msgstr "De originele PDF kon niet worden teruggezet."
 
 #: includes/admin/class-a11yfy-admin.php:77
 msgid "Fix"
@@ -723,12 +693,8 @@ msgid "The PDF has no tag structure at all"
 msgstr "De PDF heeft helemaal geen tagstructuur"
 
 #: includes/admin/class-a11yfy-scan-report.php:58
-msgid ""
-"The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the "
-"content is read as an unstructured stream, or not at all."
-msgstr ""
-"Het document bevat geen structuurboom (tags). Schermlezers krijgen geen kopjes, alinea’s, lijsten of tabellen te zien — "
-"de inhoud wordt voorgelezen als een ongestructureerde stroom, of helemaal niet."
+msgid "The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the content is read as an unstructured stream, or not at all."
+msgstr "Het document bevat geen structuurboom (tags). Schermlezers krijgen geen koppen, alinea’s, lijsten of tabellen — de inhoud wordt voorgelezen als één ongestructureerde stroom, of helemaal niet."
 
 #: includes/admin/class-a11yfy-scan-report.php:60
 msgid "Remediation rebuilds the full tag structure automatically."
@@ -739,12 +705,8 @@ msgid "The PDF does not declare itself as tagged"
 msgstr "De PDF geeft niet aan dat hij getagd is"
 
 #: includes/admin/class-a11yfy-scan-report.php:64
-msgid ""
-"The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts "
-"of it exist."
-msgstr ""
-"Het MarkInfo-item ontbreekt of is niet ingesteld op ‘Marked’. Ondersteunende technologie kan de tagstructuur niet "
-"vertrouwen, zelfs als er delen ervan aanwezig zijn."
+msgid "The MarkInfo entry is missing or not set to Marked. Assistive technology cannot trust the tag structure even if parts of it exist."
+msgstr "Het MarkInfo-item ontbreekt of is niet ingesteld op ‘Marked’. Ondersteunende technologie kan de tagstructuur niet vertrouwen, zelfs als er delen ervan aanwezig zijn."
 
 #: includes/admin/class-a11yfy-scan-report.php:66
 msgid "Remediation sets the tagged-PDF flag together with a valid structure tree."
@@ -767,25 +729,16 @@ msgid "PDF optimization conflict detected"
 msgstr "Conflict bij PDF-optimalisatie gedetecteerd"
 
 #: includes/admin/views/dashboard.php:63
-msgid ""
-"The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, "
-"language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
-msgstr ""
-"De onderstaande plug-ins comprimeren PDF-bestanden. Bij het comprimeren wordt het PDF-bestand herschreven en wordt de "
-"toegankelijkheidsstructuur (tags, taal, PDF/UA-metadata) verwijderd — dit kan ook PDF-bestanden onbruikbaar maken die "
-"al zijn aangepast met je a11yfy-credits."
+msgid "The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr "De onderstaande plugins comprimeren PDF-bestanden. Comprimeren herschrijft de PDF en verwijdert de toegankelijkheidsstructuur (tags, taal, PDF/UA-metadata) — het kan ook PDF-bestanden onbruikbaar maken die al met je a11yfy-credits zijn hersteld."
 
 #: includes/admin/views/dashboard.php:72
 msgid "files remediated by a11yfy are excluded automatically, but every other PDF is still at risk."
-msgstr ""
-"Bestanden die door a11yfy zijn aangepast, worden automatisch uitgesloten, maar alle andere PDF-bestanden lopen nog "
-"steeds risico."
+msgstr "Bestanden die door a11yfy zijn aangepast, worden automatisch uitgesloten, maar alle andere PDF-bestanden lopen nog steeds risico."
 
 #: includes/admin/views/dashboard.php:74
 msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
-msgstr ""
-"Deze plug-in biedt geen betrouwbare uitsluiting per bestand — a11yfy kan afzonderlijke PDF-bestanden hiertegen niet "
-"beschermen."
+msgstr "Deze plug-in biedt geen betrouwbare uitsluiting per bestand — a11yfy kan afzonderlijke PDF-bestanden hiertegen niet beschermen."
 
 #: includes/admin/views/dashboard.php:80
 msgid "Turn off ShortPixel PDF optimization"
@@ -804,12 +757,8 @@ msgid "No image optimizer is rewriting PDF files"
 msgstr "Geen enkele beeldoptimalisatietool herschrijft PDF-bestanden"
 
 #: includes/class-a11yfy-optimizer-guard.php:223
-msgid ""
-"No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility "
-"tags."
-msgstr ""
-"Er is geen actieve plug-in gevonden die PDF-bestanden comprimeert. Bij PDF-compressie wordt het bestand herschreven en "
-"worden de toegankelijkheidstags verwijderd."
+msgid "No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility tags."
+msgstr "Er is geen actieve plugin gevonden die PDF-bestanden comprimeert. PDF-compressie herschrijft het bestand en verwijdert de toegankelijkheidstags."
 
 #: includes/class-a11yfy-optimizer-guard.php:238
 #. translators: %s: comma-separated plugin names.
@@ -817,15 +766,8 @@ msgid "PDF optimization is enabled in %s — it strips PDF accessibility tags"
 msgstr "PDF-optimalisatie is ingeschakeld in %s — hierdoor worden PDF-toegankelijkheidstags verwijderd"
 
 #: includes/class-a11yfy-optimizer-guard.php:241
-msgid ""
-"Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — "
-"including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also "
-"protects remediated files individually where the optimizer supports it."
-msgstr ""
-"Door een PDF te comprimeren wordt het bestand herschreven en gaat de toegankelijkheidsstructuur (tags, taal, "
-"PDF/UA-metadata) verloren — ook bij PDF’s die al met a11yfy zijn aangepast. Schakel PDF-optimalisatie uit in de "
-"instellingen van de plug-in; a11yfy beschermt aangepaste bestanden ook afzonderlijk, voor zover de optimalisatiefunctie "
-"dit ondersteunt."
+msgid "Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also protects remediated files individually where the optimizer supports it."
+msgstr "Het comprimeren van een PDF herschrijft het bestand en verwijdert de toegankelijkheidsstructuur (tags, taal, PDF/UA-metadata) — ook bij PDF-bestanden die al met a11yfy-credits zijn hersteld. Schakel PDF-optimalisatie uit in de instellingen van de plugin; waar de optimizer dit ondersteunt, beschermt a11yfy herstelde bestanden ook afzonderlijk."
 
 #: includes/class-a11yfy-optimizer-guard.php:245
 msgid "Review on the a11yfy Dashboard"
@@ -877,20 +819,12 @@ msgid "Connect account"
 msgstr "Account koppelen"
 
 #: includes/admin/class-a11yfy-admin.php:249
-msgid ""
-"The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host "
-"about the PHP sodium extension. Other settings were saved."
-msgstr ""
-"De API-sleutel kon niet veilig worden opgeslagen op deze server (versleuteling niet beschikbaar). De sleutel is NIET "
-"opgeslagen — vraag je host naar de PHP sodium-extensie. Andere instellingen zijn wel opgeslagen."
+msgid "The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host about the PHP sodium extension. Other settings were saved."
+msgstr "De API-sleutel kon niet veilig worden opgeslagen op deze server (versleuteling niet beschikbaar). De sleutel is NIET opgeslagen — vraag je host naar de PHP sodium-extensie. Andere instellingen zijn wel opgeslagen."
 
 #: includes/admin/class-a11yfy-admin.php:283
-msgid ""
-"PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either "
-"way."
-msgstr ""
-"PDF-herstel is momenteel niet beschikbaar. Koppel je a11yfy-account om het in te schakelen — de gratis scan blijft hoe "
-"dan ook werken."
+msgid "PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either way."
+msgstr "PDF-herstel is momenteel niet beschikbaar. Koppel je a11yfy-account om het in te schakelen — de gratis scan blijft hoe dan ook werken."
 
 #: includes/admin/class-a11yfy-admin.php:287
 msgid "Hide this notice"
@@ -902,9 +836,7 @@ msgstr "0 = geen maandelijkse limiet."
 
 #: includes/class-a11yfy-guardrails.php:41
 msgid "This PDF is password-protected or encrypted. Remove the protection, then run remediation again."
-msgstr ""
-"Dit PDF-bestand is met een wachtwoord beveiligd of versleuteld. Verwijder de beveiliging en voer het herstel opnieuw "
-"uit."
+msgstr "Dit PDF-bestand is met een wachtwoord beveiligd of versleuteld. Verwijder de beveiliging en voer het herstel opnieuw uit."
 
 #: includes/class-a11yfy-replacer.php:112
 msgid "The remediated PDF URL is not a valid public https URL."
@@ -912,7 +844,7 @@ msgstr "De URL van het herstelde PDF-bestand is geen geldige openbare https-URL.
 
 #: includes/admin/class-a11yfy-admin.php:56
 msgid "Document details"
-msgstr "Documentgegevens"
+msgstr "Documentdetails"
 
 #: includes/admin/class-a11yfy-admin.php:144
 msgid "Analyzing the document…"
@@ -943,7 +875,7 @@ msgstr "%d pagina’s"
 
 #: includes/admin/class-a11yfy-admin.php:162
 msgid "Technical details"
-msgstr "Technische gegevens"
+msgstr "Technische details"
 
 #: includes/admin/class-a11yfy-admin.php:164
 #. translators: %d: number of findings.
@@ -1006,31 +938,20 @@ msgid "An image is invisible to screen readers"
 msgstr "Een afbeelding is onzichtbaar voor schermlezers"
 
 #: includes/admin/class-a11yfy-scan-report.php:70
-msgid ""
-"The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it "
-"exists — even a text description cannot be attached."
-msgstr ""
-"De afbeelding is noch als figuur gelabeld, noch als decoratief element (artefact) aangemerkt. Een gebruiker van een "
-"schermlezer komt er nooit achter dat deze bestaat — er kan zelfs geen tekstbeschrijving aan worden toegevoegd."
+msgid "The image is neither tagged as a Figure nor marked as decorative (artifact). A screen reader user never learns it exists — even a text description cannot be attached."
+msgstr "De afbeelding is noch als figuur gelabeld, noch als decoratief element (artefact) aangemerkt. Een gebruiker van een schermlezer komt er nooit achter dat deze bestaat — er kan zelfs geen tekstbeschrijving aan worden toegevoegd."
 
 #: includes/admin/class-a11yfy-scan-report.php:72
 msgid "Remediation tags real images as Figures with a description and marks decorative ones as artifacts."
-msgstr ""
-"Remediation markeert echte afbeeldingen als ‘Figuren’ met een beschrijving en bestempelt decoratieve afbeeldingen als "
-"‘artefacten’."
+msgstr "Remediation markeert echte afbeeldingen als ‘Figuren’ met een beschrijving en bestempelt decoratieve afbeeldingen als ‘artefacten’."
 
 #: includes/admin/class-a11yfy-scan-report.php:75
 msgid "The declared document language does not match the text"
 msgstr "De opgegeven documenttaal komt niet overeen met de tekst"
 
 #: includes/admin/class-a11yfy-scan-report.php:76
-msgid ""
-"The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and "
-"pronunciation from the declared language, so the content would be read with the wrong voice."
-msgstr ""
-"In het PDF-bestand is één taal opgegeven, maar de tekst op de pagina lijkt in een andere taal te zijn geschreven. "
-"Schermlezers baseren hun stem en uitspraak op de opgegeven taal, waardoor de inhoud met de verkeerde stem zou worden "
-"voorgelezen."
+msgid "The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr "Het PDF-bestand geeft één taal op, maar de paginatekst lijkt in een andere taal geschreven. Schermlezers kiezen hun stem en uitspraak op basis van de opgegeven taal, waardoor de inhoud met de verkeerde stem zou worden voorgelezen."
 
 #: includes/admin/class-a11yfy-scan-report.php:78
 msgid "Remediation sets the document language to the language the text is actually written in."
@@ -1038,31 +959,23 @@ msgstr "Met 'Correctie' wordt de documenttaal ingesteld op de taal waarin de tek
 
 #: includes/admin/class-a11yfy-scan-report.php:81
 msgid "The document has no headings at all"
-msgstr "Het document bevat helemaal geen kopjes"
+msgstr "Het document bevat helemaal geen koppen"
 
 #: includes/admin/class-a11yfy-scan-report.php:82
-msgid ""
-"The document contains substantial text but not a single heading element. Screen reader users navigate primarily by "
-"headings — without them the document must be read linearly from start to finish."
-msgstr ""
-"Het document bevat veel tekst, maar geen enkel kopelement. Gebruikers van schermlezers navigeren voornamelijk aan de "
-"hand van koppen — zonder deze koppen moet het document lineair van begin tot eind worden voorgelezen."
+msgid "The document contains substantial text but not a single heading element. Screen reader users navigate primarily by headings — without them the document must be read linearly from start to finish."
+msgstr "Het document bevat veel tekst, maar geen enkele kop. Schermlezergebruikers navigeren voornamelijk via koppen — zonder koppen moet het document lineair van begin tot eind worden voorgelezen."
 
 #: includes/admin/class-a11yfy-scan-report.php:84
 msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
-msgstr "Markeer de titels van de secties als koppen (H1–H6), zodat de structuur van het document doorzoekbaar wordt."
+msgstr "Markeer de sectietitels als koppen (H1–H6), zodat de documentstructuur navigeerbaar wordt."
 
 #: includes/admin/class-a11yfy-scan-report.php:87
 msgid "A long document has no bookmarks"
 msgstr "Een lang document heeft geen bladwijzers"
 
 #: includes/admin/class-a11yfy-scan-report.php:88
-msgid ""
-"The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive "
-"technology users — jump straight to a section."
-msgstr ""
-"Het document telt tien pagina's of meer, maar bevat geen overzicht met bladwijzers. Met bladwijzers kan elke lezer — "
-"niet alleen gebruikers van ondersteunende technologie — direct naar een bepaald gedeelte springen."
+msgid "The document is ten pages or longer but has no bookmark outline. Bookmarks let every reader — not just assistive technology users — jump straight to a section."
+msgstr "Het document telt tien pagina's of meer, maar bevat geen overzicht met bladwijzers. Met bladwijzers kan elke lezer — niet alleen gebruikers van ondersteunende technologie — direct naar een bepaald gedeelte springen."
 
 #: includes/admin/class-a11yfy-scan-report.php:90
 msgid "Add a bookmark outline that mirrors the document’s section structure."
@@ -1073,29 +986,20 @@ msgid "A table has no header cells"
 msgstr "Een tabel heeft geen kopcellen"
 
 #: includes/admin/class-a11yfy-scan-report.php:94
-msgid ""
-"A data table contains no TH header cells. Screen readers announce the matching header before each cell — without "
-"headers the user hears bare numbers with no context."
-msgstr ""
-"Een gegevenstabel bevat geen TH-koptekstcellen. Schermlezers lezen de bijbehorende koptekst voor elke cel voor — zonder "
-"kopteksten hoort de gebruiker alleen maar getallen zonder enige context."
+msgid "A data table contains no TH header cells. Screen readers announce the matching header before each cell — without headers the user hears bare numbers with no context."
+msgstr "Een gegevenstabel bevat geen TH-kopcellen. Schermlezers lezen vóór elke cel de bijbehorende kop voor — zonder kopcellen hoort de gebruiker alleen kale getallen zonder context."
 
 #: includes/admin/class-a11yfy-scan-report.php:96
 msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
-msgstr "Markeer de eerste rij en/of kolom als TH-kopcellen met een geschikt bereik."
+msgstr "Markeer de eerste rij en/of kolom als TH-kopcellen met een passende Scope."
 
 #: includes/admin/class-a11yfy-scan-report.php:99
 msgid "An image description looks like a placeholder"
-msgstr "Een afbeeldingsbeschrijving ziet eruit als een tijdelijke aanduiding"
+msgstr "Een afbeeldingsbeschrijving lijkt een placeholder te zijn"
 
 #: includes/admin/class-a11yfy-scan-report.php:100
-msgid ""
-"An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen "
-"reader user learns nothing about what the image actually shows."
-msgstr ""
-"Een afbeelding heeft weliswaar alternatieve tekst, maar die lijkt op een bestandsnaam of een algemene plaatshouder "
-"(bijvoorbeeld „image3.png“). Een gebruiker van een schermlezer komt zo niets te weten over wat er daadwerkelijk op de "
-"afbeelding te zien is."
+msgid "An image has an alternative text, but it looks like a file name or a generic placeholder (e.g. “image3.png”). A screen reader user learns nothing about what the image actually shows."
+msgstr "Een afbeelding heeft weliswaar alternatieve tekst, maar die lijkt op een bestandsnaam of een algemene plaatshouder (bijvoorbeeld „image3.png“). Een gebruiker van een schermlezer komt zo niets te weten over wat er daadwerkelijk op de afbeelding te zien is."
 
 #: includes/admin/class-a11yfy-scan-report.php:102
 msgid "Replace the placeholder with a description that conveys the meaning of the image."
@@ -1107,7 +1011,7 @@ msgstr "Taggen en structuur"
 
 #: includes/admin/class-a11yfy-scan-report.php:127
 msgid "Headings"
-msgstr "Kopjes"
+msgstr "Koppen"
 
 #: includes/admin/class-a11yfy-scan-report.php:128
 msgid "Images & formulas"
@@ -1119,7 +1023,7 @@ msgstr "Tabellen"
 
 #: includes/admin/class-a11yfy-scan-report.php:130
 msgid "Lists & table of contents"
-msgstr "Lijsten en inhoudsopgave"
+msgstr "Lijsten & inhoudsopgave"
 
 #: includes/admin/class-a11yfy-scan-report.php:131
 msgid "Forms, links & annotations"
@@ -1143,7 +1047,7 @@ msgstr "Overige technische"
 
 #: includes/admin/class-a11yfy-scan-report.php:188
 msgid "Is the reading order logical when the content is read from start to finish?"
-msgstr "Is de leesvolgorde logisch wanneer de tekst van begin tot eind wordt gelezen?"
+msgstr "Is de leesvolgorde logisch wanneer de inhoud van begin tot eind wordt gelezen?"
 
 #: includes/admin/class-a11yfy-scan-report.php:189
 msgid "Do image descriptions (alt texts) convey the meaning — not just a file name?"
@@ -1159,7 +1063,7 @@ msgstr "Zijn linkteksten op zichzelf al betekenisvol (“klik hier” is dat bij
 
 #: includes/admin/class-a11yfy-scan-report.php:192
 msgid "Do tables have real header cells and a simple, regular structure?"
-msgstr "Hebben de tabellen echte kopcellen en een eenvoudige, regelmatige structuur?"
+msgstr "Hebben tabellen echte kopcellen en een eenvoudige, regelmatige structuur?"
 
 #: includes/admin/class-a11yfy-scan-report.php:193
 msgid "Is the document title informative when shown in a reader’s title bar?"
@@ -1222,9 +1126,7 @@ msgstr "Over deze aspecten kan een machine geen beslissing nemen — een snelle 
 
 #: includes/admin/views/document.php:161
 msgid "The preview is a visual aid — the findings list on the left is the authoritative, screen-reader-friendly report."
-msgstr ""
-"Het voorbeeld is een visueel hulpmiddel — de lijst met bevindingen aan de linkerkant is het officiële, voor "
-"schermlezers geschikte rapport."
+msgstr "Het voorbeeld is een visueel hulpmiddel — de lijst met bevindingen aan de linkerkant is het officiële, voor schermlezers geschikte rapport."
 
 #: includes/admin/class-a11yfy-admin.php:167
 msgid "1 finding on this page"
@@ -1235,24 +1137,16 @@ msgid "Not sent"
 msgstr "Niet verzonden"
 
 #: includes/class-a11yfy-guardrails.php:30
-msgid ""
-"This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned "
-"copy instead."
-msgstr ""
-"Dit PDF-bestand is digitaal ondertekend. Bij het herstellen wordt het bestand herschreven, waardoor de handtekening "
-"ongeldig zou worden — stuur in plaats daarvan een niet-ondertekende kopie."
+msgid "This PDF is digitally signed. Remediation rewrites the file, which would invalidate the signature — send an unsigned copy instead."
+msgstr "Dit PDF-bestand is digitaal ondertekend. Bij het herstellen wordt het bestand herschreven, waardoor de handtekening ongeldig zou worden — stuur in plaats daarvan een niet-ondertekende kopie."
 
 #: includes/class-a11yfy-guardrails.php:31
 msgid "This PDF contains an XFA form, which cannot be preserved during remediation. Convert it to a regular PDF form first."
-msgstr ""
-"Dit PDF-bestand bevat een XFA-formulier, dat tijdens de herstelbewerking niet behouden kan blijven. Zet het eerst om "
-"naar een gewoon PDF-formulier."
+msgstr "Dit PDF-bestand bevat een XFA-formulier, dat tijdens de herstelbewerking niet behouden kan blijven. Zet het eerst om naar een gewoon PDF-formulier."
 
 #: includes/class-a11yfy-guardrails.php:32
 msgid "This PDF is a portfolio (a container of embedded files). Remediate the individual documents instead."
-msgstr ""
-"Dit PDF-bestand is een portfolio (een verzameling van ingesloten bestanden). Werk in plaats daarvan de afzonderlijke "
-"documenten bij."
+msgstr "Dit PDF-bestand is een portfolio (een verzameling van ingesloten bestanden). Werk in plaats daarvan de afzonderlijke documenten bij."
 
 #: includes/admin/class-a11yfy-admin.php:226
 msgid "a11yfy pages"
@@ -1260,7 +1154,7 @@ msgstr "a11yfy-pagina's"
 
 #: includes/admin/class-a11yfy-admin.php:453
 msgid "You are not allowed to download this certificate."
-msgstr "Het is niet toegestaan dit certificaat te downloaden."
+msgstr "Je hebt geen toestemming om dit certificaat te downloaden."
 
 #: includes/admin/class-a11yfy-admin.php:460
 msgid "This document has no a11yfy certificate yet."
@@ -1284,20 +1178,12 @@ msgstr "Het downloaden van het certificaat is mislukt — probeer het nog eens."
 
 #: includes/admin/class-a11yfy-admin.php:97
 #: includes/admin/class-a11yfy-admin.php:152
-msgid ""
-"This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want "
-"to continue?"
-msgstr ""
-"Dit document is digitaal ondertekend. Door de herstelmaatregel wordt het bestand gewijzigd, waardoor de handtekening "
-"niet langer geldig is. Wilt u doorgaan?"
+msgid "This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want to continue?"
+msgstr "Dit document is digitaal ondertekend. Herstel wijzigt het bestand, waardoor de handtekening niet meer geldig is. Wil je doorgaan?"
 
 #: includes/class-a11yfy-guardrails.php:35
-msgid ""
-"This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only "
-"starts after you confirm."
-msgstr ""
-"Dit PDF-bestand is digitaal ondertekend. Bij het herstellen wordt het bestand herschreven, waardoor de handtekening "
-"niet langer geldig is — de reparatie wordt pas gestart nadat u dit hebt bevestigd."
+msgid "This PDF is digitally signed. Remediation rewrites the file, so the signature will no longer be valid — the fix only starts after you confirm."
+msgstr "Dit PDF-bestand is digitaal ondertekend. Bij het herstellen wordt het bestand herschreven, waardoor de handtekening niet langer geldig is — de reparatie wordt pas gestart nadat u dit hebt bevestigd."
 
 #: includes/admin/class-a11yfy-admin.php:190
 #: includes/admin/class-a11yfy-admin.php:593
@@ -1317,12 +1203,8 @@ msgstr "gedeeltelijk hersteld"
 
 #: includes/admin/class-a11yfy-admin.php:110
 #: includes/admin/views/document.php:141
-msgid ""
-"The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available "
-"for free download."
-msgstr ""
-"Het document is zo goed mogelijk hersteld, maar voldoet niet volledig aan de PDF/UA-1-norm. Het resultaat kan gratis "
-"worden gedownload."
+msgid "The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available for free download."
+msgstr "Het document is zo goed mogelijk hersteld, maar voldoet niet volledig aan de PDF/UA-1-norm. Het resultaat is gratis te downloaden."
 
 #: includes/admin/class-a11yfy-admin.php:447
 #: includes/admin/views/settings.php:121
@@ -1333,9 +1215,7 @@ msgstr "je partnerorganisatie"
 #: includes/admin/class-a11yfy-admin.php:453
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
-msgstr ""
-"Je toegewezen creditlimiet is bijna op (nog %1$d credits over). Deze wordt verstrekt door %2$s — vraag hen om je limiet "
-"te verhogen."
+msgstr "Je toegewezen creditlimiet is bijna op (nog %1$d credits over). Deze wordt verstrekt door %2$s — vraag hen om je limiet te verhogen."
 
 #: includes/admin/class-a11yfy-admin.php:455
 #. translators: %s: parent organization name.
@@ -1347,30 +1227,20 @@ msgid "The encrypted file is missing its permissions entry"
 msgstr "De machtigingsvermelding ontbreekt in het versleutelde bestand"
 
 #: includes/admin/class-a11yfy-scan-report.php:70
-msgid ""
-"The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen "
-"readers may access the content."
-msgstr ""
-"Het bestand is versleuteld, maar de versleutelingsinstellingen bevatten geen vermelding van toegangsrechten, waardoor "
-"er geen garantie is dat schermlezers toegang hebben tot de inhoud."
+msgid "The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen readers may access the content."
+msgstr "Het bestand is versleuteld, maar de versleutelingsinstellingen bevatten geen machtigingen, waardoor er geen garantie is dat schermlezers toegang hebben tot de inhoud."
 
 #: includes/admin/class-a11yfy-scan-report.php:72
 msgid "Re-save the file with encryption settings that explicitly allow assistive-technology access."
-msgstr ""
-"Sla het bestand opnieuw op met versleutelingsinstellingen die expliciet toegang voor ondersteunende technologie "
-"toestaan."
+msgstr "Sla het bestand opnieuw op met versleutelingsinstellingen die expliciet toegang voor ondersteunende technologie toestaan."
 
 #: includes/admin/class-a11yfy-scan-report.php:75
 msgid "The encryption blocks screen reader access"
 msgstr "De versleuteling blokkeert de toegang voor schermlezers"
 
 #: includes/admin/class-a11yfy-scan-report.php:76
-msgid ""
-"The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read "
-"the document at all."
-msgstr ""
-"De versleutelingsinstellingen van het bestand staan het uitlezen van de inhoud door ondersteunende technologie niet "
-"toe, waardoor een schermlezer het document helemaal niet kan voorlezen."
+msgid "The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read the document at all."
+msgstr "De versleutelingsinstellingen van het bestand staan niet toe dat ondersteunende technologie de inhoud uitleest, waardoor een schermlezer het document helemaal niet kan voorlezen."
 
 #: includes/admin/class-a11yfy-scan-report.php:78
 msgid "Re-save the file with encryption settings that allow assistive-technology access."
@@ -1381,20 +1251,12 @@ msgid "Unmarked graphic elements in the document"
 msgstr "Niet-gemarkeerde grafische elementen in het document"
 
 #: includes/admin/class-a11yfy-scan-report.php:88
-msgid ""
-"The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. "
-"PDF/UA validators flag these as untagged content."
-msgstr ""
-"Het document bevat lijnen, opgevulde vormen of kleurverlopen die noch als inhoud zijn gemarkeerd, noch als decoratief "
-"zijn aangeduid. PDF/UA-validators signaleren deze als niet-gemarkeerde inhoud."
+msgid "The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. PDF/UA validators flag these as untagged content."
+msgstr "Het document bevat lijnen, gevulde vormen of kleurverlopen die niet als inhoud zijn getagd en ook niet als decoratief zijn gemarkeerd. PDF/UA-validators melden deze als niet-getagde inhoud."
 
 #: includes/admin/class-a11yfy-scan-report.php:90
-msgid ""
-"Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry "
-"content."
-msgstr ""
-"Remediation markeert decoratieve grafische elementen (randen, scheidingslijnen, achtergronden) als artefacten en "
-"voorziet de elementen die inhoud bevatten van een tag."
+msgid "Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry content."
+msgstr "Het herstel markeert decoratieve grafische elementen (randen, scheidingslijnen, achtergronden) als artefacten en voorziet de elementen die inhoud dragen van tags."
 
 #: includes/admin/views/dashboard.php:41
 #. translators: 1: remaining delegated credits, 2: credit limit, 3: parent organization name.
@@ -1415,12 +1277,8 @@ msgstr "Toegewezen credits: %d"
 #. translators: %d: number of non-compliant PDFs found by the free scan.
 msgid "The free scan found %d PDF on this site that does not meet the accessibility requirements (EAA/ADA risk)."
 msgid_plural "The free scan found %d PDFs on this site that do not meet the accessibility requirements (EAA/ADA risk)."
-msgstr[0] ""
-"De gratis scan heeft op deze site %d PDF-bestanden aangetroffen die niet voldoen aan de toegankelijkheidseisen "
-"(EAA/ADA-risico)."
-msgstr[1] ""
-"De gratis scan heeft op deze site %d PDF-bestanden aangetroffen die niet voldoen aan de toegankelijkheidseisen "
-"(EAA/ADA-risico)."
+msgstr[0] "De gratis scan heeft op deze site %d PDF-bestanden aangetroffen die niet voldoen aan de toegankelijkheidseisen (EAA/ADA-risico)."
+msgstr[1] "De gratis scan heeft op deze site %d PDF-bestanden aangetroffen die niet voldoen aan de toegankelijkheidseisen (EAA/ADA-risico)."
 
 #: includes/admin/views/dashboard.php:247
 #. translators: %d: number of non-compliant PDFs.
@@ -1443,29 +1301,228 @@ msgstr "Verbonden met: %s"
 
 #: includes/admin/views/settings.php:125
 #. translators: 1: parent organization name, 2: delegated credit limit.
-msgid ""
-"Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached "
-"first stops remediation."
-msgstr ""
-"Opmerking: je credits worden verstrekt door %1$s, met een afzonderlijke limiet van %2$d credits per periode. Zodra een "
-"van beide limieten is bereikt, wordt de herstelmaatregel stopgezet."
+msgid "Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached first stops remediation."
+msgstr "Opmerking: je credits worden verstrekt door %1$s, met een afzonderlijke limiet van %2$d credits per periode. Zodra een van beide limieten is bereikt, wordt de herstelmaatregel stopgezet."
 
 #: includes/admin/views/settings.php:128
 #. translators: %s: parent organization name.
 msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
-msgstr ""
-"Opmerking: je credits worden verstrekt door %s en hebben een eigen, afzonderlijke limiet. Zodra een van beide limieten "
-"is bereikt, wordt de herstelprocedure stopgezet."
+msgstr "Opmerking: je credits worden verstrekt door %s en hebben een eigen, afzonderlijke limiet. Zodra een van beide limieten is bereikt, wordt de herstelprocedure stopgezet."
 
 #: includes/class-a11yfy-queue.php:149
 #. translators: 1: remaining delegated credits, 2: parent organization name.
 msgid ""
 "Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
 "\n"
-"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy "
-"organization settings."
+"Your credits are provided by %2$s — ask them to raise your limit, or switch to your own credits in your a11yfy organization settings."
 msgstr ""
 "Je toegewezen a11yfy-creditlimiet is gedaald tot %1$d credits. PDF-herstel stopt zodra deze nul bereikt.\n"
 "\n"
-"Je credits worden verstrekt door %2$s — vraag hen om je limiet te verhogen, of schakel over naar je eigen credits in de "
-"instellingen van je a11yfy-organisatie."
+"Je credits worden verstrekt door %2$s — vraag hen om je limiet te verhogen, of schakel over naar je eigen credits in de instellingen van je a11yfy-organisatie."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Op aanvraag"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Bezoekers die een niet-toegankelijke PDF openen, kunnen een toegankelijke versie aanvragen — je betaalt alleen voor documenten die mensen daadwerkelijk nodig hebben."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Openstaande bezoekersverzoeken: %1$d (%2$d documenten)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Op verzoek (verzoeken van bezoekers)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Wanneer een bezoeker op een niet-toegankelijke PDF klikt, kan hij of zij een toegankelijke versie aanvragen — het herstel vindt alleen plaats op basis van daadwerkelijke vraag."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Bezoekersverzoeken (on-demand-modus)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Deze teksten verschijnen in het dialoogvenster dat bezoekers te zien krijgen wanneer ze op een PDF klikken die nog niet toegankelijk is, en in de e-mail die ze ontvangen zodra de toegankelijke versie klaar is. Laat een veld leeg om de standaardtekst in de taal van de website te gebruiken."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Dialoogtitel"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Dialoogbericht"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Knop \"Document openen\""
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Knop \"Toegankelijke versie aanvragen\""
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Toelichting bij het verzoek"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Label van het e-mailveld"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Knop \"Document opvragen\""
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Bevestigingsbericht"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Accentkleur van het dialoogvenster"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Wordt gebruikt voor de knoppen in het dialoogvenster. Kies een kleur die donker genoeg is: de tekst op de knop is wit en er is een contrast van minimaal 4,5:1 vereist."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Onderwerp gereed-e-mail"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Je toegankelijke document is klaar"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Tekst gereed-e-mail"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Plaatshouders: {site_name}, {document_title}, {document_url}, {request_date}. Leeg = standaardtekst in de taal die de bezoeker gebruikt."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Hallo,\n\nGoed nieuws: de toegankelijke versie van \"{document_title}\" die je op {site_name} hebt aangevraagd, is klaar.\n\nJe kunt deze hier downloaden:\n{document_url}\n\nBedankt voor je aandacht voor toegankelijkheid.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Bezoekers van je site hebben om toegankelijke PDF-versies gevraagd, maar je a11yfy-tegoed is niet toereikend om dit werk te bekostigen.\n\nOpenstaande verzoeken: %1$d (%2$d documenten)\nGeschatte benodigde credits: maximaal %3$d\n\nDe verzoeken zijn in de wachtrij geplaatst en worden automatisch in behandeling genomen zodra er voldoende credits beschikbaar zijn."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Je tegoeden worden verstrekt door %s — vraag hen om je limiet te verhogen."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Opwaarderen bij: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Bezoekersverzoeken wachten op credits"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Er wordt momenteel gewerkt aan een toegankelijke versie van dit document."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "We gebruiken je e-mailadres uitsluitend om je deze ene melding te sturen."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Voer een geldig e-mailadres in."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Te veel verzoeken — probeer het later nog eens."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Het verzoek kon niet worden verzonden. Probeer het later nog eens."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Sluiten"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Dit document is nog niet toegankelijk"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "Het PDF-bestand dat je gaat openen, voldoet momenteel niet aan de toegankelijkheidseisen. Je kunt het bestand in zijn huidige vorm openen of een toegankelijke versie aanvragen."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Document openen"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Toegankelijke versie aanvragen"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Zodra de toegankelijke versie klaar is, sturen we je een e-mail."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Document aanvragen"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Bedankt! Zodra de toegankelijke versie klaar is, sturen we je een e-mail."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy-verzoeken om toegankelijke documenten"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Verzoeken om toegankelijke documenten"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Document"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Aangevraagd op"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Privacyverklaring"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Stijl van dialoogknoppen"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "De knopstijl overnemen uit het thema (aanbevolen)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Blokthema’s geven de knoppen in dialoogvensters precies dezelfde stijl als de knoppen in het thema. Klassieke thema’s zonder een machinaal leesbare knopstijl vallen dan terug op de onderstaande accentkleur."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Wordt gebruikt voor de dialoogknoppen wanneer thema-overerving is uitgeschakeld (en als alternatief). Kies een kleur die donker genoeg is: het tekstlabel op de knop is wit en vereist een contrast van minimaal 4,5:1."

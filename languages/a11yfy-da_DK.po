@@ -1448,3 +1448,210 @@ msgstr ""
 "\n"
 "Dine kreditter leveres af %2$s — bed dem om at hæve din grænse, eller skift til dine egne kreditter i indstillingerne "
 "for din a11yfy-organisation."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Efter behov"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Besøgende, der åbner en PDF-fil, der ikke er tilgængelig, kan anmode om en tilgængelig version — du betaler kun for de dokumenter, som folk rent faktisk har brug for."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Ventende besøgsanmodninger: %1$d (%2$d dokumenter)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Efter anmodning (besøgende)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Når en besøgende klikker på en PDF-fil, der ikke er tilgængelig, kan vedkommende anmode om en tilgængelig version — konverteringen foregår kun, når der reelt er behov for det."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Besøgendeanmodninger (on-demand-tilstand)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Disse tekster vises i den dialogboks, som besøgende ser, når de klikker på en PDF-fil, der endnu ikke er tilgængelig, samt i den e-mail, de modtager, når den tilgængelige version er klar. Lad et felt stå tomt for at bruge den indbyggede tekst på webstedets sprog."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Dialogtitel"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Dialogmeddelelse"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Knappen »Åbn dokument«"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Knappen »Anmod om tilgængelig version«"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Anmod om en forklaring"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Etiket til e-mail-feltet"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Knappen »Anmod om dokument«"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Bekræftelsesmeddelelse"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Farve på dialogboksen"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Bruges til dialogknapperne. Vælg en farve, der er mørk nok: knapteksten er hvid og kræver et kontrastforhold på mindst 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Færdiglavet e-mail-emne"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Dit tilgængelige dokument er klar"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Færdigskrevet e-mail-tekst"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Pladsholdere: {site_name}, {document_title}, {document_url}, {request_date}. Tom = indbygget tekst på det sprog, den enkelte besøgende bruger."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Hej,\n\nGode nyheder: Den tilgængelige version af »{document_title}«, som du anmodede om den {site_name}, er klar.\n\nDu kan downloade den her:\n{document_url}\n\nTak, fordi du går op i tilgængelighed.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Besøgende på din hjemmeside har anmodet om tilgængelige PDF-versioner, men din a11yfy-kreditbalance er ikke tilstrækkelig til at dække arbejdet.\n\nAnmodninger i kø: %1$d (%2$d dokumenter)\nAnslået behov for kreditter: op til %3$d\n\nAnmodningerne er sat i venteposition og vil blive behandlet automatisk, så snart der er tilstrækkelige kreditter til rådighed."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Dine kreditter leveres af %s — bed dem om at hæve din kreditgrænse."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Fyld op ved: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Besøgende har anmodninger, der afventer kreditter"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Der arbejdes allerede på at udarbejde en tilgængelig version af dette dokument."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Vi bruger kun din e-mailadresse til at sende netop denne besked."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Indtast venligst en gyldig e-mailadresse."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Der er for mange anmodninger — prøv venligst igen senere."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Det var ikke muligt at sende anmodningen. Prøv venligst igen senere."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Luk"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Dette dokument er endnu ikke tilgængeligt"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "Den PDF-fil, du er ved at åbne, opfylder i øjeblikket ikke kravene til tilgængelighed. Du kan åbne den, som den er, eller anmode om en tilgængelig version."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Åbn dokumentet"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Anmod om en tilgængelig version"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Vi sender dig en e-mail, så snart den tilgængelige version er klar."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-mail-adresse"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Anmod om dokument"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Tak! Vi giver dig besked via e-mail, så snart den tilgængelige version er klar."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy-anmodninger om tilgængelige dokumenter"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Anmodninger om tilgængelige dokumenter"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokument"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Anmodet om den"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Bemærkning om beskyttelse af personoplysninger"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Stil for dialogknapper"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Arv knapstilen fra temaet (anbefales)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Bloktemaer formaterer dialogknapperne nøjagtigt på samme måde som temaets knapper. Klassiske temaer uden en maskinlæsbar knapstil bruger i stedet den nedenstående accentfarve."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Bruges til dialogknapperne, når temaarv er slået fra (og som reserve). Vælg en farve, der er mørk nok: knapteksten er hvid og kræver et kontrastforhold på mindst 4,5:1."

@@ -1,0 +1,177 @@
+# Translation of Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-07-30 13:28:01+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release)\n"
+
+#: includes/admin/class-a11yfy-admin.php:271
+#: includes/admin/class-a11yfy-admin.php:341
+#: includes/admin/class-a11yfy-admin.php:362
+msgid "You are not allowed to change a11yfy settings."
+msgstr "Je hebt geen toestemming om de a11yfy-instellingen te wijzigen."
+
+#: includes/admin/class-a11yfy-admin.php:389
+msgid "Connection cancelled on a11yfy.com."
+msgstr "Verbinding geannuleerd op a11yfy.com."
+
+#: includes/admin/class-a11yfy-admin.php:391
+msgid "The connect response could not be verified (expired or tampered request). Please try again."
+msgstr "Het verbindingsantwoord kon niet worden geverifieerd (verlopen of gemanipuleerd verzoek). Probeer het opnieuw."
+
+#: includes/admin/class-a11yfy-admin.php:550
+msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
+msgstr "Action Scheduler kon niet worden geladen — statusupdates van het herstel zullen traag zijn (WP-cron-fallback bij paginabezoek)."
+
+#: includes/admin/class-a11yfy-admin.php:566
+msgid "Open the a11yfy Dashboard to review and fix them."
+msgstr "Open het a11yfy-dashboard om ze te bekijken en op te lossen."
+
+#: includes/admin/class-a11yfy-admin.php:672
+msgid "Compliant"
+msgstr "Voldoet"
+
+#: includes/admin/views/settings.php:84
+msgid "Polling — the site checks job status in the background. Reconnecting via the button flow enables instant webhook updates when your site is publicly reachable."
+msgstr "Polling — de site controleert de taakstatus op de achtergrond. Opnieuw verbinden via de knop schakelt directe webhook-updates in wanneer je site openbaar bereikbaar is."
+
+#: includes/admin/views/settings.php:150
+msgid "same URL, original kept as a backup with one-click restore."
+msgstr "dezelfde URL; het origineel blijft bewaard als back-up en is met één klik terug te zetten."
+
+#: includes/admin/views/settings.php:170
+msgid "On plugin deletion"
+msgstr "Bij het verwijderen van de plugin"
+
+#: includes/admin/views/settings.php:175
+msgid "Keep the remediated PDFs (recommended — they are your content)."
+msgstr "Bewaar de herstelde PDF-bestanden (aanbevolen — ze zijn je eigen content)."
+
+#: includes/admin/views/settings.php:179
+msgid "Restore the original files from backup."
+msgstr "Zet de originele bestanden terug vanuit de back-up."
+
+#: includes/class-a11yfy-connect.php:39 includes/class-a11yfy-connect.php:64
+msgid "You are not allowed to connect this site."
+msgstr "Je hebt geen toestemming om deze site te verbinden."
+
+#: includes/class-a11yfy-guardrails.php:146
+msgid "A remediation job is already running for this PDF."
+msgstr "Er loopt al een hersteltaak voor deze PDF."
+
+#: includes/class-a11yfy-replacer.php:77
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "Het originele bestand is niet lokaal opgeslagen (offload-plugin?) — dit wordt nog niet ondersteund."
+
+#: includes/class-a11yfy-replacer.php:287
+msgid "Could not restore the original PDF."
+msgstr "De originele PDF kon niet worden teruggezet."
+
+#: includes/admin/class-a11yfy-scan-report.php:58
+msgid "The document contains no structure tree (tags). Screen readers get no headings, paragraphs, lists or tables — the content is read as an unstructured stream, or not at all."
+msgstr "Het document bevat geen structuurboom (tags). Schermlezers krijgen geen koppen, alinea’s, lijsten of tabellen — de inhoud wordt voorgelezen als één ongestructureerde stroom, of helemaal niet."
+
+#: includes/admin/views/dashboard.php:85
+msgid "The plugins below compress PDF files. Compression rewrites the PDF and strips its accessibility structure (tags, language, PDF/UA metadata) — it can also destroy PDFs already remediated with your a11yfy credits."
+msgstr "De onderstaande plugins comprimeren PDF-bestanden. Comprimeren herschrijft de PDF en verwijdert de toegankelijkheidsstructuur (tags, taal, PDF/UA-metadata) — het kan ook PDF-bestanden onbruikbaar maken die al met je a11yfy-credits zijn hersteld."
+
+#: includes/class-a11yfy-optimizer-guard.php:226
+msgid "No active plugin was found that compresses PDF files. PDF compression rewrites the file and strips its accessibility tags."
+msgstr "Er is geen actieve plugin gevonden die PDF-bestanden comprimeert. PDF-compressie herschrijft het bestand en verwijdert de toegankelijkheidstags."
+
+#: includes/admin/class-a11yfy-admin.php:60
+msgid "Document details"
+msgstr "Documentdetails"
+
+#: includes/admin/class-a11yfy-admin.php:177
+msgid "Technical details"
+msgstr "Technische details"
+
+#: includes/admin/class-a11yfy-scan-report.php:94
+msgid "The PDF declares one language, but the page text appears to be written in another. Screen readers pick their voice and pronunciation from the declared language, so the content would be read with the wrong voice."
+msgstr "Het PDF-bestand geeft één taal op, maar de paginatekst lijkt in een andere taal geschreven. Schermlezers kiezen hun stem en uitspraak op basis van de opgegeven taal, waardoor de inhoud met de verkeerde stem zou worden voorgelezen."
+
+#: includes/class-a11yfy-optimizer-guard.php:244
+msgid "Compressing a PDF rewrites the file and removes its accessibility structure (tags, language, PDF/UA metadata) — including PDFs already remediated with a11yfy credits. Disable PDF optimization in the plugin settings; a11yfy also protects remediated files individually where the optimizer supports it."
+msgstr "Het comprimeren van een PDF herschrijft het bestand en verwijdert de toegankelijkheidsstructuur (tags, taal, PDF/UA-metadata) — ook bij PDF-bestanden die al met a11yfy-credits zijn hersteld. Schakel PDF-optimalisatie uit in de instellingen van de plugin; waar de optimizer dit ondersteunt, beschermt a11yfy herstelde bestanden ook afzonderlijk."
+
+#: includes/admin/class-a11yfy-scan-report.php:99
+msgid "The document has no headings at all"
+msgstr "Het document bevat helemaal geen koppen"
+
+#: includes/admin/class-a11yfy-scan-report.php:100
+msgid "The document contains substantial text but not a single heading element. Screen reader users navigate primarily by headings — without them the document must be read linearly from start to finish."
+msgstr "Het document bevat veel tekst, maar geen enkele kop. Schermlezergebruikers navigeren voornamelijk via koppen — zonder koppen moet het document lineair van begin tot eind worden voorgelezen."
+
+#: includes/admin/class-a11yfy-scan-report.php:102
+msgid "Tag the section titles as headings (H1–H6) so the document structure becomes navigable."
+msgstr "Markeer de sectietitels als koppen (H1–H6), zodat de documentstructuur navigeerbaar wordt."
+
+#: includes/admin/class-a11yfy-scan-report.php:111
+msgid "A table has no header cells"
+msgstr "Een tabel heeft geen kopcellen"
+
+#: includes/admin/class-a11yfy-scan-report.php:112
+msgid "A data table contains no TH header cells. Screen readers announce the matching header before each cell — without headers the user hears bare numbers with no context."
+msgstr "Een gegevenstabel bevat geen TH-kopcellen. Schermlezers lezen vóór elke cel de bijbehorende kop voor — zonder kopcellen hoort de gebruiker alleen kale getallen zonder context."
+
+#: includes/admin/class-a11yfy-scan-report.php:114
+msgid "Tag the first row and/or column as TH header cells with an appropriate Scope."
+msgstr "Markeer de eerste rij en/of kolom als TH-kopcellen met een passende Scope."
+
+#: includes/admin/class-a11yfy-scan-report.php:117
+msgid "An image description looks like a placeholder"
+msgstr "Een afbeeldingsbeschrijving lijkt een placeholder te zijn"
+
+#: includes/admin/class-a11yfy-scan-report.php:145
+msgid "Headings"
+msgstr "Koppen"
+
+#: includes/admin/class-a11yfy-scan-report.php:148
+msgid "Lists & table of contents"
+msgstr "Lijsten & inhoudsopgave"
+
+#: includes/admin/class-a11yfy-scan-report.php:207
+msgid "Is the reading order logical when the content is read from start to finish?"
+msgstr "Is de leesvolgorde logisch wanneer de inhoud van begin tot eind wordt gelezen?"
+
+#: includes/admin/class-a11yfy-scan-report.php:211
+msgid "Do tables have real header cells and a simple, regular structure?"
+msgstr "Hebben tabellen echte kopcellen en een eenvoudige, regelmatige structuur?"
+
+#: includes/admin/class-a11yfy-admin.php:497
+#: includes/admin/class-a11yfy-admin.php:503
+msgid "You are not allowed to download this certificate."
+msgstr "Je hebt geen toestemming om dit certificaat te downloaden."
+
+#: includes/admin/class-a11yfy-admin.php:100
+#: includes/admin/class-a11yfy-admin.php:160
+msgid "This document is digitally signed. Remediation modifies the file, so the signature will no longer be valid. Do you want to continue?"
+msgstr "Dit document is digitaal ondertekend. Herstel wijzigt het bestand, waardoor de handtekening niet meer geldig is. Wil je doorgaan?"
+
+#: includes/admin/class-a11yfy-admin.php:110
+#: includes/admin/views/document.php:141
+msgid "The document received the best possible repair but did not fully meet the PDF/UA-1 standard. The output is available for free download."
+msgstr "Het document is zo goed mogelijk hersteld, maar voldoet niet volledig aan de PDF/UA-1-norm. Het resultaat is gratis te downloaden."
+
+#: includes/admin/class-a11yfy-scan-report.php:70
+msgid "The file is encrypted but its encryption settings have no permissions entry, so there is no guarantee that screen readers may access the content."
+msgstr "Het bestand is versleuteld, maar de versleutelingsinstellingen bevatten geen machtigingen, waardoor er geen garantie is dat schermlezers toegang hebben tot de inhoud."
+
+#: includes/admin/class-a11yfy-scan-report.php:76
+msgid "The file's encryption settings do not allow content extraction by assistive technology, so a screen reader cannot read the document at all."
+msgstr "De versleutelingsinstellingen van het bestand staan niet toe dat ondersteunende technologie de inhoud uitleest, waardoor een schermlezer het document helemaal niet kan voorlezen."
+
+#: includes/admin/class-a11yfy-scan-report.php:88
+msgid "The document contains lines, filled shapes or gradients that are neither tagged as content nor marked as decorative. PDF/UA validators flag these as untagged content."
+msgstr "Het document bevat lijnen, gevulde vormen of kleurverlopen die niet als inhoud zijn getagd en ook niet als decoratief zijn gemarkeerd. PDF/UA-validators melden deze als niet-getagde inhoud."
+
+#: includes/admin/class-a11yfy-scan-report.php:90
+msgid "Remediation marks decorative graphics (borders, separators, backgrounds) as artifacts and tags the ones that carry content."
+msgstr "Het herstel markeert decoratieve grafische elementen (randen, scheidingslijnen, achtergronden) als artefacten en voorziet de elementen die inhoud dragen van tags."

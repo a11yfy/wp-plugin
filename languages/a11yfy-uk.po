@@ -1470,3 +1470,210 @@ msgstr ""
 "\n"
 "Ваші кредити надає %2$s — попросіть їх збільшити ваш ліміт або перейдіть на власні кредити в налаштуваннях вашої "
 "організації a11yfy."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "На замовлення"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Відвідувачі, які відкривають PDF-файл, що не відповідає стандартам доступності, можуть замовити версію, що відповідає цим стандартам — ви платите лише за ті документи, які дійсно потрібні користувачам."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Запити відвідувачів, що очікують на опрацювання: %1$d (%2$d документів)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "На запит (за бажанням відвідувачів)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "коли відвідувач натискає на PDF-файл, що не відповідає вимогам доступності, він може запросити версію, що відповідає вимогам доступності — виправлення здійснюється лише за фактичним запитом."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Запити відвідувачів (режим «на вимогу»)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Ці тексти відображаються у діалоговому вікні, яке бачать відвідувачі після натискання на PDF-файл, що ще не є доступним, а також у листі, який вони отримують, коли доступна версія буде готова. Залиште поле порожнім, щоб використовувати вбудований текст мовою сайту."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Заголовок діалогового вікна"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Повідомлення діалогового вікна"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Кнопка «Відкрити документ»"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Кнопка «Замовити версію для людей з обмеженими можливостями»"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Попросити пояснення"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Назва поля «Електронна пошта»"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Кнопка «Замовити документ»"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Повідомлення про підтвердження"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Колір виділення діалогу"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Використовується для кнопок діалогового вікна. Оберіть достатньо темний колір: напис на кнопці білий, і для нього потрібен контраст не менше 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Готова тема листа"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Ваш документ у доступному форматі готовий"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Готовий текст листа"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Заповнювачі: {site_name}, {document_title}, {document_url}, {request_date}. Порожнє поле = вбудований текст мовою, якою користується кожен відвідувач."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Доброго дня,\n\nГарна новина: доступна версія «{document_title}», яку ви замовляли на {site_name}, вже готова.\n\nВи можете завантажити її тут:\n{document_url}\n\nДякуємо за турботу про доступність.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Відвідувачі вашого сайту подали запити на доступні версії у форматі PDF, але ваш баланс кредитів a11yfy не покриває вартість цієї роботи.\n\nЗапити в очікуванні: %1$d (%2$d документів)\nОрієнтовна кількість необхідних кредитів: до %3$d\n\nЗапити відкладено, і їх виконання розпочнеться автоматично, щойно з’явиться достатня кількість кредитів."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Ваші кредити надає %s — попросіть їх збільшити ваш ліміт."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Поповнити рахунок: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Запити відвідувачів очікують на кредити"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Наразі триває підготовка версії цього документа, доступної для людей з обмеженими можливостями."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Ми використовуємо вашу адресу електронної пошти виключно для надсилання цього єдиного повідомлення."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Будь ласка, введіть дійсну адресу електронної пошти."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Занадто багато запитів — спробуйте ще раз пізніше."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Запит не вдалося надіслати. Спробуйте ще раз пізніше."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Закрити"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Цей документ поки що недоступний"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF-файл, який ви збираєтеся відкрити, наразі не відповідає вимогам щодо доступності. Ви можете відкрити його в поточній версії або замовити версію, що відповідає вимогам доступності."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Відкрити документ"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Замовити версію для людей з обмеженими можливостями"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Ми надішлемо вам електронного листа, щойно доступна версія буде готова."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "Адреса електронної пошти"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Замовити документ"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Дякуємо! Ми повідомимо вас електронною поштою, щойно доступна версія буде готова."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy: запити щодо доступності документів"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Запити щодо доступних документів"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Документ"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "Електронна пошта"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Запитано на"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Примітка щодо конфіденційності"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Стиль кнопки діалогового вікна"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Використовувати стиль кнопок із теми (рекомендується)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Теми на основі блоків оформлюють кнопки діалогових вікон точно так само, як і кнопки теми. Класичні теми, що не мають стилю кнопок, який можна прочитати машиною, використовують натомість колір акценту, зазначений нижче."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Використовується для кнопок діалогових вікон, коли успадкування теми вимкнено (а також як запасний варіант). Оберіть достатньо темний колір: напис на кнопці білий і потребує контрасту не менше 4,5:1."

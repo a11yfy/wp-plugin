@@ -1,0 +1,119 @@
+# Translation of Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-08-03 16:57:47+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable (latest release)\n"
+
+#: includes/class-a11yfy-replacer.php:77
+msgid "The original file is not stored locally (offload plugin?) — not supported yet."
+msgstr "El archivo original no se almacena localmente (¿complemento de descarga?) — aún no es compatible."
+
+#: includes/admin/views/settings.php:186
+msgid "Save settings"
+msgstr "Guardar configuración"
+
+#: includes/admin/views/settings.php:170
+msgid "On plugin deletion"
+msgstr "Al eliminar un complemento"
+
+#: includes/admin/views/settings.php:166
+msgid "Low-credit and failure notifications. Empty = site admin email."
+msgstr "Notificaciones de saldo insuficiente y de fallos. Vacío = correo electrónico del administrador del sitio."
+
+#: includes/admin/views/settings.php:161
+msgid "Notification email"
+msgstr "Correo electrónico de notificación"
+
+#: includes/admin/views/settings.php:105
+msgid "you pick what to fix in the Media Library or on the Dashboard."
+msgstr "Puedes elegir qué corregir en la biblioteca multimedia o en el panel de control."
+
+#: includes/admin/views/settings.php:44
+msgid "API key"
+msgstr "Clave API"
+
+#: includes/admin/views/settings.php:20
+msgid "a11yfy Settings"
+msgstr "Configuración de a11yfy"
+
+#: includes/admin/views/dashboard.php:292
+msgid "Credits"
+msgstr "Créditos"
+
+#: includes/admin/views/dashboard.php:284
+msgid "Remediation jobs"
+msgstr "Trabajos de rehabilitación"
+
+#: includes/admin/views/dashboard.php:237
+msgid "Scan PDF library"
+msgstr "Escanear la biblioteca de PDF"
+
+#: includes/admin/views/dashboard.php:96
+msgid "this plugin offers no reliable per-file exclusion — a11yfy cannot protect individual PDFs from it."
+msgstr "Este complemento no ofrece una exclusión fiable por archivo; a11yfy no puede proteger archivos PDF individuales frente a él."
+
+#: includes/admin/class-a11yfy-admin.php:508
+msgid "This document has no a11yfy certificate yet."
+msgstr "Este documento aún no cuenta con un certificado a11yfy."
+
+#: includes/admin/class-a11yfy-admin.php:497
+#: includes/admin/class-a11yfy-admin.php:503
+msgid "You are not allowed to download this certificate."
+msgstr "No está permitido descargar este certificado."
+
+#: includes/admin/class-a11yfy-admin.php:388
+msgid "The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host about the PHP sodium extension. Other settings were saved."
+msgstr "La clave API no pudo almacenarse de forma segura en este servidor (cifrado no disponible). La clave NO se guardó: consulta a tu proveedor de hosting sobre la extensión PHP sodium. El resto de los ajustes se guardaron."
+
+#: includes/admin/class-a11yfy-admin.php:387
+msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
+msgstr "a11yfy ha rechazado la clave API. Compruébala en a11yfy.com, en Cuenta → Claves API. El resto de ajustes se han guardado."
+
+#: includes/admin/class-a11yfy-admin.php:386
+msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
+msgstr "No parece que sea una clave API de a11yfy (se esperaba ak_live_… o ak_test_…). El resto de ajustes se han guardado."
+
+#: includes/admin/class-a11yfy-admin.php:385
+msgid "Disconnected. The stored API key was removed."
+msgstr "Desconectado. Se ha eliminado la clave API almacenada."
+
+#: includes/admin/class-a11yfy-admin.php:382
+msgid "Settings saved."
+msgstr "Configuración guardada."
+
+#: includes/admin/class-a11yfy-admin.php:95
+msgid "No PDFs need scanning — everything is up to date."
+msgstr "No hace falta escanear ningún PDF: todo está actualizado."
+
+#. translators: %s: file name.
+#: includes/admin/class-a11yfy-admin.php:94
+msgid "Scan failed for %s"
+msgstr "Error al escanear %s"
+
+#. translators: %d: number of PDFs checked.
+#: includes/admin/class-a11yfy-admin.php:92
+msgid "Scan finished: %d PDFs checked."
+msgstr "Escaneo finalizado: se han comprobado %d archivos PDF."
+
+#. translators: 1: current position, 2: total number of PDFs.
+#: includes/admin/class-a11yfy-admin.php:90
+msgid "Scanning… %1$d / %2$d"
+msgstr "Escaneando… %1$d / %2$d"
+
+#: includes/admin/class-a11yfy-admin.php:55
+#: includes/admin/class-a11yfy-admin.php:239
+msgid "Settings"
+msgstr "Configuración"
+
+#: includes/admin/class-a11yfy-admin.php:54
+#: includes/admin/class-a11yfy-admin.php:215
+#: includes/admin/class-a11yfy-admin.php:238
+msgid "Dashboard"
+msgstr "Panel de control"

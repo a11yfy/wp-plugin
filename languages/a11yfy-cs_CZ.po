@@ -1441,3 +1441,210 @@ msgstr ""
 "\n"
 "Vaše kredity poskytuje %2$s — požádejte je o zvýšení limitu, nebo přepněte na vlastní kredity v nastavení vaší "
 "organizace a11yfy."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Na vyžádání"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Návštěvníci, kteří otevřou nepřístupný soubor PDF, si mohou vyžádat přístupnou verzi – platíte pouze za dokumenty, které lidé skutečně potřebují."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Čekající žádosti návštěvníků: %1$d (%2$d dokumentů)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Na požádání (žádosti návštěvníků)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Pokud návštěvník klikne na PDF soubor, který není přístupný, může si vyžádat přístupnou verzi – náprava se provádí pouze na základě skutečné poptávky."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Žádosti návštěvníků (režim na vyžádání)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Tyto texty se zobrazují v dialogovém okně, které se návštěvníkům zobrazí po kliknutí na soubor PDF, který zatím není přístupný, a také v e-mailu, který obdrží, jakmile bude přístupná verze připravena. Pokud pole ponecháte prázdné, použije se výchozí text v jazyce webu."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Název dialogového okna"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Zpráva v dialogovém okně"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Tlačítko „Otevřít dokument“"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Tlačítko „Požádat o přístupnou verzi“"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Vysvětlivka k žádosti"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Popisek pole „E-mail“"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Tlačítko „Žádost o dokument“"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Potvrzovací zpráva"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Barva zvýraznění dialogového okna"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Používá se pro tlačítka v dialogovém okně. Vyberte dostatečně tmavou barvu: text na tlačítku je bílý a vyžaduje kontrast alespoň 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Předmět e-mailu o připraveném dokumentu"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Váš přístupný dokument je připraven"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Tělo e-mailu o připraveném dokumentu"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Zástupné symboly: {site_name}, {document_title}, {document_url}, {request_date}. Prázdné = vestavěný text v jazyce, který daný návštěvník použil."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Dobrý den,\n\nDobrá zpráva: přístupná verze „{document_title}“, o kterou jste požádali na {site_name}, je připravena.\n\nMůžete si ji stáhnout zde:\n{document_url}\n\nDěkujeme za váš zájem o přístupnost.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Návštěvníci vašeho webu požádali o přístupné verze PDF, ale váš zůstatek kreditů a11yfy na provedení této práce nestačí.\n\nČekající žádosti: %1$d (%2$d dokumentů)\nOdhadovaný počet potřebných kreditů: až %3$d\n\nŽádosti jsou dočasně pozastaveny a budou automaticky zpracovány, jakmile bude k dispozici dostatek kreditů."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Vaše kredity poskytuje společnost %s — požádejte ji o zvýšení limitu."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Doplnit na: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Žádosti návštěvníků čekají na kredity"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Přístupná verze tohoto dokumentu se již připravuje."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Vaši e-mailovou adresu použijeme pouze k odeslání tohoto jediného oznámení."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Zadejte prosím platnou e-mailovou adresu."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Příliš mnoho požadavků – zkuste to prosím později."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Žádost se nepodařilo odeslat. Zkuste to prosím později."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Zavřít"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Tento dokument zatím není přístupný"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "Soubor PDF, který se chystáte otevřít, v současné době nesplňuje požadavky na přístupnost. Můžete jej otevřít v současné podobě nebo požádat o přístupnou verzi."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Otevřít dokument"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Požádat o přístupnou verzi"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Jakmile bude přístupná verze hotová, zašleme vám e-mail."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-mailová adresa"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Vyžádat dokument"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Děkujeme! Jakmile bude přístupná verze připravena, dáme vám vědět e-mailem."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "Žádosti o přístupné dokumenty (a11yfy)"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Žádosti o přístupné dokumenty"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokument"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Požadováno dne"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Poznámka k ochraně soukromí"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Styl tlačítek dialogového okna"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Zdědit styl tlačítek ze šablony (doporučeno)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Blokové šablony stylizují tlačítka dialogových oken přesně jako tlačítka šablony. Klasické šablony bez strojově čitelného stylu tlačítek se vrátí k níže uvedené zvýrazňující barvě."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Používá se pro tlačítka dialogových oken, když je vypnuta dědičnost šablony (a jako záložní řešení). Vyberte dostatečně tmavou barvu: text na tlačítku je bílý a vyžaduje kontrast alespoň 4,5:1."

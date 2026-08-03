@@ -36,6 +36,12 @@ class A11yfy_RemediateService {
 					)
 				);
 			}
+			// Visitor-sourced submits carry subscriber rows whose lifecycle
+			// must not strand on a silent skip (cap → park, compliant →
+			// notify, blocker → fail); see A11yfy_Visitor_Notify.
+			if ( 'visitor' === $source ) {
+				A11yfy_Visitor_Notify::handle_guard_skip( $attachment_id, $check );
+			}
 			return;
 		}
 		delete_post_meta( $attachment_id, '_a11yfy_last_skip' );
@@ -77,6 +83,7 @@ class A11yfy_RemediateService {
 					'error_code' => 'a11yfy_file_changed',
 				)
 			);
+			self::fire_finished( $row_id, 'failed' );
 			return;
 		}
 
@@ -137,6 +144,33 @@ class A11yfy_RemediateService {
 			}
 			set_transient( 'a11yfy_low_credit', $notice, DAY_IN_SECONDS );
 		}
+		// The visitor request lifecycle rides on this action: a 402-class code
+		// re-parks the subscribers as pending_credit, anything else fails them
+		// (A11yfy_Visitor_Notify::on_job_finished()).
+		self::fire_finished( $row_id, 'failed' );
+	}
+
+	/**
+	 * Terminal-state notification (visitor spec 2026-08-03, K3/F4): fired on
+	 * EVERY terminal branch — unlike `a11yfy_remediated`, which only fires on
+	 * a successful non-noop remediation and stays unchanged for back-compat.
+	 *
+	 * @param int    $row_id Jobs table row ID.
+	 * @param string $status done|failed|stalled.
+	 */
+	private static function fire_finished( $row_id, $status ) {
+		$row = A11yfy_Jobs::get( $row_id );
+		if ( ! $row ) {
+			return;
+		}
+		/**
+		 * Fires when a WP-side job row reaches a terminal state.
+		 *
+		 * @param int    $attachment_id Attachment ID.
+		 * @param string $status        done|failed|stalled.
+		 * @param array  $row           Jobs table row (incl. error_code, treatment).
+		 */
+		do_action( 'a11yfy_job_finished', (int) $row['attachment_id'], $status, $row );
 	}
 
 	/**
@@ -169,6 +203,7 @@ class A11yfy_RemediateService {
 					'error_message' => __( 'The job did not finish within 2 hours. Please contact a11yfy support.', 'a11yfy-pdf-accessibility-checker-fixer' ),
 				)
 			);
+			self::fire_finished( $row_id, 'stalled' );
 			return;
 		}
 
@@ -253,6 +288,7 @@ class A11yfy_RemediateService {
 			$fields['status']     = 'failed';
 			$fields['error_code'] = 'remediation_failed';
 			A11yfy_Jobs::update( $row_id, $fields );
+			self::fire_finished( $row_id, 'failed' );
 			return;
 		}
 
@@ -269,6 +305,9 @@ class A11yfy_RemediateService {
 				$scan['compliant'] = true;
 				update_post_meta( (int) $row['attachment_id'], '_a11yfy_scan', $scan );
 			}
+			// K3: `a11yfy_remediated` never fired here — visitor subscribers
+			// still get their "it is accessible" email via the terminal action.
+			self::fire_finished( $row_id, 'done' );
 			return;
 		}
 
@@ -284,6 +323,7 @@ class A11yfy_RemediateService {
 					)
 				)
 			);
+			self::fire_finished( $row_id, 'failed' );
 			return;
 		}
 
@@ -309,6 +349,7 @@ class A11yfy_RemediateService {
 					'error_message' => $applied->get_error_message(),
 				)
 			);
+			self::fire_finished( $row_id, 'failed' );
 			return;
 		}
 
@@ -323,6 +364,7 @@ class A11yfy_RemediateService {
 		 * @param array $applied       Map row fields.
 		 */
 		do_action( 'a11yfy_remediated', (int) $row['attachment_id'], $applied );
+		self::fire_finished( $row_id, 'done' );
 	}
 
 	/**

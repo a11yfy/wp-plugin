@@ -279,6 +279,12 @@ class A11yfy_Guardrails {
 	 * @return array { min: int, max: int } Estimated credits.
 	 */
 	public static function estimate( array $attachment_ids ) {
+		// The per-file range lives in the admin class, which only loads in
+		// wp-admin — but the visitor REST flow (front-end context) needs the
+		// estimate too. The class definition is side-effect-free to load.
+		if ( ! class_exists( 'A11yfy_Admin' ) ) {
+			require_once A11YFY_PLUGIN_DIR . 'includes/admin/class-a11yfy-admin.php';
+		}
 		$min = 0;
 		$max = 0;
 		foreach ( $attachment_ids as $id ) {

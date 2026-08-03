@@ -318,19 +318,57 @@ class A11yfy_Admin {
 			}
 		}
 
+		$accent = isset( $_POST['a11yfy_visitor_accent_color'] )
+			? sanitize_hex_color( wp_unslash( $_POST['a11yfy_visitor_accent_color'] ) )
+			: '';
+
 		A11yfy_Settings::update(
 			array(
-				'mode'                 => ( isset( $_POST['a11yfy_mode'] ) && 'auto' === $_POST['a11yfy_mode'] ) ? 'auto' : 'manual',
-				'monthly_cap'          => isset( $_POST['a11yfy_monthly_cap'] ) ? max( 0, (int) $_POST['a11yfy_monthly_cap'] ) : 0,
-				'low_credit_threshold' => isset( $_POST['a11yfy_low_credit'] ) ? max( 0, (int) $_POST['a11yfy_low_credit'] ) : 100,
-				'save_strategy'        => ( isset( $_POST['a11yfy_save_strategy'] ) && 'conservative' === $_POST['a11yfy_save_strategy'] ) ? 'conservative' : 'inplace',
-				'notify_email'         => isset( $_POST['a11yfy_notify_email'] ) ? sanitize_email( wp_unslash( $_POST['a11yfy_notify_email'] ) ) : '',
-				'delete_data'          => ( isset( $_POST['a11yfy_delete_data'] ) && 'restore' === $_POST['a11yfy_delete_data'] ) ? 'restore' : 'keep',
+				'mode'                  => self::sanitize_mode( isset( $_POST['a11yfy_mode'] ) ? wp_unslash( $_POST['a11yfy_mode'] ) : '' ),
+				'monthly_cap'           => isset( $_POST['a11yfy_monthly_cap'] ) ? max( 0, (int) $_POST['a11yfy_monthly_cap'] ) : 0,
+				'low_credit_threshold'  => isset( $_POST['a11yfy_low_credit'] ) ? max( 0, (int) $_POST['a11yfy_low_credit'] ) : 100,
+				'save_strategy'         => ( isset( $_POST['a11yfy_save_strategy'] ) && 'conservative' === $_POST['a11yfy_save_strategy'] ) ? 'conservative' : 'inplace',
+				'notify_email'          => isset( $_POST['a11yfy_notify_email'] ) ? sanitize_email( wp_unslash( $_POST['a11yfy_notify_email'] ) ) : '',
+				'delete_data'           => ( isset( $_POST['a11yfy_delete_data'] ) && 'restore' === $_POST['a11yfy_delete_data'] ) ? 'restore' : 'keep',
+				// Visitor on-demand texts: empty = localized default at render time.
+				'visitor_modal_title'   => self::visitor_text_field( 'a11yfy_visitor_modal_title' ),
+				'visitor_modal_body'    => self::visitor_textarea_field( 'a11yfy_visitor_modal_body' ),
+				'visitor_btn_open'      => self::visitor_text_field( 'a11yfy_visitor_btn_open' ),
+				'visitor_btn_request'   => self::visitor_text_field( 'a11yfy_visitor_btn_request' ),
+				'visitor_request_info'  => self::visitor_text_field( 'a11yfy_visitor_request_info' ),
+				'visitor_email_label'   => self::visitor_text_field( 'a11yfy_visitor_email_label' ),
+				'visitor_btn_submit'    => self::visitor_text_field( 'a11yfy_visitor_btn_submit' ),
+				'visitor_success_msg'   => self::visitor_text_field( 'a11yfy_visitor_success_msg' ),
+				'visitor_privacy_note'  => self::visitor_text_field( 'a11yfy_visitor_privacy_note' ),
+				'visitor_theme_style'   => ! empty( $_POST['a11yfy_visitor_theme_style'] ),
+				'visitor_accent_color'  => $accent ? $accent : '#1d4ed8',
+				'visitor_email_subject' => self::visitor_text_field( 'a11yfy_visitor_email_subject' ),
+				'visitor_email_body'    => self::visitor_textarea_field( 'a11yfy_visitor_email_body' ),
 			)
 		);
 
 		wp_safe_redirect( add_query_arg( 'a11yfy_notice', $notice, admin_url( 'admin.php?page=a11yfy-settings' ) ) );
 		exit;
+	}
+
+	/**
+	 * Mode whitelist (K2): a third radio value must not silently degrade to
+	 * 'manual' the way the old binary check did.
+	 *
+	 * @param string $raw Posted mode.
+	 * @return string auto|manual|on_demand
+	 */
+	private static function sanitize_mode( $raw ) {
+		$mode = sanitize_key( $raw );
+		return in_array( $mode, array( 'auto', 'manual', 'on_demand' ), true ) ? $mode : 'manual';
+	}
+
+	private static function visitor_text_field( $key ) {
+		return isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- called from save_settings() after check_admin_referer().
+	}
+
+	private static function visitor_textarea_field( $key ) {
+		return isset( $_POST[ $key ] ) ? sanitize_textarea_field( wp_unslash( $_POST[ $key ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- called from save_settings() after check_admin_referer().
 	}
 
 	/**
@@ -344,7 +382,7 @@ class A11yfy_Admin {
 
 		A11yfy_Settings::update(
 			array(
-				'mode'        => ( isset( $_POST['a11yfy_mode'] ) && 'auto' === $_POST['a11yfy_mode'] ) ? 'auto' : 'manual',
+				'mode'        => self::sanitize_mode( isset( $_POST['a11yfy_mode'] ) ? wp_unslash( $_POST['a11yfy_mode'] ) : '' ),
 				'monthly_cap' => isset( $_POST['a11yfy_monthly_cap'] ) ? max( 0, (int) $_POST['a11yfy_monthly_cap'] ) : 0,
 				'onboarded'   => true,
 			)

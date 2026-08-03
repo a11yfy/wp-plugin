@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 1.0.0\n"
+"Project-Id-Version: a11yfy – PDF Accessibility Checker & Fixer 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-plugin\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-30T08:44:46+00:00\n"
+"POT-Creation-Date: 2026-08-03T20:33:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: a11yfy-pdf-accessibility-checker-fixer\n"
@@ -152,23 +152,23 @@ msgid "Score: %d / 100"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:167
-#: includes/admin/class-a11yfy-admin.php:706
+#: includes/admin/class-a11yfy-admin.php:744
 msgid "Low risk"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:168
-#: includes/admin/class-a11yfy-admin.php:708
+#: includes/admin/class-a11yfy-admin.php:746
 msgid "Medium risk"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:169
-#: includes/admin/class-a11yfy-admin.php:710
+#: includes/admin/class-a11yfy-admin.php:748
 msgid "High risk"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:170
-#: includes/admin/class-a11yfy-admin.php:712
-#: includes/admin/views/dashboard.php:203
+#: includes/admin/class-a11yfy-admin.php:750
+#: includes/admin/views/dashboard.php:213
 msgid "Not accessible"
 msgstr ""
 
@@ -257,18 +257,18 @@ msgstr ""
 
 #. translators: %d: estimated number of credits.
 #: includes/admin/class-a11yfy-admin.php:198
-#: includes/admin/class-a11yfy-admin.php:635
+#: includes/admin/class-a11yfy-admin.php:673
 msgid "Estimated cost: ~%d credits"
 msgstr ""
 
 #. translators: 1: minimum credits, 2: maximum credits.
 #: includes/admin/class-a11yfy-admin.php:200
-#: includes/admin/class-a11yfy-admin.php:638
+#: includes/admin/class-a11yfy-admin.php:676
 msgid "Estimated cost: %1$d–%2$d credits"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:219
-#: includes/admin/class-a11yfy-admin.php:432
+#: includes/admin/class-a11yfy-admin.php:470
 msgid "Connect account"
 msgstr ""
 
@@ -277,197 +277,198 @@ msgid "a11yfy pages"
 msgstr ""
 
 #: includes/admin/class-a11yfy-admin.php:271
-#: includes/admin/class-a11yfy-admin.php:341
-#: includes/admin/class-a11yfy-admin.php:362
+#: includes/admin/class-a11yfy-admin.php:379
+#: includes/admin/class-a11yfy-admin.php:400
 msgid "You are not allowed to change a11yfy settings."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:382
+#: includes/admin/class-a11yfy-admin.php:420
 msgid "Settings saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:383
+#: includes/admin/class-a11yfy-admin.php:421
 msgid "Connected to a11yfy — the API key works."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:384
+#: includes/admin/class-a11yfy-admin.php:422
 msgid "Connected to a11yfy — instant (webhook) status updates are enabled."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:385
+#: includes/admin/class-a11yfy-admin.php:423
 msgid "Disconnected. The stored API key was removed."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:386
+#: includes/admin/class-a11yfy-admin.php:424
 msgid "That does not look like an a11yfy API key (expected ak_live_… or ak_test_…). Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:387
+#: includes/admin/class-a11yfy-admin.php:425
 msgid "a11yfy rejected the API key. Check it on a11yfy.com under Account → API keys. Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:388
+#: includes/admin/class-a11yfy-admin.php:426
 msgid "The API key could not be stored securely on this server (encryption unavailable). The key was NOT saved — ask your host about the PHP sodium extension. Other settings were saved."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:389
+#: includes/admin/class-a11yfy-admin.php:427
 msgid "Connection cancelled on a11yfy.com."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:390
+#: includes/admin/class-a11yfy-admin.php:428
 msgid "Connecting to a11yfy failed — please try again."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:391
+#: includes/admin/class-a11yfy-admin.php:429
 msgid "The connect response could not be verified (expired or tampered request). Please try again."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:392
+#: includes/admin/class-a11yfy-admin.php:430
 msgid "All set — a11yfy is ready to work."
 msgstr ""
 
 #. translators: %d: number of queued PDFs.
-#: includes/admin/class-a11yfy-admin.php:407
+#: includes/admin/class-a11yfy-admin.php:445
 msgid "a11yfy: %d PDFs queued for remediation. Track progress on the a11yfy Dashboard."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:430
+#: includes/admin/class-a11yfy-admin.php:468
 msgid "PDF remediation is currently unavailable. Connect your a11yfy account to enable it — the free scan keeps working either way."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:434
+#: includes/admin/class-a11yfy-admin.php:472
 msgid "Hide this notice"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:447
-#: includes/admin/views/settings.php:121
-#: includes/class-a11yfy-queue.php:146
+#: includes/admin/class-a11yfy-admin.php:485
+#: includes/admin/views/settings.php:126
+#: includes/class-a11yfy-queue.php:171
+#: includes/class-a11yfy-visitor-notify.php:200
 msgid "your partner organization"
 msgstr ""
 
 #. translators: 1: remaining delegated credits, 2: parent organization name.
-#: includes/admin/class-a11yfy-admin.php:453
+#: includes/admin/class-a11yfy-admin.php:491
 msgid "Your delegated credit allowance is low (%1$d credits left). It is provided by %2$s — ask them to raise your limit."
 msgstr ""
 
 #. translators: %s: parent organization name.
-#: includes/admin/class-a11yfy-admin.php:455
+#: includes/admin/class-a11yfy-admin.php:493
 msgid "Your last remediation was blocked: the delegated credit limit set by %s is exhausted."
 msgstr ""
 
 #. translators: %d: remaining credits.
-#: includes/admin/class-a11yfy-admin.php:464
+#: includes/admin/class-a11yfy-admin.php:502
 msgid "Your credit balance is low (%d credits left). Remediation will stop at zero."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:465
+#: includes/admin/class-a11yfy-admin.php:503
 msgid "Your last remediation was blocked: not enough credits."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:468
+#: includes/admin/class-a11yfy-admin.php:506
 msgid "Top up on a11yfy.com"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:497
-#: includes/admin/class-a11yfy-admin.php:503
+#: includes/admin/class-a11yfy-admin.php:535
+#: includes/admin/class-a11yfy-admin.php:541
 msgid "You are not allowed to download this certificate."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:508
+#: includes/admin/class-a11yfy-admin.php:546
 msgid "This document has no a11yfy certificate yet."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:529
+#: includes/admin/class-a11yfy-admin.php:567
 msgid "a11yfy PDF accessibility"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:537
+#: includes/admin/class-a11yfy-admin.php:575
 msgid "a11yfy is set up and working"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:540
-#: includes/admin/class-a11yfy-admin.php:575
+#: includes/admin/class-a11yfy-admin.php:578
+#: includes/admin/class-a11yfy-admin.php:613
 #: includes/class-a11yfy-optimizer-guard.php:223
 msgid "Accessibility"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:543
+#: includes/admin/class-a11yfy-admin.php:581
 msgid "Background queue is available and the a11yfy connection works."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:549
+#: includes/admin/class-a11yfy-admin.php:587
 msgid "a11yfy background processing is unavailable"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:550
+#: includes/admin/class-a11yfy-admin.php:588
 msgid "Action Scheduler could not be loaded — remediation status updates will be slow (visit-triggered WP-cron fallback)."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:556
+#: includes/admin/class-a11yfy-admin.php:594
 msgid "a11yfy is not connected"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:557
+#: includes/admin/class-a11yfy-admin.php:595
 msgid "The free scan works, but PDF remediation needs an a11yfy API key (a11yfy → Settings)."
 msgstr ""
 
 #. translators: %d: number of non-compliant PDFs.
-#: includes/admin/class-a11yfy-admin.php:565
+#: includes/admin/class-a11yfy-admin.php:603
 msgid "%d PDFs on this site are not accessible"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:566
+#: includes/admin/class-a11yfy-admin.php:604
 msgid "Open the a11yfy Dashboard to review and fix them."
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:672
+#: includes/admin/class-a11yfy-admin.php:710
 msgid "Compliant"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:673
+#: includes/admin/class-a11yfy-admin.php:711
 msgid "Remediated"
 msgstr ""
 
 #. translators: %d: number of issues fixed.
-#: includes/admin/class-a11yfy-admin.php:677
+#: includes/admin/class-a11yfy-admin.php:715
 msgid "(%d issues fixed)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:684
+#: includes/admin/class-a11yfy-admin.php:722
 msgid "Remediation in progress…"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:688
+#: includes/admin/class-a11yfy-admin.php:726
 msgid "Remediation failed"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:698
+#: includes/admin/class-a11yfy-admin.php:736
 msgid "Not sent"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:704
-#: includes/admin/views/dashboard.php:201
+#: includes/admin/class-a11yfy-admin.php:742
+#: includes/admin/views/dashboard.php:211
 msgid "Passed pre-check"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:714
-#: includes/admin/views/dashboard.php:205
+#: includes/admin/class-a11yfy-admin.php:752
+#: includes/admin/views/dashboard.php:215
 msgid "Not scanned yet"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:720
+#: includes/admin/class-a11yfy-admin.php:758
 msgid "Make accessible with a11yfy"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:750
+#: includes/admin/class-a11yfy-admin.php:788
 msgid "Restore original (a11yfy)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:765
+#: includes/admin/class-a11yfy-admin.php:803
 msgid "Make accessible (a11yfy)"
 msgstr ""
 
-#: includes/admin/class-a11yfy-admin.php:775
+#: includes/admin/class-a11yfy-admin.php:813
 msgid "Certificate (a11yfy)"
 msgstr ""
 
@@ -792,7 +793,7 @@ msgid "Monthly cap: %s credits"
 msgstr ""
 
 #: includes/admin/views/dashboard.php:157
-#: includes/admin/views/settings.php:111
+#: includes/admin/views/settings.php:116
 msgid "Monthly credit cap"
 msgstr ""
 
@@ -801,100 +802,114 @@ msgid "0 = no monthly limit."
 msgstr ""
 
 #: includes/admin/views/dashboard.php:168
-#: includes/admin/views/settings.php:104
-msgid "Manual"
+msgid "On demand"
 msgstr ""
 
 #: includes/admin/views/dashboard.php:170
-msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
 msgstr ""
 
 #: includes/admin/views/dashboard.php:178
+#: includes/admin/views/settings.php:109
+msgid "Manual"
+msgstr ""
+
+#: includes/admin/views/dashboard.php:180
+msgid "You start remediation yourself — in the Media Library or on this Dashboard. Nothing runs without your action."
+msgstr ""
+
+#: includes/admin/views/dashboard.php:188
 msgid "Tip: run the free scan below first to see where this site stands — your choice above works either way."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:184
+#: includes/admin/views/dashboard.php:194
 msgid "Start working"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:192
+#: includes/admin/views/dashboard.php:202
 msgid "PDF status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:194
+#: includes/admin/views/dashboard.php:204
 msgid "Free technical pre-check against the machine-verifiable PDF/UA-1 checkpoints — runs in your browser, no file leaves your site."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:202
+#: includes/admin/views/dashboard.php:212
 msgid "Partially accessible"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:204
+#: includes/admin/views/dashboard.php:214
 msgid "Remediated by a11yfy"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:208
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr ""
+
+#: includes/admin/views/dashboard.php:234
 msgid "Filter the PDF list by status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:221
-#: includes/admin/views/dashboard.php:289
+#: includes/admin/views/dashboard.php:247
+#: includes/admin/views/dashboard.php:315
 msgid "File"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:222
-#: includes/admin/views/dashboard.php:290
+#: includes/admin/views/dashboard.php:248
+#: includes/admin/views/dashboard.php:316
+#: includes/class-a11yfy-visitor.php:531
 msgid "Status"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:223
+#: includes/admin/views/dashboard.php:249
 msgid "Actions"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:228
+#: includes/admin/views/dashboard.php:254
 msgid "No PDFs match the selected filters."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:231
+#: includes/admin/views/dashboard.php:257
 msgid "Load more"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:237
+#: includes/admin/views/dashboard.php:263
 msgid "Scan PDF library"
 msgstr ""
 
 #. translators: %d: number of non-compliant PDFs.
-#: includes/admin/views/dashboard.php:247
+#: includes/admin/views/dashboard.php:273
 msgid "%d documents do not meet the accessibility requirements (EAA/ADA risk)."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:252
+#: includes/admin/views/dashboard.php:278
 msgid "Fix all"
 msgstr ""
 
 #. translators: 1: estimated credits, 2: current balance.
-#: includes/admin/views/dashboard.php:261
+#: includes/admin/views/dashboard.php:287
 msgid "estimated: up to ~%1$d credits — your balance: %2$d"
 msgstr ""
 
 #. translators: 1: minimum credits, 2: maximum credits, 3: current balance.
-#: includes/admin/views/dashboard.php:270
+#: includes/admin/views/dashboard.php:296
 msgid "estimated: %1$d–%2$d credits — your balance: %3$d"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:284
+#: includes/admin/views/dashboard.php:310
 msgid "Remediation jobs"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:285
+#: includes/admin/views/dashboard.php:311
 msgid "No remediation has been run yet."
 msgstr ""
 
-#: includes/admin/views/dashboard.php:291
+#: includes/admin/views/dashboard.php:317
 msgid "Result"
 msgstr ""
 
-#: includes/admin/views/dashboard.php:292
+#: includes/admin/views/dashboard.php:318
 msgid "Credits"
 msgstr ""
 
@@ -1049,73 +1064,163 @@ msgstr ""
 msgid "new PDF uploads are made accessible automatically."
 msgstr ""
 
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr ""
+
 #: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr ""
+
+#: includes/admin/views/settings.php:110
 msgid "you pick what to fix in the Media Library or on the Dashboard."
 msgstr ""
 
-#: includes/admin/views/settings.php:115
+#: includes/admin/views/settings.php:120
 msgid "Remediation pauses when this many credits were spent in a calendar month. 0 = no cap."
 msgstr ""
 
 #. translators: 1: parent organization name, 2: delegated credit limit.
-#: includes/admin/views/settings.php:125
+#: includes/admin/views/settings.php:130
 msgid "Note: your credits are provided by %1$s with a separate limit of %2$d credits per period. Whichever cap is reached first stops remediation."
 msgstr ""
 
 #. translators: %s: parent organization name.
-#: includes/admin/views/settings.php:128
+#: includes/admin/views/settings.php:133
 msgid "Note: your credits are provided by %s with its own separate limit. Whichever cap is reached first stops remediation."
 msgstr ""
 
-#: includes/admin/views/settings.php:136
+#: includes/admin/views/settings.php:141
 msgid "Low-credit warning below"
 msgstr ""
 
-#: includes/admin/views/settings.php:140
+#: includes/admin/views/settings.php:145
 msgid "Admin notice + email when the balance drops below this. 0 = off."
 msgstr ""
 
-#: includes/admin/views/settings.php:144
+#: includes/admin/views/settings.php:149
 msgid "Saving strategy"
 msgstr ""
 
-#: includes/admin/views/settings.php:149
+#: includes/admin/views/settings.php:154
 msgid "Replace in place (recommended)"
 msgstr ""
 
-#: includes/admin/views/settings.php:150
+#: includes/admin/views/settings.php:155
 msgid "same URL, original kept as a backup with one-click restore."
 msgstr ""
 
-#: includes/admin/views/settings.php:154
+#: includes/admin/views/settings.php:159
 msgid "Conservative"
 msgstr ""
 
-#: includes/admin/views/settings.php:155
+#: includes/admin/views/settings.php:160
 msgid "the original file is never touched; links are swapped when pages render."
 msgstr ""
 
-#: includes/admin/views/settings.php:161
+#: includes/admin/views/settings.php:166
 msgid "Notification email"
 msgstr ""
 
-#: includes/admin/views/settings.php:166
+#: includes/admin/views/settings.php:171
 msgid "Low-credit and failure notifications. Empty = site admin email."
 msgstr ""
 
-#: includes/admin/views/settings.php:170
+#: includes/admin/views/settings.php:175
 msgid "On plugin deletion"
 msgstr ""
 
-#: includes/admin/views/settings.php:175
+#: includes/admin/views/settings.php:180
 msgid "Keep the remediated PDFs (recommended — they are your content)."
 msgstr ""
 
-#: includes/admin/views/settings.php:179
+#: includes/admin/views/settings.php:184
 msgid "Restore the original files from backup."
 msgstr ""
 
-#: includes/admin/views/settings.php:186
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr ""
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr ""
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr ""
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr ""
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr ""
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr ""
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr ""
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr ""
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr ""
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr ""
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr ""
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr ""
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr ""
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr ""
+
+#: includes/admin/views/settings.php:241
+msgid "Dialog accent color"
+msgstr ""
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr ""
+
+#: includes/admin/views/settings.php:249
+msgid "Ready-email subject"
+msgstr ""
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:256
+#: includes/class-a11yfy-visitor-notify.php:123
+msgid "[%s] Your accessible document is ready"
+msgstr ""
+
+#: includes/admin/views/settings.php:262
+msgid "Ready-email body"
+msgstr ""
+
+#: includes/admin/views/settings.php:266
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr ""
+
+#: includes/admin/views/settings.php:272
 msgid "Save settings"
 msgstr ""
 
@@ -1212,7 +1317,7 @@ msgid "Review on the a11yfy Dashboard"
 msgstr ""
 
 #. translators: 1: remaining delegated credits, 2: parent organization name.
-#: includes/class-a11yfy-queue.php:149
+#: includes/class-a11yfy-queue.php:174
 msgid ""
 "Your a11yfy delegated credit allowance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
 "\n"
@@ -1220,22 +1325,22 @@ msgid ""
 msgstr ""
 
 #. translators: 1: credit balance, 2: top-up URL.
-#: includes/class-a11yfy-queue.php:156
+#: includes/class-a11yfy-queue.php:181
 msgid ""
 "Your a11yfy credit balance is down to %1$d credits. PDF remediation will stop when it reaches zero.\n"
 "\n"
 "Top up at: %2$s"
 msgstr ""
 
-#: includes/class-a11yfy-queue.php:163
+#: includes/class-a11yfy-queue.php:188
 msgid "[a11yfy] Low credit balance"
 msgstr ""
 
-#: includes/class-a11yfy-remediate-service.php:169
+#: includes/class-a11yfy-remediate-service.php:203
 msgid "The job did not finish within 2 hours. Please contact a11yfy support."
 msgstr ""
 
-#: includes/class-a11yfy-remediate-service.php:283
+#: includes/class-a11yfy-remediate-service.php:322
 msgid "The job finished but no output file was provided."
 msgstr ""
 
@@ -1286,4 +1391,120 @@ msgstr ""
 
 #: includes/class-a11yfy-replacer.php:287
 msgid "Could not restore the original PDF."
+msgstr ""
+
+#: includes/class-a11yfy-visitor-notify.php:126
+msgid ""
+"Hello,\n"
+"\n"
+"Good news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n"
+"\n"
+"You can download it here:\n"
+"{document_url}\n"
+"\n"
+"Thank you for caring about accessibility.\n"
+"\n"
+"{site_name}"
+msgstr ""
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:190
+msgid ""
+"Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n"
+"\n"
+"Waiting requests: %1$d (%2$d documents)\n"
+"Estimated credits needed: up to %3$d\n"
+"\n"
+"The requests are parked and will start automatically once enough credits are available."
+msgstr ""
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr ""
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:209
+msgid "Top up at: %s"
+msgstr ""
+
+#: includes/class-a11yfy-visitor-notify.php:216
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:99
+msgid "An accessible version of this document is already being prepared."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:100
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:101
+msgid "Too many requests — please try again later."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:102
+msgid "The request could not be submitted. Please try again later."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:103
+msgid "Close"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "This document is not yet accessible"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:117
+msgid "Open document"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:118
+msgid "Request accessible version"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:119
+msgid "We will email you as soon as the accessible version is ready."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:120
+msgid "Email address"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:121
+msgid "Request document"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:122
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:123
+msgid "We only use your email address to send this one notification."
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:496
+#: includes/class-a11yfy-visitor.php:504
+msgid "a11yfy accessible-document requests"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:515
+msgid "Accessible-document requests"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:519
+msgid "Document"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:523
+msgid "Email"
+msgstr ""
+
+#: includes/class-a11yfy-visitor.php:527
+msgid "Requested at"
 msgstr ""

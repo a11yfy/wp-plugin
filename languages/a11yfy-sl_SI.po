@@ -1467,3 +1467,210 @@ msgstr ""
 "\n"
 "Kredite vam zagotavlja %2$s — prosite jih, naj vam povečajo limit, ali pa v nastavitvah vaše organizacije v a11yfy "
 "preklopite na lastne kredite."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Na zahtevo"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Obiskovalci, ki odprejo PDF, ki ni dostopen, lahko zaprosijo za dostopno različico – plačate le za dokumente, ki jih ljudje dejansko potrebujejo."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Čakajoče zahteve obiskovalcev: %1$d (%2$d dokumentov)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Po potrebi (na zahtevo obiskovalcev)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Ko obiskovalec klikne na PDF, ki ni dostopen, lahko zahteva dostopno različico – prilagoditev se izvede šele ob dejanski zahtevi."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Zahteve obiskovalcev (na zahtevo)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Ti besedili se prikažeta v pogovornem oknu, ki se obiskovalcem odpre, ko kliknejo na PDF, ki še ni dostopen, ter v e-poštnem sporočilu, ki ga prejmejo, ko je dostopna različica pripravljena. Polje pustite prazno, če želite uporabiti vgrajeno besedilo v jeziku spletnega mesta."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Naslov pogovornega okna"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Sporočilo v pogovornem oknu"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Gumb »Odpri dokument«"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Gumb »Zahtevaj dostopno različico«"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Prosim za pojasnilo"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Oznaka polja za e-pošto"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Gumb »Zahtevaj dokument«"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Potrditveno sporočilo"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Barva poudarka v pogovornem oknu"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Uporablja se za gumbe v pogovornem oknu. Izberite dovolj temno barvo: napis na gumbu je bel in zahteva kontrast najmanj 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Predlagani naslov e-poštnega sporočila"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Vaš dokument v dostopni obliki je pripravljen"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Besedilo pripravljenega e-poštnega sporočila"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Zamenljivki: {site_name}, {document_title}, {document_url}, {request_date}. Prazno = vgrajeno besedilo v jeziku, ki ga je uporabil posamezni obiskovalec."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Pozdravljeni,\n\nDobra novica: dostopna različica »{document_title}«, ki ste jo zahtevali na {site_name}, je pripravljena.\n\nPrenesete jo lahko tukaj:\n{document_url}\n\nHvala, da vam je mar za dostopnost.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Obiskovalci vaše spletne strani so zahtevali dostopne različice v formatu PDF, vendar vaše dobroimetje kreditov a11yfy ne pokriva stroškov tega dela.\n\nČakajoče zahteve: %1$d (%2$d dokumentov)\nPredvideno število potrebnih kreditov: do %3$d\n\nZahtevki so začasno zadržani in se bodo samodejno začeli obdelovati, ko bo na voljo dovolj kreditov."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Vaše kredite zagotavlja %s — prosite jih, naj vam povečajo limit."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Polnjenje na: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Zahtevki obiskovalcev čakajo na kredite"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Pripravlja se že dostopna različica tega dokumenta."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Vaš e-poštni naslov uporabljamo izključno za pošiljanje tega obvestila."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Vnesite veljaven e-poštni naslov."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Preveč zahtevkov — poskusite kasneje."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Zahtevka ni bilo mogoče poslati. Poskusite kasneje."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Zapri"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Ta dokument še ni na voljo"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF-datoteka, ki jo nameravate odpreti, trenutno ne izpolnjuje zahtev glede dostopnosti. Lahko jo odprete takšno, kot je, ali pa zaprosite za dostopno različico."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Odpri dokument"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Zahtevaj različico za invalide"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Takoj, ko bo dostopna različica pripravljena, vam bomo poslali e-poštno sporočilo."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-poštni naslov"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Zahteva za dokument"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Hvala! Ko bo dostopna različica pripravljena, vas bomo o tem obvestili po e-pošti."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy – zahtevki za dostopne dokumente"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Zahtevki za dostopne dokumente"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokument"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-pošta"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Zahtevano na"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Obvestilo o varstvu osebnih podatkov"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Slog gumbov za pogovorna okna"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Prevzemi slog gumbov iz teme (priporočeno)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Teme »Block« oblikujejo gumbe v pogovornih oknih popolnoma enako kot gumbe v temi. Klasične teme, ki nimajo strojno berljivega sloga gumbov, uporabijo poudarjeno barvo, navedeno spodaj."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Uporablja se za gumbe v pogovornih oknih, kadar je podedovanje teme izklopljeno (in kot nadomestna rešitev). Izberite dovolj temno barvo: napis na gumbu je bel in zahteva kontrast najmanj 4,5:1."

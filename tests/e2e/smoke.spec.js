@@ -3,6 +3,17 @@
  * a connect-teszt csak A11YFY_TEST_API_KEY jelenlétében fut (sandbox, nem billed).
  */
 const { test, expect } = require( '@playwright/test' );
+const { execSync } = require( 'node:child_process' );
+const path = require( 'node:path' );
+
+// A "disconnected" tesztek alapállapotot feltételeznek — a visitor e2e
+// fixture (vagy egy korábbi futás) bekötött állapotot hagyhat maga után.
+test.beforeAll( () => {
+	execSync( 'npx wp-env run tests-cli wp option delete a11yfy_api_key || true', {
+		cwd: path.resolve( __dirname, '..', '..' ),
+		stdio: 'ignore',
+	} );
+} );
 
 async function login( page ) {
 	await page.goto( '/wp-login.php' );

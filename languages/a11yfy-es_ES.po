@@ -1465,3 +1465,210 @@ msgstr ""
 "\n"
 "Tus créditos los proporciona %2$s; pídeles que aumenten tu límite o cambia a tus propios créditos en la configuración "
 "de tu organización de a11yfy."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Bajo demanda"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Los visitantes que abran un PDF no accesible pueden solicitar una versión accesible; solo pagas por los documentos que la gente realmente necesita."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Solicitudes de visitantes pendientes: %1$d (%2$d documentos)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Bajo demanda (solicitudes de los visitantes)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "Cuando un visitante hace clic en un PDF no accesible, puede solicitar una versión accesible; la adaptación solo se lleva a cabo cuando existe una demanda real."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Solicitudes de visitantes (modo bajo demanda)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Estos textos aparecen en el cuadro de diálogo que ven los visitantes al hacer clic en un PDF que aún no es accesible, y en el correo electrónico que reciben cuando la versión accesible está lista. Deja un campo en blanco para utilizar el texto predeterminado en el idioma del sitio."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Título del cuadro de diálogo"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Mensaje del cuadro de diálogo"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Botón «Abrir documento»"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Botón «Solicitar versión accesible»"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Explicación de la solicitud"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "Etiqueta del campo de correo electrónico"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Botón «Solicitar documento»"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Mensaje de confirmación"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Color de acento del cuadro de diálogo"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Se utiliza para los botones del cuadro de diálogo. Elige un color lo suficientemente oscuro: el texto del botón es blanco y requiere un contraste mínimo de 4,5:1."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Asunto del correo de disponibilidad"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Tu documento accesible ya está listo"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Cuerpo del correo de disponibilidad"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Marcadores de posición: {site_name}, {document_title}, {document_url}, {request_date}. Si están vacíos, se muestra el texto predeterminado en el idioma que haya utilizado cada visitante."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Hola,\n\nBuenas noticias: la versión accesible de «{document_title}» que solicitaste en {site_name} ya está lista.\n\nPuedes descargarla aquí:\n{document_url}\n\nGracias por preocuparte por la accesibilidad.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Los visitantes de tu sitio web han solicitado versiones accesibles de PDF, pero tu saldo de créditos de a11yfy no cubre el coste del trabajo.\n\nSolicitudes pendientes: %1$d (%2$d documentos)\nCréditos estimados necesarios: hasta %3$d\n\nLas solicitudes están en espera y se pondrán en marcha automáticamente en cuanto haya suficientes créditos disponibles."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Tu línea de crédito la gestiona %s; pídeles que te aumenten el límite."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Recargar en: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Las solicitudes de los visitantes están pendientes de créditos"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Ya se está preparando una versión accesible de este documento."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Solo utilizamos tu dirección de correo electrónico para enviarte esta única notificación."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Introduce una dirección de correo electrónico válida."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Demasiadas solicitudes. Inténtalo de nuevo más tarde."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "No se ha podido enviar la solicitud. Inténtalo de nuevo más tarde."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Cerrar"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "Este documento aún no es accesible."
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "El PDF que estás a punto de abrir no cumple actualmente con los requisitos de accesibilidad. Puedes abrirlo tal y como está o solicitar una versión accesible."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Abrir documento"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Solicitar versión accesible"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Te enviaremos un correo electrónico en cuanto la versión accesible esté lista."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Solicitar documento"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "¡Gracias! Te avisaremos por correo electrónico en cuanto la versión accesible esté lista."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "Solicitudes de documentos accesibles de a11yfy"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Solicitudes de documentos accesibles"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Documento"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Solicitado el"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Aviso sobre la privacidad"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Estilo de los botones del cuadro de diálogo"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Heredar el estilo de los botones del tema (recomendado)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Los temas de bloques aplican el mismo estilo a los botones del cuadro de diálogo que a los botones del tema. Los temas clásicos que no cuentan con un estilo de botón legible por máquina recurren al color de acento que se indica a continuación."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Se utiliza para los botones de los cuadros de diálogo cuando la herencia de temas está desactivada (y como alternativa). Elige un color lo suficientemente oscuro: el texto del botón es blanco y requiere un contraste mínimo de 4,5:1."

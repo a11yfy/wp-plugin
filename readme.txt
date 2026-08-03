@@ -4,7 +4,7 @@ Tags: accessibility, pdf, ada, eaa, wcag
 Requires at least: 6.2
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,8 @@ The a11yfy plugin gives you two things:
 
 2. **One-click remediation (optional, paid).** Connect your a11yfy account and the plugin sends the selected PDFs to the a11yfy service, which produces a tagged, PDF/UA-oriented accessible version — processed in the EU. The fixed file replaces the original at the same URL (the original is kept as a backup with one-click restore), or, in conservative mode, is served alongside it.
 
+Three working modes: **automatic** (every new upload is fixed), **manual** (you pick what to fix), and **on demand** — visitors who click a not-yet-accessible PDF can request an accessible version in an accessible dialog and get an email when it is ready, so you only pay for documents people actually need.
+
 The free scan is a genuine standalone tool — no account, no API calls, no telemetry. The paid service is only involved when you explicitly send a document for remediation.
 
 **Why a11yfy?**
@@ -42,12 +44,16 @@ This plugin connects to the **a11yfy API** (https://a11yfy.com) — but *only* w
 
 What is sent and when:
 
-* **When you remediate a PDF** (manually, via bulk action, or through the automatic mode you enabled): the PDF file itself, its file name, and your API key are sent to `https://a11yfy.com/v1/jobs`. Processing happens in the EU.
+* **When you remediate a PDF** (manually, via bulk action, through the automatic mode you enabled, or when a visitor requests an accessible version in the on-demand mode you enabled): the PDF file itself, its file name, and your API key are sent to `https://a11yfy.com/v1/jobs`. Processing happens in the EU. A requester's email address is stored only on your site and is never sent to the a11yfy API.
 * **Balance / job status checks**: your API key is sent with each request; no document content.
 
 The plugin never sends analytics, usage statistics, or any data about your site visitors. Data processing terms: https://a11yfy.com/privacy — Terms of service: https://a11yfy.com/terms
 
 == Frequently Asked Questions ==
+
+= How does the "On demand" mode work? =
+
+When a visitor clicks a link to a PDF that has not passed the accessibility pre-check, an accessible dialog appears. The visitor can open the document as it is, or request an accessible version by entering their email address. The plugin remediates the document once — no matter how many visitors ask for it — and emails everyone who requested it as soon as the accessible version is available. From then on, every visitor gets the accessible file at the same link, with no dialog. The email address is used solely for this one notification, is never sent to the a11yfy API, and is deleted automatically after 30 days. The dialog texts, the notification email and the button style can be customized under a11yfy → Settings.
 
 = Is the scan really free? =
 
@@ -98,6 +104,13 @@ The bundled analysis engine is built from human-readable source with esbuild. Un
 5. One-question onboarding: automatic or manual remediation, with an optional monthly credit cap (0 = no limit).
 
 == Changelog ==
+
+= 1.1.0 =
+* New "On demand" working mode: when a visitor clicks a PDF that is not accessible yet, an accessible dialog offers to open the document as-is or to request an accessible version by email. Remediation runs only on real demand.
+* Visitors are notified by email as soon as the accessible version is ready; every dialog text (including the privacy note) and the notification email are fully customizable in Settings.
+* The dialog inherits the typography of your theme, and on block themes the buttons follow your theme's button style automatically; alternatively you can pick an accent color.
+* If the credit balance does not cover a visitor request, the request is parked, the site owner is warned by email, and remediation starts automatically once enough credits are available.
+* Requester email addresses are stored only until the notification is sent (30-day retention), with WordPress privacy export/erase support.
 
 = 1.0.0 =
 * Initial release.

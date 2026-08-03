@@ -1369,3 +1369,210 @@ msgstr ""
 "您的 a11yfy 委托积分额度已降至 %1$d 积分。当积分降至零时，PDF 修复功能将停止。\n"
 "\n"
 "您的积分由 %2$s 提供——请联系他们提高您的额度，或在 a11yfy 组织设置中切换为使用您自己的积分。"
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "按需"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "访问者若打开了无法无障碍访问的 PDF 文件，可以申请获取无障碍版本——您只需为用户实际需要的文档付费。"
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "待处理的访客请求：%1$d（%2$d份文件）。"
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "按需（访客请求）"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "当访客点击一个不可访问的 PDF 文件时，他们可以请求获取可访问版本——修复操作仅在实际需求时才会执行。"
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "访客请求（按需模式）"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "这些文本会显示在访客点击尚未提供无障碍版本的 PDF 文件时看到的对话框中，以及在无障碍版本准备就绪后收到的电子邮件中。若留空该字段，则使用网站语言的默认文本。"
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "对话标题"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "对话框消息"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "“打开文档”按钮"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "“请求无障碍版本”按钮"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "请求说明"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "电子邮件字段标签"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "“请求文档”按钮"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "确认信息"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "对话框的强调色"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "用于对话框按钮。请选择颜色足够深的颜色：按钮标签为白色，需要至少4.5:1的对比度。"
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "预设邮件主题"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] 您的无障碍文档已准备就绪"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "现成邮件正文"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "占位符：{site_name}、{document_title}、{document_url}、{request_date}。为空时，显示访客所用语言的内置文本。"
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "您好，\n\n好消息：您在 {site_name} 请求的“{document_title}”无障碍版本现已准备就绪。\n\n您可以在此处下载：\n{document_url}\n\n感谢您对无障碍访问的关注。\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "您的网站访客请求了无障碍PDF版本，但您的a11yfy积分余额不足以支付相关费用。\n\n待处理请求：%1$d（%2$d份文档）\n预计所需积分：最多 %3$d\n\n这些请求已被暂存，一旦积分充足，系统将自动开始处理。"
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "您的信用额度由 %s 提供——请联系他们提高您的信用额度。"
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "充值地址：%s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] 访客请求正在等待积分"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "该文件的无障碍版本目前正在编制中。"
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "我们仅会使用您的电子邮箱地址发送此条通知。"
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "请输入一个有效的电子邮件地址。"
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "请求过多——请稍后再试。"
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "无法提交该请求。请稍后再试。"
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "关闭"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "该文档目前尚不可用"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "您即将打开的 PDF 文件目前不符合无障碍要求。您可以直接打开该文件，或申请获取无障碍版本。"
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "打开文档"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "请求无障碍版本"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "无障碍版本准备就绪后，我们会立即通过电子邮件通知您。"
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "电子邮箱地址"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "请求文档"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "谢谢！无障碍版本准备就绪后，我们将通过电子邮件通知您。"
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy 可访问文档请求"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "无障碍文档请求"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "文档"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "电子邮件"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "请求于"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "隐私声明"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "对话框按钮样式"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "从主题继承按钮样式（推荐）"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "块主题会将对话框按钮的样式设置得与主题按钮完全一致。对于没有机器可读按钮样式的经典主题，将回退到下方的强调色。"
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "当主题继承功能关闭时（以及作为备用方案），用于对话框按钮。请选择颜色足够深的颜色：按钮标签为白色，需要至少 4.5:1 的对比度。"

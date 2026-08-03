@@ -1445,3 +1445,210 @@ msgstr ""
 "\n"
 "Teie krediite pakub %2$s – paluge neil teie limiiti suurendada või vahetage a11yfy organisatsiooni seadetest üle "
 "omaenda krediitidele."
+
+#: includes/admin/views/dashboard.php:168
+msgid "On demand"
+msgstr "Tellimisel"
+
+#: includes/admin/views/dashboard.php:170
+msgid "Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need."
+msgstr "Külastajad, kes avavad ligipääsmatu PDF-faili, võivad taotleda ligipääsetavat versiooni – maksate ainult nende dokumentide eest, mida inimesed tegelikult vajavad."
+
+#. translators: 1: number of open visitor requests, 2: number of documents.
+#: includes/admin/views/dashboard.php:227
+msgid "Waiting visitor requests: %1$d (%2$d documents)."
+msgstr "Ootel olevad külastajate taotlused: %1$d (%2$d dokumenti)."
+
+#: includes/admin/views/settings.php:104
+msgid "On demand (visitor requests)"
+msgstr "Nõudmise korral (külastajate soovid)"
+
+#: includes/admin/views/settings.php:105
+msgid "when a visitor clicks a non-accessible PDF, they can request an accessible version — remediation runs only on real demand."
+msgstr "kui külastaja klõpsab juurdepääsmatule PDF-failile, saab ta taotleda juurdepääsetavat versiooni – parandamine toimub ainult tegeliku nõudluse korral."
+
+#: includes/admin/views/settings.php:191
+msgid "Visitor requests (on-demand mode)"
+msgstr "Külastajate päringud (tellimusrežiim)"
+
+#: includes/admin/views/settings.php:193
+msgid "These texts appear in the dialog visitors see when they click a PDF that is not accessible yet, and in the email they receive when the accessible version is ready. Leave a field empty to use the built-in text in the site language."
+msgstr "Need tekstid kuvatakse dialoogaknas, mida külastajad näevad, kui nad klõpsavad veel kättesaamatut PDF-faili, ning e-kirjas, mille nad saavad, kui kättesaadav versioon on valmis. Jäta väli tühjaks, et kasutada veebisaidi keeles sisseehitatud teksti."
+
+#: includes/admin/views/settings.php:198
+msgid "Dialog title"
+msgstr "Dialoogi pealkiri"
+
+#: includes/admin/views/settings.php:199
+msgid "Dialog message"
+msgstr "Dialoogisõnum"
+
+#: includes/admin/views/settings.php:200
+msgid "\"Open document\" button"
+msgstr "Nupp „Ava dokument”"
+
+#: includes/admin/views/settings.php:201
+msgid "\"Request accessible version\" button"
+msgstr "Nupp „Palu juurdepääsetavat versiooni”"
+
+#: includes/admin/views/settings.php:202
+msgid "Request explanation"
+msgstr "Palun selgitust"
+
+#: includes/admin/views/settings.php:203
+msgid "Email field label"
+msgstr "E-posti välja silt"
+
+#: includes/admin/views/settings.php:204
+msgid "\"Request document\" button"
+msgstr "Nupp „Taotle dokumenti“"
+
+#: includes/admin/views/settings.php:205
+msgid "Confirmation message"
+msgstr "Kinnitussõnum"
+
+#: includes/admin/views/settings.php:230
+msgid "Dialog accent color"
+msgstr "Dialoogi esiletõstmise värv"
+
+#: includes/admin/views/settings.php:234
+msgid "Used for the dialog buttons. Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Kasutatakse dialoogakna nuppude jaoks. Valige piisavalt tume värv: nupu tekst on valge ja vajab vähemalt 4,5:1 kontrasti."
+
+#: includes/admin/views/settings.php:238
+msgid "Ready-email subject"
+msgstr "Valmis e-kirja teema"
+
+#. translators: %s: site name.
+#: includes/admin/views/settings.php:245
+#: includes/class-a11yfy-visitor-notify.php:117
+msgid "[%s] Your accessible document is ready"
+msgstr "[%s] Teie ligipääsetav dokument on valmis"
+
+#: includes/admin/views/settings.php:251
+msgid "Ready-email body"
+msgstr "Valmis e-kirja sisu"
+
+#: includes/admin/views/settings.php:255
+msgid "Placeholders: {site_name}, {document_title}, {document_url}, {request_date}. Empty = built-in text in the language each visitor used."
+msgstr "Asendusmärgid: {site_name}, {document_title}, {document_url}, {request_date}. Tühi = sisseehitatud tekst külastaja kasutatavas keeles."
+
+#: includes/class-a11yfy-visitor-notify.php:120
+msgid "Hello,\n\nGood news: the accessible version of \"{document_title}\" that you requested on {site_name} is ready.\n\nYou can download it here:\n{document_url}\n\nThank you for caring about accessibility.\n\n{site_name}"
+msgstr "Tere,\n\nHea uudis: „{document_title}“ juurdepääsetav versioon, mida sa {site_name}-s palusid, on valmis.\n\nSaad selle siit alla laadida:\n{document_url}\n\nTäname, et hoolid juurdepääsetavusest.\n\n{site_name}"
+
+#. translators: 1: number of waiting visitor requests, 2: number of documents, 3: estimated credits needed.
+#: includes/class-a11yfy-visitor-notify.php:184
+msgid "Visitors of your site requested accessible PDF versions, but your a11yfy credit balance does not cover the work.\n\nWaiting requests: %1$d (%2$d documents)\nEstimated credits needed: up to %3$d\n\nThe requests are parked and will start automatically once enough credits are available."
+msgstr "Teie veebisaidi külastajad on taotlenud ligipääsetavaid PDF-versioone, kuid teie a11yfy krediidisaldo ei kata selle töö maksumust.\n\nOotel olevad taotlused: %1$d (%2$d dokumenti)\nEeldatav vajalik krediit: kuni %3$d\n\nTaotlused on ootele pandud ja töötlemine algab automaatselt, kui krediiti on piisavalt."
+
+#. translators: %s: parent organization name.
+#: includes/class-a11yfy-visitor-notify.php:197
+msgid "Your credits are provided by %s — ask them to raise your limit."
+msgstr "Teie krediiti pakub %s — paluge neil teie limiiti suurendada."
+
+#. translators: %s: top-up URL.
+#: includes/class-a11yfy-visitor-notify.php:203
+msgid "Top up at: %s"
+msgstr "Lae juurde: %s"
+
+#: includes/class-a11yfy-visitor-notify.php:210
+msgid "[a11yfy] Visitor requests are waiting for credits"
+msgstr "[a11yfy] Külastajate taotlused ootavad krediite"
+
+#: includes/class-a11yfy-visitor.php:92
+msgid "An accessible version of this document is already being prepared."
+msgstr "Selle dokumendi ligipääsetavat versiooni on juba koostamisel."
+
+#: includes/class-a11yfy-visitor.php:93
+msgid "We only use your email address to send this one notification."
+msgstr "Kasutame teie e-posti aadressi ainult selle ühe teate saatmiseks."
+
+#: includes/class-a11yfy-visitor.php:94
+msgid "Please enter a valid email address."
+msgstr "Palun sisestage kehtiv e-posti aadress."
+
+#: includes/class-a11yfy-visitor.php:95
+msgid "Too many requests — please try again later."
+msgstr "Liiga palju päringuid — palun proovi hiljem uuesti."
+
+#: includes/class-a11yfy-visitor.php:96
+msgid "The request could not be submitted. Please try again later."
+msgstr "Päringut ei õnnestunud saata. Palun proovi hiljem uuesti."
+
+#: includes/class-a11yfy-visitor.php:97
+msgid "Close"
+msgstr "Sulge"
+
+#: includes/class-a11yfy-visitor.php:109
+msgid "This document is not yet accessible"
+msgstr "See dokument ei ole veel kättesaadav"
+
+#: includes/class-a11yfy-visitor.php:110
+msgid "The PDF you are about to open does not currently meet accessibility requirements. You can open it as it is, or request an accessible version."
+msgstr "PDF-fail, mida te kohe avate, ei vasta hetkel juurdepääsetavuse nõuetele. Võite selle avada sellisena, nagu see on, või taotleda juurdepääsetavat versiooni."
+
+#: includes/class-a11yfy-visitor.php:111
+msgid "Open document"
+msgstr "Ava dokument"
+
+#: includes/class-a11yfy-visitor.php:112
+msgid "Request accessible version"
+msgstr "Palu juurdepääsetavat versiooni"
+
+#: includes/class-a11yfy-visitor.php:113
+msgid "We will email you as soon as the accessible version is ready."
+msgstr "Saadame sulle e-kirja niipea, kui ligipääsetav versioon on valmis."
+
+#: includes/class-a11yfy-visitor.php:114
+msgid "Email address"
+msgstr "E-posti aadress"
+
+#: includes/class-a11yfy-visitor.php:115
+msgid "Request document"
+msgstr "Dokumendi taotlemine"
+
+#: includes/class-a11yfy-visitor.php:116
+msgid "Thank you! We will notify you by email once the accessible version is ready."
+msgstr "Täname! Teavitame teid e-posti teel, kui ligipääsetav versioon on valmis."
+
+#: includes/class-a11yfy-visitor.php:465
+#: includes/class-a11yfy-visitor.php:473
+msgid "a11yfy accessible-document requests"
+msgstr "a11yfy juurdepääsetavate dokumentide taotlused"
+
+#: includes/class-a11yfy-visitor.php:484
+msgid "Accessible-document requests"
+msgstr "Juurdepääsetavate dokumentide taotlused"
+
+#: includes/class-a11yfy-visitor.php:488
+msgid "Document"
+msgstr "Dokument"
+
+#: includes/class-a11yfy-visitor.php:492
+msgid "Email"
+msgstr "E-post"
+
+#: includes/class-a11yfy-visitor.php:496
+msgid "Requested at"
+msgstr "Taotletud"
+
+#: includes/admin/views/settings.php:206
+msgid "Privacy note"
+msgstr "Privaatsusmärkus"
+
+#: includes/admin/views/settings.php:231
+msgid "Dialog button style"
+msgstr "Dialoogiknuppude stiil"
+
+#: includes/admin/views/settings.php:235
+msgid "Inherit the button style from the theme (recommended)"
+msgstr "Kasuta teema nupustiili (soovitatav)"
+
+#: includes/admin/views/settings.php:237
+msgid "Block themes style the dialog buttons exactly like the theme buttons. Classic themes without a machine-readable button style fall back to the accent color below."
+msgstr "Blokiteemad kujundavad dialoogikastide nupud täpselt samamoodi kui teema nupud. Klassikalised teemad, millel puudub masinloetav nupukujundus, kasutavad tagavarana allpool toodud aktsentvärvi."
+
+#: includes/admin/views/settings.php:245
+msgid "Used for the dialog buttons when theme inheritance is off (and as fallback). Pick a dark enough color: the button label is white and needs at least 4.5:1 contrast."
+msgstr "Kasutatakse dialoogiknappidel, kui teema pärimine on välja lülitatud (ja varuvariandina). Vali piisavalt tume värv: nupu tekst on valge ja vajab vähemalt 4,5:1 kontrasti."

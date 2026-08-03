@@ -3,7 +3,7 @@
  * Plugin Name:       a11yfy – PDF Accessibility Checker & Fixer
  * Plugin URI:        https://a11yfy.com/wordpress
  * Description:       Free in-browser PDF accessibility scan (Matterhorn Protocol machine checks) and one-click PDF/UA-1 remediation via the a11yfy service.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            a11yfy
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'A11YFY_VERSION', '1.0.0' );
+define( 'A11YFY_VERSION', '1.1.0' );
 define( 'A11YFY_PLUGIN_FILE', __FILE__ );
 define( 'A11YFY_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'A11YFY_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -48,6 +48,9 @@ require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-triage.php';
 require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-remediate-service.php';
 require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-queue.php';
 require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-webhook.php';
+require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-requests.php';
+require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-visitor.php';
+require_once A11YFY_PLUGIN_DIR . 'includes/class-a11yfy-visitor-notify.php';
 
 if ( is_admin() ) {
 	require_once A11YFY_PLUGIN_DIR . 'includes/admin/class-a11yfy-admin.php';
@@ -67,6 +70,8 @@ function a11yfy_init() {
 	A11yfy_Queue::init();
 	A11yfy_Webhook::init();
 	A11yfy_Optimizer_Guard::init();
+	A11yfy_Visitor::init();
+	A11yfy_Visitor_Notify::init();
 
 	if ( is_admin() ) {
 		A11yfy_Admin::init();

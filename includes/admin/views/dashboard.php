@@ -163,6 +163,16 @@ $a11yfy_wizard   = $a11yfy_connected && $a11yfy_can_pay && ! A11yfy_Settings::ge
 					</label>
 
 					<label class="a11yfy-wizard__option">
+						<input type="radio" name="a11yfy_mode" value="on_demand" />
+						<span class="a11yfy-wizard__body">
+							<strong><?php esc_html_e( 'On demand', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></strong>
+							<span class="a11yfy-wizard__desc">
+								<?php esc_html_e( 'Visitors who open a non-accessible PDF can request an accessible version — you only pay for documents people actually need.', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>
+							</span>
+						</span>
+					</label>
+
+					<label class="a11yfy-wizard__option">
 						<input type="radio" name="a11yfy_mode" value="manual" />
 						<span class="a11yfy-wizard__body">
 							<strong><?php esc_html_e( 'Manual', 'a11yfy-pdf-accessibility-checker-fixer' ); ?></strong>
@@ -205,6 +215,22 @@ $a11yfy_wizard   = $a11yfy_connected && $a11yfy_can_pay && ! A11yfy_Settings::ge
 			'unscanned'  => array( '❔', __( 'Not scanned yet', 'a11yfy-pdf-accessibility-checker-fixer' ), $a11yfy_stats['unscanned'] ),
 		);
 		?>
+		<?php
+		// Visitor on-demand demand signal (feature spec 2026-08-03 §11/9).
+		$a11yfy_visitor_counts = A11yfy_Requests::counts();
+		if ( $a11yfy_visitor_counts['requests'] > 0 ) :
+			?>
+			<p>
+				<?php
+				printf(
+					/* translators: 1: number of open visitor requests, 2: number of documents. */
+					esc_html__( 'Waiting visitor requests: %1$d (%2$d documents).', 'a11yfy-pdf-accessibility-checker-fixer' ),
+					(int) $a11yfy_visitor_counts['requests'],
+					(int) $a11yfy_visitor_counts['documents']
+				);
+				?>
+			</p>
+		<?php endif; ?>
 		<div class="a11yfy-filters" id="a11yfy-filters" role="group" aria-label="<?php esc_attr_e( 'Filter the PDF list by status', 'a11yfy-pdf-accessibility-checker-fixer' ); ?>">
 			<?php // No chip selected by default: the unfiltered view is the full library, a click narrows it (§7 UX). ?>
 			<?php foreach ( $a11yfy_chips as $a11yfy_key => $a11yfy_chip ) : ?>

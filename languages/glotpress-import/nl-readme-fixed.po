@@ -1,0 +1,76 @@
+# Translation of Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) in Dutch
+# This file is distributed under the same license as the Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2026-07-30 13:41:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: nl\n"
+"Project-Id-Version: Plugins - a11yfy – PDF Accessibility Checker &amp; Fixer - Stable Readme (latest release)\n"
+
+#. Found in faq paragraph.
+msgid "Conservative mode swaps links in post and page content (<code>the_content</code>) and wherever WordPress resolves the attachment URL (<code>wp_get_attachment_url</code>). Links hard-coded elsewhere — page-builder modules (Elementor, Divi, …), widgets, navigation menus, or theme templates — may keep pointing to the original file and should be checked manually. The default in-place mode does not have this limitation: the accessible file replaces the original at the same URL."
+msgstr "De conservatieve modus vervangt links in de content van berichten en pagina’s (<code>the_content</code>) en overal waar WordPress de bijlage-URL opzoekt (<code>wp_get_attachment_url</code>). Links die elders hardcoded zijn — page builder-modules (Elementor, Divi, …), widgets, navigatiemenu’s of thema-templates — kunnen naar het originele bestand blijven verwijzen en moeten handmatig worden gecontroleerd. De standaard in-place modus heeft deze beperking niet: het toegankelijke bestand vervangt het origineel op dezelfde URL."
+
+#. Found in faq paragraph.
+msgid "Remediated PDFs are your content and stay by default. In Settings you can choose to restore the original files on deletion instead. All plugin data (tables, options, scan results) is removed either way."
+msgstr "Herstelde PDF-bestanden zijn jouw content en blijven standaard behouden. In de instellingen kun je er ook voor kiezen om bij het verwijderen de originele bestanden terug te zetten. Alle plugingegevens (tabellen, opties, scanresultaten) worden in beide gevallen verwijderd."
+
+#. Found in faq paragraph.
+msgid "That is the point of remediation: the accessible version replaces the original file (same URL). The original is kept in a protected backup folder and can be restored with one click from the Media Library."
+msgstr "Dat is precies het doel van herstel: de toegankelijke versie vervangt het originele bestand (dezelfde URL). Het origineel wordt bewaard in een beveiligde back-upmap en kan met één klik vanuit de Mediabibliotheek worden teruggezet."
+
+#. Found in faq paragraph.
+msgid "No. Remediation preserves the visual appearance; it adds the accessibility structure (tags, reading order, alternative texts, metadata) underneath."
+msgstr "Nee. Herstel behoudt het visuele uiterlijk; het voegt daaronder de toegankelijkheidsstructuur toe (tags, leesvolgorde, alternatieve teksten, metadata)."
+
+#. Found in faq paragraph.
+msgid "Yes. It runs in your browser using open-source libraries. It does not use the a11yfy API and works without an account."
+msgstr "Ja. De scan draait in je browser met opensourcebibliotheken. Hij gebruikt de a11yfy-API niet en werkt zonder account."
+
+#. Found in faq header.
+msgid "What happens when I delete the plugin?"
+msgstr "Wat gebeurt er als ik de plugin verwijder?"
+
+#. Found in faq header.
+msgid "My security plugin reported that a PDF file changed."
+msgstr "Mijn beveiligingsplugin heeft gemeld dat een PDF-bestand is gewijzigd."
+
+#. Found in description paragraph.
+msgid "The bundled analysis engine is built from human-readable source with esbuild. Unminified source: the <code>js/</code> directory of the public plugin repository at https://github.com/a11yfy/wp-plugin — the bundled libraries are pdf.js (Apache-2.0, https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), smalot/pdfparser (LGPL-3.0, https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, https://github.com/woocommerce/action-scheduler)."
+msgstr "De meegeleverde analyse-engine wordt met esbuild gebouwd uit voor mensen leesbare broncode. Ongeminificeerde broncode: de map <code>js/</code> van de publieke plugin-repository op https://github.com/a11yfy/wp-plugin — de meegeleverde bibliotheken zijn pdf.js (Apache-2.0, https://github.com/mozilla/pdf.js), pdf-lib (MIT, https://github.com/Hopding/pdf-lib), smalot/pdfparser (LGPL-3.0, https://github.com/smalot/pdfparser), Action Scheduler (GPL-3.0, https://github.com/woocommerce/action-scheduler)."
+
+#. Found in description paragraph.
+msgid "The plugin never sends analytics, usage statistics, or any data about your site visitors. Data processing terms: https://a11yfy.com/privacy — Terms of service: https://a11yfy.com/terms"
+msgstr "De plugin verstuurt nooit analytics, gebruiksstatistieken of gegevens over je sitebezoekers. Voorwaarden voor gegevensverwerking: https://a11yfy.com/privacy — Gebruiksvoorwaarden: https://a11yfy.com/terms"
+
+#. Found in description paragraph.
+msgid "This plugin connects to the <strong>a11yfy API</strong> (https://a11yfy.com) — but <em>only</em> when you connect an API key and request remediation or balance information. The free scan never contacts any external service."
+msgstr "Deze plugin maakt verbinding met de <strong>a11yfy-API</strong> (https://a11yfy.com) — maar <em>alleen</em> wanneer je een API-sleutel koppelt en herstel of saldo-informatie opvraagt. De gratis scan neemt nooit contact op met een externe dienst."
+
+#. Found in description paragraph.
+msgid "See the plugin in action (58 seconds):"
+msgstr "Bekijk de plugin in actie (58 seconden):"
+
+#. Found in description list item.
+msgid "<strong>Balance / job status checks</strong>: your API key is sent with each request; no document content."
+msgstr "<strong>Saldo- en taakstatuscontroles</strong>: je API-sleutel wordt met elk verzoek meegestuurd; documentinhoud wordt niet verzonden."
+
+#. Found in description list item.
+msgid "The original file is always kept — one-click restore, tamper detection, free re-apply."
+msgstr "Het originele bestand blijft altijd bewaard — met één klik terug te zetten, manipulatiedetectie, gratis opnieuw toe te passen."
+
+#. Found in description paragraph.
+msgid "<strong>One-click remediation (optional, paid).</strong> Connect your a11yfy account and the plugin sends the selected PDFs to the a11yfy service, which produces a tagged, PDF/UA-oriented accessible version — processed in the EU. The fixed file replaces the original at the same URL (the original is kept as a backup with one-click restore), or, in conservative mode, is served alongside it."
+msgstr "<strong>Herstel met één klik (optioneel, betaald).</strong> Koppel je a11yfy-account en de plugin stuurt de geselecteerde PDF’s naar de a11yfy-dienst, die een getagde, op PDF/UA gerichte toegankelijke versie maakt — verwerkt in de EU. Het herstelde bestand vervangt het origineel op dezelfde URL (het origineel blijft bewaard als back-up en is met één klik terug te zetten), of wordt in de conservatieve modus ernaast aangeboden."
+
+#. Found in description paragraph.
+msgid "<strong>Free accessibility scan — 100% local.</strong> The analysis engine runs in <em>your browser</em> (pdf.js + pdf-lib): it verifies your PDFs against 42 machine-verifiable checkpoints of the Matterhorn Protocol (PDF/UA-1) — tag structure, document metadata, heading hierarchy, alternative texts, language settings, annotation nesting and more. Your files never leave your site. The result is a risk rating and a concrete list of problems for every PDF in your Media Library."
+msgstr "<strong>Gratis toegankelijkheidsscan — 100% lokaal.</strong> De analyse-engine draait in <em>je browser</em> (pdf.js + pdf-lib): hij toetst je PDF’s aan 42 machinaal controleerbare checkpoints van het Matterhorn-protocol (PDF/UA-1) — tagstructuur, documentmetadata, kophiërarchie, alternatieve teksten, taalinstellingen, nesting van annotaties en meer. Je bestanden verlaten je site nooit. Het resultaat is een risicobeoordeling en een concrete lijst met problemen voor elke PDF in je Mediabibliotheek."
+
+#. Found in description paragraph.
+msgid "<strong>Is your site ready for the European Accessibility Act (EAA) and the ADA?</strong> Most PDF documents on the web are not accessible: screen readers cannot read them in a meaningful order, images have no descriptions, forms have no labels. The requirements are similar on both sides of the Atlantic — the EAA in the EU, the ADA and Section 508 in the United States — and PDFs are the most commonly overlooked part."
+msgstr "<strong>Is je site klaar voor de European Accessibility Act (EAA) en de ADA?</strong> De meeste PDF-documenten op het web zijn niet toegankelijk: schermlezers kunnen ze niet in een zinvolle volgorde voorlezen, afbeeldingen hebben geen beschrijvingen en formulieren hebben geen labels. De eisen zijn aan beide kanten van de Atlantische Oceaan vergelijkbaar — de EAA in de EU, de ADA en Section 508 in de Verenigde Staten — en PDF’s zijn het onderdeel dat het vaakst over het hoofd wordt gezien."
